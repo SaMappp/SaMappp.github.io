@@ -1,0 +1,114 @@
+:root {
+  --bg: #0f172a;
+  --bg-alt: #111c34;
+  --card: #1e293b;
+  --line: #334155;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent-2: #818cf8;
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Segoe UI", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  background: linear-gradient(160deg, #0f172a 0%, #0b1026 100%);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.container { width: min(100% - 48px, 880px); margin: 0 auto; }
+
+/* 导航 */
+.navbar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.brand { font-size: 1.25rem; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: 1px; }
+.brand span { color: var(--accent); }
+.nav-links { display: flex; gap: 18px; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 0.95rem; transition: color .2s; }
+.nav-links a:hover { color: var(--text); }
+
+/* Hero */
+.hero { padding: 96px 0 72px; text-align: center; }
+.hero-eyebrow { color: var(--accent); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: .85rem; }
+.hero-name {
+  font-size: clamp(2.6rem, 8vw, 4.5rem);
+  margin: 12px 0 10px;
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero-tagline { font-size: 1.2rem; color: var(--text); font-weight: 600; }
+.hero-sub { margin: 16px auto 28px; max-width: 560px; color: var(--muted); }
+
+/* 按钮 */
+.hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn {
+  display: inline-block; padding: 11px 22px; border-radius: 999px; text-decoration: none;
+  font-weight: 600; transition: transform .15s, box-shadow .2s;
+}
+.btn-primary { background: var(--accent); color: #0b1026; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(56, 189, 248, .35); }
+.btn-ghost { border: 1px solid var(--line); color: var(--text); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* 区块 */
+.section { padding: 64px 0; }
+.section-alt { background: var(--bg-alt); border-block: 1px solid var(--line); }
+.section-title { font-size: 1.6rem; margin-bottom: 24px; position: relative; padding-left: 16px; }
+.section-title::before {
+  content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  width: 6px; height: 26px; border-radius: 4px; background: var(--accent);
+}
+
+/* 卡片 */
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 28px; box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+.card h3 { font-size: 1.2rem; margin-bottom: 6px; }
+.project-meta {
+  display: inline-block; background: rgba(56,189,248,.15); color: var(--accent);
+  font-size: .78rem; padding: 3px 10px; border-radius: 999px; margin-bottom: 14px;
+}
+.card p + p { margin-top: 12px; }
+.mail-link { color: var(--accent); text-decoration: none; }
+.mail-link:hover { text-decoration: underline; }
+.center { text-align: center; }
+.contact-actions { margin-top: 22px; }
+.project-list { margin: 14px 0 0 18px; color: var(--muted); }
+
+/* 占位说明 */
+.placeholder-note {
+  font-size: .85rem; color: #fbbf24; border: 1px dashed rgba(251,191,36,.5);
+  padding: 8px 12px; border-radius: 8px; margin-top: 16px !important;
+}
+
+/* 标签 */
+.chip-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+.chip {
+  background: var(--card); border: 1px solid var(--line); color: var(--text);
+  padding: 8px 16px; border-radius: 999px; font-size: .92rem; transition: .2s;
+}
+.chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+/* 页脚 */
+.footer { border-top: 1px solid var(--line); padding: 28px 0; text-align: center; color: var(--muted); font-size: .9rem; }
+
+/* 响应式 */
+@media (max-width: 600px) {
+  .nav-links { gap: 12px; }
+  .nav-links a { font-size: .82rem; }
+  .section { padding: 48px 0; }
+  .container { width: min(100% - 32px, 880px); }
+}
