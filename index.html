@@ -3,120 +3,231 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="潘宜然的个人主页 —— 天津大学计算机科学与技术专业，持续学习与成长" />
+  <meta name="description" content="潘宜然的个人主页 —— 天津大学计算机科学与技术专业，记录学习、兴趣与作品" />
   <title>潘宜然 · 个人主页</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- 顶部导航 -->
-  <header class="navbar">
-    <div class="container nav-inner">
-      <a class="brand" href="#top">Pal<span>YR</span></a>
-      <nav class="nav-links">
+  <canvas id="stardust" aria-hidden="true"></canvas>
+
+  <!-- ========== 顶部导航 ========== -->
+  <header class="nav">
+    <div class="container nav-in">
+      <a class="logo" href="#top">
+        <img class="logo-ava" src="assets/avatar.jpg" alt="头像" />
+        潘宜然
+      </a>
+      <nav class="nav-menu">
         <a href="#about">关于我</a>
-        <a href="#projects">项目</a>
-        <a href="#skills">技能</a>
+        <a href="#world">我的世界</a>
+        <a href="#work">作品</a>
         <a href="#contact">联系</a>
       </nav>
+      <a class="nav-btn" href="mailto:16624650126@163.com">发邮件</a>
     </div>
   </header>
 
   <main id="top">
-    <!-- Hero -->
+    <!-- ========== Hero ========== -->
     <section class="hero">
-      <div class="container hero-inner">
-        <p class="hero-eyebrow">你好，我是</p>
-        <h1 class="hero-name">潘宜然</h1>
-        <p class="hero-tagline">天津大学 · 计算机科学与技术（CS）· 大一新生</p>
-        <p class="hero-sub">
-          用代码把想法变成看得见的作品——这是我的小步尝试。<br />
-          一封写给未来的自我介绍，会随我一起慢慢长大。
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">查看我的项目</a>
-          <a class="btn btn-ghost" href="#contact">联系我</a>
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-veil" aria-hidden="true"></div>
+
+      <div class="container hero-in">
+        <div class="hero-copy">
+          <p class="hero-eyebrow">✦ 你好，欢迎来到我的主页</p>
+          <h1>用代码，<br>搭起我的小世界</h1>
+          <p class="hero-sub">
+            你好，我是潘宜然——天津大学计算机科学与技术专业的大一新生。
+            我在这里记录学习、兴趣和小作品，也在一点点把想法变成看得见的网页。
+          </p>
+          <a class="btn-primary" href="#about">认识我 <span>→</span></a>
         </div>
+
+        <!-- 白色浮层信息面板（自右侧出血） -->
+        <aside class="hero-panel">
+          <div class="hp-head">
+            <span class="hp-dot"></span> 个人信息 · 学习进度
+          </div>
+          <div class="hp-body">
+            <div class="hp-main">
+              <div class="hp-stats">
+                <div><b>大一</b><i>在读学年</i></div>
+                <div><b>5+</b><i>在学技能</i></div>
+                <div><b>1</b><i>个人作品</i></div>
+              </div>
+              <div class="hp-table">
+                <div class="hp-tr hp-th"><span>技能</span><span>状态</span><span>熟练度</span></div>
+                <div class="hp-tr"><span>HTML / CSS</span><span>学习中</span><em>70%</em></div>
+                <div class="hp-tr"><span>JavaScript</span><span>学习中</span><em>45%</em></div>
+                <div class="hp-tr"><span>Git / GitHub</span><span>使用中</span><em>60%</em></div>
+                <div class="hp-tr"><span>网页设计</span><span>探索中</span><em>55%</em></div>
+                <div class="hp-tr"><span>Vibe Coding</span><span>实践中</span><em>65%</em></div>
+              </div>
+            </div>
+            <div class="hp-side">
+              <p class="hp-side-t">兴趣标签</p>
+              <ul class="hp-checks">
+                <li>二次元 / 动漫</li>
+                <li>游戏</li>
+                <li>网页设计</li>
+                <li>数码</li>
+              </ul>
+              <p class="hp-side-t">常用工具</p>
+              <ul class="hp-checks">
+                <li>VS Code</li>
+                <li>GitHub</li>
+                <li>AI 助手</li>
+              </ul>
+            </div>
+          </div>
+        </aside>
       </div>
+
     </section>
 
-    <!-- 关于我 -->
-    <section id="about" class="section">
+    <!-- ========== 关于我：左图右文 ========== -->
+    <section id="about" class="sec">
       <div class="container">
-        <h2 class="section-title">关于我</h2>
-        <div class="card">
-          <p>
-            你好，我是<strong>潘宜然</strong>，就读于<strong>天津大学</strong>
-            <strong>计算机科学与技术（CS）</strong>专业，是一名大一新生。
-          </p>
-          <p>
-            我对“把代码变成看得见的作品”这件事充满好奇，喜欢通过亲手做小项目来学习——
-            最近在探索 <strong>Vibe Coding</strong> 这种靠自然语言快速编排代码的工作方式。
-          </p>
-          <p>
-            学习和生活之外的兴趣正慢慢丰富起来：设计、写作、数码……我会在主页里一点点加上他们，
-            让它成为一张真正属于我的线上名片。
-          </p>
-        </div>
-      </div>
-    </section>
+        <p class="eyebrow">✦ 关于我 · ABOUT</p>
+        <h2 class="sec-title">从一行代码开始，<br>把想法变成作品</h2>
 
-    <!-- 项目 -->
-    <section id="projects" class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">项目</h2>
-        <div class="card">
-          <h3>个人主页 · Personal Website</h3>
-          <p class="project-meta">HTML / CSS · 已上线 GitHub Pages</p>
-          <p>
-            这是我自己搭建的个人主页，用来展示我是谁、做过什么、正在学什么。
-            我会持续把它打磨成一个更有个人特色、更完整的线上名片。
-          </p>
-          <ul class="project-list">
-            <li>响应式布局，适配手机、平板与电脑浏览。</li>
-            <li>结构清晰：关于我、项目、技能、联系方式一应俱全。</li>
-            <li>已通过 GitHub Pages 部署，任何设备都可以访问。</li>
-          </ul>
-          <p class="placeholder-note">（补充：在这里继续放上你的其他真实项目或作品。）</p>
-        </div>
-      </div>
-    </section>
+        <div class="split">
+          <figure class="media-card reveal">
+            <img src="assets/feiying-scene.jpg" alt="樱花与夜空" loading="lazy" />
+            <span class="float-chip c1">✦ 正在学习 HTML / CSS</span>
+            <span class="float-chip c2">Vibe Coding 探索中</span>
+          </figure>
 
-    <!-- 技能与兴趣 -->
-    <section id="skills" class="section">
-      <div class="container">
-        <h2 class="section-title">技能与兴趣</h2>
-        <div class="chip-grid">
-          <span class="chip">Vibe Coding</span>
-          <span class="chip">HTML / CSS</span>
-          <span class="chip">Git / GitHub</span>
-          <span class="chip">网页设计</span>
-        </div>
-        <p class="placeholder-note">（补充：把你真正感兴趣或正在学习的方向加进来。）</p>
-      </div>
-    </section>
+          <div class="split-copy reveal">
+            <h3>我在做什么</h3>
+            <p>
+              我是潘宜然，天津大学计算机科学与技术专业大一学生。
+              我喜欢「把想法变成看得见的作品」——最近在用自然语言和 AI 协作，
+              把脑海里的画面快速搭成真正能打开的网页。
+            </p>
+            <a class="btn-primary sm" href="#work">看看我的作品 <span>→</span></a>
 
-    <!-- 联系 -->
-    <section id="contact" class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">联系我</h2>
-        <div class="card center">
-          <p>欢迎交流、认识新朋友，或者一起做点有意思的东西。</p>
-          <p>
-            邮箱：<a class="mail-link" href="mailto:16624650126@163.com">16624650126@163.com</a> ·
-            GitHub：<a class="mail-link" href="https://github.com/SaMappp">github.com/SaMappp</a>
-          </p>
-          <div class="hero-actions contact-actions">
-            <a class="btn btn-primary" href="mailto:16624650126@163.com">发邮件</a>
-            <a class="btn btn-ghost" href="https://github.com/SaMappp">GitHub</a>
+            <ul class="feat-list">
+              <li>
+                <b>学习方向</b>
+                前端与网页设计，正在打牢 HTML / CSS / JavaScript 基础。
+              </li>
+              <li>
+                <b>兴趣所在</b>
+                动漫、设计、数码，喜欢有视觉冲击力的画面。
+              </li>
+              <li>
+                <b>小目标</b>
+                把这座小站做成真正属于自己的线上名片。
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- ========== 我的世界 + 作品 ========== -->
+    <section id="world" class="sec">
+      <div class="container">
+        <p class="eyebrow">✦ 我的世界 · MY WORLD</p>
+        <p class="lead">
+          在天津大学读计算机的这一年，我把大部分时间花在三件事上——敲代码、啃算法、认识数据与 AI。
+          下面这几幅画面，大概就是我每天真正面对的东西。
+        </p>
+
+        <div class="stack" id="work">
+          <figure class="stack-item reveal" data-stack>
+            <img src="assets/tech-code.jpg" alt="屏幕上的代码" loading="lazy" />
+            <figcaption>
+              <b>敲下第一行代码</b>
+              <span>从 HTML、CSS 到 JavaScript，一行一行把想法变成真的能跑起来的页面。</span>
+            </figcaption>
+          </figure>
+
+          <figure class="stack-item reveal" data-stack>
+            <img src="assets/tech-algo.jpg" alt="数据结构与算法可视化" loading="lazy" />
+            <figcaption>
+              <b>和算法打交道</b>
+              <span>图的遍历、树的递归、复杂度分析——这些基本功，我正在一遍遍画在草稿纸上。</span>
+            </figcaption>
+          </figure>
+
+          <figure class="stack-item reveal" data-stack>
+            <img src="assets/tech-ai.jpg" alt="神经网络可视化" loading="lazy" />
+            <figcaption>
+              <b>走进数据与 AI</b>
+              <span>正在了解机器学习是怎么“学”的，也想试着做出真正有用、能解决问题的小东西。</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 引言 + 进度切换 ========== -->
+    <section class="sec quote-sec">
+      <div class="container">
+        <div class="pager">
+          <div class="pager-track"><span id="pagerFill"></span></div>
+          <div class="pager-row">
+            <span class="pager-count" id="pagerCount">1 / 3</span>
+            <div class="pager-arrows">
+              <button class="pager-btn" id="pagerPrev" type="button" aria-label="上一张" disabled>←</button>
+              <button class="pager-btn" id="pagerNext" type="button" aria-label="下一张">→</button>
+            </div>
+          </div>
+        </div>
+
+        <p class="quote-brand">✦ 关于学习</p>
+        <blockquote class="quote-text">
+          “把喜欢的东西做成作品，<br>是学习最好的动力。”
+        </blockquote>
+        <div class="quote-foot">
+          <div class="q-person">
+            <img src="assets/avatar.jpg" alt="潘宜然的头像" loading="lazy" />
+            <div><b>潘宜然</b><i>天津大学 · 计算机科学与技术</i></div>
+          </div>
+          <div class="q-stat"><b>1</b><i>作品已上线</i></div>
+          <div class="q-stat"><b>5+</b><i>正在学习的技能</i></div>
+          <a class="btn-outline" href="#work">看看作品 <span>→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section id="contact" class="cta">
+      <div class="container cta-in">
+        <h2>想认识我，<br>或者一起做点有趣的东西？</h2>
+        <a class="btn-primary" href="mailto:16624650126@163.com">联系我 <span>→</span></a>
+      </div>
+    </section>
   </main>
 
+  <!-- ========== Footer ========== -->
   <footer class="footer">
-    <div class="container">
-      <p>© <span id="year"></span> 潘宜然 · 个人主页</p>
+    <div class="container foot-in">
+      <div class="foot-brand"><span class="logo-mark">✦</span> 潘宜然</div>
+      <div class="foot-cols">
+        <div>
+          <b>页面</b>
+          <a href="#about">关于我</a>
+          <a href="#world">我的世界</a>
+          <a href="#work">作品</a>
+        </div>
+        <div>
+          <b>联系</b>
+          <a href="mailto:16624650126@163.com">16624650126@163.com</a>
+          <a href="https://github.com/SaMappp">github.com/SaMappp</a>
+        </div>
+        <div>
+          <b>关于</b>
+          <span>天津大学 · 计算机科学与技术</span>
+          <span>大一 · 2026</span>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="container">© <span id="year"></span> 潘宜然 · 个人主页</div>
     </div>
   </footer>
 
