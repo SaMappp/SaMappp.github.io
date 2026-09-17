@@ -542,3 +542,564 @@ body.fb-locked { overflow: hidden; }
   .fb-actions { flex-direction: column-reverse; }
   .fb-submit, .fb-cancel { width: 100%; }
 }
+
+/* ============================================================
+   布局改版：桌面入口页 + 全屏板块面板
+   结构：初始页只放头像/名字/一行身份 + 入口按钮，
+        点击后用全屏面板展示原各板块内容。
+   —— 只新增 + 少量覆盖，不改动上面任何既有规则
+   ============================================================ */
+
+/* ---------- 初始页（把整页当作一块桌面） ---------- */
+.desk {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 92px 24px 106px;
+  overflow: hidden;
+  background: var(--ink);
+}
+.desk-wall {
+  position: absolute; inset: 0; z-index: 0;
+  background: url("assets/tech-hero.jpg") center 42% / cover no-repeat;
+  transform: scale(1.05);
+}
+.desk-veil {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    radial-gradient(ellipse 80% 68% at 50% 44%, rgba(24, 14, 38, 0.3) 0%, rgba(24, 14, 38, 0.86) 74%),
+    linear-gradient(to top, rgba(24, 14, 38, 0.97) 0%, rgba(24, 14, 38, 0.4) 56%, rgba(24, 14, 38, 0.74) 100%);
+}
+/* 星光画布跟着桌面走：压在壁纸之上、文字之下 */
+#stardust { z-index: 2; opacity: 0.55; }
+
+.desk-in {
+  position: relative; z-index: 3;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+}
+.desk-ava {
+  width: 108px; height: 108px; border-radius: 50%; object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.52);
+  box-shadow: 0 0 0 7px rgba(255, 94, 138, 0.16), 0 20px 44px rgba(6, 2, 14, 0.5);
+}
+.desk-name {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 6vw, 3.4rem);
+  font-weight: 700; letter-spacing: 0.05em; line-height: 1.1;
+  color: var(--t-light);
+  margin: 22px 0 12px;
+}
+.desk-sub {
+  color: var(--t-light-mute);
+  font-size: 0.98rem; letter-spacing: 0.07em;
+  margin-bottom: 42px;
+}
+
+/* ---------- 入口按钮网格 ---------- */
+.desk-grid {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 18px 14px; max-width: 780px;
+}
+.tile { display: flex; flex-direction: column; align-items: center; gap: 11px; width: 112px; }
+.tile-ico {
+  width: 78px; height: 78px; border-radius: 22px;
+  display: grid; place-items: center;
+  color: var(--accent);
+  background: rgba(253, 248, 251, 0.94);
+  box-shadow: 0 14px 30px rgba(6, 2, 14, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: transform 0.24s cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 0.24s ease, background 0.24s ease, color 0.24s ease;
+}
+.tile-ico svg { width: 36px; height: 36px; }
+.tile-t {
+  color: var(--t-light-mute); font-size: 0.84rem;
+  letter-spacing: 0.06em; transition: color 0.2s ease;
+}
+.tile:hover .tile-ico {
+  transform: translateY(-6px) scale(1.06);
+  background: #fff; color: var(--accent-2);
+  box-shadow: 0 22px 42px rgba(255, 94, 138, 0.46), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+.tile:hover .tile-t { color: var(--t-light); }
+.tile:focus-visible { outline: none; }
+.tile:focus-visible .tile-ico { outline: 2px solid var(--accent-2); outline-offset: 4px; }
+.tile:active .tile-ico { transform: translateY(-2px) scale(1.02); }
+
+.desk-hint {
+  margin-top: 44px;
+  font-size: 0.78rem; letter-spacing: 0.12em;
+  color: rgba(198, 174, 198, 0.72);
+}
+
+/* ---------- 初始页底部信息条 ---------- */
+.desk-foot {
+  position: absolute; left: 0; right: 0; bottom: 24px; z-index: 3;
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+}
+.desk-ico {
+  width: 38px; height: 38px; border-radius: 50%;
+  display: grid; place-items: center;
+  border: 1px solid var(--line-dark);
+  color: var(--t-light-mute);
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.desk-ico svg { width: 17px; height: 17px; }
+.desk-ico:hover { color: var(--t-light); border-color: var(--accent); transform: translateY(-3px); }
+.desk-copy { color: rgba(198, 174, 198, 0.8); font-size: 0.8rem; letter-spacing: 0.06em; }
+
+/* ---------- 全屏面板外壳 ---------- */
+.panel {
+  position: fixed; inset: 0; z-index: 70;
+  display: none; flex-direction: column;
+  background: var(--paper);
+  overflow: hidden;
+}
+/* 有 JS 时面板只认 .open；:target 仅作为禁用 JS 时的兜底。
+   两者并存会有坑：history.replaceState 清掉 hash 之后，
+   浏览器不保证重新计算 :target，面板会继续留在屏幕上——这就是
+   右上角 ✕ 和左上角房子点了「没反应」的原因。 */
+.panel.open { display: flex; }
+html:not(.js) .panel:target { display: flex; }
+
+.panel-bar {
+  flex: 0 0 auto;
+  display: flex; align-items: center; justify-content: flex-start;
+  gap: 16px; padding: 0 22px; height: 64px;
+  background: rgba(24, 14, 38, 0.97);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line-dark);
+}
+.panel-t {
+  font-family: var(--font-serif); font-weight: 700;
+  font-size: 1.08rem; letter-spacing: 0.09em; color: var(--t-light);
+}
+.panel-t::before { content: "✦"; color: var(--accent-2); margin-right: 10px; font-size: 0.86rem; }
+/* 标题的打字光标：默认隐藏，只在 .is-typing（正在打字）期间出现 */
+.panel-t::after {
+  content: "";
+  display: inline-block;
+  width: 2px; height: 1.06em;
+  margin-left: 6px;
+  vertical-align: -0.18em;
+  background: var(--accent-2);
+  opacity: 0;
+}
+/* 光标是标题的 ::after，永远跟在文字后面 → 文字变长它自然跟着往右走 */
+.panel-t.is-typing::after {
+  opacity: 1;
+  animation: caretBlink 0.8s steps(1, end) infinite;
+}
+@keyframes caretBlink {
+  0%, 49%   { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+/* 左上角「返回首页」房子按钮 / 右上角关闭按钮：共用一套图标按钮样式 */
+.panel-x, .panel-home {
+  flex: 0 0 auto;
+  height: 38px;
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--line-dark); border-radius: var(--r-pill);
+  background: transparent; color: var(--t-light-mute);
+  font-size: 0.9rem; line-height: 1; cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease,
+              background 0.2s ease, transform 0.24s ease;
+}
+.panel-x { width: 38px; margin-left: auto; }
+.panel-x:hover {
+  color: var(--t-light); border-color: var(--accent);
+  background: rgba(255, 94, 138, 0.16); transform: rotate(90deg);
+}
+/* 房子按钮默认就带一点颜色和文字，免得被当成装饰忽略掉 */
+.panel-home {
+  padding: 0 15px 0 13px;
+  color: var(--t-light);
+  border-color: rgba(255, 94, 138, 0.45);
+  background: rgba(255, 94, 138, 0.14);
+}
+.panel-home:hover {
+  color: #fff; border-color: var(--accent);
+  background: rgba(255, 94, 138, 0.3); transform: translateY(-2px);
+}
+.panel-home-t {
+  font-size: 0.82rem; font-weight: 600;
+  letter-spacing: 0.06em; white-space: nowrap;
+}
+.panel-x:focus-visible, .panel-home:focus-visible {
+  outline: 2px solid var(--accent-2); outline-offset: 3px;
+}
+.panel-home-ic {
+  display: block; width: 18px; height: 18px;
+  stroke: currentColor; stroke-width: 1.8;
+  fill: none; stroke-linecap: round; stroke-linejoin: round;
+}
+
+.panel-body {
+  flex: 1 1 auto;
+  overflow-y: auto; overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+.pane { padding: 46px 0 92px; }
+
+/* 面板打开内容轻微上浮入场 */
+.panel.open .pane { animation: paneIn 0.36s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+@keyframes paneIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 面板打开时锁住背后页面滚动 */
+body.panel-open { overflow: hidden; }
+
+/* ---------- 面板内的分隔线（欢迎语 / 正文之间） ---------- */
+.pane-split { border: 0; height: 1px; background: var(--line-light); margin: 52px 0; }
+
+/* ---------- 技能与兴趣：白色信息卡（沿用原 hp-* 内部结构） ---------- */
+.panel-card {
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid rgba(42, 20, 50, 0.08);
+  border-radius: var(--r-md);
+  box-shadow: 0 24px 56px rgba(42, 20, 50, 0.14);
+  overflow: hidden;
+}
+
+/* ---------- 进度条：从「关于学习」移到「我的世界」顶部 ---------- */
+.pager { margin-top: 38px; }
+
+/* ---------- 联系面板：整块深色铺满 ---------- */
+.panel-body.is-cta {
+  display: flex; flex-direction: column; justify-content: center;
+  background:
+    radial-gradient(ellipse 70% 90% at 12% 120%, rgba(255, 94, 138, 0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 88% -20%, rgba(180, 140, 255, 0.22) 0%, transparent 60%),
+    var(--ink);
+}
+.panel-body.is-cta > .container { flex: 0 0 auto; }
+.panel-body.is-cta .pane { padding: 62px 0; }
+/* CTA 标题：原规则是 .cta h2（后代选择器），这里面板改用 .panel-body.is-cta 外壳，需补一条 */
+.panel-body.is-cta .cta-in h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.6vw, 2.6rem); line-height: 1.32;
+  font-weight: 700; color: var(--t-light); letter-spacing: -0.3px;
+}
+
+.contact-list {
+  display: flex; flex-wrap: wrap; gap: 16px 48px;
+  margin-top: 40px; padding-top: 32px;
+  border-top: 1px solid var(--line-dark);
+}
+.contact-list > div { display: flex; flex-direction: column; gap: 5px; }
+.contact-list b {
+  color: var(--t-light); font-size: 0.74rem;
+  font-weight: 600; letter-spacing: 0.18em;
+}
+.contact-list a, .contact-list span { color: var(--t-light-mute); font-size: 0.92rem; transition: color 0.2s ease; }
+.contact-list a:hover { color: var(--accent-2); }
+
+/* ---------- 布局改版 · 响应式 ---------- */
+@media (max-width: 980px) {
+  .pane { padding: 36px 0 80px; }
+}
+@media (max-width: 720px) {
+  .desk { padding: 86px 18px 152px; }
+  .desk-ava { width: 88px; height: 88px; }
+  .desk-name { margin: 18px 0 10px; }
+  .desk-sub { margin-bottom: 34px; font-size: 0.92rem; }
+  .desk-grid { gap: 14px 10px; }
+  .tile { width: 90px; }
+  .tile-ico { width: 64px; height: 64px; border-radius: 18px; }
+  .tile-ico svg { width: 30px; height: 30px; }
+  .tile-t { font-size: 0.78rem; letter-spacing: 0.02em; }
+  .desk-hint { margin-top: 34px; font-size: 0.74rem; }
+  .desk-foot { bottom: 78px; gap: 12px; }
+  .panel-bar { height: 58px; padding: 0 16px; }
+  .panel-t { font-size: 0.98rem; }
+  /* 手机上顶栏位置紧张：房子按钮收成纯图标 */
+  .panel-home { width: 38px; padding: 0; }
+  .panel-home-t { display: none; }
+  .contact-list { gap: 16px 30px; }
+  .panel-body.is-cta .pane { padding: 48px 0; }
+}
+@media (max-width: 460px) {
+  .tile { width: 78px; }
+  .tile-ico { width: 58px; height: 58px; border-radius: 17px; }
+  .tile-ico svg { width: 27px; height: 27px; }
+  .tile-t { font-size: 0.74rem; }
+  .desk-copy { font-size: 0.74rem; }
+}
+
+/* ============================================================
+   求学经历：左侧线型时间轴
+   结构：左侧一条竖线 + 每所学校一个圆点；
+        滚动到哪所学校，哪个点亮起、其余点熄灭，
+        同时竖线用渐变色填充到当前圆点。
+   顺序：大学（最新）在最上，往下依次是中学、小学。
+   ============================================================ */
+.timeline {
+  --tl-gap: 46px; /* 圆点到卡片的水平距离，也是整条时间轴的左内边距 */
+  position: relative;
+  padding-left: var(--tl-gap);
+  margin-top: 44px;
+}
+
+/* 竖线本体 + 发光填充 */
+.tl-rail {
+  position: absolute; left: 9px; top: 0; bottom: 0;
+  width: 2px; border-radius: 2px;
+  background: rgba(42, 28, 48, 0.13);
+  overflow: hidden;
+}
+.tl-rail-fill {
+  display: block; width: 100%; height: 0;
+  background: linear-gradient(180deg, var(--accent), var(--violet));
+  transition: height 0.42s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.tl-list { list-style: none; }
+
+/* 每条：撑满大半屏，保证滚轮一定能滚动查看 */
+.tl-item {
+  position: relative;
+  min-height: 42vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 34px 0;
+}
+
+/* 时间在学校的上侧 */
+.tl-time {
+  position: relative;
+  color: var(--t-dark-mute);
+  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.16em;
+  margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+.tl-item.is-active .tl-time { color: var(--accent); }
+
+/* 圆点：默认熄灭（描边空心），当前项亮起（实心 + 光晕） */
+.tl-dot {
+  position: absolute;
+  left: calc(-1 * var(--tl-gap));
+  top: 50%; margin-top: -10px;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid rgba(42, 28, 48, 0.2);
+  transition: background 0.32s ease, border-color 0.32s ease,
+              box-shadow 0.32s ease, transform 0.32s ease;
+}
+.tl-item.is-active .tl-dot {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 5px rgba(255, 94, 138, 0.16), 0 0 18px rgba(255, 94, 138, 0.75);
+  transform: scale(1.18);
+}
+
+/* 学校卡片：非当前项压暗，当前项提亮并右移一点 */
+.tl-card {
+  background: #fff;
+  border: 1px solid rgba(42, 20, 50, 0.08);
+  border-radius: var(--r-md);
+  padding: 26px 30px;
+  box-shadow: 0 16px 40px rgba(42, 20, 50, 0.07);
+  opacity: 0.6;
+  transition: opacity 0.34s ease, transform 0.34s ease,
+              box-shadow 0.34s ease, border-color 0.34s ease;
+}
+.tl-item.is-active .tl-card {
+  opacity: 1;
+  transform: translateX(8px);
+  border-color: rgba(255, 94, 138, 0.42);
+  box-shadow: 0 22px 52px rgba(255, 94, 138, 0.2), 0 8px 22px rgba(42, 20, 50, 0.07);
+}
+.tl-card b {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+  font-weight: 700; line-height: 1.3; letter-spacing: -0.2px;
+  color: var(--t-dark);
+}
+
+/* 校徽：位于校名下方，按统一高度对齐 */
+.tl-logos {
+  display: flex; align-items: center; flex-wrap: wrap;
+  gap: 16px; margin-top: 16px;
+}
+.tl-logo {
+  display: block; height: 46px; width: auto; max-width: 190px;
+  object-fit: contain;
+}
+
+/* 校名的补充说明 */
+.tl-desc {
+  color: var(--t-dark-mute);
+  font-size: 0.94rem; line-height: 1.78;
+  margin-top: 14px;
+}
+
+@media (max-width: 720px) {
+  .timeline { --tl-gap: 34px; margin-top: 34px; }
+  .tl-rail { left: 7px; }
+  .tl-item { min-height: 36vh; padding: 26px 0; }
+  .tl-dot { width: 16px; height: 16px; margin-top: -8px; }
+  .tl-item.is-active .tl-card { transform: translateX(4px); }
+  .tl-card { padding: 20px 22px; }
+  .tl-logos { gap: 12px; margin-top: 13px; }
+  .tl-logo { height: 36px; max-width: 150px; }
+  .tl-desc { font-size: 0.9rem; margin-top: 12px; }
+}
+
+/* 系统开启「减少动态效果」时，关掉入场与光标闪烁
+   （标题的乱码打字由 script.js 里的 reduceMotion 分支跳过） */
+/* ============================================================
+   我的作品：作品列表
+   结构：每个作品一张卡片（编号 + 标题 + 说明 + 内嵌预览 + 署名）。
+        作品本体放在 works/ 目录里，用 iframe 原样嵌入——
+        作品自带的一整套样式和脚本因此不会和主页互相影响，
+        动画里的暂停 / 重置 / 调速都能照常使用。
+   以后新增作品：复制一个 <li class="work-item">，
+        改掉编号、标题、meta、说明，并在最下方署名区加一行。
+   ============================================================ */
+.works {
+  list-style: none;
+  margin-top: 44px;
+  display: flex; flex-direction: column; gap: 34px;
+}
+
+.work-item {
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid rgba(42, 20, 50, 0.08);
+  border-radius: var(--r-md);
+  padding: 26px 28px 28px;
+  box-shadow: 0 24px 56px rgba(42, 20, 50, 0.13);
+}
+
+/* 卡片头部：编号 + 标题 + 右上角「全屏打开」 */
+.work-head { display: flex; align-items: flex-start; gap: 18px; flex-wrap: wrap; }
+.work-no {
+  flex: 0 0 auto;
+  font-family: var(--font-serif);
+  font-size: 1.5rem; font-weight: 700; line-height: 1;
+  color: var(--accent);
+  padding-top: 5px;
+  font-variant-numeric: tabular-nums;
+}
+.work-tt { flex: 1 1 auto; min-width: 0; }
+.work-t {
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 2.6vw, 1.75rem);
+  font-weight: 700; line-height: 1.3; letter-spacing: -0.2px;
+  color: var(--t-dark);
+}
+.work-meta {
+  margin-top: 8px;
+  font-size: 0.74rem; font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--t-dark-mute);
+}
+.work-open {
+  flex: 0 0 auto;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.84rem; font-weight: 600;
+  color: var(--t-dark);
+  border: 1px solid var(--line-light); border-radius: var(--r-pill);
+  padding: 9px 18px;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+.work-open span { transition: transform 0.2s ease; }
+.work-open:hover {
+  border-color: var(--accent);
+  background: rgba(255, 94, 138, 0.06);
+  transform: translateY(-2px);
+}
+.work-open:hover span { transform: translate(2px, -2px); }
+
+.work-desc {
+  margin-top: 18px;
+  color: var(--t-dark-mute);
+  font-size: 0.95rem; line-height: 1.8;
+  max-width: 76ch;
+}
+
+/* 内嵌预览：作品自带一整套样式，用 iframe 隔开，互不干扰 */
+.work-frame {
+  margin-top: 22px;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: #0f1826;
+  border: 1px solid rgba(42, 20, 50, 0.1);
+  box-shadow: 0 16px 40px rgba(42, 20, 50, 0.16);
+}
+.work-frame iframe {
+  display: block; width: 100%; border: 0;
+  height: clamp(440px, 86vh, 940px);
+}
+
+/* 以后新增作品的占位卡 */
+.work-slot {
+  display: flex; flex-direction: column; align-items: center; gap: 7px;
+  text-align: center;
+  margin-top: 34px;
+  padding: 40px 24px;
+  border: 1px dashed rgba(42, 28, 48, 0.22);
+  border-radius: var(--r-md);
+  color: var(--t-dark-mute);
+}
+.work-slot-ico { color: var(--accent-2); font-size: 1.1rem; }
+.work-slot b { color: var(--t-dark); font-size: 1rem; }
+.work-slot > span:last-child { font-size: 0.9rem; }
+
+/* 最下方：作品生成所用的模型署名 */
+.works-src {
+  margin-top: 48px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line-light);
+}
+.works-src-t {
+  color: var(--accent); font-weight: 700;
+  font-size: 0.8rem; letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+.works-src p { color: var(--t-dark-mute); font-size: 0.93rem; max-width: 76ch; }
+.works-src-list {
+  list-style: none; margin-top: 18px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.works-src-list li {
+  position: relative; padding-left: 17px;
+  color: var(--t-dark-mute); font-size: 0.9rem;
+}
+.works-src-list li::before {
+  content: "✦"; position: absolute; left: 0; top: 0;
+  color: var(--accent-2); font-size: 0.7rem;
+}
+.works-src-list b { color: var(--t-dark); font-weight: 600; }
+.works-src-list code {
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-size: 0.85rem;
+  color: var(--accent);
+  background: rgba(255, 94, 138, 0.09);
+  border-radius: 6px;
+  padding: 2px 8px;
+}
+
+@media (max-width: 720px) {
+  .works { margin-top: 34px; gap: 26px; }
+  .work-item { padding: 20px 18px 22px; }
+  .work-head { gap: 12px; }
+  .work-no { font-size: 1.25rem; padding-top: 4px; }
+  .work-open { padding: 8px 15px; font-size: 0.8rem; }
+  .work-desc { font-size: 0.9rem; margin-top: 15px; }
+  .work-frame { margin-top: 18px; }
+  .work-frame iframe { height: clamp(380px, 72vh, 640px); }
+  .work-slot { margin-top: 26px; padding: 30px 18px; }
+  .works-src { margin-top: 38px; padding-top: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel.open .pane { animation: none; }
+  .panel-t.is-typing::after { animation: none; opacity: 1; }
+  .panel-x, .panel-home, .tl-card, .tl-rail-fill, .tl-dot,
+  .work-open, .work-open span { transition: none; }
+}

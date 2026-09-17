@@ -1,51 +1,426 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="no-js">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="潘宜然的个人主页 —— 天津大学计算机科学与技术专业，记录学习、兴趣与作品" />
   <title>潘宜然 · 个人主页</title>
-  <link rel="stylesheet" href="style.css" />
+  <!-- 加了这一行之后，面板的显示/隐藏完全由 .open 类决定；
+       只有在禁用 JS 时才退回 CSS 的 :target 兜底 -->
+  <script>document.documentElement.className = "js";</script>
+  <link rel="stylesheet" href="style.css?v=2.7" />
 </head>
 <body>
-  <canvas id="stardust" aria-hidden="true"></canvas>
 
-  <!-- ========== 顶部导航 ========== -->
-  <header class="nav">
-    <div class="container nav-in">
-      <a class="logo" href="#top">
-        <img class="logo-ava" src="assets/avatar.jpg" alt="头像" />
-        潘宜然
-      </a>
-      <nav class="nav-menu">
-        <a href="#about">关于我</a>
-        <a href="#world">我的世界</a>
-        <a href="#work">作品</a>
-        <a href="#contact">联系</a>
+  <!-- =========================================================
+       初始页：桌面上只放名字 + 入口按钮
+       点任意入口 → 对应的全屏面板展开（见下方 .panel）
+       ========================================================= -->
+  <main class="desk" id="desk">
+    <div class="desk-wall" aria-hidden="true"></div>
+    <div class="desk-veil" aria-hidden="true"></div>
+    <canvas id="stardust" aria-hidden="true"></canvas>
+
+    <div class="desk-in">
+      <img class="desk-ava" src="assets/avatar.jpg" alt="潘宜然的头像" />
+      <h1 class="desk-name">潘宜然</h1>
+      <p class="desk-sub">天津大学 · 计算机科学与技术 · 大一</p>
+
+      <nav class="desk-grid" aria-label="板块入口">
+
+        <a class="tile" href="#about">
+          <span class="tile-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="3.6" />
+              <path d="M4.6 20.2c0-3.7 3.4-6.1 7.4-6.1s7.4 2.4 7.4 6.1" />
+            </svg>
+          </span>
+          <span class="tile-t">关于我</span>
+        </a>
+
+        <a class="tile" href="#world">
+          <span class="tile-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3.2" y="4.6" width="17.6" height="14.8" rx="2.6" />
+              <circle cx="8.8" cy="9.8" r="1.5" />
+              <path d="M4 16.2l4.7-4.1 3.5 3 3.1-2.7 5.2 4.6" />
+            </svg>
+          </span>
+          <span class="tile-t">我的世界</span>
+        </a>
+
+        <a class="tile" href="#works">
+          <span class="tile-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3.4l8.4 4.2-8.4 4.2-8.4-4.2z" />
+              <path d="M3.6 12.2l8.4 4.2 8.4-4.2" />
+              <path d="M3.6 16.4l8.4 4.2 8.4-4.2" />
+            </svg>
+          </span>
+          <span class="tile-t">我的作品</span>
+        </a>
+
+        <a class="tile" href="#edu">
+          <span class="tile-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2.6 9.1L12 4.5l9.4 4.6L12 13.7z" />
+              <path d="M6.6 11.3v4.1c0 1.5 2.4 2.7 5.4 2.7s5.4-1.2 5.4-2.7v-4.1" />
+              <path d="M21.4 9.1v5.3" />
+            </svg>
+          </span>
+          <span class="tile-t">求学经历</span>
+        </a>
+
+        <a class="tile" href="#skills">
+          <span class="tile-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11.4 3.4l1.9 4.9 4.9 1.9-4.9 1.9-1.9 4.9-1.9-4.9L4.6 10.2l4.9-1.9z" />
+              <path d="M18.4 15.2l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z" />
+            </svg>
+          </span>
+          <span class="tile-t">技能与兴趣</span>
+        </a>
+
+        <a class="tile" href="#study">
+          <span class="tile-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 6.6C10.4 5.2 8.3 4.5 5.4 4.5H3.6v12.9h2.2c2.8 0 4.8.7 6.2 2.1 1.4-1.4 3.4-2.1 6.2-2.1h2.2V4.5h-1.8c-2.9 0-5 .7-6.6 2.1z" />
+              <path d="M12 6.6v12.9" />
+            </svg>
+          </span>
+          <span class="tile-t">关于学习</span>
+        </a>
+
+        <a class="tile" href="#contact">
+          <span class="tile-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="5.4" width="18" height="13.2" rx="2.4" />
+              <path d="M3.9 6.6L12 13l8.1-6.4" />
+            </svg>
+          </span>
+          <span class="tile-t">联系</span>
+        </a>
+
       </nav>
-      <a class="nav-btn" href="mailto:16624650126@163.com">发邮件</a>
+
+      <p class="desk-hint">点击任意一项展开 · 按 Esc 返回</p>
     </div>
-  </header>
 
-  <main id="top">
-    <!-- ========== Hero ========== -->
-    <section class="hero">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="hero-veil" aria-hidden="true"></div>
+    <div class="desk-foot">
+      <a class="desk-ico" href="mailto:16624650126@163.com" aria-label="发邮件给我">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="5.4" width="18" height="13.2" rx="2.4" />
+          <path d="M3.9 6.6L12 13l8.1-6.4" />
+        </svg>
+      </a>
+      <a class="desk-ico" href="https://github.com/SaMappp" target="_blank" rel="noopener" aria-label="我的 GitHub">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 19.2c-4 1.2-4-2-5.6-2.4" />
+          <path d="M15 21v-3.3c0-1 .1-1.3-.4-1.9 2.3-.3 4.4-1.2 4.4-5a3.9 3.9 0 0 0-1.1-2.7 3.6 3.6 0 0 0-.1-2.7s-1.1-.3-3.5 1.3a8.6 8.6 0 0 0-4.6 0C7.3 5.4 6.2 5.7 6.2 5.7a3.6 3.6 0 0 0-.1 2.7A3.9 3.9 0 0 0 5 11.1c0 3.8 2.1 4.7 4.4 5-.5.6-.4 1.2-.4 1.9V21" />
+        </svg>
+      </a>
+      <span class="desk-copy">© <span id="year"></span> 潘宜然 · 个人主页</span>
+    </div>
+  </main>
 
-      <div class="container hero-in">
-        <div class="hero-copy">
-          <p class="hero-eyebrow">✦ 你好，欢迎来到我的主页</p>
-          <h1>用代码，<br>搭起我的小世界</h1>
-          <p class="hero-sub">
-            你好，我是潘宜然——天津大学计算机科学与技术专业的大一新生。
-            我在这里记录学习、兴趣和小作品，也在一点点把想法变成看得见的网页。
-          </p>
-          <a class="btn-primary" href="#about">认识我 <span>→</span></a>
+  <!-- =========================================================
+       全屏面板 1 / 关于我
+       ========================================================= -->
+  <section class="panel" id="about" aria-label="关于我">
+    <div class="panel-bar">
+      <button class="panel-home" type="button" data-home aria-label="返回首页">
+        <svg class="panel-home-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M3.2 11 12 4l8.8 7" />
+          <path d="M5.6 9.9V20h12.8V9.9" />
+          <path d="M10 20v-5.2h4V20" />
+        </svg>
+        <span class="panel-home-t">返回首页</span>
+      </button>
+      <span class="panel-t">关于我</span>
+      <button class="panel-x" type="button" data-close aria-label="返回上一级" title="返回上一级">✕</button>
+    </div>
+    <div class="panel-body">
+      <div class="container pane">
+        <!-- 原 Hero 区文案，改装为「关于我」面板的开篇（文字未改） -->
+        <p class="eyebrow">✦ 你好，欢迎来到我的主页</p>
+        <h2 class="sec-title">用代码，<br>搭起我的小世界</h2>
+        <p class="lead">
+          你好，我是潘宜然——天津大学计算机科学与技术专业的大一新生。
+          我在这里记录学习、兴趣和小作品，也在一点点把想法变成看得见的网页。
+        </p>
+
+        <hr class="pane-split" />
+
+        <p class="eyebrow">✦ 关于我 · ABOUT</p>
+        <h2 class="sec-title">从一行代码开始，<br>把想法变成作品</h2>
+
+        <div class="split">
+          <figure class="media-card">
+            <img src="assets/feiying-scene.jpg" alt="樱花与夜空" loading="lazy" />
+            <span class="float-chip c1">✦ 正在学习 HTML / CSS</span>
+            <span class="float-chip c2">Vibe Coding 探索中</span>
+          </figure>
+
+          <div class="split-copy">
+            <h3>我在做什么</h3>
+            <p>
+              我是潘宜然，天津大学计算机科学与技术专业大一学生。
+              我喜欢「把想法变成看得见的作品」——最近在用自然语言和 AI 协作，
+              把脑海里的画面快速搭成真正能打开的网页。
+            </p>
+            <a class="btn-primary sm" href="#works">看看我的作品 <span>→</span></a>
+
+            <ul class="feat-list">
+              <li>
+                <b>学习方向</b>
+                前端与网页设计，正在打牢 HTML / CSS / JavaScript 基础。
+              </li>
+              <li>
+                <b>兴趣所在</b>
+                动漫、设计、数码，喜欢有视觉冲击力的画面。
+              </li>
+              <li>
+                <b>小目标</b>
+                把这座小站做成真正属于自己的线上名片。
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       全屏面板 2 / 我的世界（原「作品」内容已并入此处）
+       ========================================================= -->
+  <section class="panel" id="world" aria-label="我的世界">
+    <div class="panel-bar">
+      <button class="panel-home" type="button" data-home aria-label="返回首页">
+        <svg class="panel-home-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M3.2 11 12 4l8.8 7" />
+          <path d="M5.6 9.9V20h12.8V9.9" />
+          <path d="M10 20v-5.2h4V20" />
+        </svg>
+        <span class="panel-home-t">返回首页</span>
+      </button>
+      <span class="panel-t">我的世界</span>
+      <button class="panel-x" type="button" data-close aria-label="返回上一级" title="返回上一级">✕</button>
+    </div>
+    <div class="panel-body">
+      <div class="container pane">
+        <p class="eyebrow">✦ 我的世界 · MY WORLD</p>
+        <p class="lead">
+          在天津大学读计算机的这一年，我把大部分时间花在三件事上——敲代码、啃算法、认识数据与 AI。
+          下面这几幅画面，大概就是我每天真正面对的东西。
+        </p>
+
+        <div class="pager">
+          <div class="pager-track"><span id="pagerFill"></span></div>
+          <div class="pager-row">
+            <span class="pager-count" id="pagerCount">1 / 3</span>
+            <div class="pager-arrows">
+              <button class="pager-btn" id="pagerPrev" type="button" aria-label="上一张" disabled>←</button>
+              <button class="pager-btn" id="pagerNext" type="button" aria-label="下一张">→</button>
+            </div>
+          </div>
         </div>
 
-        <!-- 白色浮层信息面板（自右侧出血） -->
-        <aside class="hero-panel">
+        <div class="stack">
+          <figure class="stack-item" data-stack>
+            <img src="assets/tech-code.jpg" alt="屏幕上的代码" loading="lazy" />
+            <figcaption>
+              <b>敲下第一行代码</b>
+              <span>从 HTML、CSS 到 JavaScript，一行一行把想法变成真的能跑起来的页面。</span>
+            </figcaption>
+          </figure>
+
+          <figure class="stack-item" data-stack>
+            <img src="assets/tech-algo.jpg" alt="数据结构与算法可视化" loading="lazy" />
+            <figcaption>
+              <b>和算法打交道</b>
+              <span>图的遍历、树的递归、复杂度分析——这些基本功，我正在一遍遍画在草稿纸上。</span>
+            </figcaption>
+          </figure>
+
+          <figure class="stack-item" data-stack>
+            <img src="assets/tech-ai.jpg" alt="神经网络可视化" loading="lazy" />
+            <figcaption>
+              <b>走进数据与 AI</b>
+              <span>正在了解机器学习是怎么“学”的，也想试着做出真正有用、能解决问题的小东西。</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       全屏面板 / 我的作品（新增）
+       作品本体放在 works/ 目录里，用 iframe 原样嵌入——
+       作品自带的样式与脚本不会和主页互相影响，功能全部保留。
+       以后新增作品：复制一个 <li class="work-item"> 并改掉
+       编号 / 标题 / meta / 说明 / 署名即可。
+       ========================================================= -->
+  <section class="panel" id="works" aria-label="我的作品">
+    <div class="panel-bar">
+      <button class="panel-home" type="button" data-home aria-label="返回首页">
+        <svg class="panel-home-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M3.2 11 12 4l8.8 7" />
+          <path d="M5.6 9.9V20h12.8V9.9" />
+          <path d="M10 20v-5.2h4V20" />
+        </svg>
+        <span class="panel-home-t">返回首页</span>
+      </button>
+      <span class="panel-t">我的作品</span>
+      <button class="panel-x" type="button" data-close aria-label="返回上一级" title="返回上一级">✕</button>
+    </div>
+    <div class="panel-body">
+      <div class="container pane">
+        <p class="eyebrow">✦ 我的作品 · MY WORKS</p>
+        <h2 class="sec-title">做出来的东西，<br>才算真的学会了</h2>
+        <p class="lead">
+          这里放的是我真正动手做出来的东西——不是练习题的答案，而是能打开、能点、能玩的作品。
+          目前还只有一件，但它是我和 AI 一起，从一句需求描述开始搭起来的第一个。
+        </p>
+
+        <ol class="works">
+          <li class="work-item">
+            <div class="work-head">
+              <span class="work-no">01</span>
+              <div class="work-tt">
+                <h3 class="work-t">鹈鹕骑自行车</h3>
+                <p class="work-meta">SVG · 2D 循环动画 · 逆向运动学（IK）</p>
+              </div>
+              <a class="work-open" href="works/pelican-bicycle.html" target="_blank" rel="noopener">
+                全屏打开 <span>↗</span>
+              </a>
+            </div>
+
+            <p class="work-desc">
+              一只鹈鹕蹬着自行车一路向前：车轮在转、曲柄在转、双腿贴着踏板一圈圈蹬，
+              身体还随着踩踏轻轻起伏；脚下是滚动的高速路虚线，身后扬起一小团尘。
+              下面的预览可以直接玩——拖动滑块能随时加速或减速，按暂停就停在当前这一帧。
+            </p>
+
+            <div class="work-frame">
+              <iframe src="works/pelican-bicycle.html" title="鹈鹕骑自行车 · SVG 2D 动画" loading="lazy"></iframe>
+            </div>
+          </li>
+        </ol>
+
+        <!-- 以后新增作品的位置：新的作品卡插在上面 <ol class="works"> 里，
+             这段占位说明可以继续留着，等第二个作品做出来再删 -->
+        <div class="work-slot">
+          <span class="work-slot-ico" aria-hidden="true">✦</span>
+          <b>下一个作品正在路上</b>
+          <span>等我把它做出来，就会出现在这里。</span>
+        </div>
+
+        <!-- 最下方：这些作品由什么大模型生成 -->
+        <div class="works-src">
+          <p class="works-src-t">✦ 这些作品是怎么来的</p>
+          <p>
+            页面里的作品都是我先把想要的效果讲清楚，再和大模型一轮轮对话、不断调整改出来的，
+            最后自己动手过一遍细节。下面记下每件作品对应的生成模型。
+          </p>
+          <ul class="works-src-list">
+            <li><b>01 鹈鹕骑自行车</b>生成模型：<code>DeepSeek-V4-Flash-Vision-Exp</code></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       全屏面板 3 / 求学经历（左侧线型时间轴，滚动点亮圆点）
+       ========================================================= -->
+  <section class="panel" id="edu" aria-label="求学经历">
+    <div class="panel-bar">
+      <button class="panel-home" type="button" data-home aria-label="返回首页">
+        <svg class="panel-home-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M3.2 11 12 4l8.8 7" />
+          <path d="M5.6 9.9V20h12.8V9.9" />
+          <path d="M10 20v-5.2h4V20" />
+        </svg>
+        <span class="panel-home-t">返回首页</span>
+      </button>
+      <span class="panel-t">求学经历</span>
+      <button class="panel-x" type="button" data-close aria-label="返回上一级" title="返回上一级">✕</button>
+    </div>
+    <div class="panel-body">
+      <div class="container pane">
+        <p class="eyebrow">✦ 求学经历 · EDUCATION</p>
+        <p class="lead">三段求学路：广州的小学与中学，深圳的大学。</p>
+
+        <div class="timeline">
+          <div class="tl-rail" aria-hidden="true"><span class="tl-rail-fill" id="tlFill"></span></div>
+
+          <ol class="tl-list">
+            <li class="tl-item is-active" data-tl>
+              <p class="tl-time">2026-至今<i class="tl-dot" aria-hidden="true"></i></p>
+              <div class="tl-card">
+                <b>天津大学香港理工大学深圳未来技术学院</b>
+                <div class="tl-logos">
+                  <img class="tl-logo" src="assets/logo-tju.png" alt="天津大学校徽" loading="lazy" />
+                  <img class="tl-logo" src="assets/logo-polyu.png" alt="香港理工大学校徽" loading="lazy" />
+                </div>
+                <p class="tl-desc">
+                  目前本科在读（大一），学的是计算机科学与技术——正在打牢编程与算法的基础，
+                  也想把技术用在真正有用的地方。
+                </p>
+              </div>
+            </li>
+
+            <li class="tl-item" data-tl>
+              <p class="tl-time">2020-2026<i class="tl-dot" aria-hidden="true"></i></p>
+              <div class="tl-card">
+                <b>广州大学附属中学</b>
+                <div class="tl-logos">
+                  <img class="tl-logo" src="assets/logo-gdfz.png" alt="广州大学附属中学校徽" loading="lazy" />
+                </div>
+                <p class="tl-desc">
+                  六年中学时光在这里度过，打牢了各科基础，也慢慢养成了对学习和探索的兴趣。
+                </p>
+              </div>
+            </li>
+
+            <li class="tl-item" data-tl>
+              <p class="tl-time">2014-2020<i class="tl-dot" aria-hidden="true"></i></p>
+              <div class="tl-card">
+                <b>广州市海珠区大江苑小学</b>
+                <p class="tl-desc">
+                  求学的起点。在这里学会读书、学会和同学相处，也留下了最无忧无虑的六年。
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       全屏面板 4 / 技能与兴趣（原 Hero 右侧白面板内容）
+       ========================================================= -->
+  <section class="panel" id="skills" aria-label="技能与兴趣">
+    <div class="panel-bar">
+      <button class="panel-home" type="button" data-home aria-label="返回首页">
+        <svg class="panel-home-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M3.2 11 12 4l8.8 7" />
+          <path d="M5.6 9.9V20h12.8V9.9" />
+          <path d="M10 20v-5.2h4V20" />
+        </svg>
+        <span class="panel-home-t">返回首页</span>
+      </button>
+      <span class="panel-t">技能与兴趣</span>
+      <button class="panel-x" type="button" data-close aria-label="返回上一级" title="返回上一级">✕</button>
+    </div>
+    <div class="panel-body">
+      <div class="container pane">
+        <p class="eyebrow">✦ 技能与兴趣 · SKILLS</p>
+        <h2 class="sec-title">正在学的，<br>和正在喜欢的</h2>
+
+        <div class="panel-card">
           <div class="hp-head">
             <span class="hp-dot"></span> 个人信息 · 学习进度
           </div>
@@ -81,103 +456,29 @@
               </ul>
             </div>
           </div>
-        </aside>
-      </div>
-
-    </section>
-
-    <!-- ========== 关于我：左图右文 ========== -->
-    <section id="about" class="sec">
-      <div class="container">
-        <p class="eyebrow">✦ 关于我 · ABOUT</p>
-        <h2 class="sec-title">从一行代码开始，<br>把想法变成作品</h2>
-
-        <div class="split">
-          <figure class="media-card reveal">
-            <img src="assets/feiying-scene.jpg" alt="樱花与夜空" loading="lazy" />
-            <span class="float-chip c1">✦ 正在学习 HTML / CSS</span>
-            <span class="float-chip c2">Vibe Coding 探索中</span>
-          </figure>
-
-          <div class="split-copy reveal">
-            <h3>我在做什么</h3>
-            <p>
-              我是潘宜然，天津大学计算机科学与技术专业大一学生。
-              我喜欢「把想法变成看得见的作品」——最近在用自然语言和 AI 协作，
-              把脑海里的画面快速搭成真正能打开的网页。
-            </p>
-            <a class="btn-primary sm" href="#work">看看我的作品 <span>→</span></a>
-
-            <ul class="feat-list">
-              <li>
-                <b>学习方向</b>
-                前端与网页设计，正在打牢 HTML / CSS / JavaScript 基础。
-              </li>
-              <li>
-                <b>兴趣所在</b>
-                动漫、设计、数码，喜欢有视觉冲击力的画面。
-              </li>
-              <li>
-                <b>小目标</b>
-                把这座小站做成真正属于自己的线上名片。
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ========== 我的世界 + 作品 ========== -->
-    <section id="world" class="sec">
-      <div class="container">
-        <p class="eyebrow">✦ 我的世界 · MY WORLD</p>
-        <p class="lead">
-          在天津大学读计算机的这一年，我把大部分时间花在三件事上——敲代码、啃算法、认识数据与 AI。
-          下面这几幅画面，大概就是我每天真正面对的东西。
-        </p>
-
-        <div class="stack" id="work">
-          <figure class="stack-item reveal" data-stack>
-            <img src="assets/tech-code.jpg" alt="屏幕上的代码" loading="lazy" />
-            <figcaption>
-              <b>敲下第一行代码</b>
-              <span>从 HTML、CSS 到 JavaScript，一行一行把想法变成真的能跑起来的页面。</span>
-            </figcaption>
-          </figure>
-
-          <figure class="stack-item reveal" data-stack>
-            <img src="assets/tech-algo.jpg" alt="数据结构与算法可视化" loading="lazy" />
-            <figcaption>
-              <b>和算法打交道</b>
-              <span>图的遍历、树的递归、复杂度分析——这些基本功，我正在一遍遍画在草稿纸上。</span>
-            </figcaption>
-          </figure>
-
-          <figure class="stack-item reveal" data-stack>
-            <img src="assets/tech-ai.jpg" alt="神经网络可视化" loading="lazy" />
-            <figcaption>
-              <b>走进数据与 AI</b>
-              <span>正在了解机器学习是怎么“学”的，也想试着做出真正有用、能解决问题的小东西。</span>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== 引言 + 进度切换 ========== -->
-    <section class="sec quote-sec">
-      <div class="container">
-        <div class="pager">
-          <div class="pager-track"><span id="pagerFill"></span></div>
-          <div class="pager-row">
-            <span class="pager-count" id="pagerCount">1 / 3</span>
-            <div class="pager-arrows">
-              <button class="pager-btn" id="pagerPrev" type="button" aria-label="上一张" disabled>←</button>
-              <button class="pager-btn" id="pagerNext" type="button" aria-label="下一张">→</button>
-            </div>
-          </div>
-        </div>
-
+  <!-- =========================================================
+       全屏面板 5 / 关于学习
+       ========================================================= -->
+  <section class="panel" id="study" aria-label="关于学习">
+    <div class="panel-bar">
+      <button class="panel-home" type="button" data-home aria-label="返回首页">
+        <svg class="panel-home-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M3.2 11 12 4l8.8 7" />
+          <path d="M5.6 9.9V20h12.8V9.9" />
+          <path d="M10 20v-5.2h4V20" />
+        </svg>
+        <span class="panel-home-t">返回首页</span>
+      </button>
+      <span class="panel-t">关于学习</span>
+      <button class="panel-x" type="button" data-close aria-label="返回上一级" title="返回上一级">✕</button>
+    </div>
+    <div class="panel-body">
+      <div class="container pane">
         <p class="quote-brand">✦ 关于学习</p>
         <blockquote class="quote-text">
           “把喜欢的东西做成作品，<br>是学习最好的动力。”
@@ -189,49 +490,60 @@
           </div>
           <div class="q-stat"><b>1</b><i>作品已上线</i></div>
           <div class="q-stat"><b>5+</b><i>正在学习的技能</i></div>
-          <a class="btn-outline" href="#work">看看作品 <span>→</span></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== CTA ========== -->
-    <section id="contact" class="cta">
-      <div class="container cta-in">
-        <h2>想认识我，<br>或者一起做点有趣的东西？</h2>
-        <a class="btn-primary" href="mailto:16624650126@163.com">联系我 <span>→</span></a>
-      </div>
-    </section>
-  </main>
-
-  <!-- ========== Footer ========== -->
-  <footer class="footer">
-    <div class="container foot-in">
-      <div class="foot-brand"><span class="logo-mark">✦</span> 潘宜然</div>
-      <div class="foot-cols">
-        <div>
-          <b>页面</b>
-          <a href="#about">关于我</a>
-          <a href="#world">我的世界</a>
-          <a href="#work">作品</a>
-        </div>
-        <div>
-          <b>联系</b>
-          <a href="mailto:16624650126@163.com">16624650126@163.com</a>
-          <a href="https://github.com/SaMappp">github.com/SaMappp</a>
-        </div>
-        <div>
-          <b>关于</b>
-          <span>天津大学 · 计算机科学与技术</span>
-          <span>大一 · 2026</span>
+          <a class="btn-outline" href="#works">看看作品 <span>→</span></a>
         </div>
       </div>
     </div>
-    <div class="foot-bottom">
-      <div class="container">© <span id="year"></span> 潘宜然 · 个人主页</div>
-    </div>
-  </footer>
+  </section>
 
-  <!-- ========== V3 新增：反馈入口（右下角悬浮按钮 + 弹窗表单） ========== -->
+  <!-- =========================================================
+       全屏面板 6 / 联系
+       ========================================================= -->
+  <section class="panel" id="contact" aria-label="联系">
+    <div class="panel-bar">
+      <button class="panel-home" type="button" data-home aria-label="返回首页">
+        <svg class="panel-home-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M3.2 11 12 4l8.8 7" />
+          <path d="M5.6 9.9V20h12.8V9.9" />
+          <path d="M10 20v-5.2h4V20" />
+        </svg>
+        <span class="panel-home-t">返回首页</span>
+      </button>
+      <span class="panel-t">联系</span>
+      <button class="panel-x" type="button" data-close aria-label="返回上一级" title="返回上一级">✕</button>
+    </div>
+    <div class="panel-body is-cta">
+      <div class="container pane">
+        <div class="cta-in">
+          <h2>想认识我，<br>或者一起做点有趣的东西？</h2>
+          <a class="btn-primary" href="mailto:16624650126@163.com">联系我 <span>→</span></a>
+        </div>
+
+        <div class="contact-list">
+          <div>
+            <b>邮箱</b>
+            <a href="mailto:16624650126@163.com">16624650126@163.com</a>
+          </div>
+          <div>
+            <b>GITHUB</b>
+            <a href="https://github.com/SaMappp" target="_blank" rel="noopener">github.com/SaMappp</a>
+          </div>
+          <div>
+            <b>学校</b>
+            <span>天津大学 · 计算机科学与技术</span>
+          </div>
+          <div>
+            <b>年级</b>
+            <span>大一 · 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       V3 反馈入口（右下角悬浮按钮 + 弹窗表单）—— 保持原样
+       ========================================================= -->
   <button class="fb-fab" id="fbFab" type="button" aria-haspopup="dialog" aria-controls="fbModal">
     <span class="fb-fab-ico" aria-hidden="true">✦</span>
     <span class="fb-fab-txt">反馈</span>
@@ -299,7 +611,7 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
-  <script src="feedback.js"></script>
+  <script src="script.js?v=2.7"></script>
+  <script src="feedback.js?v=2.7"></script>
 </body>
 </html>
