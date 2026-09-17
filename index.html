@@ -231,6 +231,75 @@
     </div>
   </footer>
 
+  <!-- ========== V3 新增：反馈入口（右下角悬浮按钮 + 弹窗表单） ========== -->
+  <button class="fb-fab" id="fbFab" type="button" aria-haspopup="dialog" aria-controls="fbModal">
+    <span class="fb-fab-ico" aria-hidden="true">✦</span>
+    <span class="fb-fab-txt">反馈</span>
+  </button>
+
+  <div class="fb-modal" id="fbModal" role="dialog" aria-modal="true" aria-labelledby="fbTitle" hidden>
+    <div class="fb-mask" data-fb-close></div>
+
+    <div class="fb-card">
+      <button class="fb-x" type="button" aria-label="关闭" data-fb-close>✕</button>
+
+      <p class="fb-eyebrow">✦ 留个反馈</p>
+      <h3 class="fb-title" id="fbTitle">这里哪里不好用？</h3>
+      <p class="fb-note">
+        反馈<b>不会公开</b>，只有我一个人能在后台看到。
+        指出一个你看不懂、不好找，或看着不舒服的地方就可以。
+      </p>
+
+      <form class="fb-form" id="fbForm" novalidate>
+        <div class="fb-field">
+          <label for="fbName">昵称 <i>选填</i></label>
+          <input id="fbName" name="name" type="text" maxlength="40"
+                 placeholder="怎么称呼你？不填也可以" autocomplete="nickname" />
+        </div>
+
+        <div class="fb-row">
+          <div class="fb-field">
+            <label for="fbRelation">与我的关系</label>
+            <select id="fbRelation" name="relation">
+              <option value="同学">同学</option>
+              <option value="老师">老师</option>
+              <option value="家人">家人</option>
+              <option value="朋友">朋友</option>
+              <option value="同事">同事</option>
+              <option value="其他">其他</option>
+              <option value="不便透露">不便透露</option>
+            </select>
+          </div>
+
+          <div class="fb-field">
+            <label for="fbDevice">你用的设备</label>
+            <select id="fbDevice" name="device">
+              <option value="电脑">电脑</option>
+              <option value="手机">手机</option>
+              <option value="平板">平板</option>
+              <option value="其他">其他</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="fb-field">
+          <label for="fbMessage">反馈内容 <i>必填</i></label>
+          <textarea id="fbMessage" name="message" rows="4" maxlength="1000" required
+                    placeholder="例如：手机上看「我的世界」那三张图有点挤；窄屏时导航栏会盖住标题……"></textarea>
+          <span class="fb-count"><em id="fbCount">0</em> / 1000</span>
+        </div>
+
+        <p class="fb-status" id="fbStatus" role="status" aria-live="polite"></p>
+
+        <div class="fb-actions">
+          <button class="fb-submit" id="fbSubmit" type="submit">提交反馈</button>
+          <button class="fb-cancel" id="fbCancel" type="button">取消</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <script src="script.js"></script>
+  <script src="feedback.js"></script>
 </body>
 </html>
