@@ -50,6 +50,23 @@
   var COIN_GROUND_TIME = 0.28;              // 贴地金币串的保护时间：保证有落脚位能吃完整串
   var COIN_GROUND_MIN = 100;                // 贴地金币串的保护距离下限（px）
 
+  // ---- 障碍组间距（同样按"时间"换算：速度越高，同样的反应时间需要越大的像素间距）----
+  // 两个"必须跳"的障碍之间至少要留出一次满跳滞空的距离，否则玩家跳过一个、
+  // 还没落地就会被下一个接住 —— 这正是翼龙成群时"跳完一只、正好落进下一只身上"的根因。
+  var OBS_GAP_TIME = 0.86;      // 相邻障碍组的基准时间间隔（≈ 满跳 0.54s + 落地再起跳余量）
+  var OBS_GAP_DIFF = 0.16;      // 难度拉满时压缩掉的时间（0.86 → 0.70s，仍然可解）
+  var OBS_GAP_MIN = 240;        // 像素下限兜底，避免极低速时贴脸生成
+  var OBS_GAP_JIT_MIN = 1.0, OBS_GAP_JIT_MAX = 1.45;
+
+  // ---- 翼龙成群 ----
+  // 同一群必须统一高度：低空只能跳、中空只能蹲、高空不能乱跳，
+  // 混高度会出现"跳完低空那只、落地正好撞上高空那只"的死局。
+  var BIRD_GROUP_CHANCE = 0.30; // 高难度下成群的附加概率
+  var BIRD_GROUP_MAX = 3;       // 一群最多几只，避免高速时刷出一整排"翼龙墙"
+  var BIRD_GROUP_INNER_MIN = 6; // 群内相邻翼龙的间隙（紧贴，像仙人掌组一样一次通过）
+  var BIRD_GROUP_INNER_MAX = 18;
+  var BIRD_GROUP_SAFETY = 0.72; // 用"一次满跳覆盖整群"反算群规模时保留的安全余量
+
   var COMBO_TIERS = [
     { min: 45, mult: 3.0 },
     { min: 30, mult: 2.5 },
@@ -351,6 +368,41 @@
   }
 
   // ==================== 生成：障碍 ====================
+  /** 恐龙站立碰撞箱的底边 y（贴地时）。与 dinoBox() 的 top+6+(DINO_H-8) 等价。 */
+  function dinoBoxBottom() { return GROUND_Y - 2; }
+
+  /** 障碍碰撞箱的顶边 y —— 与 obstacleBox() 保持一致。 */
+  function obstacleBoxTop(o) {
+    return o.type === 'cactus' ? o.top + 4 : o.top + 5;
+  }
+
+  /**
+   * 满跳滞空中"恐龙碰撞箱底高于 boxTop"的持续时长（秒）；跳不过去返回 0。
+   * 解 JUMP_SPEED*t - GRAVITY/2*t^2 > need 得窗口 = 2*sqrt(v^2 - 2*g*need) / g。
+   */
+  function jumpWindowAbove(boxTop) {
+    var need = dinoBoxBottom() - boxTop;
+    if (need <= 0) return JUMP_TAU;
+    var disc = JUMP_SPEED * JUMP_SPEED - 2 * GRAVITY * need;
+    return disc <= 0 ? 0 : 2 * Math.sqrt(disc) / GRAVITY;
+  }
+
+  /**
+   * 一群同高度翼龙最多并排几只。
+   * 低空翼龙只能靠跳，整群必须落进一次满跳的窗口里；中空可蹲、高空可站，
+   * 都是"按住就能持续"的动作，不受窗口限制。
+   */
+  function birdGroupMaxCount(height) {
+    if (height > BIRD_HEIGHTS[1]) return BIRD_GROUP_MAX;
+    var win = jumpWindowAbove(obstacleBoxTop({ type: 'bird', top: GROUND_Y - height - BIRD_H }));
+    if (win <= 0) return 1;
+    // 水平重叠距离 = 恐龙碰撞箱宽 + 整群碰撞箱宽，必须 <= 窗口内走过的距离
+    var boxW = (DINO_W - 20) + (BIRD_W - 10);   // 与 dinoBox() / obstacleBox() 保持一致
+    var span = G.speed * win * BIRD_GROUP_SAFETY - boxW;
+    if (span < BIRD_W) return 1;
+    return clamp(1 + Math.floor(span / (BIRD_W + BIRD_GROUP_INNER_MIN)), 1, BIRD_GROUP_MAX);
+  }
+
   function difficulty() {
     return clamp((G.baseSpeed - SPEED_START) / (SPEED_MAX - SPEED_START), 0, 1);
   }
@@ -360,14 +412,20 @@
     var r = Math.random();
 
     if (G.score > 260 && r < 0.16 + diff * 0.22) {
-      // 翼龙：难度越高出现越多
-      var birds = [];
-      var heights = [BIRD_HEIGHTS[0], BIRD_HEIGHTS[1]];
-      if (Math.random() < 0.35) heights.push(BIRD_HEIGHTS[2]);
-      birds.push(makeBird(x, heights[randInt(0, heights.length - 1)]));
-      // 高难度下翼龙有时成群
-      if (diff > 0.45 && Math.random() < 0.3) {
-        birds.push(makeBird(x + BIRD_W + rand(70, 130), BIRD_HEIGHTS[randInt(0, 1)]));
+      // 翼龙：难度越高出现越多。成群时必须统一高度 —— 低空只能跳、高空不能乱跳，
+      // 混高度会让玩家跳完第一只、落地正好撞上第二只。
+      var pool = [BIRD_HEIGHTS[0], BIRD_HEIGHTS[1]];
+      if (Math.random() < 0.35) pool.push(BIRD_HEIGHTS[2]);
+      var bh = pool[randInt(0, pool.length - 1)];
+
+      var birds = [makeBird(x, bh)];
+      // 高难度下翼龙成"群"：紧贴排列，让玩家一次跳跃（或一次下蹲）就整群通过。
+      // 原来的群内间距是 BIRD_W+70~130，既不够紧到能一次跳过、又不够松到能逐个跳，
+      // 正好落在"跳完一只就落进下一只身上"的死区里，这里改成紧贴式。
+      if (diff > 0.45 && Math.random() < BIRD_GROUP_CHANCE) {
+        var n = birdGroupMaxCount(bh);
+        var step = BIRD_W + rand(BIRD_GROUP_INNER_MIN, BIRD_GROUP_INNER_MAX);
+        for (var b = 1; b < n; b++) birds.push(makeBird(x + b * step, bh));
       }
       return { obs: birds, cactus: null };
     }
@@ -416,9 +474,16 @@
 
     for (var i = 0; i < plan.obs.length; i++) G.obs.push(plan.obs[i]);
 
-    // 下一个障碍的间隔（px）。速度越高，单位时间内反应时间越短 => 难度自然提升。
-    var gapPx = (300 + 140 * diff) * rand(0.86, 1.34);
-    G.obsCountdown = Math.max(230, gapPx);
+    // 下一个障碍的间隔：按"时间"换算成像素，速度越高间距越大。
+    // 必须 >= 一次满跳滞空的水平覆盖，否则会出现"跳过一个、落地就撞上下一个"。
+    // 间距要从本组的"尾巴"（最后一个成员）算起，所以把组内偏移加上。
+    var tail = 0;
+    for (var t = 0; t < plan.obs.length; t++) {
+      if (plan.obs[t].x - x > tail) tail = plan.obs[t].x - x;
+    }
+    var gapTime = OBS_GAP_TIME - OBS_GAP_DIFF * diff;
+    var gapPx = G.speed * gapTime * rand(OBS_GAP_JIT_MIN, OBS_GAP_JIT_MAX) + tail;
+    G.obsCountdown = Math.max(OBS_GAP_MIN + tail, gapPx);
 
     // 仙人掌有概率附带一条完整抛物线金币弧（跳过障碍的同时正好收完）
     if (plan.cactus && Math.random() < 0.32) attachGuardCoins(plan.cactus);
