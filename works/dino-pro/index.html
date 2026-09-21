@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>DINO PRO · 恐龙快跑加强版</title>
+<meta name="description" content="Chrome 小恐龙加强版：金币连击机制、W/S 跳跃下蹲、A/D 加减速操控、地面与空中双层金币分布，支持触屏。" />
+<meta name="theme-color" content="#fdf6e8" />
+<meta property="og:title" content="DINO PRO · 恐龙快跑加强版" />
+<meta property="og:description" content="金币连击 · 变速操控 · 像素跑酷" />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%A6%96%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">🦖</span>
+      <div>
+        <h1>DINO PRO</h1>
+        <p>金币连击 · 变速操控 · 像素跑酷</p>
+      </div>
+    </div>
+    <div class="tools">
+      <button id="btnSound" class="icon-btn" type="button" title="音效开关" aria-label="音效开关">🔊</button>
+      <button id="btnTheme" class="icon-btn" type="button" title="切换主题" aria-label="切换主题">🌙</button>
+    </div>
+  </header>
+
+  <div class="stage-wrap">
+    <div class="stage" id="stage">
+      <canvas id="game" width="800" height="200" aria-label="恐龙快跑游戏画面"></canvas>
+
+      <!-- 抬头显示：左上分数 / 右上金币独立计数 -->
+      <div class="hud" id="hud">
+        <div class="hud-left">
+          <div class="hud-score">
+            <span class="label">SCORE</span>
+            <span class="value" id="scoreVal">00000</span>
+          </div>
+          <div class="hud-score hi">HI <span id="hiVal">00000</span></div>
+        </div>
+
+        <div class="hud-right coin-panel">
+          <div class="coin-card" id="coinCard" title="本局已收集金币">
+            <svg class="coin-svg" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" fill="#e8a317" stroke="#b57500" stroke-width="2"/>
+              <circle cx="12" cy="12" r="6" fill="none" stroke="#ffd968" stroke-width="2"/>
+              <path d="M12 8.4v7.2M9.6 10.2h4.8" stroke="#ffd968" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <span class="count" id="coinVal">0</span>
+            <span class="unit">枚</span>
+          </div>
+          <div class="combo-chip" id="comboChip">
+            <span id="comboMult">×1.0</span>
+            <span id="comboCount">连击 0</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="speedo" id="speedo">
+        <span class="sp-label">SPEED</span>
+        <div class="sp-track">
+          <div class="sp-center"></div>
+          <div class="sp-fill" id="spFill"></div>
+        </div>
+        <span class="sp-val" id="spVal">1.00×</span>
+      </div>
+
+      <!-- 开始面板 -->
+      <div class="overlay show" id="startScreen">
+        <div class="panel">
+          <h2>准备开始</h2>
+          <p class="sub">躲开仙人掌与翼龙，尽力吃掉更多金币</p>
+          <div class="keys">
+            <span class="key"><kbd>W</kbd>/<kbd>空格</kbd> 跳跃（长按跳更高）</span>
+            <span class="key"><kbd>S</kbd> 下蹲</span>
+            <span class="key"><kbd>A</kbd> 减速</span>
+            <span class="key"><kbd>D</kbd> 加速</span>
+            <span class="key"><kbd>P</kbd> 暂停</span>
+          </div>
+          <button class="btn" id="btnStart" type="button">开始游戏</button>
+          <p class="mini-tip">金币连续收集不会中断倍率，最高可达 ×3.0；漏掉一枚就会断连击。</p>
+        </div>
+      </div>
+
+      <!-- 暂停面板 -->
+      <div class="overlay" id="pauseScreen">
+        <div class="panel">
+          <h2>已暂停</h2>
+          <p class="sub">按 P 或点击按钮继续</p>
+          <button class="btn" id="btnResume" type="button">继续游戏</button>
+        </div>
+      </div>
+
+      <!-- 结算面板 -->
+      <div class="overlay" id="overScreen">
+        <div class="panel">
+          <h2>本局结算</h2>
+          <p class="sub" id="overSub">撞到障碍，游戏结束</p>
+
+          <div class="ledger">
+            <div class="row">
+              <span class="k">距离分</span>
+              <span class="v" id="finalDistance">0</span>
+            </div>
+            <div class="row">
+              <span class="k">收集金币</span>
+              <span class="v coin" id="finalCoins">0 枚</span>
+            </div>
+            <div class="row">
+              <span class="k">金币转化分<span id="finalComboHint" class="k"></span></span>
+              <span class="v coin" id="finalCoinScore">0</span>
+            </div>
+            <div class="row total">
+              <span class="k">总分</span>
+              <span class="v" id="finalTotal">0</span>
+            </div>
+            <div class="row">
+              <span class="k">历史最高分</span>
+              <span class="v"><span id="finalBest">0</span><span id="recordBadge"></span></span>
+            </div>
+            <div class="row">
+              <span class="k">累计收集金币</span>
+              <span class="v" id="finalAllCoins">0 枚</span>
+            </div>
+          </div>
+
+          <button class="btn" id="btnRestart" type="button">再来一局</button>
+          <p class="mini-tip">也可以直接按 空格 / W 快速重开</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 触屏虚拟按键 -->
+  <div class="touchbar" id="touchbar">
+    <button class="touch-btn" type="button" data-act="slow"><span class="g">⏪</span><span class="t">减速 A</span></button>
+    <button class="touch-btn" type="button" data-act="jump"><span class="g">⤒</span><span class="t">跳跃 W</span></button>
+    <button class="touch-btn" type="button" data-act="duck"><span class="g">⤓</span><span class="t">下蹲 S</span></button>
+    <button class="touch-btn" type="button" data-act="fast"><span class="g">⏩</span><span class="t">加速 D</span></button>
+  </div>
+
+  <div class="legend">
+    <span><b>W</b> / <b>空格</b> 跳跃</span>
+    <span><b>S</b> 下蹲</span>
+    <span><b>A</b> 减速（最低 0.70×）</span>
+    <span><b>D</b> 加速（最高 1.60×）</span>
+    <span><b>P</b> 暂停</span>
+    <span><b>M</b> 静音</span>
+  </div>
+
+  <p class="footnote">纯前端零依赖 · 单页静态站点 · 可直接部署到 GitHub Pages</p>
+</div>
+
+<script src="sprites.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

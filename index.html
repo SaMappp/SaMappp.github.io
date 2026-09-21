@@ -8,7 +8,7 @@
   <!-- 加了这一行之后，面板的显示/隐藏完全由 .open 类决定；
        只有在禁用 JS 时才退回 CSS 的 :target 兜底 -->
   <script>document.documentElement.className = "js";</script>
-  <link rel="stylesheet" href="style.css?v=3.1" />
+  <link rel="stylesheet" href="style.css?v=3.2" />
 </head>
 <body>
 
@@ -280,7 +280,7 @@
         <h2 class="sec-title">做出来的东西，<br>才算真的学会了</h2>
         <p class="lead">
           这里放的是我真正动手做出来的东西——不是练习题的答案，而是能打开、能点、能玩的作品。
-          目前还只有一件，但它是我和 AI 一起，从一句需求描述开始搭起来的第一个。
+          每一件都是我从一句需求描述开始，和 AI 一轮轮对话、再把细节自己过一遍做出来的。
         </p>
 
         <ol class="works">
@@ -306,10 +306,35 @@
               <iframe src="works/pelican-bicycle.html" title="鹈鹕骑自行车 · SVG 2D 动画" loading="lazy"></iframe>
             </div>
           </li>
+
+          <li class="work-item">
+            <div class="work-head">
+              <span class="work-no">02</span>
+              <div class="work-tt">
+                <h3 class="work-t">恐龙快跑 · DINO PRO</h3>
+                <p class="work-meta">Canvas 2D · 游戏循环 · 金币连击系统</p>
+              </div>
+              <a class="work-open" href="works/dino-pro/index.html" target="_blank" rel="noopener">
+                全屏打开 <span>↗</span>
+              </a>
+            </div>
+
+            <p class="work-desc">
+              Chrome 小恐龙的加强版。在经典的"跳过仙人掌"之上加了一整套金币机制：
+              金币沿着恐龙真实的跳跃抛物线铺开，所以只要在弧线起点起跳，就能把一整组金币收干净——
+              连续收集会累积连击倍率（最高 ×3.0），但漏掉一枚立刻清零，"要不要为几枚金币冒险"成了每一秒都在做的决策。
+              同时可以用 A / D 实时加减速：加速能拉开与障碍的距离，代价是反应时间变短。
+              下面可以直接玩，手机端会自动出现虚拟按键。
+            </p>
+
+            <div class="work-frame">
+              <iframe src="works/dino-pro/index.html" title="恐龙快跑 DINO PRO · Canvas 2D 游戏" loading="lazy"></iframe>
+            </div>
+          </li>
         </ol>
 
         <!-- 以后新增作品的位置：新的作品卡插在上面 <ol class="works"> 里，
-             这段占位说明可以继续留着，等第二个作品做出来再删 -->
+             这块占位卡表示"还有更多在路上"，作品再多也可以继续留着 -->
         <div class="work-slot">
           <span class="work-slot-ico" aria-hidden="true">✦</span>
           <b>下一个作品正在路上</b>
@@ -325,6 +350,7 @@
           </p>
           <ul class="works-src-list">
             <li><b>01 鹈鹕骑自行车</b>生成模型：<code>DeepSeek-V4-Flash-Vision-Exp</code></li>
+            <li><b>02 恐龙快跑 · DINO PRO</b>生成模型：<code>dth/DeepSeek-V4.1-Flash</code></li>
           </ul>
         </div>
       </div>
@@ -429,7 +455,7 @@
               <div class="hp-stats">
                 <div><b>大一</b><i>在读学年</i></div>
                 <div><b>5+</b><i>在学技能</i></div>
-                <div><b>1</b><i>个人作品</i></div>
+                <div><b>2</b><i>个人作品</i></div>
               </div>
               <div class="hp-table">
                 <div class="hp-tr hp-th"><span>技能</span><span>状态</span><span>熟练度</span></div>
@@ -488,7 +514,7 @@
             <img src="assets/avatar.jpg" alt="潘宜然的头像" loading="lazy" />
             <div><b>潘宜然</b><i>天津大学 · 计算机科学与技术</i></div>
           </div>
-          <div class="q-stat"><b>1</b><i>作品已上线</i></div>
+          <div class="q-stat"><b>2</b><i>作品已上线</i></div>
           <div class="q-stat"><b>5+</b><i>正在学习的技能</i></div>
           <a class="btn-outline" href="#works">看看作品 <span>→</span></a>
         </div>
@@ -611,7 +637,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=3.1"></script>
-  <script src="feedback.js?v=3.1"></script>
+  <script src="script.js?v=3.2"></script>
+  <script src="feedback.js?v=3.2"></script>
 </body>
 </html>
