@@ -782,6 +782,7 @@
     el.coinVal.textContent = '0';
     el.scoreVal.textContent = '00000';
     el.hiVal.textContent = pad5(Save.data.best);
+    hudInvalidate();               // 让状态栏缓存失效，下一帧重新写入
   }
 
   function start() {
@@ -1098,35 +1099,62 @@
   }
 
   var hudAcc = 0;
+  // 缓存上一次写进 DOM 的值：值没变就完全不碰样式，避免每 60ms 触发样式重算/重绘
+  var hudLast = { score: -1, coins: -1, pct: -1, factor: -1, dir: '' };
+
+  function hudInvalidate() {
+    if (!hudLast) return;          // 防御：初始化顺序若变化也不要抛错
+    hudLast.score = -1;
+    hudLast.coins = -1;
+    hudLast.pct = -1;
+    hudLast.factor = -1;
+    hudLast.dir = '';
+  }
+
   function updateHUD(dt) {
+    var wasPop = coinPopTimer;
     coinPopTimer = Math.max(0, coinPopTimer - dt);
-    if (coinPopTimer === 0) el.coinCard.classList.remove('pop');
+    if (wasPop > 0 && coinPopTimer === 0) el.coinCard.classList.remove('pop');
 
     hudAcc += dt;
     if (hudAcc < 0.06) return;
     hudAcc = 0;
 
-    el.scoreVal.textContent = pad5(G.score);
-    el.coinVal.textContent = String(G.coinCount);
-
-    var span = FACTOR_MAX - FACTOR_MIN;
-    var ratio = (G.factor - 1) / (G.factor >= 1 ? (FACTOR_MAX - 1) : (1 - FACTOR_MIN));
-    var pct = clamp(Math.abs(ratio), 0, 1) * 50;
-    el.spFill.style.width = pct.toFixed(1) + '%';
-    if (G.factor >= 1) {
-      el.spFill.style.left = '50%';
-      el.spFill.style.backgroundColor = 'var(--fast)';
-    } else {
-      el.spFill.style.left = (50 - pct).toFixed(1) + '%';
-      el.spFill.style.backgroundColor = 'var(--slow)';
+    var sc = Math.floor(G.score);
+    if (sc !== hudLast.score) {
+      el.scoreVal.textContent = pad5(sc);
+      hudLast.score = sc;
     }
-    el.spVal.textContent = G.factor.toFixed(2) + '×';
-    void span;
+    if (G.coinCount !== hudLast.coins) {
+      el.coinVal.textContent = String(G.coinCount);
+      hudLast.coins = G.coinCount;
+    }
+
+    var ratio = (G.factor - 1) / (G.factor >= 1 ? (FACTOR_MAX - 1) : (1 - FACTOR_MIN));
+    var pct = Math.round(clamp(Math.abs(ratio), 0, 1) * 200) / 2;   // 0.5% 粒度足够且不抖
+    var dir = G.factor >= 1 ? 'fast' : 'slow';
+    if (pct !== hudLast.pct || dir !== hudLast.dir) {
+      el.spFill.style.width = pct.toFixed(1) + '%';
+      el.spFill.style.left = dir === 'fast' ? '50%' : (50 - pct).toFixed(1) + '%';
+      el.spFill.dataset.dir = dir;                  // 颜色交给 CSS，不再写内联样式
+      hudLast.pct = pct;
+      hudLast.dir = dir;
+    }
+
+    var f = Math.round(G.factor * 100) / 100;
+    if (f !== hudLast.factor) {
+      el.spVal.textContent = f.toFixed(2) + '×';
+      hudLast.factor = f;
+    }
   }
 
   // ==================== 主循环 ====================
   var lastT = 0, acc = 0;
   var STEP = 1 / 120;
+  // 单帧最多补足 0.10s 模拟量：既丢掉多余积压，又不会"追帧快进"——起跳瞬间的顿挫
+  // 正是追帧造成的（一次卡顿后连补 10 步 = 瞬间推进 83ms 的弧线）。
+  var MAX_CATCHUP = 0.10;
+  var MAX_STEPS = Math.ceil(MAX_CATCHUP / STEP) + 2;   // 12 + 2，留余量，保证永不截断
 
   function frame(t) {
     requestAnimationFrame(frame);
@@ -1137,8 +1165,9 @@
     if (dt < 0) dt = 0;
 
     acc += dt;
+    if (acc > MAX_CATCHUP) acc = MAX_CATCHUP;   // 丢弃积压，杜绝追帧快进
     var guard = 0;
-    while (acc >= STEP && guard++ < 10) {
+    while (acc >= STEP && guard++ < MAX_STEPS) {
       update(STEP);
       acc -= STEP;
     }

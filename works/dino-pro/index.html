@@ -10,7 +10,7 @@
 <meta property="og:description" content="金币连击 · 变速操控 · 像素跑酷" />
 <meta property="og:type" content="website" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%A6%96%3C/text%3E%3C/svg%3E" />
-<link rel="stylesheet" href="style.css?v=3.3" />
+<link rel="stylesheet" href="style.css?v=3.4" />
 </head>
 <body>
 <div class="app">
@@ -29,45 +29,43 @@
     </div>
   </header>
 
+  <!-- 状态栏：分数 / 速度 / 金币全部位于画布之外，任何屏幕宽度都不会遮挡游戏画面 -->
+  <div class="hudbar">
+    <div class="hud-score">
+      <span class="label">SCORE</span>
+      <span class="value" id="scoreVal">00000</span>
+      <span class="hi">HI <b id="hiVal">00000</b></span>
+    </div>
+
+    <div class="speedo" id="speedo">
+      <span class="sp-label">SPEED</span>
+      <div class="sp-track">
+        <div class="sp-center"></div>
+        <div class="sp-fill" id="spFill" data-dir="fast"></div>
+      </div>
+      <span class="sp-val" id="spVal">1.00×</span>
+    </div>
+
+    <div class="coin-panel">
+      <div class="coin-card" id="coinCard" title="本局已收集金币">
+        <svg class="coin-svg" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" fill="#e8a317" stroke="#b57500" stroke-width="2"/>
+          <circle cx="12" cy="12" r="6" fill="none" stroke="#ffd968" stroke-width="2"/>
+          <path d="M12 8.4v7.2M9.6 10.2h4.8" stroke="#ffd968" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <span class="count" id="coinVal">0</span>
+        <span class="unit">枚</span>
+      </div>
+      <div class="combo-chip" id="comboChip">
+        <span id="comboMult">×1.0</span>
+        <span id="comboCount">连击 0</span>
+      </div>
+    </div>
+  </div>
+
   <div class="stage-wrap">
     <div class="stage" id="stage">
       <canvas id="game" width="800" height="200" aria-label="恐龙快跑游戏画面"></canvas>
-
-      <!-- 抬头显示：左上分数 / 右上金币独立计数 -->
-      <div class="hud" id="hud">
-        <div class="hud-left">
-          <div class="hud-score">
-            <span class="label">SCORE</span>
-            <span class="value" id="scoreVal">00000</span>
-          </div>
-          <div class="hud-score hi">HI <span id="hiVal">00000</span></div>
-        </div>
-
-        <div class="hud-right coin-panel">
-          <div class="coin-card" id="coinCard" title="本局已收集金币">
-            <svg class="coin-svg" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="10" fill="#e8a317" stroke="#b57500" stroke-width="2"/>
-              <circle cx="12" cy="12" r="6" fill="none" stroke="#ffd968" stroke-width="2"/>
-              <path d="M12 8.4v7.2M9.6 10.2h4.8" stroke="#ffd968" stroke-width="1.6" stroke-linecap="round"/>
-            </svg>
-            <span class="count" id="coinVal">0</span>
-            <span class="unit">枚</span>
-          </div>
-          <div class="combo-chip" id="comboChip">
-            <span id="comboMult">×1.0</span>
-            <span id="comboCount">连击 0</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="speedo" id="speedo">
-        <span class="sp-label">SPEED</span>
-        <div class="sp-track">
-          <div class="sp-center"></div>
-          <div class="sp-fill" id="spFill"></div>
-        </div>
-        <span class="sp-val" id="spVal">1.00×</span>
-      </div>
 
       <!-- 开始面板 -->
       <div class="overlay show" id="startScreen">
@@ -135,6 +133,8 @@
     </div>
   </div>
 
+  <p class="rotate-hint">📱 手机横屏可以看到更大的游戏画面</p>
+
   <!-- 触屏虚拟按键 -->
   <div class="touchbar" id="touchbar">
     <button class="touch-btn" type="button" data-act="slow"><span class="g">⏪</span><span class="t">减速 A</span></button>
@@ -155,7 +155,7 @@
   <p class="footnote">纯前端零依赖 · 单页静态站点 · 可直接部署到 GitHub Pages</p>
 </div>
 
-<script src="sprites.js?v=3.3"></script>
-<script src="game.js?v=3.3"></script>
+<script src="sprites.js?v=3.4"></script>
+<script src="game.js?v=3.4"></script>
 </body>
 </html>

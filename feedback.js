@@ -16,7 +16,7 @@
      ============================================================ */
   var SUPABASE_URL = "https://cyjsttvgmfquhnrluvti.supabase.co";
   var SUPABASE_KEY = "sb_publishable_XMf36FlXFyW0QOZII6PjGg_qx9LECdI";
-  var SITE_VERSION = "V3.3"; // 每条反馈自动附带，方便你区分是哪个版本收到的
+  var SITE_VERSION = "V3.4"; // 每条反馈自动附带，方便你区分是哪个版本收到的
 
   // 后台客户端库：优先用站点自带的副本（不依赖境外 CDN，国内访问更稳），
   // 万一本站文件缺失，再回退到 CDN。

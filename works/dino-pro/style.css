@@ -54,6 +54,7 @@ html, body {
 
 body {
   min-height: 100vh;
+  min-height: 100dvh;              /* 移动端浏览器地址栏收起/展开时不跳动 */
   background:
     radial-gradient(120% 80% at 12% -10%, var(--bg-2), transparent 60%),
     linear-gradient(180deg, var(--bg-1), var(--bg-2));
@@ -62,16 +63,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
   display: flex;
-  justify-content: center;
-  padding: 22px 16px 34px;
+  flex-direction: column;
+  padding: 18px 16px 26px;
 }
 
 .app {
   width: 100%;
-  max-width: 940px;
+  max-width: 1280px;               /* 桌面端舞台更大，减少左右空白 */
+  margin-inline: auto;
+  /* 内容比视口矮时垂直居中；内容超高时自动退化为 0，从顶部开始正常滚动 */
+  margin-block: auto;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 /* ---------------- 顶栏 ---------------- */
@@ -128,7 +132,11 @@ body {
 
 .stage {
   position: relative;
-  width: 100%;
+  /* 逻辑尺寸固定 800x200（改逻辑宽会改变反应时间与难度），所以「放大画面」只能靠
+     加宽容器 + 移动端全出血；矮视口再按可用高度收缩，避免整页上下滚动。 */
+  width: min(100%, max(240px, calc((100vh - 220px) * 4)));
+  width: min(100%, max(240px, calc((100dvh - 220px) * 4)));
+  margin-inline: auto;
   aspect-ratio: 800 / 200;
   background: var(--stage-bg);
   border: 1px solid var(--line);
@@ -146,19 +154,27 @@ body {
   image-rendering: pixelated;
 }
 
-/* ---------------- HUD ---------------- */
-.hud {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  padding: 10px 14px;
+/* ---------------- 状态栏（位于画布之外，任何宽度都不遮挡游戏画面） ---------------- */
+.hudbar {
   display: flex;
+  align-items: center;
+  flex-wrap: wrap;                 /* 窄屏自动换行：SPEED 条换到第二行也不覆盖画面 */
   justify-content: space-between;
-  align-items: flex-start;
+  gap: 8px 16px;
+  padding: 7px 12px;
+  border-radius: 13px;
+  background: var(--card);
+  border: 1px solid var(--line);
   font-variant-numeric: tabular-nums;
 }
 
-.hud-score { line-height: 1.05; }
+.hud-score {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  line-height: 1.05;
+  white-space: nowrap;
+}
 
 .hud-score .label {
   font-size: 10px;
@@ -244,19 +260,18 @@ body {
   100% { transform: translateX(0); }
 }
 
-/* 速度表 */
+/* 速度表：在状态栏内正常排列，不再悬浮于游戏画面之上 */
 .speedo {
-  position: absolute;
-  pointer-events: none;
-  left: 14px;
-  bottom: 10px;
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 4px 10px;
   border-radius: 999px;
-  background: var(--hud-bg);
+  background: var(--stage-bg);
   border: 1px solid var(--line);
+  flex: 1 1 200px;                 /* 占据中间剩余空间；窄屏换行时独占整行 */
+  max-width: 340px;
+  justify-content: center;
 }
 
 .speedo .sp-label { font-size: 10px; letter-spacing: 0.18em; color: var(--ink-faint); }
@@ -290,6 +305,10 @@ body {
   border-radius: 3px;
   transition: background-color 0.15s linear;
 }
+
+/* 颜色交由 data-dir 决定，避免每 60ms 写内联样式触发样式重算 */
+.sp-fill[data-dir='fast'] { background: var(--fast); }
+.sp-fill[data-dir='slow'] { background: var(--slow); }
 
 .sp-val {
   font-size: 11.5px;
@@ -477,8 +496,40 @@ body {
 @media (hover: none), (max-width: 780px) {
   .touchbar { display: grid; }
   .brand p { display: none; }
-  .speedo { left: 8px; bottom: 6px; padding: 3px 8px; }
-  .sp-track { width: 66px; }
+  body { padding: 12px 16px 20px; }
+
+  /* 移动端：舞台左右全出血，吃满屏宽（竖向空间由 .stage 的高度上限兜底） */
+  .stage-wrap { margin-inline: -16px; }
+  .stage { border-radius: 0; border-left: 0; border-right: 0; }
+
+  /* SPEED 条独占一行，任何宽度下都不会覆盖游戏画面 */
+  .speedo { flex: 1 1 100%; max-width: none; justify-content: space-between; padding: 3px 10px; }
+  .sp-track { flex: 1 1 auto; width: auto; min-width: 60px; }
+
+  /* 键盘提示在触屏上没有意义，隐藏后把竖向空间让给游戏画面 */
+  .legend, .footnote { display: none; }
+}
+
+/* 手机横屏：竖向空间紧张。隐藏品牌栏并放宽高度预算，
+   让游戏画面尽可能大（不小于旧版）且整页不需要滚动。 */
+@media (hover: none) and (max-height: 520px) {
+  .topbar { display: none; }
+  .stage {
+    width: min(100%, max(240px, calc((100vh - 150px) * 4)));
+    width: min(100%, max(240px, calc((100dvh - 150px) * 4)));
+  }
+}
+
+/* 竖屏手机：游戏画面是 4:1，必然很扁，给出横屏提示 */
+.rotate-hint { display: none; }
+
+@media (max-width: 780px) and (orientation: portrait) {
+  .rotate-hint {
+    display: block;
+    text-align: center;
+    font-size: 11.5px;
+    color: var(--ink-faint);
+  }
 }
 
 /* ---------------- 页脚 ---------------- */
