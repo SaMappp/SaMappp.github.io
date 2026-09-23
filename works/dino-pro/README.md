@@ -321,8 +321,9 @@ Chrome / Edge / Firefox / Safari 现代版本均可。
 
 ### iOS 长按保护
 
-iOS Safari 长按任意文字会把它选中并弹出「拷贝 / 查询 / 翻译」菜单，浮层刚好盖住虚拟按键和游戏画面。
-所以游戏区（`.touchbar` / `.topbar` / `.hudbar` / `.stage` 及其后代）统一禁用文字选中：
+iOS Safari 长按界面上的任意文字都会把它选中并弹出「拷贝 / 查询 / 翻译」菜单，浮层刚好盖住虚拟按键和游戏画面。
+所以整个游戏界面（`html` / `body` / `.app` 及其全部后代：顶栏、状态栏、结算面板、虚拟按键、提示文字、页脚）
+统一禁用文字选中：
 
 ```css
 -webkit-user-select: none;    /* 老版 iOS Safari 只认带前缀的写法 */
@@ -331,4 +332,5 @@ user-select: none;
 ```
 
 `game.js` 再用 `blockNativeSelection()` 给按键区和画布补一层 `contextmenu` / `selectstart` 拦截兜底。
-页面上的提示文字（`.rotate-hint`、`.legend`、`.footnote`）不在游戏区内，仍可正常长按复制。
+本页是纯游戏页面，没有输入框也没有需要复制的正文，所以全页禁用选中不影响任何正常操作。
+（以后若在这页加入链接或输入框，记得在这些元素上把 `user-select` / `-webkit-touch-callout` 恢复回来。）

@@ -493,17 +493,14 @@ body {
 .touch-btn .t { font-size: 10.5px; color: var(--ink-soft); letter-spacing: 0.1em; }
 .touch-btn.active { background: color-mix(in srgb, var(--gold) 26%, var(--card)); transform: scale(0.96); }
 
-/* ---------------- 触屏：禁止长按选中文字与系统弹出菜单 ---------------- */
-/* iOS 上长按虚拟按键会选中按钮文字并弹出 Copy / 查询 菜单，浮层正好挡住按键和画面。
-   这里只作用于游戏区域（按键、顶栏按钮、状态栏、画布），页面其它提示文字仍可正常选中复制。 */
-.touchbar,
-.touchbar *,
-.topbar,
-.topbar *,
-.hudbar,
-.hudbar *,
-.stage,
-.stage * {
+/* ---------------- 触屏：游戏界面禁止长按选中文字与系统弹出菜单 ---------------- */
+/* iOS 长按界面上任意文字都会把它选中并弹出「拷贝 / 查询 / 翻译」菜单，浮层正好挡住画面。
+   这里覆盖整个游戏界面（html / body / .app 及全部后代），任何位置长按都不再弹出系统菜单；
+   本页是纯游戏页面，没有输入框也没有需要复制的正文，所以全页禁用文字选中没有副作用。 */
+html,
+body,
+.app,
+.app * {
   -webkit-user-select: none;   /* 老版 iOS Safari 只认带前缀的写法 */
   user-select: none;
   -webkit-touch-callout: none; /* 关键：关掉长按弹出的系统选择菜单 */
