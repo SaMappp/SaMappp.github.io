@@ -1290,6 +1290,16 @@
     releaseJump();
   });
 
+  // 触屏长按会触发系统文字选择菜单（Copy / 查询），挡住按键和画面，这里兜底拦掉。
+  // 只作用于按键区与画布：页面上的提示文字仍可正常选中复制。
+  function blockNativeSelection(node) {
+    if (!node) return;
+    node.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+    node.addEventListener('selectstart', function (e) { e.preventDefault(); });
+  }
+  blockNativeSelection(el.touchbar);
+  blockNativeSelection(el.stage);
+
   function toggleSound() {
     Sfx.muted = !Sfx.muted;
     Save.data.muted = Sfx.muted;

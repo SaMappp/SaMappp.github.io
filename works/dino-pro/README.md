@@ -318,3 +318,17 @@ var BIRD_GROUP_SAFETY    = 0.72;  // 按"一次满跳覆盖整群"反算群规�
 
 Chrome / Edge / Firefox / Safari 现代版本均可。
 使用了 `aspect-ratio`、`color-mix()`、`Pointer Events`、`Canvas 2D`、`WebAudio`。
+
+### iOS 长按保护
+
+iOS Safari 长按任意文字会把它选中并弹出「拷贝 / 查询 / 翻译」菜单，浮层刚好盖住虚拟按键和游戏画面。
+所以游戏区（`.touchbar` / `.topbar` / `.hudbar` / `.stage` 及其后代）统一禁用文字选中：
+
+```css
+-webkit-user-select: none;    /* 老版 iOS Safari 只认带前缀的写法 */
+user-select: none;
+-webkit-touch-callout: none;  /* 关键：关掉长按弹出的系统选择菜单 */
+```
+
+`game.js` 再用 `blockNativeSelection()` 给按键区和画布补一层 `contextmenu` / `selectstart` 拦截兜底。
+页面上的提示文字（`.rotate-hint`、`.legend`、`.footnote`）不在游戏区内，仍可正常长按复制。
