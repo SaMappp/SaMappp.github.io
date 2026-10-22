@@ -1,0 +1,808 @@
+[Windows timer] 1 ms timing enabled for this collector process; released on exit.
+
+╔═════════════════════════════════════════════════════════╗
+║             ESPectre - Live CSI Collection              ║
+╚═════════════════════════════════════════════════════════╝
+
+  Target:    http://192.168.31.182:62587/espectre/v1 (HTTP Direct)
+  Device ID: 027121349b989e30 (from mDNS)
+  Traffic:   192.168.31.182:5555
+  Start delay: 15.0s
+  Detector:  Lightweight Detection
+  Threshold: automatic (after startup calibration)
+  Pps:       100pps external
+  Window:    1000 ms (100 temporal slots at 100 pps)
+  Evaluation: 250 ms
+  Low-pass:  OFF
+  Hampel:    OFF
+  Save:      label=empty duration=60s
+  Ready gate: 3.0s below threshold before saving
+  Description: WiFiPresence; trial=20261022T101945Z-7486586d; scenario=S4; room=418; fan=on; activity=empty
+
+  The external traffic mode is persisted on the device after collection
+  Please remain still during the startup calibration phase
+  Press Ctrl+C to stop
+
+  Starting collection in 15.0s...
+    15.0s remaining
+    14.0s remaining
+    13.0s remaining
+    12.0s remaining
+    11.0s remaining
+    10.0s remaining
+    9.0s remaining
+    8.0s remaining
+    7.0s remaining
+    6.0s remaining
+    5.0s remaining
+    4.0s remaining
+    3.0s remaining
+    2.0s remaining
+    1.0s remaining
+    Starting now.
+
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:105.3 accepted:105.3 hwerr:-- occ:14% | ch:11 rssi:-47 | bp:no | http:0 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:101.0 accepted:101.0 hwerr:-- occ:29% | ch:11 rssi:-46 | bp:no | http:0 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:96.0 accepted:96.0 hwerr:-- occ:44% | ch:11 rssi:-48 | bp:no | http:0 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:102.8 accepted:102.8 hwerr:-- occ:48% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:101.0 accepted:101.0 hwerr:-- occ:48% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:101.0 accepted:101.0 hwerr:-- occ:50% | ch:11 rssi:-48 | bp:no | http:100 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:101.2 accepted:101.2 hwerr:-- occ:57% | ch:11 rssi:-48 | bp:no | http:100 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:84.3 accepted:84.3 hwerr:-- occ:62% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:416.7 accepted:416.7 hwerr:-- occ:62% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.361710 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░░░░░] | mvmt:0.367797 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░░░░░] | mvmt:0.154151 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░░░░░] | mvmt:0.154151 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:90.9 accepted:90.9 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░░░░░] | mvmt:0.202123 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:138.9 accepted:138.9 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░░░░░] | mvmt:0.153224 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:101.6 accepted:101.6 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░░░░░] | mvmt:0.041127 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░░░░░] | mvmt:0.092754 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:88.4 accepted:88.4 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░░░░░] | mvmt:0.092754 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:122.6 accepted:122.6 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [████░░░░░░░░░░░░░░░░] | mvmt:0.063844 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:97.2 accepted:97.2 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [████░░░░░░░░░░░░░░░░] | mvmt:0.146137 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:91.2 accepted:91.2 hwerr:-- occ:76% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█████░░░░░░░░░░░░░░░] | mvmt:0.120183 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:111.1 accepted:111.1 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█████░░░░░░░░░░░░░░░] | mvmt:0.051793 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:100.3 accepted:100.3 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█████░░░░░░░░░░░░░░░] | mvmt:0.051793 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:90.9 accepted:90.9 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:98 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [██████░░░░░░░░░░░░░░] | mvmt:0.012743 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:109.4 accepted:109.4 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:98 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [██████░░░░░░░░░░░░░░] | mvmt:0.005309 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:98 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [███████░░░░░░░░░░░░░] | mvmt:0.005120 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:98 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [███████░░░░░░░░░░░░░] | mvmt:0.102172 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:98 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [███████░░░░░░░░░░░░░] | mvmt:0.102172 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:59.4 accepted:59.4 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [████████░░░░░░░░░░░░] | mvmt:0.096878 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:127.4 accepted:127.4 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [████████░░░░░░░░░░░░] | mvmt:0.125792 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████░░░░░░░░░░░] | mvmt:0.174068 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████░░░░░░░░░░░] | mvmt:0.055043 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████░░░░░░░░░░░] | mvmt:0.055043 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:68.5 accepted:68.5 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [██████████░░░░░░░░░░] | mvmt:0.005760 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:94.2 accepted:94.2 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [██████████░░░░░░░░░░] | mvmt:0.003056 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:116.6 accepted:116.6 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [███████████░░░░░░░░░] | mvmt:0.462155 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:90.3 accepted:90.3 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [███████████░░░░░░░░░] | mvmt:0.731805 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:112.1 accepted:112.1 hwerr:-- occ:70% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [███████████░░░░░░░░░] | mvmt:0.731805 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:93.0 accepted:93.0 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [████████████░░░░░░░░] | mvmt:0.168799 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:87.6 accepted:87.6 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [████████████░░░░░░░░] | mvmt:0.031891 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:116.3 accepted:116.3 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████░░░░░░░] | mvmt:0.073914 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:87.5 accepted:87.5 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████░░░░░░░] | mvmt:0.250449 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:116.3 accepted:116.3 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████░░░░░░░] | mvmt:0.250449 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:87.0 accepted:87.0 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [██████████████░░░░░░] | mvmt:0.127883 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:101.8 accepted:101.8 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [██████████████░░░░░░] | mvmt:0.128285 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [███████████████░░░░░] | mvmt:0.024671 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:73% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [███████████████░░░░░] | mvmt:0.072079 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [███████████████░░░░░] | mvmt:0.072079 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:0.0 accepted:0.0 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [████████████████░░░░] | mvmt:0.084122 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:102.0 accepted:102.0 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [████████████████░░░░] | mvmt:0.068487 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████████░░░] | mvmt:0.070636 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:101.2 accepted:101.2 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████████░░░] | mvmt:0.070636 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:84.4 accepted:84.4 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [██████████████████░░] | mvmt:0.052218 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:357.1 accepted:357.1 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [██████████████████░░] | mvmt:0.003166 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [███████████████████░] | mvmt:0.039563 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:91.6 accepted:91.6 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [███████████████████░] | mvmt:0.003673 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:108.5 accepted:108.5 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [███████████████████░] | mvmt:0.003673 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:96.8 accepted:96.8 hwerr:-- occ:74% | ch:11 rssi:-48 | bp:no | http:102 drop:0.0%
+  STATUS: STABILIZING 1/1 | warmup 0/1 | ready 0.0/3.0s | packets 1207 | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:113.6 accepted:113.6 hwerr:-- occ:0% | ch:11 rssi:-48 | bp:no | http:102 drop:0.0% | WARMUP
+  STATUS: STABILIZING 1/1 | warmup 0/1 | ready 0.0/3.0s | packets 1233 | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:88.1 accepted:88.1 hwerr:-- occ:19% | ch:11 rssi:-46 | bp:no | http:102 drop:0.0% | WARMUP
+  STATUS: STABILIZING 1/1 | warmup 0/1 | ready 0.0/3.0s | packets 1259 | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:116.6 accepted:116.6 hwerr:-- occ:36% | ch:11 rssi:-46 | bp:no | http:102 drop:0.0% | WARMUP
+  STATUS: STABILIZING 1/1 | warmup 0/1 | ready 0.0/3.0s | packets 1284 | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:87.1 accepted:87.1 hwerr:-- occ:55% | ch:11 rssi:-48 | bp:no | http:102 drop:0.0% | WARMUP
+  STATUS: STABILIZING 1/1 | warmup 0/1 | ready 0.0/3.0s | packets 1302 | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:119.2 accepted:119.2 hwerr:-- occ:67% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | WARMUP
+  STATUS: STABILIZING 1/1 | stable 1/1 | ready 0.0/3.0s | packets 1309 | capture 0
+    ip=192.168.31.182 chip=C6 | [████████░░░░░░░░|░░░] | mvmt:0.442483 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:84.3 accepted:84.3 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | STABLE
+  STATUS: STABILIZING 1/1 | stable 1/1 | ready 0.1/3.0s | packets 1335 | capture 0
+    ip=192.168.31.182 chip=C6 | [████████████░░░░|░░░] | mvmt:0.612048 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:107.9 accepted:107.9 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0% | STABLE
+  STATUS: STABILIZING 1/1 | stable 1/1 | ready 0.4/3.0s | packets 1360 | capture 0
+    ip=192.168.31.182 chip=C6 | [████████████░░░░|░░░] | mvmt:0.648088 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0% | STABLE
+  STATUS: STABILIZING 1/1 | stable 1/1 | ready 0.0/3.0s | packets 1386 | capture 0
+    ip=192.168.31.182 chip=C6 | [██████████████░░|░░░] | mvmt:0.742449 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0% | STABLE
+  STATUS: STABILIZING 1/1 | warmup 0/1 | ready 0.0/3.0s | packets 1402 | capture 0
+    ip=192.168.31.182 chip=C6 | [██████████████░░|░░░] | mvmt:0.742449 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:94.7 accepted:94.7 hwerr:-- occ:69% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0% | WARMUP
+  STATUS: STABILIZING 1/1 | stable 1/1 | ready 0.1/3.0s | packets 1412 | capture 0
+    ip=192.168.31.182 chip=C6 | [██████████████░░|░░░] | mvmt:0.742894 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:108.7 accepted:108.7 hwerr:-- occ:70% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | STABLE
+  STATUS: STABILIZING 1/1 | stable 1/1 | ready 0.0/3.0s | packets 1437 | capture 0
+    ip=192.168.31.182 chip=C6 | [████████░░░░░░░░|░░░] | mvmt:0.422611 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0% | STABLE
+  STATUS: STABILIZING 1/1 | stable 1/1 | ready 0.2/3.0s | packets 1463 | capture 0
+    ip=192.168.31.182 chip=C6 | [███████░░░░░░░░░|░░░] | mvmt:0.352471 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0% | STABLE
+  STATUS: STABILIZING 1/1 | stable 1/1 | ready 0.5/3.0s | packets 1489 | capture 0
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.152923 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:88.1 accepted:88.1 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | STABLE
+  STATUS: STABILIZING 1/1 | stable 1/1 | ready 0.6/3.0s | packets 1500 | capture 0
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.152923 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:104.8 accepted:104.8 hwerr:-- occ:75% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0% | STABLE
+  STATUS: STABILIZING 1/1 | stable 1/1 | ready 0.7/3.0s | packets 1514 | capture 0
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.055534 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:126.1 accepted:126.1 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0% | STABLE
+  STATUS: STABILIZING 1/1 | stable 1/1 | ready 1.0/3.0s | packets 1540 | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.001357 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:87.8 accepted:87.8 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0% | STABLE
+  STATUS: STABILIZING 1/1 | stable 1/1 | ready 1.2/3.0s | packets 1565 | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.001053 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:116.8 accepted:116.8 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:97 drop:0.0% | STABLE
+  STATUS: STABILIZING 1/1 | stable 1/1 | ready 1.4/3.0s | packets 1591 | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.016681 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:97 drop:0.0% | STABLE
+  STATUS: STABILIZING 1/1 | stable 1/1 | ready 1.5/3.0s | packets 1601 | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.016681 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:82.6 accepted:82.6 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0% | STABLE
+  STATUS: STABILIZING 1/1 | stable 1/1 | ready 1.7/3.0s | packets 1616 | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.015069 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:112.8 accepted:112.8 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:100 drop:0.0% | STABLE
+  STATUS: STABILIZING 1/1 | stable 1/1 | ready 2.0/3.0s | packets 1642 | capture 0
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.144294 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0% | STABLE
+  STATUS: STABILIZING 1/1 | stable 1/1 | ready 2.2/3.0s | packets 1664 | capture 0
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.107147 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:89.1 accepted:89.1 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0% | STABLE
+  STATUS: STABILIZING 1/1 | stable 1/1 | ready 2.5/3.0s | packets 1693 | capture 0
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.099126 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:111.1 accepted:111.1 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0% | STABLE
+  STATUS: STABILIZING 1/1 | stable 1/1 | ready 2.6/3.0s | packets 1703 | capture 0
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.099126 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:98.0 accepted:98.0 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0% | STABLE
+  STATUS: STABILIZING 1/1 | stable 1/1 | ready 2.7/3.0s | packets 1719 | capture 0
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.157296 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0% | STABLE
+  STATUS: STABILIZING 1/1 | stable 1/1 | ready 3.0/3.0s | packets 1744 | capture 0
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.142086 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0% | STABLE
+  STATUS: RECORDING 1/1 | elapsed 0.0/60.0s | capture 1
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.142086 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:17.9 accepted:17.9 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 0.2/60.0s | capture 26
+    ip=192.168.31.182 chip=C6 | [████░░░░░░░░░░░░|░░░] | mvmt:0.249163 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:122.0 accepted:122.0 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 0.5/60.0s | capture 51
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.081862 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 0.5/60.0s | capture 59
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.081862 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:97.6 accepted:97.6 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 0.7/60.0s | capture 77
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:101.7 accepted:101.7 hwerr:-- occ:69% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 1.0/60.0s | capture 103
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.030462 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 1.2/60.0s | capture 128
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:69% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 1.5/60.0s | capture 154
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.128215 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 1.5/60.0s | capture 159
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.128215 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:96.2 accepted:96.2 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 1.7/60.0s | capture 179
+    ip=192.168.31.182 chip=C6 | [████░░░░░░░░░░░░|░░░] | mvmt:0.207685 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.5 accepted:99.5 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 2.0/60.0s | capture 205
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.086214 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:101.2 accepted:101.2 hwerr:-- occ:73% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 2.3/60.0s | capture 231
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.019544 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 2.5/60.0s | capture 256
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.019544 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:88.7 accepted:88.7 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 2.5/60.0s | capture 257
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.085474 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:90.9 accepted:90.9 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 2.8/60.0s | capture 283
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.095434 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:114.0 accepted:114.0 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 3.1/60.0s | capture 309
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.131865 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:87.5 accepted:87.5 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:96 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 3.3/60.0s | capture 334
+    ip=192.168.31.182 chip=C6 | [███████░░░░░░░░░|░░░] | mvmt:0.357815 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:117.9 accepted:117.9 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 3.5/60.0s | capture 359
+    ip=192.168.31.182 chip=C6 | [███████░░░░░░░░░|░░░] | mvmt:0.357815 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 3.6/60.0s | capture 360
+    ip=192.168.31.182 chip=C6 | [█████░░░░░░░░░░░|░░░] | mvmt:0.250149 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:26.3 accepted:26.3 hwerr:-- occ:74% | ch:11 rssi:-48 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 3.8/60.0s | capture 385
+    ip=192.168.31.182 chip=C6 | [██████████░░░░░░|░░░] | mvmt:0.544059 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:113.6 accepted:113.6 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 4.1/60.0s | capture 411
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.096889 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:89.0 accepted:89.0 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 4.3/60.0s | capture 437
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.098260 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:114.5 accepted:114.5 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 4.5/60.0s | capture 459
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.098260 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:98.7 accepted:98.7 hwerr:-- occ:70% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 4.6/60.0s | capture 462
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.011372 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:49.2 accepted:49.2 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 4.8/60.0s | capture 487
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:115.2 accepted:115.2 hwerr:-- occ:69% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 5.1/60.0s | capture 513
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.031395 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:88.7 accepted:88.7 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 5.3/60.0s | capture 538
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.008043 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:115.7 accepted:115.7 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 5.5/60.0s | capture 559
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.008043 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:98.1 accepted:98.1 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 5.6/60.0s | capture 564
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.017033 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:61.0 accepted:61.0 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 5.8/60.0s | capture 589
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.014609 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:116.3 accepted:116.3 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 6.1/60.0s | capture 615
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.002681 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:73% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 6.3/60.0s | capture 640
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.001464 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:98.8 accepted:98.8 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 6.5/60.0s | capture 656
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.001464 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:82.9 accepted:82.9 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 6.6/60.0s | capture 666
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000088 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:151.5 accepted:151.5 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:96 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 6.9/60.0s | capture 689
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000016 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:93.1 accepted:93.1 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:96 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 7.1/60.0s | capture 717
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000266 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:105.7 accepted:105.7 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 7.4/60.0s | capture 743
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.001500 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 7.5/60.0s | capture 758
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.001500 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:93.2 accepted:93.2 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 7.7/60.0s | capture 769
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.051343 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:85.3 accepted:85.3 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 7.9/60.0s | capture 795
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.111019 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:115.0 accepted:115.0 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 8.2/60.0s | capture 820
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.147757 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:87.1 accepted:87.1 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 8.4/60.0s | capture 845
+    ip=192.168.31.182 chip=C6 | [█████████░░░░░░░|░░░] | mvmt:0.497968 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:117.4 accepted:117.4 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 8.5/60.0s | capture 859
+    ip=192.168.31.182 chip=C6 | [█████████░░░░░░░|░░░] | mvmt:0.497968 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:95.2 accepted:95.2 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 8.7/60.0s | capture 871
+    ip=192.168.31.182 chip=C6 | [███████████████░|░░░] | mvmt:0.761127 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:106.2 accepted:106.2 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 8.9/60.0s | capture 896
+    ip=192.168.31.182 chip=C6 | [█████████████░░░|░░░] | mvmt:0.690725 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 9.2/60.0s | capture 922
+    ip=192.168.31.182 chip=C6 | [██████████████░░|░░░] | mvmt:0.746158 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:101.2 accepted:101.2 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 9.4/60.0s | capture 945
+    ip=192.168.31.182 chip=C6 | [████████████████|░░░] | mvmt:0.813368 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:93.1 accepted:93.1 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 9.5/60.0s | capture 959
+    ip=192.168.31.182 chip=C6 | [████████████████|░░░] | mvmt:0.813368 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:105.3 accepted:105.3 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 9.7/60.0s | capture 973
+    ip=192.168.31.182 chip=C6 | [████████░░░░░░░░|░░░] | mvmt:0.408104 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:106.9 accepted:106.9 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 9.9/60.0s | capture 999
+    ip=192.168.31.182 chip=C6 | [█████░░░░░░░░░░░|░░░] | mvmt:0.264843 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 10.2/60.0s | capture 1024
+    ip=192.168.31.182 chip=C6 | [█████████░░░░░░░|░░░] | mvmt:0.451121 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:101.2 accepted:101.2 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 10.4/60.0s | capture 1050
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.098474 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:98.5 accepted:98.5 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 10.5/60.0s | capture 1059
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.098474 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:93.8 accepted:93.8 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 10.7/60.0s | capture 1076
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.108078 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:86.3 accepted:86.3 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 11.0/60.0s | capture 1101
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.114200 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:116.8 accepted:116.8 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 11.2/60.0s | capture 1127
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.169557 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 11.5/60.0s | capture 1152
+    ip=192.168.31.182 chip=C6 | [███████░░░░░░░░░|░░░] | mvmt:0.369206 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 11.5/60.0s | capture 1157
+    ip=192.168.31.182 chip=C6 | [███████░░░░░░░░░|░░░] | mvmt:0.369206 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:63.3 accepted:63.3 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 11.7/60.0s | capture 1178
+    ip=192.168.31.182 chip=C6 | [████░░░░░░░░░░░░|░░░] | mvmt:0.221244 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:117.3 accepted:117.3 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 12.0/60.0s | capture 1201
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.126230 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:93.5 accepted:93.5 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 12.2/60.0s | capture 1229
+    ip=192.168.31.182 chip=C6 | [████░░░░░░░░░░░░|░░░] | mvmt:0.227680 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:106.1 accepted:106.1 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:97 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 12.5/60.0s | capture 1255
+    ip=192.168.31.182 chip=C6 | [█████░░░░░░░░░░░|░░░] | mvmt:0.267254 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:97 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 12.5/60.0s | capture 1260
+    ip=192.168.31.182 chip=C6 | [█████░░░░░░░░░░░|░░░] | mvmt:0.267254 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 12.8/60.0s | capture 1281
+    ip=192.168.31.182 chip=C6 | [████████░░░░░░░░|░░░] | mvmt:0.439507 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:84.3 accepted:84.3 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 13.0/60.0s | capture 1306
+    ip=192.168.31.182 chip=C6 | [███████████░░░░░|░░░] | mvmt:0.580239 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:118.5 accepted:118.5 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 13.3/60.0s | capture 1331
+    ip=192.168.31.182 chip=C6 | [████████░░░░░░░░|░░░] | mvmt:0.407275 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 13.5/60.0s | capture 1357
+    ip=192.168.31.182 chip=C6 | [████████░░░░░░░░|░░░] | mvmt:0.433484 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:98.9 accepted:98.9 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 13.5/60.0s | capture 1360
+    ip=192.168.31.182 chip=C6 | [████████░░░░░░░░|░░░] | mvmt:0.433484 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 13.8/60.0s | capture 1383
+    ip=192.168.31.182 chip=C6 | [█████████░░░░░░░|░░░] | mvmt:0.467699 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:101.3 accepted:101.3 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 14.0/60.0s | capture 1408
+    ip=192.168.31.182 chip=C6 | [██████████░░░░░░|░░░] | mvmt:0.546941 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 14.3/60.0s | capture 1434
+    ip=192.168.31.182 chip=C6 | [█████████░░░░░░░|░░░] | mvmt:0.494702 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 14.5/60.0s | capture 1460
+    ip=192.168.31.182 chip=C6 | [██████░░░░░░░░░░|░░░] | mvmt:0.333296 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 14.5/60.0s | capture 1460
+    ip=192.168.31.182 chip=C6 | [██████░░░░░░░░░░|░░░] | mvmt:0.333296 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:0.0 accepted:0.0 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 14.8/60.0s | capture 1486
+    ip=192.168.31.182 chip=C6 | [████░░░░░░░░░░░░|░░░] | mvmt:0.215667 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:89.7 accepted:89.7 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 15.1/60.0s | capture 1511
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.179902 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:115.2 accepted:115.2 hwerr:-- occ:70% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 15.3/60.0s | capture 1537
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.123917 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:88.7 accepted:88.7 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 15.5/60.0s | capture 1557
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.123917 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 15.6/60.0s | capture 1562
+    ip=192.168.31.182 chip=C6 | [██████████░░░░░░|░░░] | mvmt:0.531260 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:294.1 accepted:294.1 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:96 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 15.9/60.0s | capture 1588
+    ip=192.168.31.182 chip=C6 | [█████░░░░░░░░░░░|░░░] | mvmt:0.294798 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:87.8 accepted:87.8 hwerr:-- occ:74% | ch:11 rssi:-48 | bp:no | http:96 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 16.1/60.0s | capture 1613
+    ip=192.168.31.182 chip=C6 | [█████████░░░░░░░|░░░] | mvmt:0.473705 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:117.4 accepted:117.4 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 16.3/60.0s | capture 1639
+    ip=192.168.31.182 chip=C6 | [█████████████░░░|░░░] | mvmt:0.675254 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:96 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 16.5/60.0s | capture 1659
+    ip=192.168.31.182 chip=C6 | [█████████████░░░|░░░] | mvmt:0.675254 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:93.5 accepted:93.5 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 16.6/60.0s | capture 1664
+    ip=192.168.31.182 chip=C6 | [████████░░░░░░░░|░░░] | mvmt:0.448847 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:135.1 accepted:135.1 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 16.8/60.0s | capture 1690
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.175716 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:101.2 accepted:101.2 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 17.1/60.0s | capture 1716
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:69% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 17.4/60.0s | capture 1741
+    ip=192.168.31.182 chip=C6 | [████░░░░░░░░░░░░|░░░] | mvmt:0.241348 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 17.6/60.0s | capture 1760
+    ip=192.168.31.182 chip=C6 | [████░░░░░░░░░░░░|░░░] | mvmt:0.241348 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:97.9 accepted:97.9 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 17.6/60.0s | capture 1767
+    ip=192.168.31.182 chip=C6 | [███████░░░░░░░░░|░░░] | mvmt:0.358188 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:106.1 accepted:106.1 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 17.9/60.0s | capture 1793
+    ip=192.168.31.182 chip=C6 | [████████████░░░░|░░░] | mvmt:0.646620 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:88.7 accepted:88.7 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 18.1/60.0s | capture 1819
+    ip=192.168.31.182 chip=C6 | [███████████████░|░░░] | mvmt:0.780335 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:115.0 accepted:115.0 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 18.4/60.0s | capture 1845
+    ip=192.168.31.182 chip=C6 | [██████████████░░|░░░] | mvmt:0.731467 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:90.6 accepted:90.6 hwerr:-- occ:73% | ch:11 rssi:-48 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 18.6/60.0s | capture 1860
+    ip=192.168.31.182 chip=C6 | [██████████████░░|░░░] | mvmt:0.731467 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:115.4 accepted:115.4 hwerr:-- occ:69% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 18.6/60.0s | capture 1870
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:108.7 accepted:108.7 hwerr:-- occ:69% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 18.9/60.0s | capture 1896
+    ip=192.168.31.182 chip=C6 | [███████████████░|░░░] | mvmt:0.767906 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:89.3 accepted:89.3 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 19.2/60.0s | capture 1921
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:114.2 accepted:114.2 hwerr:-- occ:69% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 19.4/60.0s | capture 1947
+    ip=192.168.31.182 chip=C6 | [█████░░░░░░░░░░░|░░░] | mvmt:0.264922 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:89.0 accepted:89.0 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 19.6/60.0s | capture 1956
+    ip=192.168.31.182 chip=C6 | [█████░░░░░░░░░░░|░░░] | mvmt:0.264922 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:84.9 accepted:84.9 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 19.7/60.0s | capture 1973
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.078539 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:138.2 accepted:138.2 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 20.0/60.0s | capture 2002
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.088764 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 20.2/60.0s | capture 2028
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.107088 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 20.5/60.0s | capture 2053
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.057099 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 20.6/60.0s | capture 2059
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.057099 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:75.9 accepted:75.9 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 20.7/60.0s | capture 2079
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.031458 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:111.1 accepted:111.1 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 21.0/60.0s | capture 2105
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.129469 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 21.3/60.0s | capture 2131
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.004906 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:88.1 accepted:88.1 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 21.5/60.0s | capture 2157
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.005255 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:116.6 accepted:116.6 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 21.6/60.0s | capture 2161
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.005255 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:97.6 accepted:97.6 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 21.8/60.0s | capture 2183
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.002970 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:87.0 accepted:87.0 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 22.0/60.0s | capture 2208
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000581 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:114.7 accepted:114.7 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 22.3/60.0s | capture 2234
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.004568 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:90.3 accepted:90.3 hwerr:-- occ:74% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 22.5/60.0s | capture 2259
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.006219 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:113.1 accepted:113.1 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 22.6/60.0s | capture 2260
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.006219 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:47.6 accepted:47.6 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:98 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 22.8/60.0s | capture 2285
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.174459 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:90.3 accepted:90.3 hwerr:-- occ:74% | ch:11 rssi:-48 | bp:no | http:98 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 23.1/60.0s | capture 2311
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.040599 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:116.6 accepted:116.6 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:98 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 23.3/60.0s | capture 2336
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.021045 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:88.3 accepted:88.3 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:98 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 23.6/60.0s | capture 2361
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.021045 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:115.2 accepted:115.2 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 23.6/60.0s | capture 2362
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.059341 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:111.1 accepted:111.1 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 23.8/60.0s | capture 2388
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.005298 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:91.5 accepted:91.5 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 24.1/60.0s | capture 2413
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.023738 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:111.1 accepted:111.1 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 24.4/60.0s | capture 2438
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.062315 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:87.1 accepted:87.1 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 24.6/60.0s | capture 2458
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.062315 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:102.0 accepted:102.0 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 24.6/60.0s | capture 2463
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.088902 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:277.8 accepted:277.8 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:96 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 24.8/60.0s | capture 2489
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.081941 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:73% | ch:11 rssi:-48 | bp:no | http:96 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 25.1/60.0s | capture 2514
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.019694 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 25.3/60.0s | capture 2540
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.063119 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:96 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 25.6/60.0s | capture 2560
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.063119 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:93.9 accepted:93.9 hwerr:-- occ:73% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 25.6/60.0s | capture 2565
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.049518 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:128.2 accepted:128.2 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 25.9/60.0s | capture 2591
+    ip=192.168.31.182 chip=C6 | [█████░░░░░░░░░░░|░░░] | mvmt:0.268561 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 26.1/60.0s | capture 2617
+    ip=192.168.31.182 chip=C6 | [███████████░░░░░|░░░] | mvmt:0.588298 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 26.4/60.0s | capture 2642
+    ip=192.168.31.182 chip=C6 | [█████████░░░░░░░|░░░] | mvmt:0.492378 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 26.6/60.0s | capture 2661
+    ip=192.168.31.182 chip=C6 | [█████████░░░░░░░|░░░] | mvmt:0.492378 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:98.4 accepted:98.4 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 26.6/60.0s | capture 2668
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:101.4 accepted:101.4 hwerr:-- occ:69% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 26.9/60.0s | capture 2693
+    ip=192.168.31.182 chip=C6 | [█████████░░░░░░░|░░░] | mvmt:0.477875 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 27.1/60.0s | capture 2719
+    ip=192.168.31.182 chip=C6 | [██████░░░░░░░░░░|░░░] | mvmt:0.319388 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 27.4/60.0s | capture 2745
+    ip=192.168.31.182 chip=C6 | [███████████░░░░░|░░░] | mvmt:0.588425 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:87.2 accepted:87.2 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 27.6/60.0s | capture 2761
+    ip=192.168.31.182 chip=C6 | [███████████░░░░░|░░░] | mvmt:0.588425 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:127.0 accepted:127.0 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 27.6/60.0s | capture 2770
+    ip=192.168.31.182 chip=C6 | [████████░░░░░░░░|░░░] | mvmt:0.439469 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:102.3 accepted:102.3 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 27.9/60.0s | capture 2796
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.154166 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:101.2 accepted:101.2 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 28.2/60.0s | capture 2821
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.169189 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 28.4/60.0s | capture 2847
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.029012 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 28.6/60.0s | capture 2857
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.029012 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:68.5 accepted:68.5 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 28.7/60.0s | capture 2873
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:137.9 accepted:137.9 hwerr:-- occ:69% | ch:11 rssi:-46 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 29.0/60.0s | capture 2899
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.076868 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:88.4 accepted:88.4 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 29.2/60.0s | capture 2925
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:115.6 accepted:115.6 hwerr:-- occ:69% | ch:11 rssi:-48 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 29.5/60.0s | capture 2950
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.110493 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:87.4 accepted:87.4 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 29.6/60.0s | capture 2960
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.110493 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:125.0 accepted:125.0 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 29.7/60.0s | capture 2975
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.057063 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:111.9 accepted:111.9 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 30.0/60.0s | capture 3001
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.033680 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:87.2 accepted:87.2 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 30.2/60.0s | capture 3026
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.032039 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:117.4 accepted:117.4 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 30.5/60.0s | capture 3052
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.025060 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 30.6/60.0s | capture 3061
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.025060 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:92.8 accepted:92.8 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 30.7/60.0s | capture 3077
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.045615 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:103.9 accepted:103.9 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 31.0/60.0s | capture 3103
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.044951 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 31.2/60.0s | capture 3129
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.008400 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 31.5/60.0s | capture 3155
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.005447 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:88.4 accepted:88.4 hwerr:-- occ:73% | ch:11 rssi:-48 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 31.6/60.0s | capture 3161
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.005447 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:181.8 accepted:181.8 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 31.8/60.0s | capture 3181
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.002090 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:105.3 accepted:105.3 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 32.0/60.0s | capture 3207
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.031984 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:90.0 accepted:90.0 hwerr:-- occ:75% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 32.3/60.0s | capture 3232
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.079964 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:112.6 accepted:112.6 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 32.6/60.0s | capture 3258
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.042705 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:87.2 accepted:87.2 hwerr:-- occ:75% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 32.6/60.0s | capture 3261
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.042705 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:3000.0 accepted:3000.0 hwerr:-- occ:75% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 32.8/60.0s | capture 3283
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.044208 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:104.3 accepted:104.3 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 33.1/60.0s | capture 3309
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.036506 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:88.7 accepted:88.7 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 33.3/60.0s | capture 3334
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.046145 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:115.2 accepted:115.2 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 33.5/60.0s | capture 3359
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.062144 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 33.6/60.0s | capture 3359
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.062144 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:0.0 accepted:0.0 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:97 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 33.8/60.0s | capture 3385
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.041232 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:111.1 accepted:111.1 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:97 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 34.0/60.0s | capture 3410
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.014831 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:97 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 34.3/60.0s | capture 3436
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.010163 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 34.6/60.0s | capture 3461
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.010163 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:96.9 accepted:96.9 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 34.6/60.0s | capture 3462
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.025515 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:26.3 accepted:26.3 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 34.8/60.0s | capture 3487
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.071727 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:116.8 accepted:116.8 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 35.1/60.0s | capture 3513
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.068945 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 35.3/60.0s | capture 3538
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.144997 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 35.6/60.0s | capture 3561
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.144997 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:97.0 accepted:97.0 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 35.6/60.0s | capture 3564
+    ip=192.168.31.182 chip=C6 | [████░░░░░░░░░░░░|░░░] | mvmt:0.203341 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:142.9 accepted:142.9 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 35.8/60.0s | capture 3589
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.187698 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 36.1/60.0s | capture 3615
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.067855 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 36.4/60.0s | capture 3641
+    ip=192.168.31.182 chip=C6 | [███████░░░░░░░░░|░░░] | mvmt:0.393386 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 36.6/60.0s | capture 3662
+    ip=192.168.31.182 chip=C6 | [███████░░░░░░░░░|░░░] | mvmt:0.393386 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:101.0 accepted:101.0 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 36.6/60.0s | capture 3666
+    ip=192.168.31.182 chip=C6 | [██████████░░░░░░|░░░] | mvmt:0.501518 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:95.2 accepted:95.2 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 36.9/60.0s | capture 3692
+    ip=192.168.31.182 chip=C6 | [██████░░░░░░░░░░|░░░] | mvmt:0.309649 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 37.1/60.0s | capture 3717
+    ip=192.168.31.182 chip=C6 | [████████░░░░░░░░|░░░] | mvmt:0.424133 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 37.4/60.0s | capture 3743
+    ip=192.168.31.182 chip=C6 | [██████░░░░░░░░░░|░░░] | mvmt:0.309526 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 37.6/60.0s | capture 3758
+    ip=192.168.31.182 chip=C6 | [██████░░░░░░░░░░|░░░] | mvmt:0.309526 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:78.5 accepted:78.5 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 37.6/60.0s | capture 3769
+    ip=192.168.31.182 chip=C6 | [████░░░░░░░░░░░░|░░░] | mvmt:0.239046 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:161.8 accepted:161.8 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 37.9/60.0s | capture 3794
+    ip=192.168.31.182 chip=C6 | [█████░░░░░░░░░░░|░░░] | mvmt:0.290447 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 38.1/60.0s | capture 3820
+    ip=192.168.31.182 chip=C6 | [████░░░░░░░░░░░░|░░░] | mvmt:0.235440 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 38.4/60.0s | capture 3845
+    ip=192.168.31.182 chip=C6 | [██████░░░░░░░░░░|░░░] | mvmt:0.348459 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:98.8 accepted:98.8 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 38.6/60.0s | capture 3861
+    ip=192.168.31.182 chip=C6 | [██████░░░░░░░░░░|░░░] | mvmt:0.348459 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:94.1 accepted:94.1 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 38.7/60.0s | capture 3871
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.092742 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:113.6 accepted:113.6 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 38.9/60.0s | capture 3897
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.085463 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 39.2/60.0s | capture 3923
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.062879 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:89.0 accepted:89.0 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 39.4/60.0s | capture 3948
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.153840 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:114.7 accepted:114.7 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:102 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 39.6/60.0s | capture 3961
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.153840 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:92.9 accepted:92.9 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 39.7/60.0s | capture 3973
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.190807 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:109.1 accepted:109.1 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 39.9/60.0s | capture 3999
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.156001 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 40.2/60.0s | capture 4025
+    ip=192.168.31.182 chip=C6 | [████░░░░░░░░░░░░|░░░] | mvmt:0.229723 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 40.4/60.0s | capture 4050
+    ip=192.168.31.182 chip=C6 | [██████░░░░░░░░░░|░░░] | mvmt:0.345860 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:97.7 accepted:97.7 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 40.6/60.0s | capture 4062
+    ip=192.168.31.182 chip=C6 | [██████░░░░░░░░░░|░░░] | mvmt:0.345860 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:102.6 accepted:102.6 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 40.7/60.0s | capture 4076
+    ip=192.168.31.182 chip=C6 | [██████████░░░░░░|░░░] | mvmt:0.515768 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:102.9 accepted:102.9 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 41.0/60.0s | capture 4101
+    ip=192.168.31.182 chip=C6 | [███████░░░░░░░░░|░░░] | mvmt:0.372889 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 41.2/60.0s | capture 4127
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.176161 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 41.5/60.0s | capture 4152
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.173052 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:98.4 accepted:98.4 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 41.6/60.0s | capture 4162
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.173052 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:102.0 accepted:102.0 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 41.7/60.0s | capture 4178
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.026007 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:101.3 accepted:101.3 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 42.0/60.0s | capture 4204
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:69% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 42.3/60.0s | capture 4230
+    ip=192.168.31.182 chip=C6 | [██████░░░░░░░░░░|░░░] | mvmt:0.308163 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:88.1 accepted:88.1 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 42.5/60.0s | capture 4255
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.179145 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:116.3 accepted:116.3 hwerr:-- occ:70% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 42.6/60.0s | capture 4260
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.179145 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:68.5 accepted:68.5 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 42.8/60.0s | capture 4281
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.102547 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:113.5 accepted:113.5 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:97 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 43.0/60.0s | capture 4306
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.145242 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 43.3/60.0s | capture 4332
+    ip=192.168.31.182 chip=C6 | [████░░░░░░░░░░░░|░░░] | mvmt:0.245021 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 43.5/60.0s | capture 4357
+    ip=192.168.31.182 chip=C6 | [███████░░░░░░░░░|░░░] | mvmt:0.395432 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:97 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 43.6/60.0s | capture 4362
+    ip=192.168.31.182 chip=C6 | [███████░░░░░░░░░|░░░] | mvmt:0.395432 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:90.9 accepted:90.9 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 43.8/60.0s | capture 4383
+    ip=192.168.31.182 chip=C6 | [███████████░░░░░|░░░] | mvmt:0.599581 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:102.4 accepted:102.4 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 44.0/60.0s | capture 4409
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:69% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 44.3/60.0s | capture 4434
+    ip=192.168.31.182 chip=C6 | [█████████░░░░░░░|░░░] | mvmt:0.472641 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 44.5/60.0s | capture 4460
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:69% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 44.6/60.0s | capture 4462
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:83.3 accepted:83.3 hwerr:-- occ:69% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 44.8/60.0s | capture 4486
+    ip=192.168.31.182 chip=C6 | [█████░░░░░░░░░░░|░░░] | mvmt:0.280783 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:88.6 accepted:88.6 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 45.1/60.0s | capture 4511
+    ip=192.168.31.182 chip=C6 | [████░░░░░░░░░░░░|░░░] | mvmt:0.205572 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:116.8 accepted:116.8 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 45.3/60.0s | capture 4537
+    ip=192.168.31.182 chip=C6 | [████░░░░░░░░░░░░|░░░] | mvmt:0.230066 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 45.6/60.0s | capture 4562
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.073294 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:70% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 45.6/60.0s | capture 4562
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.073294 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:0.0 accepted:0.0 hwerr:-- occ:70% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 45.8/60.0s | capture 4588
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.125138 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:102.0 accepted:102.0 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 46.1/60.0s | capture 4613
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:67% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 46.3/60.0s | capture 4639
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:68% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 46.6/60.0s | capture 4660
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:89.0 accepted:89.0 hwerr:-- occ:69% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 46.6/60.0s | capture 4664
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:222.2 accepted:222.2 hwerr:-- occ:67% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 46.8/60.0s | capture 4690
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:102.0 accepted:102.0 hwerr:-- occ:68% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 47.1/60.0s | capture 4716
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:98.5 accepted:98.5 hwerr:-- occ:69% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 47.4/60.0s | capture 4742
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.193525 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:89.0 accepted:89.0 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 47.6/60.0s | capture 4762
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.193525 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:116.3 accepted:116.3 hwerr:-- occ:70% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 47.6/60.0s | capture 4767
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:111.1 accepted:111.1 hwerr:-- occ:69% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 47.9/60.0s | capture 4793
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.187933 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:87.8 accepted:87.8 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 48.1/60.0s | capture 4818
+    ip=192.168.31.182 chip=C6 | [███████░░░░░░░░░|░░░] | mvmt:0.362251 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:117.4 accepted:117.4 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 48.4/60.0s | capture 4844
+    ip=192.168.31.182 chip=C6 | [████████░░░░░░░░|░░░] | mvmt:0.424119 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:101.2 accepted:101.2 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 48.6/60.0s | capture 4863
+    ip=192.168.31.182 chip=C6 | [████████░░░░░░░░|░░░] | mvmt:0.424119 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:69% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 48.6/60.0s | capture 4869
+    ip=192.168.31.182 chip=C6 | [███████░░░░░░░░░|░░░] | mvmt:0.396004 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:96.8 accepted:96.8 hwerr:-- occ:70% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 48.9/60.0s | capture 4895
+    ip=192.168.31.182 chip=C6 | [████████░░░░░░░░|░░░] | mvmt:0.428578 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 49.2/60.0s | capture 4921
+    ip=192.168.31.182 chip=C6 | [███████████░░░░░|░░░] | mvmt:0.564805 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:70% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 49.4/60.0s | capture 4946
+    ip=192.168.31.182 chip=C6 | [████░░░░░░░░░░░░|░░░] | mvmt:0.202689 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:101.2 accepted:101.2 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 49.6/60.0s | capture 4963
+    ip=192.168.31.182 chip=C6 | [████░░░░░░░░░░░░|░░░] | mvmt:0.202689 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.4 accepted:99.4 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 49.7/60.0s | capture 4972
+    ip=192.168.31.182 chip=C6 | [██████░░░░░░░░░░|░░░] | mvmt:0.334605 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:98.9 accepted:98.9 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 50.0/60.0s | capture 4998
+    ip=192.168.31.182 chip=C6 | [████░░░░░░░░░░░░|░░░] | mvmt:0.238562 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:87.8 accepted:87.8 hwerr:-- occ:73% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 50.2/60.0s | capture 5023
+    ip=192.168.31.182 chip=C6 | [██████░░░░░░░░░░|░░░] | mvmt:0.315299 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:117.4 accepted:117.4 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 50.4/60.0s | capture 5049
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.152858 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 50.6/60.0s | capture 5059
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.152858 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:71.4 accepted:71.4 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 50.7/60.0s | capture 5074
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.033128 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:136.4 accepted:136.4 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 50.9/60.0s | capture 5100
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.030714 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 51.2/60.0s | capture 5125
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.035556 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 51.5/60.0s | capture 5151
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.109247 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 51.6/60.0s | capture 5161
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.109247 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:82.0 accepted:82.0 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 51.7/60.0s | capture 5177
+    ip=192.168.31.182 chip=C6 | [█████░░░░░░░░░░░|░░░] | mvmt:0.270664 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:116.8 accepted:116.8 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 52.0/60.0s | capture 5203
+    ip=192.168.31.182 chip=C6 | [█████░░░░░░░░░░░|░░░] | mvmt:0.292032 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:87.8 accepted:87.8 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 52.2/60.0s | capture 5228
+    ip=192.168.31.182 chip=C6 | [██████░░░░░░░░░░|░░░] | mvmt:0.328562 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:115.7 accepted:115.7 hwerr:-- occ:73% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 52.5/60.0s | capture 5253
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.186586 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:75% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 52.6/60.0s | capture 5263
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.186586 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:96.2 accepted:96.2 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 52.7/60.0s | capture 5279
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.105848 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:101.9 accepted:101.9 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 53.0/60.0s | capture 5305
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.118383 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 53.2/60.0s | capture 5330
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:69% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 53.5/60.0s | capture 5356
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:69% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 53.6/60.0s | capture 5363
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:93.3 accepted:93.3 hwerr:-- occ:68% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 53.8/60.0s | capture 5382
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.5 accepted:100.5 hwerr:-- occ:68% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 54.0/60.0s | capture 5407
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.085384 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:101.2 accepted:101.2 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 54.3/60.0s | capture 5433
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.066297 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:70% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 54.5/60.0s | capture 5458
+    ip=192.168.31.182 chip=C6 | [█████░░░░░░░░░░░|░░░] | mvmt:0.276694 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 54.6/60.0s | capture 5459
+    ip=192.168.31.182 chip=C6 | [█████░░░░░░░░░░░|░░░] | mvmt:0.276694 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:18.5 accepted:18.5 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 54.8/60.0s | capture 5484
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.063418 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:122.5 accepted:122.5 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 55.0/60.0s | capture 5509
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.134592 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:98.4 accepted:98.4 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 55.3/60.0s | capture 5535
+    ip=192.168.31.182 chip=C6 | [███████░░░░░░░░░|░░░] | mvmt:0.392375 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:101.2 accepted:101.2 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 55.6/60.0s | capture 5561
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.031138 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 55.6/60.0s | capture 5561
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.031138 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:0.0 accepted:0.0 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 55.8/60.0s | capture 5586
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.077083 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:111.1 accepted:111.1 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 56.1/60.0s | capture 5612
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.032421 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 56.3/60.0s | capture 5637
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.026269 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:98.8 accepted:98.8 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 56.6/60.0s | capture 5663
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.056316 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 56.6/60.0s | capture 5663
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.056316 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:0.0 accepted:0.0 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 56.8/60.0s | capture 5689
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░|░░░] | mvmt:0.117487 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:102.8 accepted:102.8 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 57.1/60.0s | capture 5714
+    ip=192.168.31.182 chip=C6 | [█████░░░░░░░░░░░|░░░] | mvmt:0.275624 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 57.3/60.0s | capture 5740
+    ip=192.168.31.182 chip=C6 | [███████░░░░░░░░░|░░░] | mvmt:0.350942 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 57.6/60.0s | capture 5763
+    ip=192.168.31.182 chip=C6 | [███████░░░░░░░░░|░░░] | mvmt:0.350942 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:97.0 accepted:97.0 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 57.6/60.0s | capture 5766
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░|░░░] | mvmt:0.195577 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:50.8 accepted:50.8 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 57.9/60.0s | capture 5791
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.092713 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:116.8 accepted:116.8 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 58.1/60.0s | capture 5817
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.035532 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 58.4/60.0s | capture 5842
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.042931 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:98.8 accepted:98.8 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 58.6/60.0s | capture 5863
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.042931 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:97.2 accepted:97.2 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 58.6/60.0s | capture 5868
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.027061 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:125.0 accepted:125.0 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 58.9/60.0s | capture 5893
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.057204 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:98.8 accepted:98.8 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 59.1/60.0s | capture 5919
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.014152 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 59.4/60.0s | capture 5945
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.034443 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:94.2 accepted:94.2 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 59.6/60.0s | capture 5959
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.034443 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:80.5 accepted:80.5 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 59.6/60.0s | capture 5970
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░|░░░] | mvmt:0.052789 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:171.9 accepted:171.9 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:95 drop:0.0%
+  STATUS: RECORDING 1/1 | elapsed 59.9/60.0s | capture 5997
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░|░░░] | mvmt:0.000000 thr:0.824720 | IDLE | gen:-- tx:-- rx:-- cb:94.1 accepted:94.1 hwerr:-- occ:67% | ch:11 rssi:-47 | bp:no | http:95 drop:0.0%
+  Post-collect quality:
+    ⚠️ empty_c6_64sc_dev027121349b989e30_20261022_182125_093801_0001.npz: 1 warn, 1 fail
+      FAIL temporal_occupancy: Mean temporal occupancy: 65.1% (warn < 85.0%, fail < 70.0%)
+      WARN signal_level: Low mean amplitude: 9.14
+✅ Saved 1 live capture file(s) from 6001 packets
+  - empty_c6_64sc_dev027121349b989e30_20261022_182125_093801_0001.npz
+❌ Saved capture failed post-collect quality admission

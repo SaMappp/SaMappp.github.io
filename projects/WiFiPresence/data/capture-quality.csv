@@ -1,0 +1,7 @@
+scenario,filename,packets,duration_s,temporal_occupancy,admission_passed,warnings
+S1,empty_c6_64sc_dev027121349b989e30_20261022_175606_964635_0001.npz,6000,59.96284,0.6946,False,signal_level
+S2,motion_c6_64sc_dev027121349b989e30_20261022_181402_750086_0001.npz,5999,59.990318,0.9876,True,signal_level
+S3,static_presence_c6_64sc_dev027121349b989e30_20261022_181824_322721_0001.npz,6001,59.997912,0.9976,True,signal_level
+S4,empty_c6_64sc_dev027121349b989e30_20261022_182125_093801_0001.npz,6001,59.966967,0.6508,False,signal_level
+S5,motion_c6_64sc_dev027121349b989e30_20261022_182747_960324_0001.npz,6001,59.966685,0.7343,True,signal_level;temporal_occupancy
+S6,static_presence_c6_64sc_dev027121349b989e30_20261022_183010_615896_0001.npz,6001,59.970205,0.7167,True,signal_level;temporal_occupancy

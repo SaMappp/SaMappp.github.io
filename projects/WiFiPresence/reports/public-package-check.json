@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-22",
+  "status": "PACKAGING_CHECKS_PASSED_RESEARCH_INCOMPLETE",
+  "tests": {
+    "original_offline": 26,
+    "capture_regressions": 9,
+    "total_passed": 35,
+    "host": "Windows",
+    "python": "3.12.14"
+  },
+  "commands_executed": [
+    "python -m unittest discover -s tests -v",
+    "python scripts/verify_dataset.py",
+    "python wp.py demo --out .test-work/publication-demo",
+    "[official environment] python scripts/recheck_official_quality.py --repo [pinned source checkout]"
+  ],
+  "real_raw_files_hash_checked": 8,
+  "scene_files_official_admitted": 4,
+  "scene_files_official_failed": 2,
+  "local_markdown_links_valid": true,
+  "json_files_parsed": 13,
+  "handoff_json_blocks_parsed": 2,
+  "public_text_scan": "No full student IDs, source workstation paths, or selected credential patterns detected; not a guarantee for arbitrary content. Original raw metadata intentionally retained.",
+  "existing_site_files_unchanged": 35,
+  "fresh_dependency_install": "not executed during publication",
+  "new_hardware_experiments": false,
+  "real_algorithm_effectiveness": "not evaluated"
+}

@@ -1,0 +1,32 @@
+{
+  "trial_id": "20261022T100414Z-b50556f5",
+  "start_utc": "2026-10-22T10:04:14.112952+00:00",
+  "end_utc": "2026-10-22T10:05:50.267738+00:00",
+  "scenario": "S2",
+  "room": "418",
+  "label": "motion",
+  "activity": "walking",
+  "fan": "off",
+  "status": "failed_or_needs_review",
+  "exit_code": 1,
+  "duration_requested_s": 60,
+  "pps_requested": 100,
+  "truth_source": "operator-selected scenario; not independently verified by software",
+  "restoration_checked": false,
+  "console_present": true,
+  "automatic_threshold": true,
+  "quality_failures": [],
+  "quality_warnings": [],
+  "recording_thresholds": [],
+  "recording_observed_in_console": false,
+  "transport_session_error": true,
+  "files": [],
+  "redaction_notice": "Curated public session copy: machine-local paths and executable commands omitted; capture-time restoration flag is historical. Later operator confirmation is separate.",
+  "supervision": {
+    "exit_code": 1,
+    "watchdog_reason": null,
+    "recording_observed": false,
+    "recording_seen_after_s": null,
+    "elapsed_wall_s": 96.138
+  }
+}

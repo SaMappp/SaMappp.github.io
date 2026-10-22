@@ -1,0 +1,8 @@
+{
+  "repository": "https://github.com/francescopace/espectre",
+  "tag": "3.0.0",
+  "commit": "12fce9354d3506290e70a853a4f22866f0e987ef",
+  "license": "GPL-3.0-only",
+  "installed_separately": true,
+  "observed_firmware": "Native 3.0.0; binary source commit not independently verified"
+}

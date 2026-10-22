@@ -1,0 +1,19 @@
+{
+  "trial_id": "20261022T091508Z-7d3c37cf",
+  "start_utc": "2026-10-22T09:15:08.412307+00:00",
+  "end_utc": "2026-10-22T09:15:19.927102+00:00",
+  "scenario": "S1",
+  "room": "418",
+  "label": "empty",
+  "activity": "empty",
+  "fan": "off",
+  "status": "failed_or_needs_review",
+  "exit_code": 1,
+  "duration_requested_s": 60,
+  "pps_requested": 100,
+  "truth_source": "operator-selected scenario; not independently verified by software",
+  "restoration_checked": false,
+  "console_present": false,
+  "files": [],
+  "redaction_notice": "Curated public session copy: machine-local paths and executable commands omitted; capture-time restoration flag is historical. Later operator confirmation is separate."
+}

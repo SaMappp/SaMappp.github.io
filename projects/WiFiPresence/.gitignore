@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.test-work/
+.venv/
+capture/WiFiPresence-Capture/
+capture/WiFiPresence-Capture-Logs/
+reports/local-*/
+.env
+.env.*

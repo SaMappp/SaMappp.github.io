@@ -1,0 +1,1064 @@
+{
+  "date": "2026-10-22",
+  "scope": "8 unmodified numerical recordings; no validated sensing performance",
+  "files": [
+    {
+      "scenario": "DIAGNOSTIC",
+      "filename": "diagnostic_c6_64sc_dev027121349b989e30_20261022_174457_839651_0001.npz",
+      "bytes": 38600,
+      "sha256": "8ecc136df0c097adf8eba0d3950ecd38af9ea02875bb9b0cc9f4d80bb2226f20",
+      "shape": [
+        502,
+        128
+      ],
+      "dtype": "int8",
+      "device_span_s": 4.977918,
+      "temporal_occupancy": 0.742,
+      "official_admission_passed": false,
+      "official_failures": [
+        "packet_count"
+      ],
+      "official_warnings": [
+        "signal_level",
+        "temporal_occupancy"
+      ],
+      "channels": [
+        11
+      ],
+      "rssi_mean_dbm": -47.10756972111554,
+      "offline_window_diagnostics": {
+        "total": 16,
+        "valid": 0,
+        "invalid": 16,
+        "mean_slot_occupancy": 0.665,
+        "warning": "Project window rule differs from upstream full-file admission; this is not an override."
+      },
+      "file": "data/raw/diagnostic/diagnostic_c6_64sc_dev027121349b989e30_20261022_174457_839651_0001.npz",
+      "role": "diagnostic_exclude",
+      "quality_checks": [
+        {
+          "name": "file_load",
+          "status": "PASS",
+          "message": "File loads successfully",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "csi_key",
+          "status": "PASS",
+          "message": "CSI data found (key: csi_data)",
+          "value": "shape=(502, 128)",
+          "domain": "integrity"
+        },
+        {
+          "name": "csi_shape",
+          "status": "PASS",
+          "message": "Valid 64-subcarrier I/Q matrix",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "packet_metadata_shape",
+          "status": "PASS",
+          "message": "Per-packet metadata lengths are coherent",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "embedded_label",
+          "status": "PASS",
+          "message": "Embedded label is 'diagnostic'",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "sensing_contract",
+          "status": "PASS",
+          "message": "Sensing view keeps 502 HT20/HT-LTF/64-SC packet(s)",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "packet_count",
+          "status": "FAIL",
+          "message": "Too few packets: 502 < 5000",
+          "value": 502,
+          "domain": "integrity"
+        },
+        {
+          "name": "zero_packets",
+          "status": "PASS",
+          "message": "Zero-packet ratio: 0.0000",
+          "value": 0.0,
+          "domain": "integrity"
+        },
+        {
+          "name": "signal_level",
+          "status": "WARN",
+          "message": "Low mean amplitude: 7.88",
+          "value": 7.8819361315698275,
+          "domain": "integrity"
+        },
+        {
+          "name": "temporal_occupancy",
+          "status": "WARN",
+          "message": "Mean temporal occupancy: 74.2% (warn < 85.0%, fail < 70.0%)",
+          "value": 0.742,
+          "domain": "integrity"
+        },
+        {
+          "name": "packet_rate",
+          "status": "PASS",
+          "message": "Packet rate: 100.9 pkt/s",
+          "value": 100.9,
+          "domain": "integrity"
+        },
+        {
+          "name": "stream_seq_gaps",
+          "status": "PASS",
+          "message": "Missing stream packets: 0.0% (0/502, non-unit steps: 0)",
+          "value": 0.0,
+          "domain": "integrity"
+        },
+        {
+          "name": "stream_seq_max_gap",
+          "status": "PASS",
+          "message": "Largest stream gap: 0 packets with no missing packets detected (warn > 10, fail > 20)",
+          "value": 0,
+          "domain": "integrity"
+        },
+        {
+          "name": "inter_packet_gap",
+          "status": "PASS",
+          "message": "Largest inter-packet gap: 42.4 ms via device_ticks_us at packet 91->92 (warn > 150.0 ms, fail > 250.0 ms)",
+          "value": 42.4,
+          "domain": "integrity"
+        }
+      ]
+    },
+    {
+      "scenario": "DIAGNOSTIC",
+      "filename": "diagnostic_c6_64sc_dev027121349b989e30_20261022_174801_714403_0001.npz",
+      "bytes": 333342,
+      "sha256": "9e73e4b935b8d6cb375025e9c4465d7b79e5516e522e2ff34866d3ac7cc40093",
+      "shape": [
+        6001,
+        128
+      ],
+      "dtype": "int8",
+      "device_span_s": 59.997011,
+      "temporal_occupancy": 0.7387,
+      "official_admission_passed": true,
+      "official_failures": [],
+      "official_warnings": [
+        "signal_level",
+        "temporal_occupancy"
+      ],
+      "channels": [
+        11
+      ],
+      "rssi_mean_dbm": -47.070488251958004,
+      "offline_window_diagnostics": {
+        "total": 237,
+        "valid": 1,
+        "invalid": 236,
+        "mean_slot_occupancy": 0.6301265822784812,
+        "warning": "Project window rule differs from upstream full-file admission; this is not an override."
+      },
+      "file": "data/raw/diagnostic/diagnostic_c6_64sc_dev027121349b989e30_20261022_174801_714403_0001.npz",
+      "role": "diagnostic_exclude",
+      "quality_checks": [
+        {
+          "name": "file_load",
+          "status": "PASS",
+          "message": "File loads successfully",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "csi_key",
+          "status": "PASS",
+          "message": "CSI data found (key: csi_data)",
+          "value": "shape=(6001, 128)",
+          "domain": "integrity"
+        },
+        {
+          "name": "csi_shape",
+          "status": "PASS",
+          "message": "Valid 64-subcarrier I/Q matrix",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "packet_metadata_shape",
+          "status": "PASS",
+          "message": "Per-packet metadata lengths are coherent",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "embedded_label",
+          "status": "PASS",
+          "message": "Embedded label is 'diagnostic'",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "sensing_contract",
+          "status": "PASS",
+          "message": "Sensing view keeps 6001 HT20/HT-LTF/64-SC packet(s)",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "packet_count",
+          "status": "PASS",
+          "message": "6001 packets",
+          "value": 6001,
+          "domain": "integrity"
+        },
+        {
+          "name": "zero_packets",
+          "status": "PASS",
+          "message": "Zero-packet ratio: 0.0000",
+          "value": 0.0,
+          "domain": "integrity"
+        },
+        {
+          "name": "signal_level",
+          "status": "WARN",
+          "message": "Low mean amplitude: 7.84",
+          "value": 7.8433368505450884,
+          "domain": "integrity"
+        },
+        {
+          "name": "temporal_occupancy",
+          "status": "WARN",
+          "message": "Mean temporal occupancy: 73.9% (warn < 85.0%, fail < 70.0%)",
+          "value": 0.7387,
+          "domain": "integrity"
+        },
+        {
+          "name": "packet_rate",
+          "status": "PASS",
+          "message": "Packet rate: 100.0 pkt/s",
+          "value": 100.0,
+          "domain": "integrity"
+        },
+        {
+          "name": "stream_seq_gaps",
+          "status": "PASS",
+          "message": "Missing stream packets: 0.0% (0/6001, non-unit steps: 0)",
+          "value": 0.0,
+          "domain": "integrity"
+        },
+        {
+          "name": "stream_seq_max_gap",
+          "status": "PASS",
+          "message": "Largest stream gap: 0 packets with no missing packets detected (warn > 10, fail > 20)",
+          "value": 0,
+          "domain": "integrity"
+        },
+        {
+          "name": "inter_packet_gap",
+          "status": "PASS",
+          "message": "Largest inter-packet gap: 50.2 ms via device_ticks_us at packet 3032->3033 (warn > 150.0 ms, fail > 250.0 ms)",
+          "value": 50.2,
+          "domain": "integrity"
+        }
+      ]
+    },
+    {
+      "scenario": "S1",
+      "filename": "empty_c6_64sc_dev027121349b989e30_20261022_175606_964635_0001.npz",
+      "bytes": 342453,
+      "sha256": "26148cb43413331d1be218beea89ad5130759d51279280897513ccbe31853b45",
+      "shape": [
+        6000,
+        128
+      ],
+      "dtype": "int8",
+      "device_span_s": 59.96284,
+      "temporal_occupancy": 0.6946,
+      "official_admission_passed": false,
+      "official_failures": [
+        "temporal_occupancy"
+      ],
+      "official_warnings": [
+        "signal_level"
+      ],
+      "channels": [
+        11
+      ],
+      "rssi_mean_dbm": -46.802166666666665,
+      "offline_window_diagnostics": {
+        "total": 236,
+        "valid": 236,
+        "invalid": 0,
+        "mean_slot_occupancy": 0.7488559322033899,
+        "warning": "Project window rule differs from upstream full-file admission; this is not an override."
+      },
+      "file": "data/raw/empty/empty_c6_64sc_dev027121349b989e30_20261022_175606_964635_0001.npz",
+      "role": "pilot_only",
+      "quality_checks": [
+        {
+          "name": "file_load",
+          "status": "PASS",
+          "message": "File loads successfully",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "csi_key",
+          "status": "PASS",
+          "message": "CSI data found (key: csi_data)",
+          "value": "shape=(6000, 128)",
+          "domain": "integrity"
+        },
+        {
+          "name": "csi_shape",
+          "status": "PASS",
+          "message": "Valid 64-subcarrier I/Q matrix",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "packet_metadata_shape",
+          "status": "PASS",
+          "message": "Per-packet metadata lengths are coherent",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "embedded_label",
+          "status": "PASS",
+          "message": "Embedded label is 'empty'",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "sensing_contract",
+          "status": "PASS",
+          "message": "Sensing view keeps 6000 HT20/HT-LTF/64-SC packet(s)",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "packet_count",
+          "status": "PASS",
+          "message": "6000 packets",
+          "value": 6000,
+          "domain": "integrity"
+        },
+        {
+          "name": "zero_packets",
+          "status": "PASS",
+          "message": "Zero-packet ratio: 0.0000",
+          "value": 0.0,
+          "domain": "integrity"
+        },
+        {
+          "name": "signal_level",
+          "status": "WARN",
+          "message": "Low mean amplitude: 8.33",
+          "value": 8.333268323636213,
+          "domain": "integrity"
+        },
+        {
+          "name": "temporal_occupancy",
+          "status": "FAIL",
+          "message": "Mean temporal occupancy: 69.5% (warn < 85.0%, fail < 70.0%)",
+          "value": 0.6946,
+          "domain": "integrity"
+        },
+        {
+          "name": "packet_rate",
+          "status": "PASS",
+          "message": "Packet rate: 100.1 pkt/s",
+          "value": 100.1,
+          "domain": "integrity"
+        },
+        {
+          "name": "stream_seq_gaps",
+          "status": "PASS",
+          "message": "Missing stream packets: 0.0% (0/6000, non-unit steps: 0)",
+          "value": 0.0,
+          "domain": "integrity"
+        },
+        {
+          "name": "stream_seq_max_gap",
+          "status": "PASS",
+          "message": "Largest stream gap: 0 packets with no missing packets detected (warn > 10, fail > 20)",
+          "value": 0,
+          "domain": "integrity"
+        },
+        {
+          "name": "inter_packet_gap",
+          "status": "PASS",
+          "message": "Largest inter-packet gap: 47.6 ms via device_ticks_us at packet 1207->1208 (warn > 150.0 ms, fail > 250.0 ms)",
+          "value": 47.6,
+          "domain": "integrity"
+        }
+      ]
+    },
+    {
+      "scenario": "S4",
+      "filename": "empty_c6_64sc_dev027121349b989e30_20261022_182125_093801_0001.npz",
+      "bytes": 376447,
+      "sha256": "7eeb10487d141eb82ff557df678c6a00637dd10a8c67fa60a9bef4bc4a5f8359",
+      "shape": [
+        6001,
+        128
+      ],
+      "dtype": "int8",
+      "device_span_s": 59.966967,
+      "temporal_occupancy": 0.6508,
+      "official_admission_passed": false,
+      "official_failures": [
+        "temporal_occupancy"
+      ],
+      "official_warnings": [
+        "signal_level"
+      ],
+      "channels": [
+        11
+      ],
+      "rssi_mean_dbm": -46.777037160473256,
+      "offline_window_diagnostics": {
+        "total": 236,
+        "valid": 210,
+        "invalid": 26,
+        "mean_slot_occupancy": 0.7091525423728814,
+        "warning": "Project window rule differs from upstream full-file admission; this is not an override."
+      },
+      "file": "data/raw/empty/empty_c6_64sc_dev027121349b989e30_20261022_182125_093801_0001.npz",
+      "role": "pilot_only",
+      "quality_checks": [
+        {
+          "name": "file_load",
+          "status": "PASS",
+          "message": "File loads successfully",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "csi_key",
+          "status": "PASS",
+          "message": "CSI data found (key: csi_data)",
+          "value": "shape=(6001, 128)",
+          "domain": "integrity"
+        },
+        {
+          "name": "csi_shape",
+          "status": "PASS",
+          "message": "Valid 64-subcarrier I/Q matrix",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "packet_metadata_shape",
+          "status": "PASS",
+          "message": "Per-packet metadata lengths are coherent",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "embedded_label",
+          "status": "PASS",
+          "message": "Embedded label is 'empty'",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "sensing_contract",
+          "status": "PASS",
+          "message": "Sensing view keeps 6001 HT20/HT-LTF/64-SC packet(s)",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "packet_count",
+          "status": "PASS",
+          "message": "6001 packets",
+          "value": 6001,
+          "domain": "integrity"
+        },
+        {
+          "name": "zero_packets",
+          "status": "PASS",
+          "message": "Zero-packet ratio: 0.0000",
+          "value": 0.0,
+          "domain": "integrity"
+        },
+        {
+          "name": "signal_level",
+          "status": "WARN",
+          "message": "Low mean amplitude: 9.14",
+          "value": 9.137370166340194,
+          "domain": "integrity"
+        },
+        {
+          "name": "temporal_occupancy",
+          "status": "FAIL",
+          "message": "Mean temporal occupancy: 65.1% (warn < 85.0%, fail < 70.0%)",
+          "value": 0.6508,
+          "domain": "integrity"
+        },
+        {
+          "name": "packet_rate",
+          "status": "PASS",
+          "message": "Packet rate: 100.0 pkt/s",
+          "value": 100.0,
+          "domain": "integrity"
+        },
+        {
+          "name": "stream_seq_gaps",
+          "status": "PASS",
+          "message": "Missing stream packets: 0.0% (0/6001, non-unit steps: 0)",
+          "value": 0.0,
+          "domain": "integrity"
+        },
+        {
+          "name": "stream_seq_max_gap",
+          "status": "PASS",
+          "message": "Largest stream gap: 0 packets with no missing packets detected (warn > 10, fail > 20)",
+          "value": 0,
+          "domain": "integrity"
+        },
+        {
+          "name": "inter_packet_gap",
+          "status": "PASS",
+          "message": "Largest inter-packet gap: 50.6 ms via device_ticks_us at packet 5283->5284 (warn > 150.0 ms, fail > 250.0 ms)",
+          "value": 50.6,
+          "domain": "integrity"
+        }
+      ]
+    },
+    {
+      "scenario": "S2",
+      "filename": "motion_c6_64sc_dev027121349b989e30_20261022_181402_750086_0001.npz",
+      "bytes": 373369,
+      "sha256": "c99b5f5621c6217a11e9d1d311ec8f7a29fadd38c7d2cf221e66d0c736c99cef",
+      "shape": [
+        5999,
+        128
+      ],
+      "dtype": "int8",
+      "device_span_s": 59.990318,
+      "temporal_occupancy": 0.9876,
+      "official_admission_passed": true,
+      "official_failures": [],
+      "official_warnings": [
+        "signal_level"
+      ],
+      "channels": [
+        11
+      ],
+      "rssi_mean_dbm": -47.119853308884814,
+      "offline_window_diagnostics": {
+        "total": 237,
+        "valid": 235,
+        "invalid": 2,
+        "mean_slot_occupancy": 0.8783966244725738,
+        "warning": "Project window rule differs from upstream full-file admission; this is not an override."
+      },
+      "file": "data/raw/motion/motion_c6_64sc_dev027121349b989e30_20261022_181402_750086_0001.npz",
+      "role": "pilot_only",
+      "quality_checks": [
+        {
+          "name": "file_load",
+          "status": "PASS",
+          "message": "File loads successfully",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "csi_key",
+          "status": "PASS",
+          "message": "CSI data found (key: csi_data)",
+          "value": "shape=(5999, 128)",
+          "domain": "integrity"
+        },
+        {
+          "name": "csi_shape",
+          "status": "PASS",
+          "message": "Valid 64-subcarrier I/Q matrix",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "packet_metadata_shape",
+          "status": "PASS",
+          "message": "Per-packet metadata lengths are coherent",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "embedded_label",
+          "status": "PASS",
+          "message": "Embedded label is 'motion'",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "sensing_contract",
+          "status": "PASS",
+          "message": "Sensing view keeps 5999 HT20/HT-LTF/64-SC packet(s)",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "packet_count",
+          "status": "PASS",
+          "message": "5999 packets",
+          "value": 5999,
+          "domain": "integrity"
+        },
+        {
+          "name": "zero_packets",
+          "status": "PASS",
+          "message": "Zero-packet ratio: 0.0000",
+          "value": 0.0,
+          "domain": "integrity"
+        },
+        {
+          "name": "signal_level",
+          "status": "WARN",
+          "message": "Low mean amplitude: 7.09",
+          "value": 7.0900869529840636,
+          "domain": "integrity"
+        },
+        {
+          "name": "temporal_occupancy",
+          "status": "PASS",
+          "message": "Mean temporal occupancy: 98.8% (warn < 85.0%, fail < 70.0%)",
+          "value": 0.9876,
+          "domain": "integrity"
+        },
+        {
+          "name": "packet_rate",
+          "status": "PASS",
+          "message": "Packet rate: 100.0 pkt/s",
+          "value": 100.0,
+          "domain": "integrity"
+        },
+        {
+          "name": "stream_seq_gaps",
+          "status": "PASS",
+          "message": "Missing stream packets: 0.0% (0/5999, non-unit steps: 0)",
+          "value": 0.0,
+          "domain": "integrity"
+        },
+        {
+          "name": "stream_seq_max_gap",
+          "status": "PASS",
+          "message": "Largest stream gap: 0 packets with no missing packets detected (warn > 10, fail > 20)",
+          "value": 0,
+          "domain": "integrity"
+        },
+        {
+          "name": "inter_packet_gap",
+          "status": "PASS",
+          "message": "Largest inter-packet gap: 60.5 ms via device_ticks_us at packet 1632->1633 (warn > 150.0 ms, fail > 250.0 ms)",
+          "value": 60.5,
+          "domain": "integrity"
+        }
+      ]
+    },
+    {
+      "scenario": "S5",
+      "filename": "motion_c6_64sc_dev027121349b989e30_20261022_182747_960324_0001.npz",
+      "bytes": 404690,
+      "sha256": "514bb7067f9c2c391d000df5eb074ba82d1b348f12be063fe7fd720fbf4bc8e2",
+      "shape": [
+        6001,
+        128
+      ],
+      "dtype": "int8",
+      "device_span_s": 59.966685,
+      "temporal_occupancy": 0.7343,
+      "official_admission_passed": true,
+      "official_failures": [],
+      "official_warnings": [
+        "signal_level",
+        "temporal_occupancy"
+      ],
+      "channels": [
+        11
+      ],
+      "rssi_mean_dbm": -46.550074987502086,
+      "offline_window_diagnostics": {
+        "total": 236,
+        "valid": 164,
+        "invalid": 72,
+        "mean_slot_occupancy": 0.7048728813559321,
+        "warning": "Project window rule differs from upstream full-file admission; this is not an override."
+      },
+      "file": "data/raw/motion/motion_c6_64sc_dev027121349b989e30_20261022_182747_960324_0001.npz",
+      "role": "pilot_only",
+      "quality_checks": [
+        {
+          "name": "file_load",
+          "status": "PASS",
+          "message": "File loads successfully",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "csi_key",
+          "status": "PASS",
+          "message": "CSI data found (key: csi_data)",
+          "value": "shape=(6001, 128)",
+          "domain": "integrity"
+        },
+        {
+          "name": "csi_shape",
+          "status": "PASS",
+          "message": "Valid 64-subcarrier I/Q matrix",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "packet_metadata_shape",
+          "status": "PASS",
+          "message": "Per-packet metadata lengths are coherent",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "embedded_label",
+          "status": "PASS",
+          "message": "Embedded label is 'motion'",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "sensing_contract",
+          "status": "PASS",
+          "message": "Sensing view keeps 6001 HT20/HT-LTF/64-SC packet(s)",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "packet_count",
+          "status": "PASS",
+          "message": "6001 packets",
+          "value": 6001,
+          "domain": "integrity"
+        },
+        {
+          "name": "zero_packets",
+          "status": "PASS",
+          "message": "Zero-packet ratio: 0.0000",
+          "value": 0.0,
+          "domain": "integrity"
+        },
+        {
+          "name": "signal_level",
+          "status": "WARN",
+          "message": "Low mean amplitude: 9.04",
+          "value": 9.035379959031955,
+          "domain": "integrity"
+        },
+        {
+          "name": "temporal_occupancy",
+          "status": "WARN",
+          "message": "Mean temporal occupancy: 73.4% (warn < 85.0%, fail < 70.0%)",
+          "value": 0.7343,
+          "domain": "integrity"
+        },
+        {
+          "name": "packet_rate",
+          "status": "PASS",
+          "message": "Packet rate: 100.1 pkt/s",
+          "value": 100.1,
+          "domain": "integrity"
+        },
+        {
+          "name": "stream_seq_gaps",
+          "status": "PASS",
+          "message": "Missing stream packets: 0.0% (0/6001, non-unit steps: 0)",
+          "value": 0.0,
+          "domain": "integrity"
+        },
+        {
+          "name": "stream_seq_max_gap",
+          "status": "PASS",
+          "message": "Largest stream gap: 0 packets with no missing packets detected (warn > 10, fail > 20)",
+          "value": 0,
+          "domain": "integrity"
+        },
+        {
+          "name": "inter_packet_gap",
+          "status": "PASS",
+          "message": "Largest inter-packet gap: 45.1 ms via device_ticks_us at packet 30->31 (warn > 150.0 ms, fail > 250.0 ms)",
+          "value": 45.1,
+          "domain": "integrity"
+        }
+      ]
+    },
+    {
+      "scenario": "S3",
+      "filename": "static_presence_c6_64sc_dev027121349b989e30_20261022_181824_322721_0001.npz",
+      "bytes": 393031,
+      "sha256": "013f4ae0ea5220ab7be45f7d7d1a8a6eaab19d9299568848289c28d91abf047b",
+      "shape": [
+        6001,
+        128
+      ],
+      "dtype": "int8",
+      "device_span_s": 59.997912,
+      "temporal_occupancy": 0.9976,
+      "official_admission_passed": true,
+      "official_failures": [],
+      "official_warnings": [
+        "signal_level"
+      ],
+      "channels": [
+        11
+      ],
+      "rssi_mean_dbm": -45.7380436593901,
+      "offline_window_diagnostics": {
+        "total": 237,
+        "valid": 237,
+        "invalid": 0,
+        "mean_slot_occupancy": 0.9164135021097046,
+        "warning": "Project window rule differs from upstream full-file admission; this is not an override."
+      },
+      "file": "data/raw/static_presence/static_presence_c6_64sc_dev027121349b989e30_20261022_181824_322721_0001.npz",
+      "role": "pilot_only",
+      "quality_checks": [
+        {
+          "name": "file_load",
+          "status": "PASS",
+          "message": "File loads successfully",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "csi_key",
+          "status": "PASS",
+          "message": "CSI data found (key: csi_data)",
+          "value": "shape=(6001, 128)",
+          "domain": "integrity"
+        },
+        {
+          "name": "csi_shape",
+          "status": "PASS",
+          "message": "Valid 64-subcarrier I/Q matrix",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "packet_metadata_shape",
+          "status": "PASS",
+          "message": "Per-packet metadata lengths are coherent",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "embedded_label",
+          "status": "PASS",
+          "message": "Embedded label is 'static_presence'",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "sensing_contract",
+          "status": "PASS",
+          "message": "Sensing view keeps 6001 HT20/HT-LTF/64-SC packet(s)",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "packet_count",
+          "status": "PASS",
+          "message": "6001 packets",
+          "value": 6001,
+          "domain": "integrity"
+        },
+        {
+          "name": "zero_packets",
+          "status": "PASS",
+          "message": "Zero-packet ratio: 0.0000",
+          "value": 0.0,
+          "domain": "integrity"
+        },
+        {
+          "name": "signal_level",
+          "status": "WARN",
+          "message": "Low mean amplitude: 11.77",
+          "value": 11.767508395939474,
+          "domain": "integrity"
+        },
+        {
+          "name": "temporal_occupancy",
+          "status": "PASS",
+          "message": "Mean temporal occupancy: 99.8% (warn < 85.0%, fail < 70.0%)",
+          "value": 0.9976,
+          "domain": "integrity"
+        },
+        {
+          "name": "packet_rate",
+          "status": "PASS",
+          "message": "Packet rate: 100.0 pkt/s",
+          "value": 100.0,
+          "domain": "integrity"
+        },
+        {
+          "name": "stream_seq_gaps",
+          "status": "PASS",
+          "message": "Missing stream packets: 0.0% (0/6001, non-unit steps: 0)",
+          "value": 0.0,
+          "domain": "integrity"
+        },
+        {
+          "name": "stream_seq_max_gap",
+          "status": "PASS",
+          "message": "Largest stream gap: 0 packets with no missing packets detected (warn > 10, fail > 20)",
+          "value": 0,
+          "domain": "integrity"
+        },
+        {
+          "name": "inter_packet_gap",
+          "status": "PASS",
+          "message": "Largest inter-packet gap: 24.8 ms via device_ticks_us at packet 3792->3793 (warn > 150.0 ms, fail > 250.0 ms)",
+          "value": 24.8,
+          "domain": "integrity"
+        }
+      ]
+    },
+    {
+      "scenario": "S6",
+      "filename": "static_presence_c6_64sc_dev027121349b989e30_20261022_183010_615896_0001.npz",
+      "bytes": 423862,
+      "sha256": "fef13da865124f41cae73fb42cbefb56fbec0911d658a38dc9f1df488946efa2",
+      "shape": [
+        6001,
+        128
+      ],
+      "dtype": "int8",
+      "device_span_s": 59.970205,
+      "temporal_occupancy": 0.7167,
+      "official_admission_passed": true,
+      "official_failures": [],
+      "official_warnings": [
+        "signal_level",
+        "temporal_occupancy"
+      ],
+      "channels": [
+        11
+      ],
+      "rssi_mean_dbm": -46.0253291118147,
+      "offline_window_diagnostics": {
+        "total": 236,
+        "valid": 194,
+        "invalid": 42,
+        "mean_slot_occupancy": 0.7351694915254238,
+        "warning": "Project window rule differs from upstream full-file admission; this is not an override."
+      },
+      "file": "data/raw/static_presence/static_presence_c6_64sc_dev027121349b989e30_20261022_183010_615896_0001.npz",
+      "role": "pilot_only",
+      "quality_checks": [
+        {
+          "name": "file_load",
+          "status": "PASS",
+          "message": "File loads successfully",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "csi_key",
+          "status": "PASS",
+          "message": "CSI data found (key: csi_data)",
+          "value": "shape=(6001, 128)",
+          "domain": "integrity"
+        },
+        {
+          "name": "csi_shape",
+          "status": "PASS",
+          "message": "Valid 64-subcarrier I/Q matrix",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "packet_metadata_shape",
+          "status": "PASS",
+          "message": "Per-packet metadata lengths are coherent",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "embedded_label",
+          "status": "PASS",
+          "message": "Embedded label is 'static_presence'",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "sensing_contract",
+          "status": "PASS",
+          "message": "Sensing view keeps 6001 HT20/HT-LTF/64-SC packet(s)",
+          "value": null,
+          "domain": "integrity"
+        },
+        {
+          "name": "packet_count",
+          "status": "PASS",
+          "message": "6001 packets",
+          "value": 6001,
+          "domain": "integrity"
+        },
+        {
+          "name": "zero_packets",
+          "status": "PASS",
+          "message": "Zero-packet ratio: 0.0000",
+          "value": 0.0,
+          "domain": "integrity"
+        },
+        {
+          "name": "signal_level",
+          "status": "WARN",
+          "message": "Low mean amplitude: 12.34",
+          "value": 12.344965612986202,
+          "domain": "integrity"
+        },
+        {
+          "name": "temporal_occupancy",
+          "status": "WARN",
+          "message": "Mean temporal occupancy: 71.7% (warn < 85.0%, fail < 70.0%)",
+          "value": 0.7167,
+          "domain": "integrity"
+        },
+        {
+          "name": "packet_rate",
+          "status": "PASS",
+          "message": "Packet rate: 100.1 pkt/s",
+          "value": 100.1,
+          "domain": "integrity"
+        },
+        {
+          "name": "stream_seq_gaps",
+          "status": "PASS",
+          "message": "Missing stream packets: 0.0% (0/6001, non-unit steps: 0)",
+          "value": 0.0,
+          "domain": "integrity"
+        },
+        {
+          "name": "stream_seq_max_gap",
+          "status": "PASS",
+          "message": "Largest stream gap: 0 packets with no missing packets detected (warn > 10, fail > 20)",
+          "value": 0,
+          "domain": "integrity"
+        },
+        {
+          "name": "inter_packet_gap",
+          "status": "PASS",
+          "message": "Largest inter-packet gap: 81.0 ms via device_ticks_us at packet 3757->3758 (warn > 150.0 ms, fail > 250.0 ms)",
+          "value": 81.0,
+          "domain": "integrity"
+        }
+      ]
+    }
+  ]
+}

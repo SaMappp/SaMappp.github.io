@@ -1,0 +1,42 @@
+{
+  "trial_id": "20261022T101647Z-2ff97a31",
+  "start_utc": "2026-10-22T10:16:47.536568+00:00",
+  "end_utc": "2026-10-22T10:18:24.724815+00:00",
+  "scenario": "S3",
+  "room": "418",
+  "label": "static_presence",
+  "activity": "stationary",
+  "fan": "off",
+  "status": "saved_and_reopened_review_upstream_quality",
+  "exit_code": 0,
+  "duration_requested_s": 60,
+  "pps_requested": 100,
+  "truth_source": "operator-selected scenario; not independently verified by software",
+  "restoration_checked": false,
+  "console_present": true,
+  "automatic_threshold": true,
+  "quality_failures": [],
+  "quality_warnings": [
+    "signal_level"
+  ],
+  "recording_thresholds": [
+    0.095013,
+    0.250757
+  ],
+  "recording_observed_in_console": true,
+  "transport_session_error": false,
+  "files": [
+    {
+      "file": "data/raw/static_presence/static_presence_c6_64sc_dev027121349b989e30_20261022_181824_322721_0001.npz",
+      "sha256": "013f4ae0ea5220ab7be45f7d7d1a8a6eaab19d9299568848289c28d91abf047b"
+    }
+  ],
+  "redaction_notice": "Curated public session copy: machine-local paths and executable commands omitted; capture-time restoration flag is historical. Later operator confirmation is separate.",
+  "supervision": {
+    "exit_code": 0,
+    "watchdog_reason": null,
+    "recording_observed": true,
+    "recording_seen_after_s": 36.644,
+    "elapsed_wall_s": 97.118
+  }
+}

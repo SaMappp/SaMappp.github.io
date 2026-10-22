@@ -1,0 +1,756 @@
+[Windows timer] 1 ms timing enabled for this collector process; released on exit.
+
+╔═════════════════════════════════════════════════════════╗
+║             ESPectre - Live CSI Collection              ║
+╚═════════════════════════════════════════════════════════╝
+
+  Target:    http://192.168.31.182:62587/espectre/v1 (HTTP Direct)
+  Device ID: 027121349b989e30 (from mDNS)
+  Traffic:   192.168.31.182:5555
+  Start delay: 15.0s
+  Detector:  Lightweight Detection
+  Threshold: automatic (after startup calibration)
+  Pps:       100pps external
+  Window:    1000 ms (100 temporal slots at 100 pps)
+  Evaluation: 250 ms
+  Low-pass:  OFF
+  Hampel:    OFF
+  Save:      label=motion duration=60s
+  Ready gate: 3.0s below threshold before saving
+  Description: WiFiPresence; trial=20261022T100414Z-b50556f5; scenario=S2; room=418; fan=off; activity=walking
+
+  The external traffic mode is persisted on the device after collection
+  Please remain still during the startup calibration phase
+  Press Ctrl+C to stop
+
+  Starting collection in 15.0s...
+    15.0s remaining
+    14.0s remaining
+    13.0s remaining
+    12.0s remaining
+    11.0s remaining
+    10.0s remaining
+    9.0s remaining
+    8.0s remaining
+    7.0s remaining
+    6.0s remaining
+    5.0s remaining
+    4.0s remaining
+    3.0s remaining
+    2.0s remaining
+    1.0s remaining
+    Starting now.
+
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:106.4 accepted:106.4 hwerr:-- occ:13% | ch:11 rssi:-46 | bp:no | http:0 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:100.6 accepted:100.6 hwerr:-- occ:28% | ch:11 rssi:-47 | bp:no | http:0 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:98.7 accepted:98.7 hwerr:-- occ:44% | ch:11 rssi:-46 | bp:no | http:0 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:104.2 accepted:104.2 hwerr:-- occ:48% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:99.0 accepted:99.0 hwerr:-- occ:48% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:99.7 accepted:99.7 hwerr:-- occ:48% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:101.0 accepted:101.0 hwerr:-- occ:48% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:66.3 accepted:66.3 hwerr:-- occ:48% | ch:11 rssi:-47 | bp:no | http:93 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:148.8 accepted:148.8 hwerr:-- occ:49% | ch:11 rssi:-47 | bp:no | http:93 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:89.0 accepted:89.0 hwerr:-- occ:57% | ch:11 rssi:-46 | bp:no | http:93 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:115.2 accepted:115.2 hwerr:-- occ:61% | ch:11 rssi:-47 | bp:no | http:93 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:67% | ch:11 rssi:-49 | bp:no | http:93 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:82.6 accepted:82.6 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:103 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:111.9 accepted:111.9 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:103 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:102.0 accepted:102.0 hwerr:-- occ:73% | ch:11 rssi:-45 | bp:no | http:103 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:98.9 accepted:98.9 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:103 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:89.0 accepted:89.0 hwerr:-- occ:74% | ch:11 rssi:-48 | bp:no | http:103 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:155.2 accepted:155.2 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:100.6 accepted:100.6 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:101.2 accepted:101.2 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:94.6 accepted:94.6 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.962826 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:101.7 accepted:101.7 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░░░░░] | mvmt:0.851106 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░░░░░] | mvmt:0.787215 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░░░░░] | mvmt:0.969721 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:70% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░░░░░] | mvmt:0.969721 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:92.6 accepted:92.6 hwerr:-- occ:69% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:101.0 accepted:101.0 hwerr:-- occ:69% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:88.7 accepted:88.7 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:115.7 accepted:115.7 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:29.4 accepted:29.4 hwerr:-- occ:74% | ch:11 rssi:-48 | bp:no | http:97 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:110.6 accepted:110.6 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:97 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.981380 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:73% | ch:11 rssi:-45 | bp:no | http:97 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░░░░░] | mvmt:0.992294 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░░░░░] | mvmt:0.951568 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:72% | ch:11 rssi:-45 | bp:no | http:97 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░░░░░] | mvmt:0.951568 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:0.0 accepted:0.0 hwerr:-- occ:72% | ch:11 rssi:-45 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:102.4 accepted:102.4 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:73% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:98.9 accepted:98.9 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:98.3 accepted:98.3 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:136.4 accepted:136.4 hwerr:-- occ:74% | ch:11 rssi:-45 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:70% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:96.8 accepted:96.8 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:119.0 accepted:119.0 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.918523 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░░░░░] | mvmt:0.724853 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░░░░░] | mvmt:0.839376 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░░░░░] | mvmt:0.839376 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:79.8 accepted:79.8 hwerr:-- occ:73% | ch:11 rssi:-48 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░░░░░] | mvmt:0.673477 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:104.8 accepted:104.8 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░░░░░] | mvmt:0.297857 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:115.2 accepted:115.2 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░░░░░] | mvmt:0.453559 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:75% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░░░░░] | mvmt:0.238009 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░░░░░] | mvmt:0.238009 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:88.8 accepted:88.8 hwerr:-- occ:75% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [████░░░░░░░░░░░░░░░░] | mvmt:0.669132 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:122.2 accepted:122.2 hwerr:-- occ:76% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [████░░░░░░░░░░░░░░░░] | mvmt:0.834446 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█████░░░░░░░░░░░░░░░] | mvmt:0.820681 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█████░░░░░░░░░░░░░░░] | mvmt:0.728890 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█████░░░░░░░░░░░░░░░] | mvmt:0.728890 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:93.3 accepted:93.3 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [██████░░░░░░░░░░░░░░] | mvmt:0.942909 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:108.1 accepted:108.1 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [██████░░░░░░░░░░░░░░] | mvmt:0.982494 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:73% | ch:11 rssi:-48 | bp:no | http:100 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:101.2 accepted:101.2 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:98.4 accepted:98.4 hwerr:-- occ:70% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:97.0 accepted:97.0 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:102.8 accepted:102.8 hwerr:-- occ:70% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:71% | ch:11 rssi:-45 | bp:no | http:100 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:98.0 accepted:98.0 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:99.4 accepted:99.4 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:101.2 accepted:101.2 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:98.5 accepted:98.5 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:101.2 accepted:101.2 hwerr:-- occ:73% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:73.2 accepted:73.2 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:113.0 accepted:113.0 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:97 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:97.7 accepted:97.7 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:98.0 accepted:98.0 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:104.5 accepted:104.5 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:98.4 accepted:98.4 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:83.3 accepted:83.3 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:103.6 accepted:103.6 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:88.7 accepted:88.7 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:115.2 accepted:115.2 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:0.0 accepted:0.0 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:103.6 accepted:103.6 hwerr:-- occ:75% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:75% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:83.3 accepted:83.3 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:384.6 accepted:384.6 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.000000 thr:0.662185 | WAITING | gen:-- tx:-- rx:-- cb:98.4 accepted:98.4 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.810983 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:101.6 accepted:101.6 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:96 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░░░░░░░░] | mvmt:0.810983 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:90.9 accepted:90.9 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░░░░░] | mvmt:0.695382 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:150.0 accepted:150.0 hwerr:-- occ:73% | ch:11 rssi:-49 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█░░░░░░░░░░░░░░░░░░░] | mvmt:0.932404 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:73% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░░░░░] | mvmt:0.916776 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░░░░░] | mvmt:0.933857 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [██░░░░░░░░░░░░░░░░░░] | mvmt:0.933857 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:93.8 accepted:93.8 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░░░░░] | mvmt:0.983825 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:111.1 accepted:111.1 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [███░░░░░░░░░░░░░░░░░] | mvmt:0.972926 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:101.6 accepted:101.6 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [████░░░░░░░░░░░░░░░░] | mvmt:0.894955 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [████░░░░░░░░░░░░░░░░] | mvmt:0.970833 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [████░░░░░░░░░░░░░░░░] | mvmt:0.970833 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:99.4 accepted:99.4 hwerr:-- occ:73% | ch:11 rssi:-48 | bp:no | http:100 drop:0.0%
+  STATUS: CALIBRATING 1/1 | target 10000 ms/device | capture 0
+    ip=192.168.31.182 chip=C6 | [█████░░░░░░░░░░░░░░░] | mvmt:0.904065 thr:0.662185 | CALIBRATING | gen:-- tx:-- rx:-- cb:97.6 accepted:97.6 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0%
+  STATUS: STABILIZING 1/1 | warmup 0/1 | ready 0.0/3.0s | packets 2338 | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░|░░░░░░] | mvmt:0.000000 thr:0.662185 | IDLE | gen:-- tx:-- rx:-- cb:101.6 accepted:101.6 hwerr:-- occ:0% | ch:11 rssi:-45 | bp:no | http:100 drop:0.0% | WARMUP
+  STATUS: STABILIZING 1/1 | warmup 0/1 | ready 0.0/3.0s | packets 2364 | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░|░░░░░░] | mvmt:0.000000 thr:0.662185 | IDLE | gen:-- tx:-- rx:-- cb:98.5 accepted:98.5 hwerr:-- occ:17% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0% | WARMUP
+  STATUS: STABILIZING 1/1 | warmup 0/1 | ready 0.0/3.0s | packets 2390 | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░|░░░░░░] | mvmt:0.000000 thr:0.662185 | IDLE | gen:-- tx:-- rx:-- cb:89.7 accepted:89.7 hwerr:-- occ:37% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0% | WARMUP
+  STATUS: STABILIZING 1/1 | warmup 0/1 | ready 0.0/3.0s | packets 2403 | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░|░░░░░░] | mvmt:0.000000 thr:0.662185 | IDLE | gen:-- tx:-- rx:-- cb:119.3 accepted:119.3 hwerr:-- occ:46% | ch:11 rssi:-47 | bp:no | http:98 drop:0.0% | WARMUP
+  STATUS: STABILIZING 1/1 | warmup 0/1 | ready 0.0/3.0s | packets 2415 | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░|░░░░░░] | mvmt:0.000000 thr:0.662185 | IDLE | gen:-- tx:-- rx:-- cb:109.1 accepted:109.1 hwerr:-- occ:54% | ch:11 rssi:-46 | bp:no | http:98 drop:0.0% | WARMUP
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2440 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.988162 thr:0.662185 | IDLE | gen:-- tx:-- rx:-- cb:101.2 accepted:101.2 hwerr:-- occ:73% | ch:11 rssi:-50 | bp:no | http:98 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2466 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999742 thr:0.662185 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:98 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2492 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999784 thr:0.662185 | IDLE | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:98 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2502 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999784 thr:0.662185 | IDLE | gen:-- tx:-- rx:-- cb:80.6 accepted:80.6 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:98 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2517 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.998322 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:112.8 accepted:112.8 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:98 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2543 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.998537 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:103.2 accepted:103.2 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:98 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2568 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.964156 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:98 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2594 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.952191 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:98 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2604 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.952191 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:93.5 accepted:93.5 hwerr:-- occ:73% | ch:11 rssi:-45 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2619 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|██░░░░] | mvmt:0.815491 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:94.9 accepted:94.9 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2645 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.989589 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:106.1 accepted:106.1 hwerr:-- occ:73% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2671 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.994439 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:98.9 accepted:98.9 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2697 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.998326 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:75% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2704 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.998326 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:92.1 accepted:92.1 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2723 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.993389 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:104.4 accepted:104.4 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2749 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.994080 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:89.0 accepted:89.0 hwerr:-- occ:75% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2774 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.993750 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:114.7 accepted:114.7 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2799 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.961230 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:75% | ch:11 rssi:-50 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2804 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.961230 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:87.7 accepted:87.7 hwerr:-- occ:73% | ch:11 rssi:-49 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2824 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.982524 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.0 accepted:99.0 hwerr:-- occ:75% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2850 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.976011 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:103.6 accepted:103.6 hwerr:-- occ:75% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2876 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.990690 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2901 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.990690 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:87.1 accepted:87.1 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2902 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.992256 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:166.7 accepted:166.7 hwerr:-- occ:75% | ch:11 rssi:-45 | bp:no | http:96 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2927 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.988177 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:115.7 accepted:115.7 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2952 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999757 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:96 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 2978 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999943 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:98.9 accepted:98.9 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:96 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3004 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999879 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3004 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999879 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:0.0 accepted:0.0 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:102 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3029 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999848 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:104.2 accepted:104.2 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:102 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3055 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999115 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:102 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3080 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.992677 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:98.0 accepted:98.0 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:102 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3105 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.992677 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:102.0 accepted:102.0 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3106 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.975023 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:83.3 accepted:83.3 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3132 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.998739 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3157 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.996749 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:101.2 accepted:101.2 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3183 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.996656 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:72% | ch:11 rssi:-49 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3205 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.996656 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.5 accepted:100.5 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3208 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.996809 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:103.4 accepted:103.4 hwerr:-- occ:73% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3234 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.992091 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3260 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999656 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3285 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999610 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3305 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999610 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.5 accepted:100.5 hwerr:-- occ:75% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3311 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999323 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:103.4 accepted:103.4 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3336 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999678 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:98.4 accepted:98.4 hwerr:-- occ:74% | ch:11 rssi:-49 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3362 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.997113 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:102.0 accepted:102.0 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3388 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.994800 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3403 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.994800 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:86.7 accepted:86.7 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3413 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.998317 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:128.2 accepted:128.2 hwerr:-- occ:74% | ch:11 rssi:-49 | bp:no | http:97 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3439 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.993051 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3465 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.994470 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:75% | ch:11 rssi:-48 | bp:no | http:97 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3490 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.991883 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:98.4 accepted:98.4 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3505 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.991883 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:73% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3516 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.982200 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:104.8 accepted:104.8 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3541 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.979579 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:98.8 accepted:98.8 hwerr:-- occ:72% | ch:11 rssi:-45 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3567 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|████░░] | mvmt:0.920344 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3592 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|███░░░] | mvmt:0.890095 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:97.3 accepted:97.3 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3605 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|███░░░] | mvmt:0.890095 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:102.4 accepted:102.4 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3618 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.996171 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:102.4 accepted:102.4 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3643 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.991774 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:98.0 accepted:98.0 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3669 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.998605 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:102.4 accepted:102.4 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3695 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.993921 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3705 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.993921 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:96.2 accepted:96.2 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3721 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.989493 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:83.8 accepted:83.8 hwerr:-- occ:75% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3746 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|████░░] | mvmt:0.935393 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:116.8 accepted:116.8 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3772 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.997304 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:75% | ch:11 rssi:-45 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3797 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.987367 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3803 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.987367 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:71.4 accepted:71.4 hwerr:-- occ:76% | ch:11 rssi:-47 | bp:no | http:97 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3823 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999490 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:114.9 accepted:114.9 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3848 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999823 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:98.0 accepted:98.0 hwerr:-- occ:74% | ch:11 rssi:-48 | bp:no | http:97 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3874 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|██░░░░] | mvmt:0.810319 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:102.0 accepted:102.0 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | stable 1/1 | ready 0.0/3.0s | packets 3900 | capture 0
+    ip=192.168.31.182 chip=C6 | [███████░░░░░░|░░░░░░] | mvmt:0.375767 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:72% | ch:11 rssi:-45 | bp:no | http:97 drop:0.0% | STABLE
+  STATUS: STABILIZING 1/1 | stable 1/1 | ready 0.0/3.0s | packets 3905 | capture 0
+    ip=192.168.31.182 chip=C6 | [███████░░░░░░|░░░░░░] | mvmt:0.375767 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:89.3 accepted:89.3 hwerr:-- occ:73% | ch:11 rssi:-45 | bp:no | http:101 drop:0.0% | STABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3925 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.992395 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:104.2 accepted:104.2 hwerr:-- occ:73% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3951 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.994094 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 3976 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.992738 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4002 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.995885 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4005 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.995885 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:76.9 accepted:76.9 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4028 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.979395 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:104.1 accepted:104.1 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4053 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.977311 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4079 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.990765 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4104 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.984436 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:75% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4105 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.984436 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:55.6 accepted:55.6 hwerr:-- occ:75% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4130 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.973228 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:103.3 accepted:103.3 hwerr:-- occ:75% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4156 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.958510 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4181 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.994618 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4203 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.994618 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:87.6 accepted:87.6 hwerr:-- occ:75% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4207 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.998628 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:400.0 accepted:400.0 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:97 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4232 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999938 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:74% | ch:11 rssi:-48 | bp:no | http:97 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4258 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999931 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4284 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999841 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:74% | ch:11 rssi:-48 | bp:no | http:97 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4304 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999841 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:90.5 accepted:90.5 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4309 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999861 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:178.6 accepted:178.6 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4335 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999303 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4360 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.952659 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:98.8 accepted:98.8 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4386 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.961787 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:101.2 accepted:101.2 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4406 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.961787 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:97.6 accepted:97.6 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4412 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|████░░] | mvmt:0.948938 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:105.3 accepted:105.3 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4438 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.952349 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:88.7 accepted:88.7 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4463 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|██░░░░] | mvmt:0.818934 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:113.6 accepted:113.6 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4488 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.959965 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:101.6 accepted:101.6 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4506 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.959965 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:97.8 accepted:97.8 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4514 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.990223 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:105.3 accepted:105.3 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4540 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.995963 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4565 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.990896 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:70% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4591 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.985793 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:101.2 accepted:101.2 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4602 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.985793 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:70.1 accepted:70.1 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:95 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4616 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.991106 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:147.4 accepted:147.4 hwerr:-- occ:72% | ch:11 rssi:-49 | bp:no | http:95 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4642 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.990537 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:74% | ch:11 rssi:-49 | bp:no | http:95 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4668 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.987860 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:73% | ch:11 rssi:-45 | bp:no | http:95 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4693 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.977080 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:95 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4704 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.977080 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:82.1 accepted:82.1 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4719 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.953378 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:119.0 accepted:119.0 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4744 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|███░░░] | mvmt:0.880264 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4770 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|████░░] | mvmt:0.938267 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4796 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.984778 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:75% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4806 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.984778 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:92.6 accepted:92.6 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4821 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|████░░] | mvmt:0.942710 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:104.9 accepted:104.9 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4847 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.952124 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4872 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.983510 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4898 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.994194 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4905 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.994194 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:80.5 accepted:80.5 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:98 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4924 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.993499 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:109.2 accepted:109.2 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:98 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4950 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.983695 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:88.7 accepted:88.7 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:98 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 4975 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.995742 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:115.7 accepted:115.7 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:98 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5001 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.986378 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:87.2 accepted:87.2 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:98 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5006 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.986378 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:250.0 accepted:250.0 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5026 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.985603 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:103.6 accepted:103.6 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5052 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.986958 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5077 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.982234 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5103 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.970116 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5103 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.970116 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:0.0 accepted:0.0 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:96 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5128 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.998596 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:116.3 accepted:116.3 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5154 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.995243 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:101.6 accepted:101.6 hwerr:-- occ:73% | ch:11 rssi:-45 | bp:no | http:96 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5180 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.991155 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5205 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.991155 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:93.3 accepted:93.3 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5206 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.993027 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:40.0 accepted:40.0 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5231 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.959525 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:115.2 accepted:115.2 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5257 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.996149 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:75% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5282 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.998583 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5306 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.998583 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:95.6 accepted:95.6 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5308 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.998675 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:200.0 accepted:200.0 hwerr:-- occ:75% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5333 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.998035 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5359 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.963329 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:101.2 accepted:101.2 hwerr:-- occ:75% | ch:11 rssi:-48 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5384 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.996626 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:74% | ch:11 rssi:-45 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5407 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.996626 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.1 accepted:99.1 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5410 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999284 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:111.1 accepted:111.1 hwerr:-- occ:73% | ch:11 rssi:-48 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5436 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.997506 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:98.9 accepted:98.9 hwerr:-- occ:73% | ch:11 rssi:-48 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5462 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|████░░] | mvmt:0.920065 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:89.0 accepted:89.0 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5487 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.984770 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:113.6 accepted:113.6 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5507 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.984770 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.5 accepted:100.5 hwerr:-- occ:74% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5512 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.993850 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:106.4 accepted:106.4 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5538 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.998654 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5564 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.992651 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5589 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.997384 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:73% | ch:11 rssi:-45 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5605 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.997384 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:87.4 accepted:87.4 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:97 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5615 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.996877 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:128.2 accepted:128.2 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5640 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.974587 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:97 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5666 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.970743 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:97 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5692 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.988596 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:97 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5707 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.988596 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:98.0 accepted:98.0 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5718 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|████░░] | mvmt:0.942539 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:79.1 accepted:79.1 hwerr:-- occ:74% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5743 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.966935 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:115.2 accepted:115.2 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5769 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.975286 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5794 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.998081 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5807 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.998081 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:95.6 accepted:95.6 hwerr:-- occ:72% | ch:11 rssi:-49 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5820 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.997613 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:105.7 accepted:105.7 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5845 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.995344 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5871 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.997150 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5896 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.979321 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:74% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5907 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.979321 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:95.7 accepted:95.7 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5922 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.967757 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:105.6 accepted:105.6 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5948 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.988724 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5973 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.990097 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:74% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 5999 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.972971 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:72% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6004 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.972971 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:58.1 accepted:58.1 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6025 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.985749 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:122.1 accepted:122.1 hwerr:-- occ:75% | ch:11 rssi:-47 | bp:no | http:96 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6050 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|███░░░] | mvmt:0.891017 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:96 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6076 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.950113 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:96 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6101 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.984905 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:98.4 accepted:98.4 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6107 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.984905 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:92.3 accepted:92.3 hwerr:-- occ:76% | ch:11 rssi:-48 | bp:no | http:102 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6127 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.994953 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:104.2 accepted:104.2 hwerr:-- occ:74% | ch:11 rssi:-48 | bp:no | http:102 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6152 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.964850 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:102 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6178 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.996163 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:73% | ch:11 rssi:-48 | bp:no | http:102 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6204 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999648 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:102 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6207 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999648 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:78.9 accepted:78.9 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6230 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.998432 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:105.0 accepted:105.0 hwerr:-- occ:75% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6255 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.990775 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6281 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.993612 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:75% | ch:11 rssi:-45 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6306 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.995911 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.2 accepted:99.2 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6307 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.995911 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:50.0 accepted:50.0 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6332 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.996799 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:105.0 accepted:105.0 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6357 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.997953 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:98.4 accepted:98.4 hwerr:-- occ:72% | ch:11 rssi:-49 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6383 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.997282 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:101.6 accepted:101.6 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6404 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.997282 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:82.7 accepted:82.7 hwerr:-- occ:75% | ch:11 rssi:-48 | bp:no | http:96 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6408 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.998919 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:800.0 accepted:800.0 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:96 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6434 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.998398 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:102.0 accepted:102.0 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6460 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999090 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:74% | ch:11 rssi:-48 | bp:no | http:96 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6486 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.973728 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:101.2 accepted:101.2 hwerr:-- occ:75% | ch:11 rssi:-46 | bp:no | http:96 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6506 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.973728 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:89.3 accepted:89.3 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6511 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.968754 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:185.2 accepted:185.2 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6537 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|██░░░░] | mvmt:0.804086 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:87.0 accepted:87.0 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6562 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|████░░] | mvmt:0.940417 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:118.5 accepted:118.5 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6588 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.991028 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6608 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.991028 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:98.0 accepted:98.0 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6613 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.995111 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:104.2 accepted:104.2 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6639 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.997433 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:101.6 accepted:101.6 hwerr:-- occ:75% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6664 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999007 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:97.7 accepted:97.7 hwerr:-- occ:76% | ch:11 rssi:-47 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6690 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.986577 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:101.6 accepted:101.6 hwerr:-- occ:75% | ch:11 rssi:-48 | bp:no | http:101 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6708 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.986577 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:97.3 accepted:97.3 hwerr:-- occ:75% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6716 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.988963 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:102.6 accepted:102.6 hwerr:-- occ:74% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6741 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.983682 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:101.6 accepted:101.6 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6767 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999825 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6793 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999986 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:73% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6808 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999986 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:94.9 accepted:94.9 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6818 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999985 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:106.4 accepted:106.4 hwerr:-- occ:71% | ch:11 rssi:-45 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6844 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.999726 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6870 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.984423 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:72% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6896 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|████░░] | mvmt:0.937485 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:88.4 accepted:88.4 hwerr:-- occ:74% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6905 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|████░░] | mvmt:0.937485 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:95.7 accepted:95.7 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:96 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | stable 1/1 | ready 0.0/3.0s | packets 6922 | capture 0
+    ip=192.168.31.182 chip=C6 | [████████████░|░░░░░░] | mvmt:0.605548 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:127.8 accepted:127.8 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:96 drop:0.0% | STABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6947 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|████░░] | mvmt:0.939400 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:88.7 accepted:88.7 hwerr:-- occ:75% | ch:11 rssi:-45 | bp:no | http:96 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6972 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.986594 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:114.2 accepted:114.2 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:96 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 6997 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|████░░] | mvmt:0.922746 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.8 accepted:100.8 hwerr:-- occ:75% | ch:11 rssi:-47 | bp:no | http:96 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 7008 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|████░░] | mvmt:0.922746 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:92.4 accepted:92.4 hwerr:-- occ:76% | ch:11 rssi:-46 | bp:no | http:102 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 7023 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|███░░░] | mvmt:0.875215 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:105.6 accepted:105.6 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:102 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 7049 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|████░░] | mvmt:0.941032 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.4 accepted:100.4 hwerr:-- occ:76% | ch:11 rssi:-46 | bp:no | http:102 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 7074 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.982166 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:73% | ch:11 rssi:-46 | bp:no | http:102 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 7099 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.994145 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:97.7 accepted:97.7 hwerr:-- occ:73% | ch:11 rssi:-47 | bp:no | http:102 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 7108 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.994145 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:95.7 accepted:95.7 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 7125 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.986477 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:104.9 accepted:104.9 hwerr:-- occ:72% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 7150 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|████░░] | mvmt:0.920798 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:100.0 accepted:100.0 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 7176 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|████░░] | mvmt:0.917572 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:99.6 accepted:99.6 hwerr:-- occ:71% | ch:11 rssi:-46 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 7202 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.986402 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:85.8 accepted:85.8 hwerr:-- occ:71% | ch:11 rssi:-48 | bp:no | http:99 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 7209 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.986402 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:291.7 accepted:291.7 hwerr:-- occ:71% | ch:11 rssi:-47 | bp:no | http:100 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | unstable 0/1 | ready 0.0/3.0s | packets 7217 | capture 0
+    ip=192.168.31.182 chip=C6 | [█████████████|█████░] | mvmt:0.986402 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:8.0 accepted:8.0 hwerr:-- occ:74% | ch:11 rssi:-47 | bp:no | http:7 drop:0.0% | UNSTABLE
+  STATUS: STABILIZING 1/1 | warmup 0/1 | ready 0.0/3.0s | packets 7228 | capture 0
+    ip=192.168.31.182 chip=C6 | [░░░░░░░░░░░░░|░░░░░░] | mvmt:0.000000 thr:0.662185 | MOTION | gen:-- tx:-- rx:-- cb:23.8 accepted:23.8 hwerr:-- occ:67% | ch:11 rssi:-45 | bp:no | http:7 drop:0.0% | WARMUP
+
+❌ Error during live collect: Direct raw HTTP session ended on the device (send backpressure: 1, dropped records: 128)
+No live capture packets received; nothing saved
+
+Done.

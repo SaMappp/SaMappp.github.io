@@ -1,0 +1,125 @@
+{
+  "source": "Requester reply in this conversation, 2026-10-22; not independently witnessed by software",
+  "operator_location": "Adjacent room during empty-room trials, requester reported",
+  "operator_no_effect_claim": "Unverified assumption; adjacent-room influence has not been excluded",
+  "fan_setting_consistency": "Requester reports only on/off changed; position/settings otherwise unchanged",
+  "fan_count_and_mounting": "Four ceiling-mounted fans, one in each room corner, requester reported",
+  "fan_speed": "Highest setting, requester reported",
+  "fan_oscillation": "Off / not oscillating, requester reported",
+  "devices_relative_position": "One router and one ESP32 placed in two room corners, requester confirmed; exact dimensions not recorded",
+  "fan_on_count_in_S4_S5_S6": "All four fans on at highest setting, requester confirmed",
+  "walking_participants_and_route": "One person; random walking with no fixed path, requester reported",
+  "stationary_participants_and_seat": "One person; seat at midpoint between the two devices, requester reported",
+  "fan_during_S4_S5_S6_startup_calibration": "On, requester confirmed",
+  "device_layout_changes_between_six_trials": "None, requester reported",
+  "teacher_latest_request": "Own public GitHub repository; privately send repository URL to instructor",
+  "teacher_request_provenance": "Requester paraphrase, not a new email transcript",
+  "new_deadline": "Not provided",
+  "earlier_screenshot_session": "Requester confirmed separate earlier browser-only observations; unrelated to current six raw recordings; no raw CSI saved then",
+  "restoration": {
+    "status": "COMPLETED_REPORTED_BY_REQUESTER",
+    "actions": [
+      "Original traffic source restored",
+      "Ordinary motion detection checked as normal"
+    ],
+    "original_source_type": "NOT_PROVIDED",
+    "software_independently_witnessed": false
+  },
+  "cross_member_reproduction": {
+    "status": "COMPLETED_REPORTED_BY_REQUESTER",
+    "member_name": "NOT_PROVIDED",
+    "date_and_commands": "NOT_PROVIDED",
+    "new_raw_file": "NOT_PROVIDED",
+    "extra_independent_trial_count": "NOT_ESTABLISHED"
+  },
+  "unresolved": [
+    "Exact experiment date of earlier screenshots",
+    "Layout dimensions and equipment models",
+    "Door/window and adjacent-room behavior",
+    "Original restored traffic-source type",
+    "Reproducing member, date, commands, and corresponding file"
+  ],
+  "privacy": "Public narrative uses team names without full student IDs. Raw NPZ files retain their original device and private-LAN endpoint metadata; no raw arrays or timestamps were rewritten.",
+  "screenshots": [
+    {
+      "filename": "屋内双人走动.png",
+      "bytes": 816507,
+      "sha256": "0ad336304a8798579cfe2e58e458c1400fd97f959c63240ef48dd552571f9722",
+      "mtime_local": "2026-10-20T12:09:27.546021+08:00",
+      "observation": "CSI Visualizer 幅度曲线；属于测量观察，没有人数识别或双人检测性能证据。",
+      "trial_mapping": "NOT_ASSOCIATED_WITH_CURRENT_S1_S6_TRIALS",
+      "raw_csi_saved": "No, requester confirmed; earlier browser-only observations",
+      "actual_experiment_datetime": "UNCONFIRMED"
+    },
+    {
+      "filename": "屋内完全不动.png",
+      "bytes": 233024,
+      "sha256": "d1602f0129f5d29f5c1e1eaef8f57c570766413092335a3e2a275751ac4a857d",
+      "mtime_local": "2026-10-20T12:02:59.075774+08:00",
+      "observation": "Monitor；阈值 0.662185；历史中有高分区段。缺入座、静止和离开时间，不能判定哪些区段对应真正静坐。",
+      "trial_mapping": "NOT_ASSOCIATED_WITH_CURRENT_S1_S6_TRIALS",
+      "raw_csi_saved": "No, requester confirmed; earlier browser-only observations",
+      "actual_experiment_datetime": "UNCONFIRMED"
+    },
+    {
+      "filename": "屋内走动 (2).png",
+      "bytes": 883087,
+      "sha256": "888842acadb93c516b70cb0a71de293568e10a4b90cd39912314fc297d94c735",
+      "mtime_local": "2026-10-20T12:08:41.467655+08:00",
+      "observation": "CSI Visualizer 幅度曲线；只有图像，不能重新计算原始 CSI。",
+      "trial_mapping": "NOT_ASSOCIATED_WITH_CURRENT_S1_S6_TRIALS",
+      "raw_csi_saved": "No, requester confirmed; earlier browser-only observations",
+      "actual_experiment_datetime": "UNCONFIRMED"
+    },
+    {
+      "filename": "屋内走动.png",
+      "bytes": 241953,
+      "sha256": "88f2c22aa90bd855eab4dceb2f72f756c0c6a8ed9bb445fdd76327b626071d9f",
+      "mtime_local": "2026-10-20T12:05:11.166190+08:00",
+      "observation": "Monitor；阈值 0.662185；历史中有长高分片段。当前 IDLE 与历史曲线须分开解释。",
+      "trial_mapping": "NOT_ASSOCIATED_WITH_CURRENT_S1_S6_TRIALS",
+      "raw_csi_saved": "No, requester confirmed; earlier browser-only observations",
+      "actual_experiment_datetime": "UNCONFIRMED"
+    },
+    {
+      "filename": "开门无人.png",
+      "bytes": 207737,
+      "sha256": "57700266e63f933ffe6aa98f1886efe2e85a8adc6317dd1272c5b033f90e643c",
+      "mtime_local": "2026-10-20T11:58:49.711986+08:00",
+      "observation": "Monitor；阈值 0.662185；所示历史曲线接近低位。缺独立真值、数值事件和试次映射，不能计算误报率。",
+      "trial_mapping": "NOT_ASSOCIATED_WITH_CURRENT_S1_S6_TRIALS",
+      "raw_csi_saved": "No, requester confirmed; earlier browser-only observations",
+      "actual_experiment_datetime": "UNCONFIRMED"
+    },
+    {
+      "filename": "开门走廊路过.png",
+      "bytes": 214510,
+      "sha256": "79e752b15dc9ecd2f015e1b95bb6c204e577d9217ea7b50ea56d3032697248f2",
+      "mtime_local": "2026-10-20T12:00:31.798072+08:00",
+      "observation": "Monitor；阈值 0.662185；可见局部低峰。单次截图不能证明走廊干扰已排除。",
+      "trial_mapping": "NOT_ASSOCIATED_WITH_CURRENT_S1_S6_TRIALS",
+      "raw_csi_saved": "No, requester confirmed; earlier browser-only observations",
+      "actual_experiment_datetime": "UNCONFIRMED"
+    },
+    {
+      "filename": "房内快速奔跑.png",
+      "bytes": 209803,
+      "sha256": "61567c828726f4425634da82b552eb9ac6864870177821c54d9c9ad7261fbb78",
+      "mtime_local": "2026-10-20T12:15:36.930696+08:00",
+      "observation": "Monitor；阈值 0.80；历史曲线有高分片段。缺少动作起止标签，不能计算检出率或延迟。",
+      "trial_mapping": "NOT_ASSOCIATED_WITH_CURRENT_S1_S6_TRIALS",
+      "raw_csi_saved": "No, requester confirmed; earlier browser-only observations",
+      "actual_experiment_datetime": "UNCONFIRMED"
+    },
+    {
+      "filename": "隔壁走动.png",
+      "bytes": 253935,
+      "sha256": "8a0bd7cff7b4c3d660f82cb609df26f2d001b3900dbc49949b51a49b10873a60",
+      "mtime_local": "2026-10-20T12:07:10.322925+08:00",
+      "observation": "Monitor；阈值 0.8；历史曲线部分波峰越阈值。提示需检查区域外活动敏感性，不能单图认定因果，也不能写成隔壁无影响。",
+      "trial_mapping": "NOT_ASSOCIATED_WITH_CURRENT_S1_S6_TRIALS",
+      "raw_csi_saved": "No, requester confirmed; earlier browser-only observations",
+      "actual_experiment_datetime": "UNCONFIRMED"
+    }
+  ]
+}
