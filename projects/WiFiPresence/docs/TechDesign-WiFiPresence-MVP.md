@@ -1,6 +1,7 @@
 # Technical Design: WiFiPresence MVP
 
-**Version:** 0.4 | **Date:** 2026-10-22 | **Status:** Pilot capture integrated; scientific evaluation incomplete  
+**Version:** 0.5 | **Date:** 2026-10-29 | **Status:** Pilot capture integrated; scientific evaluation incomplete
+
 **Team:** Pan Yiran; Wang Junyang; Xie Hengyuan
 
 ## Architecture and Responsibilities
@@ -15,7 +16,7 @@ flowchart LR
     PIPE --> REPORT[CSV predictions + JSON / HTML report]
 ```
 
-The AP and ESP32 provide a specific wireless link. The official collector produces traffic and saves raw measurements. The new local Python code operates only on files and never contacts a device. Ordinary device motion events pause during raw collection. Restore the previously working traffic source afterward; restarting alone does not clear persistent external mode. ([ESPectre 3.0.0 API](https://github.com/francescopace/espectre/blob/3.0.0/docs/API.md) and [CLI](https://github.com/francescopace/espectre/blob/3.0.0/docs/CLI.md)).
+The AP and ESP32 provide a specific wireless link. The official collector produces traffic and saves raw measurements. The original local `wp.py` pipeline operates only on files and never contacts a device. The October 29 extension separately adds `presence.py` and an explicitly started live adapter, described below. Ordinary device motion events pause during raw collection. Restore the previously working traffic source afterward; restarting alone does not clear persistent external mode. ([ESPectre 3.0.0 API](https://github.com/francescopace/espectre/blob/3.0.0/docs/API.md) and [CLI](https://github.com/francescopace/espectre/blob/3.0.0/docs/CLI.md)).
 
 ## Technology Choices and Simpler Alternatives
 
@@ -77,7 +78,7 @@ The tests and synthetic demo were actually run using the bundled Python executab
 
 ## Deployment, Cost and Limitations
 
-Local computation under team control, no hosted application service or product model API. The public progress folder includes unchanged raw pilot/diagnostic data, which retain device IDs and private-LAN endpoint metadata. Local filesystem paths and full student IDs are omitted from public narrative/session copies. No new purchase is planned, but existing equipment/subscription costs are unquantified. No claims of real-time operation, router deployment or measured resource efficiency. Labels/layout are operator-reported; raw timing and admission quality are measured. Static presence, second-board compatibility, and real algorithm effectiveness remain unverified. Restoration and independent reproduction are requester-confirmed, with detailed records pending.
+Local computation under team control, no hosted application service or product model API. The public progress folder includes unchanged raw pilot/diagnostic data, which retain device IDs and private-LAN endpoint metadata. Local filesystem paths and full student IDs are omitted from public narrative/session copies. No new purchase is planned, but existing equipment/subscription costs are unquantified. A short live-transport diagnostic is documented in the October 29 report; sustained live detection, router deployment, and measured resource efficiency remain unverified. Labels/layout are operator-reported; raw timing and admission quality are measured. Static presence, second-board compatibility, and real algorithm effectiveness remain unverified. Earlier ordinary-sensing restoration and independent capture reproduction are requester-confirmed, with detailed records pending; the new live diagnostic separately read back its original traffic mode.
 
 ## Open Questions and Next Revision
 
@@ -87,6 +88,10 @@ Confirm responsibilities and individual understanding, preserve restoration/repr
 
 See research-WiFiPresence.md for the supplied course sources and versioned ESPectre references. The Vibe Coding Part 3 file was reviewed on 2026-10-15, SHA 47cf02550fc22908bb6d5944eab4e063c20845fe. This design adapts its structure to a hardware research workflow.
 
+## Presence research extension, 2026-10-29
+
+The user authorized a small local supervised classifier and file/live workbench. See [presence design and commands](PRESENCE-MODEL.md). This is an experimental extension: the validated-stationary-presence exclusion and missing real-effectiveness evidence remain. No LLM integration or cloud model is added. A separate presence.py live command can contact hardware when explicitly started; the original wp.py remains offline. Real training is currently blocked by failed empty controls and missing independent study splits; synthetic model checks cannot enable real predictions.
+
 ## Handoff Context
 
 Publication integration: the capture adapters live in `capture/`, with a separately installed ignored upstream checkout. `data/inventory.json` stores the canonical official quality audit, and every current pilot remains excluded from formal fitting/testing. The offline per-window sampler is a separate project method; it does not enforce official full-file admission automatically. This integration limitation is disclosed, and failed controls must not be used to fit a formal real model. The simple duplicate/hash checks also do not prove independent collection.
@@ -94,11 +99,11 @@ Publication integration: the capture adapters live in `capture/`, with a separat
 - Stage: techdesign
 - App name: WiFiPresence
 - User level: A
-- Platform: local Windows-first Python/NumPy file analysis
+- Platform: local Windows-first Python/NumPy analysis, optional loopback page and explicit live adapter
 - Chosen stack: Python CLI, NumPy, official ESPectre 3.0.0 collection, NPZ/JSONL/CSV/HTML
 - Distribution: public GitHub project subdirectory; analysis runs locally, without a hosted application
 - Coding assistant: Codex for the current document and offline implementation; human team review pending
-- AI in product scope: no
+- AI in product scope: experimental numerical CSI classifier in the research extension; no LLM or cloud model
 - Research status: real pilot capture and quality audit; algorithm checks are still synthetic
 - Budget: no incremental hardware or cloud purchase planned
 - Timeline: documents due 2026-10-18, working MVP date TBD
@@ -127,7 +132,7 @@ Publication integration: the capture adapters live in `capture/`, with a separat
     "lint": "",
     "build": ""
   },
-  "aiScope": "none",
+  "aiScope": "experimental supervised numerical CSI research; no LLM or cloud model",
   "evidenceStatus": {
     "asOf": "2026-10-22",
     "stage": "pilot-progress",
@@ -137,6 +142,14 @@ Publication integration: the capture adapters live in `capture/`, with a separat
     "formalSplit": "all current pilots excluded",
     "realAlgorithmEvaluation": "not performed",
     "teamUnderstanding": "pending"
+  },
+  "presenceResearchExtension": {
+    "asOf": "2026-10-29",
+    "model": "20-feature NumPy logistic classifier",
+    "realTraining": "blocked; no admitted EMPTY controls",
+    "fileAndLiveUI": "implemented; presence remains UNKNOWN without a real model",
+    "LLM": "none",
+    "originalRawDataAndExclusions": "unchanged"
   }
 }
 ```

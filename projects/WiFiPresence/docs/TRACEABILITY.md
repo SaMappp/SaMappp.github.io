@@ -9,3 +9,7 @@
 | FR-05 | CSV/JSON/HTML output, event handling | Synthetic report pipeline; real acquisition-quality results | Partial: real detection/false-positive/latency/cost outcomes missing |
 
 M1 capture/readback now has actual evidence. M2 has a pilot only. M3/M4 actual calibrated comparison and M5 complete research MVP remain incomplete. No requirement was silently removed. Stationary presence, multi-link, and router deployment remain outside the first version and unproven in the long-term project.
+
+## 2026-10-29 presence research extension
+
+A separate supervised-model/file/live workbench is implemented and software-checked. This is not completion of the original real evaluation requirements. Presence training additionally rejects failed/unverified official receipts and requires confirmed truth, original recording IDs, collection batches, and separate development/validation/test coverage. All current pilots remain excluded, so real fitting is blocked. Live transport has a bounded diagnostic success; its room truth was unknown and it adds no formal trial. See ../reports/PRESENCE-2026-10-29.md.

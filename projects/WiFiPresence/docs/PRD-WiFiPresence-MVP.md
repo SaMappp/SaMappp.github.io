@@ -1,6 +1,7 @@
 # Product Requirements Document: WiFiPresence MVP
 
-**Version:** 0.4 | **Date:** 2026-10-22 | **Status:** Public pilot progress; proposed research scope  
+**Version:** 0.5 | **Date:** 2026-10-29 | **Status:** Public pilot progress; proposed research scope
+
 **Team:** Pan Yiran; Wang Junyang; Xie Hengyuan
 
 ## Product Overview
@@ -101,7 +102,7 @@ Plain, readable local outputs: terminal inspection, prediction CSV and an HTML r
 
 ## AI / Automation Scope
 
-**Product AI:** None. AI assists document preparation and development. Team members review facts, choices, code and checks. A simple statistical detector is not a product LLM feature. Cloud model accounts, tool permissions and model-serving cost are Not applicable.
+**Product AI:** The original motion MVP uses explicit statistical rules. The October 29 research extension adds an experimental supervised numerical classifier, with real fitting currently blocked by data readiness. No LLM feature or cloud model is included. AI also assists document preparation and development; team members review facts, choices, code and checks. Cloud model accounts and model-serving cost are Not applicable.
 
 ## Quality Standards
 
@@ -162,6 +163,10 @@ These IDs match the [evidence register](../evidence/EVIDENCE-REGISTER.md).
 ---
 Document created: 2026-10-15; public progress revision: 2026-10-22. Full MVP and human review remain incomplete.
 
+## Presence research extension, 2026-10-29
+
+The user authorized a small local supervised classifier and file/live workbench. See [presence design and commands](PRESENCE-MODEL.md). This is an experimental extension: the validated-stationary-presence exclusion and missing real-effectiveness evidence remain. No LLM integration or cloud model is added. A separate presence.py live command can contact hardware when explicitly started; the original wp.py remains offline. Real training is currently blocked by failed empty controls and missing independent study splits; synthetic model checks cannot enable real predictions.
+
 ## Handoff Context
 
 The current public manifest retains all six recordings as `exclude` / `pilot_only`. S1/S4 additionally failed official full-file admission. Project window-quality checks differ from official admission and cannot override it. No real model or held-out evaluation is provided. The measured acquisition results and actual four-fan protocol are in [initial results](../reports/INITIAL-RESULTS.md) and [field protocol](EXPERIMENT-PROTOCOL.md).
@@ -172,7 +177,7 @@ The current public manifest retains all six recordings as `exclude` / `pilot_onl
 - Target platform: local Python/NumPy analysis with ESPectre 3.0.0 raw acquisition
 - Budget: no incremental purchase planned; existing costs unquantified
 - Timeline: proposal and PRD due 2026-10-18; working MVP date TBD
-- AI in product scope: no
+- AI in product scope: experimental numerical CSI classifier in the research extension; no LLM or cloud model
 - Research status: partial technical research; no validated end-user demand or real-capture evaluation
 - Constraints: three students, one real C6 link, second board untested; room 418; four ceiling fans; only one pilot per condition
 - Team: Pan Yiran; Wang Junyang; Xie Hengyuan
@@ -228,6 +233,14 @@ The current public manifest retains all six recordings as `exclude` / `pilot_onl
     "formalSplit": "all current pilots excluded",
     "realAlgorithmEvaluation": "not performed",
     "teamUnderstanding": "pending"
+  },
+  "presenceResearchExtension": {
+    "asOf": "2026-10-29",
+    "model": "20-feature NumPy logistic classifier",
+    "realTraining": "blocked; no admitted EMPTY controls",
+    "fileAndLiveUI": "implemented; presence remains UNKNOWN without a real model",
+    "LLM": "none",
+    "originalRawDataAndExclusions": "unchanged"
   }
 }
 ```

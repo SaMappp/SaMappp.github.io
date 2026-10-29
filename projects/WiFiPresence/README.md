@@ -6,6 +6,19 @@ Reproducible CSI pilot experiments for motion sensing under controlled interfere
 
 Team: Pan Yiran, Wang Junyang, and Xie Hengyuan. Individual contributions/understanding review remain to be confirmed; a separate member's independent capture reproduction and restored ordinary sensing were confirmed by the requester.
 
+
+## 2026-10-29: local presence research workbench
+
+The new [presence pipeline](docs/PRESENCE-MODEL.md) adds a small supervised classifier, whole-file quality/truth/batch gates, file input, and a loopback operation page with bounded live raw input. It does not train a language model. Current real training is blocked: admitted EMPTY controls are zero and the original pilots remain excluded. Without a qualified real model, every presence decision is UNKNOWN; no motion-to-absence shortcut is used.
+
+```text
+python presence.py status
+python presence.py predict --input data/raw/motion/motion_c6_64sc_dev027121349b989e30_20261022_181402_750086_0001.npz
+python presence.py serve --port 8765 --official-repo PATH_TO_PINNED_ESPECTRE
+```
+
+Open http://127.0.0.1:8765. Live networking is explicitly separate from the original offline wp.py. Current implementation/real connection limits and checks: [October 29 verification](reports/PRESENCE-2026-10-29.md). No new labeled study data, accepted real model, or measured presence accuracy is supplied.
+
 ## Start here
 
 - [Initial real results](reports/INITIAL-RESULTS.md) and [data inventory](data/inventory.json).
