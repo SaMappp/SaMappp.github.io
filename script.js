@@ -1,6 +1,12 @@
-// 潘宜然 · 个人主页 V2 —— 粉紫樱花夜
+// 潘宜然 · 个人主页 V3.7 —— 粉紫樱花夜
 (function () {
   "use strict";
+
+  // 本机演示服务会注入聊天入口；公开站点使用介绍页入口。
+  var localTwin = document.querySelector("[data-local-twin]");
+  var publicTwin = document.querySelector("[data-public-twin]");
+  if (localTwin && publicTwin) publicTwin.remove();
+
 
   // ---------- 页脚年份 ----------
   var yearEl = document.getElementById("year");

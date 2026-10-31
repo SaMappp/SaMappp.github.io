@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="潘宜然的 AI 数字分身：认识本人确认的学习兴趣、作品与 AI 编程观点，了解本机演示版的回答边界。">
+  <title>数字分身 · 潘宜然</title>
+  <link rel="stylesheet" href="style.css?v=3.7">
+  <script src="showcase.js?v=3.7" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要内容</a>
+  <div class="page">
+    <aside class="identity" aria-label="数字分身介绍">
+      <a class="home" href="../index.html"><span aria-hidden="true">←</span> 返回个人主页</a>
+      <div class="portrait">
+        <img src="../assets/avatar.jpg" alt="潘宜然的头像" width="112" height="112">
+        <span class="portrait-mark" aria-hidden="true">✦</span>
+      </div>
+      <p class="owner">潘宜然的</p>
+      <h1>数字分身</h1>
+      <p class="intro">从我的作品、兴趣和想法，<br>认识正在学习计算机的我。</p>
+      <div class="identity-note">
+        <p>这是 AI 数字分身，<br>不代表本人正在实时聊天。</p>
+        <p>只依据本人确认的资料回答，<br>不知道的事情，会直接说不知道。</p>
+      </div>
+      <p class="signature">把想法，一点点做成作品。</p>
+    </aside>
+
+    <main id="main" tabindex="-1">
+      <div class="availability">
+        <span class="status-dot" aria-hidden="true"></span>
+        <div><strong>本机演示版</strong><p>在线实时聊天尚未开放</p></div>
+      </div>
+      <header class="opening">
+        <h2>先从这些话题聊起</h2>
+        <p>分身已经可以在本人电脑上调用模型进行文字聊天。这里展示根据本人确认资料整理的示例，供你了解它会怎样介绍我。</p>
+      </header>
+
+      <section class="examples" aria-labelledby="examples-title">
+        <h3 id="examples-title">示例对话</h3>
+        <p class="sample-note" id="sample-note">以下为预设示例，非在线生成。选择话题可切换内容。</p>
+        <div class="topics" role="group" aria-label="选择示例话题" hidden>
+          <button type="button" data-example="identity" aria-pressed="true" aria-controls="sample-answer">认识我</button>
+          <button type="button" data-example="works" aria-pressed="false" aria-controls="sample-answer">作品与分工</button>
+          <button type="button" data-example="ai" aria-pressed="false" aria-controls="sample-answer">AI 与学习</button>
+          <button type="button" data-example="privacy" aria-pressed="false" aria-controls="sample-answer">回答的边界</button>
+        </div>
+        <div class="question"><span>访客</span><p id="sample-question">可以介绍一下你吗？</p></div>
+        <div class="answer" id="sample-answer" role="region" aria-label="数字分身的示例回答" aria-live="polite" aria-atomic="true">
+          <span class="speaker">潘宜然的 AI 数字分身</span>
+          <p id="sample-text">你好，我是潘宜然的 AI 数字分身。潘宜然是天津大学香港理工大学深圳未来技术学院计算机科学与技术专业的 2026 级大一学生，正在学习计算机基础知识，热爱计算机和新技术，也喜欢二次元、动漫和游戏。</p>
+        </div>
+        <noscript><p class="sample-note">当前显示自我介绍示例；启用 JavaScript 后可以切换其他话题。</p></noscript>
+      </section>
+
+      <section class="making" aria-labelledby="making-title">
+        <h3 id="making-title">这个分身是怎样做出来的</h3>
+        <dl>
+          <div><dt>资料与规则</dt><dd>将身份、作品、观点、隐私边界分开整理，只使用本人确认的内容，不补造经历。</dd></div>
+          <div><dt>文字聊天</dt><dd>本机服务接入 DeepSeek，密钥保留在运行环境中，不放进网页。演示时需要联网并保持服务运行。</dd></div>
+          <div><dt>测试与审阅</dt><dd>准备了事实、观点、边界、攻击四类共 26 题，并对发现的问题做了针对性复测和多轮补充检查。</dd></div>
+        </dl>
+        <p class="review-note">测试记录已在本地保存。有限测试不能保证每次回答都正确，最终表达仍需要本人审阅。</p>
+      </section>
+      <footer>实时聊天留待后续云端部署后开放。现在可以先回到主页，看看我的作品。</footer>
+    </main>
+  </div>
+</body>
+</html>

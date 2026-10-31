@@ -601,7 +601,7 @@ body.fb-locked { overflow: hidden; }
 /* ---------- 入口按钮网格 ---------- */
 .desk-grid {
   display: flex; flex-wrap: wrap; justify-content: center;
-  gap: 18px 14px; max-width: 780px;
+  gap: 18px 14px; max-width: 520px;
 }
 .tile { display: flex; flex-direction: column; align-items: center; gap: 11px; width: 112px; }
 .tile-ico {

@@ -8,7 +8,7 @@
   <!-- 加了这一行之后，面板的显示/隐藏完全由 .open 类决定；
        只有在禁用 JS 时才退回 CSS 的 :target 兜底 -->
   <script>document.documentElement.className = "js";</script>
-  <link rel="stylesheet" href="style.css?v=3.6" />
+  <link rel="stylesheet" href="style.css?v=3.7" />
 </head>
 <body>
 
@@ -101,9 +101,19 @@
           <span class="tile-t">联系</span>
         </a>
 
+        <a class="tile" href="digital-twin/index.html" data-public-twin aria-label="了解我的数字分身">
+          <span class="tile-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.4 11.3a8.4 8.4 0 0 1-8.4 8.1c-1.3 0-2.6-.3-3.7-.8L3.6 20l1.3-4.4a7.8 7.8 0 0 1-1.3-4.3A8.2 8.2 0 0 1 12 3.2a8.2 8.2 0 0 1 8.4 8.1z" />
+              <path d="M8 10h.01M12 10h.01M16 10h.01M8.8 14.1h6.4" />
+            </svg>
+          </span>
+          <span class="tile-t">数字分身</span>
+        </a>
+
       </nav>
 
-      <p class="desk-hint">点击任意一项展开 · 按 Esc 返回</p>
+      <p class="desk-hint">点击板块进入 · 面板内按 Esc 返回</p>
     </div>
 
     <div class="desk-foot">
@@ -637,7 +647,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=3.6"></script>
-  <script src="feedback.js?v=3.6"></script>
+  <script src="script.js?v=3.7"></script>
+  <script src="feedback.js?v=3.7"></script>
 </body>
 </html>
