@@ -1,5 +1,7 @@
 # WiFiPresence
 
+> **Source moved:** [SaMappp/WiFiPresence](https://github.com/SaMappp/WiFiPresence) is the canonical independent repository as of 2026-11-05. This directory is an archival copy for existing links; future development, issues and contributor history belong in the new repository. The existing project website and static preview remain available.
+
 ## 2026-11-05: live MVP source and public entry
 
 [Project page](https://samappp.github.io/projects/WiFiPresence/) · [Run the live MVP locally](live-mvp/README.md) · [Current verification and limitations](reports/LIVE-MVP-2026-11-05.md)
