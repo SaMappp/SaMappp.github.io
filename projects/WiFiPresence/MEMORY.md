@@ -9,3 +9,7 @@ Next: stabilize timing; recollect accepted S1/S4; record equipment/geometry; def
 ## 2026-10-29 research extension
 
 User requested training and file/live presence inference, and confirmed no newer data. Added presence.py, a NumPy logistic classifier with canonical-admission/truth/recording/batch/split gates, JSON model provenance, UNKNOWN abstention, temporary file input, local operation page, and a bounded optional live adapter. Existing raw bytes and pilot exclusions remain unchanged. Real training is blocked (zero admitted EMPTY files). Synthetic-only training pipeline verifies behavior. A live 12-second transport diagnostic received 1199 packets, stopped, confirmed raw session closure, and restored prior external mode; room truth unknown and no labeled trial added. One earlier live attempt reproduced backpressure; a missing API suffix and asynchronous cleanup race were corrected. Reliable occupancy, stationary detection, interference efficacy, and full MVP acceptance remain unverified.
+
+## 2026-11-05 code-only live MVP publication
+
+A local bounded live MVP and file replay are implemented. The local study progressed beyond the old pilots, but the trained candidate has severe empty-room false positives. New raw recordings/models/metadata remain private by owner choice. Only code, UI and documentation are published under live-mvp/. Public tests use explicit artificial fixtures and skip private-data tests until configured. See reports/LIVE-MVP-2026-11-05.md. Original pilot files and their exclusions are unchanged.

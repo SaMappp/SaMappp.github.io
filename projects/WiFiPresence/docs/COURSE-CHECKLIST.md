@@ -1,5 +1,12 @@
 # Course and instructor requirement check
 
+## Current code publication: 2026-11-05
+
+The [live MVP](../live-mvp/README.md) adds explicitly started, bounded live CSI input, experimental presence output, cleanup/readback and recorded-file replay. The code, web UI and documentation are public; the owner chose not to publish new raw recordings, models, trial inventories or device metadata. Original public pilot files and their exclusions remain historical evidence. The local real-data candidate has substantial empty-room false positives. Current-session real hardware streaming and restoration were not verified because the previous address was unreachable. Public tests use artificial transport fixtures; recorded-data checks require the private local inputs. Instructor acceptance and team understanding remain unconfirmed.
+
+The older dated content below is retained as a historical snapshot.
+
+
 Date: 2026-10-22. Read with the course PDFs supplied privately to the team; the course adaptation takes precedence over the generic template. This is a progress-repository submission, not a certificate that every course outcome or the full MVP is complete.
 
 | Source requirement | Public artifact/evidence | Current result |

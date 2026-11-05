@@ -1,5 +1,12 @@
 # Presence classifier and local operation page
 
+## Current code publication: 2026-11-05
+
+The [live MVP](../live-mvp/README.md) adds explicitly started, bounded live CSI input, experimental presence output, cleanup/readback and recorded-file replay. The code, web UI and documentation are public; the owner chose not to publish new raw recordings, models, trial inventories or device metadata. Original public pilot files and their exclusions remain historical evidence. The local real-data candidate has substantial empty-room false positives. Current-session real hardware streaming and restoration were not verified because the previous address was unreachable. Public tests use artificial transport fixtures; recorded-data checks require the private local inputs. Instructor acceptance and team understanding remain unconfirmed.
+
+The older dated content below is retained as a historical snapshot.
+
+
 2026-10-29 research extension requested by the user. This adds supervised EMPTY/PRESENT/UNKNOWN infrastructure; it does not establish reliable stationary presence or change any existing raw-file quality threshold. No language-model training or cloud API is involved.
 
 ## Current data decision

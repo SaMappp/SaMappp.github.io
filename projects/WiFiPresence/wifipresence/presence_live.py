@@ -39,10 +39,12 @@ class LiveSession:
         self.thread = None
         self.receiver = None
         self.stop_event = threading.Event()
+        self.generation = 0
         self.reset()
 
     def reset(self):
         with self.lock:
+            self.generation += 1
             self.buffer.clear()
             self.status = 'STOPPED'
             self.error = None
@@ -81,14 +83,17 @@ class LiveSession:
         if address.version != 4 or not address.is_private or address.is_loopback or address.is_unspecified or address.is_multicast or str(address).endswith('.255'):
             raise DataError('Enter the single ESP32 private-LAN IPv4 address, not a broadcast or URL.')
         if not 3 <= duration <= 600: raise DataError('Live session duration must be 3-600 seconds.')
-        if self.thread and self.thread.is_alive(): raise DataError('A live session is already active.')
-        self.reset(); self.stop_event.clear()
-        self.status = 'CONNECTING'
-        self.thread = threading.Thread(target=self._run, args=(str(address), repo, duration, factories), daemon=True)
-        self.thread.start()
+        with self.lock:
+            if self.thread and self.thread.is_alive(): raise DataError('A live session is already active.')
+            self.reset(); self.stop_event.clear(); self.receiver = None
+            self.status = 'CONNECTING'
+            self.thread = threading.Thread(target=self._run, args=(str(address), repo, duration, factories), daemon=True)
+            self.thread.start()
 
     def _run(self, target, repo, duration, factories):
         control, receiver, generator, timer = None, None, None, nullcontext()
+        mode_attempted = False
+        session_attempted = False
         try:
             client_cls, receiver_cls, generator_cls = factories or load_upstream(repo)
             timer_path = Path(__file__).resolve().parents[1] / 'capture' / 'WiFiPresence-Collector-Runner.py'
@@ -103,31 +108,45 @@ class LiveSession:
             original = sensing.get('traffic_generator_mode')
             if not isinstance(original, str) or not original: raise DataError('Cannot preserve original traffic mode.')
             self.original_mode = original
+            raw_before = control.request('get', 'diagnostics', {'fields': ['raw_csi']}).get('raw_csi', {})
+            if raw_before.get('active') is not False:
+                self.session_closed = False if raw_before.get('active') is True else None
+                raise DataError('Another raw CSI session is active, or its status cannot be confirmed. Stop the other session first.')
+            self.session_closed = True
             caps = control.request('get', 'capabilities').get('csi', {})
             if caps.get('protocol_version') != 1 or caps.get('marker') != generator_cls.TRAFFIC_MARKER:
                 raise DataError('Raw capability/traffic marker mismatch.')
             if self.stop_event.is_set(): return
-            control.request('patch', 'sensing', {'traffic_generator_mode': 'external'})
+            if original != 'external':
+                # A failed network request may still have applied the change.
+                mode_attempted = True
+                control.request('patch', 'sensing', {'traffic_generator_mode': 'external'})
             receiver = receiver_cls(f'http://{target}:62587', buffer_size=500, derive_complex=False, timeout=3.0)
             self.receiver = receiver
             receiver.requested_pps = 100.0
             receiver.add_callback(self.accept_packet)
             generator = generator_cls([target], port=int(caps.get('traffic_udp_port', 5555)), rate_pps=100)
             with timer:
+                session_attempted = True
+                self.session_closed = None
                 receiver.start_session(); generator.start(); receiver.bind_stream()
                 if self.stop_event.is_set(): return
-                self.status = 'STREAMING'
+                with self.lock:
+                    if self.stop_event.is_set(): return
+                    self.status = 'STREAMING'
                 receiver.run(timeout=duration, quiet=True)
         except Exception as exc:
             self.error = f'{type(exc).__name__}: {exc}'
         finally:
+            with self.lock:
+                self.status = 'STOPPING'
             for resource in (generator, receiver):
                 if resource:
                     try: resource.stop()
                     except Exception as exc: self.error = self.error or str(exc)
             if control:
                 try:
-                    if self.original_mode is not None:
+                    if self.original_mode is not None and (mode_attempted or session_attempted):
                         # Closing TCP and firmware releasing CSI are asynchronous.
                         deadline = time.monotonic() + 3.0
                         self.session_closed = False
@@ -149,15 +168,19 @@ class LiveSession:
                 except Exception as exc:
                     self.restored = False; self.error = self.error or str(exc)
                 finally: control.close()
-            self.status = 'ERROR' if self.error else 'STOPPED'
+            with self.lock:
+                self.status = 'ERROR' if self.error else 'STOPPED'
 
     def stop(self):
-        self.stop_event.set()
+        with self.lock:
+            self.stop_event.set()
+            if self.thread and self.thread.is_alive(): self.status = 'STOPPING'
         if self.receiver is not None: self.receiver.running = False
         if self.thread and self.thread is not threading.current_thread(): self.thread.join(timeout=8)
         if self.thread and self.thread.is_alive():
-            self.error = 'Live worker has not stopped; data output is UNKNOWN.'
-            self.status = 'ERROR'
+            with self.lock:
+                self.error = 'Live worker has not stopped; data output is UNKNOWN.'
+                self.status = 'ERROR'
 
     def snapshot(self):
         with self.lock:
@@ -173,6 +196,7 @@ class LiveSession:
             if self.transport_problem:
                 result['reason'] = 'raw_transport_drops_or_backpressure'; return result
             meta = dict(self.metadata)
+            generation = self.generation
         if len(samples) < 2 or samples[-1][0] - samples[0][0] < 1_000_000:
             result['reason'] = 'window_warmup'; return result
         ticks = np.array([v[0] for v in samples], float)
@@ -180,7 +204,13 @@ class LiveSession:
         c = Capture(Path('LIVE'), times, np.array([v[1] for v in samples]), 100.0,
                     float(times[-1] + .01), False, '', meta)
         rows = infer(c, self.model, admitted=True, room=self.room)
-        result.update({'presence': rows[-1]['presence'], 'reason': rows[-1]['reason'], 'windows': rows,
-                       'quality_scope': 'online project window checks; not official whole-file admission',
-                       'model_loaded': self.model is not None})
+        with self.lock:
+            if (self.generation != generation or self.status != 'STREAMING' or self.stop_event.is_set()
+                    or self.transport_problem or self.last_arrival is None or self.clock() - self.last_arrival > 3):
+                result.update({'status': self.status, 'presence': 'UNKNOWN', 'reason': 'stream_changed_during_processing',
+                               'error': self.error, 'restored': self.restored, 'session_closed': self.session_closed})
+                return result
+            result.update({'presence': rows[-1]['presence'], 'reason': rows[-1]['reason'], 'windows': rows,
+                           'quality_scope': 'online project window checks; not official whole-file admission',
+                           'model_loaded': self.model is not None})
         return result

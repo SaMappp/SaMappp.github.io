@@ -1,5 +1,13 @@
 # WiFiPresence
 
+## 2026-11-05: live MVP source and public entry
+
+[Project page](https://samappp.github.io/projects/WiFiPresence/) · [Run the live MVP locally](live-mvp/README.md) · [Current verification and limitations](reports/LIVE-MVP-2026-11-05.md)
+
+The new local application receives ESPectre CSI, displays experimental PRESENT / EMPTY / UNKNOWN, shows cleanup/restoration results and retains file replay. **GitHub Pages hosts only the project introduction and static UI preview; the Python backend runs locally.** New recordings and trained models remain private at the owner's request. The previous public pilot data remain unchanged. The current model has serious false positives; current-session hardware validation is incomplete.
+
+The older dated reports below remain historical snapshots; they are not a claim that a reliable detector is complete.
+
 Reproducible CSI pilot experiments for motion sensing under controlled interference, with exploratory stationary-presence observations.
 
 **2026-10-22 progress submission. This is not a validated interference-resistant presence detector.** Six real approximately 60-second scene recordings are included. Four pass official post-capture admission, and S1/S4 fail. No real-data calibrated baseline/candidate performance is claimed. IDLE means no detected motion, not an empty room.
