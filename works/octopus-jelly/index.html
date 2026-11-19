@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可拖拽、投饵、换色的双层果冻章鱼软体实验。">
+  <title>双层果冻章鱼 | Octopus Jelly</title>
+  <link rel="stylesheet" href="studio.css">
+  <script type="module" src="studio.js"></script>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <p class="series">Octopus Jelly</p>
+        <h1>双层果冻章鱼</h1>
+      </div>
+      <span class="engine" id="engine" role="status">正在准备模型</span>
+    </header>
+    <div class="studio">
+      <figure class="stage">
+        <canvas id="specimen" aria-label="双层果冻章鱼的三维视图"></canvas>
+        <div class="stage-top"><span>摄影棚</span><button id="angle" type="button" aria-label="切换观察角度">切换视角</button></div>
+        <p id="notice" role="status" hidden></p>
+        <figcaption>拖动章鱼拉伸或提起它，拖动空白处旋转视角</figcaption>
+      </figure>
+      <section class="controls" aria-label="实验控制">
+        <fieldset>
+          <legend>胶体配色</legend>
+          <div class="swatches">
+            <button data-palette="coral" type="button" aria-pressed="true">珊瑚</button>
+            <button data-palette="plum" type="button" aria-pressed="false">深梅</button>
+            <button data-palette="mint" type="button" aria-pressed="false">薄荷</button>
+          </div>
+        </fieldset>
+        <label for="muscle">肌肉活性 <output id="activity" for="muscle">64%</output></label>
+        <input id="muscle" type="range" min="0" max="100" value="64">
+        <div class="actions">
+          <button class="bait" id="bait" type="button">投下饵珠 <span aria-hidden="true">＋</span></button>
+          <button id="pause" type="button" aria-pressed="false">暂停</button>
+          <button id="reset" type="button">重置</button>
+        </div>
+        <p class="material"><span></span>斑驳外胶 <span></span>乳白内胶</p>
+      </section>
+    </div>
+    <dl class="measurements" aria-label="实时模拟测量">
+      <div title="按胶体密度和静止网格体积估算"><dt>质量</dt><dd><span id="mass">—</span> <small>kg</small></dd></div>
+      <div title="实时累加模拟四面体的体积"><dt>体积</dt><dd><span id="volume">—</span> <small>L</small></dd></div>
+      <div><dt>腕展</dt><dd><span id="span">—</span> <small>cm</small></dd></div>
+      <div><dt>外套膜高度</dt><dd><span id="height">—</span> <small>cm</small></dd></div>
+    </dl>
+  </main>
+</body>
+</html>
