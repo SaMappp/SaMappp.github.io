@@ -151,7 +151,7 @@ input[type="range"]::-moz-range-thumb {width:10px;height:10px;border-radius:50%;
 <footer class="play">
   <p class="play-label">Play</p>
   <p class="play-title">Tip the block. Wake the geyser. Watch the island react.</p>
-  <p class="instructions">Drag the sea surface to make waves · Drag the block’s side to tilt the whole island · Drag the geyser pool to stir it · Click ERUPTION to trigger a burst · Click TREMOR to shake the volcano · Drag empty space or right-drag to orbit · Scroll or pinch to zoom</p>
+  <p class="instructions">Drag the boat or whale to steer. Flick to give it speed · Drag the sea for waves, the block’s side to tilt, or the pool to stir · Click ERUPTION or TREMOR · Drag empty space or right-drag to orbit · Scroll or pinch to zoom</p>
 </footer>
 <div class="specimen" aria-hidden="true">Icelandic island <span>104 × 104 m at specimen scale</span></div>
 <div id="loading" role="status">Preparing the specimen…</div>
@@ -456,6 +456,7 @@ function drawLandDetails(m) {
   drawBasalt(m);
   undersea(m);
 }
+const basaltStacks=[[2.24,-1.46,.165,1.53],[2.35,-1.00,.115,1.32],[2.30,-.63,.087,1.17]];
 function drawBasalt(m){
   for(let i=0;i<43;i++){
     const z=-1.90+i*.037, x=1.81+.045*noise(i*.43,6)+between(-.028,.06);
@@ -465,7 +466,7 @@ function drawBasalt(m){
     m.tube([x,Math.max(.45,y-.45),z],[x,Math.max(y+.03,tops),z],between(.026,.053),between(.028,.058),c,3,6);
     if(i%2) m.lump([x,Math.max(y+.03,tops),z],.046,.017,.040,blend(colors.turf,colors.moss,random()),5,6,2);
   }
-  for(const [x,z,r,h] of [[2.24,-1.46,.165,1.53],[2.35,-1.00,.115,1.32],[2.30,-.63,.087,1.17]]){
+  for(const [x,z,r,h] of basaltStacks){
     for(let i=0;i<37;i++){
       const a=i*2.4, radius=r*Math.sqrt(i/37), px=x+radius*Math.cos(a), pz=z+radius*Math.sin(a);
       const top=h-.13*(radius/r)**3+between(-.028,.032);
@@ -731,9 +732,13 @@ function puffin(m,x,y,z,angle,fly,t,i) {
     else m.lump(p(.008,.009,s*.011),.010,.005,.008,colors.orange,0,5,2);
   }
 }
-function boat(m,y,roll,pitch) {
-  const x=.47,z=2.367,c=Math.cos(roll),s=Math.sin(roll);
-  const p=(a,b,d)=>[x+a,y+c*b+s*d+pitch*a,z-s*b+c*d];
+function drawBoat(m) {
+  const {x,z}=boatBody, y=1.028+boatHeave, yaw=boatBody.yaw+Math.PI;
+  const c=Math.cos(boatRoll),s=Math.sin(boatRoll), cx=Math.cos(yaw),cz=Math.sin(yaw);
+  const p=(a,b,d)=>{
+    const zLocal=-s*b+c*d;
+    return [x+cx*a-cz*zLocal,y+c*b+s*d-boatPitch*a,z+cz*a+cx*zLocal];
+  };
   const outline=[[-.218,0],[-.165,-.066],[.113,-.078],[.196,-.053],[.198,.053],[.113,.078],[-.165,.066]];
   for(let i=0;i<outline.length;i++) {
     const [a,b]=outline[i], [d,e]=outline[(i+1)%outline.length];
@@ -741,21 +746,25 @@ function boat(m,y,roll,pitch) {
     m.quad(p(a,.039,b),p(d,.039,e),p(d,.057,e),p(a,.057,b),colors.white,5);
     m.tri(p(0,.058,0),p(d,.058,e),p(a,.058,b),colors.lightWood,5);
   }
-  m.box(p(-.068,.056,0),.170,.075,.103,colors.white,0,4);
+  m.box(p(-.068,.056,0),.170,.075,.103,colors.white,yaw,4);
   for(const zz of [-.053,.053]) for(const xx of [-.126,-.08,-.034]){
-    m.box(p(xx,.091,zz),.031,.023,.009,colors.navy,0,4);
+    m.box(p(xx,.091,zz),.031,.023,.009,colors.navy,yaw,4);
   }
-  m.box(p(-.150,.092,0),.010,.024,.073,colors.navy,0,4);
-  m.box(p(-.069,.129,0),.193,.018,.128,colors.orange,0,4);
+  m.box(p(-.150,.092,0),.010,.024,.073,colors.navy,yaw,4);
+  m.box(p(-.069,.129,0),.193,.018,.128,colors.orange,yaw,4);
   m.tube(p(.006,.144,0),p(.006,.225,0),.004,.003,colors.white,0,5);
   m.tube(p(.006,.213,-.025),p(.006,.213,.025),.003,.003,colors.white,0,5);
   for(const s of [-1,1]) for(const a of [.038,.113,.177]){
     m.tube(p(a,.052,s*.061),p(a,.077,s*.061),.0026,.0026,colors.white,0,4);
   }
   for(const s of [-1,1])m.tube(p(.031,.077,s*.061),p(.18,.077,s*.061),.0026,.0026,colors.white,0,4);
-  m.tube(p(.158,.049,-.055),[.52,1.119,2.225],.0028,.0028,colors.timber,0,4);
 }
 
+const boatBody={launch:[.46,2.42], cruise:.54, limit:2.6, reach:.19, beam:.083,
+  route:[[1.56,2.38],[2.14,2.30],[2.32,2.04],[2.05,1.91],[1.36,1.99],[.86,2.08],[.83,2.39]]};
+const whaleBody={launch:[-1.81,2.25], cruise:.64, limit:2.35, reach:.32, beam:.12,
+  route:[[-.92,2.32],[-.48,2.18],[-.64,1.96],[-1.32,1.91],[-2.03,1.95],[-2.31,1.77],[-2.27,2.23]]};
+const seaLife={boat:boatBody,whale:whaleBody};
 const height=new Float32Array(N*N), vx=new Float32Array(N*N), vz=new Float32Array(N*N);
 const wet=new Uint8Array(N*N), faceX=new Float32Array(N*N), faceZ=new Float32Array(N*N);
 const pressure=new Float32Array(N*N);
@@ -788,6 +797,76 @@ function sampleWater(x,z) {
   const u=clamp((x+HALF)/DX,0,N-1.001),v=clamp((z+HALF)/DX,0,N-1.001);
   const a=Math.floor(u),b=Math.floor(v),k=b*N+a;
   return mix(mix(height[k],height[k+1],u-a),mix(height[k+N],height[k+N+1],u-a),v-b);
+}
+function resetSwimmer(body){
+  const [x,z]=body.launch, [tx,tz]=body.route[0];
+  const yaw=Math.atan2(tz-z,tx-x);
+  Object.assign(body,{x,z,yaw,vx:Math.cos(yaw)*body.cruise,vz:Math.sin(yaw)*body.cruise,
+    waypoint:0,blocked:0,held:false,tx:x,tz:z,coast:0,launchX:0,launchZ:0,wake:0,stroke:0});
+}
+function openWater(x,z){
+  if(Math.max(Math.abs(x),Math.abs(z))>2.565 || terrainSample(x,z)>.94)return false;
+  if(z>2.095&&z<2.285&&x>-.06&&x<.65)return false;
+  if(z>1.62&&z<=2.095&&Math.abs(x-mix(.18,.29,(z-1.51)/.68))<.092)return false;
+  return basaltStacks.every(([sx,sz,r])=>Math.hypot(x-sx,z-sz)>r+.022);
+}
+function canSwim(body,x,z,angle){
+  const a=Math.cos(angle),b=Math.sin(angle), l=body.reach,w=body.beam;
+  return openWater(x,z)&&openWater(x+a*l,z+b*l)&&openWater(x-a*l,z-b*l)
+    &&openWater(x-b*w,z+a*w)&&openWater(x+b*w,z-a*w);
+}
+function swim(body,dt){
+  const {x,z,held,route}=body;
+  let [tx,tz]=held?[body.tx,body.tz]:route[body.waypoint];
+  if(!held && Math.hypot(tx-x,tz-z)<.20){
+    body.waypoint=(body.waypoint+1)%route.length;
+    [tx,tz]=route[body.waypoint];
+  }
+  const dx=tx-x,dz=tz-z, distance=Math.hypot(dx,dz);
+  const speed=held?Math.min(body.limit,distance*6):body.cruise;
+  const blend=held?0:smooth(0,1.10,body.coast);
+  const targetX=speed*dx/(distance||1)*(1-blend)+body.launchX*blend;
+  const targetZ=speed*dz/(distance||1)*(1-blend)+body.launchZ*blend;
+  const demand=Math.hypot(targetX,targetZ);
+  body.coast=Math.max(0,body.coast-dt);
+  const desired=demand>.015?Math.atan2(targetZ,targetX):body.yaw;
+  let heading=desired, steer=false;
+  if(demand>.02){
+    const lookAhead=.13+Math.min(.21,demand*.12);
+    for(const offset of [0,.54,-.54,1.04,-1.04,1.56,-1.56,2.45,-2.45,Math.PI]){
+      const ang=desired+offset;
+      if(held&&Math.abs(offset)>1.56)break;
+      if(!canSwim(body,x+Math.cos(ang)*lookAhead,z+Math.sin(ang)*lookAhead,ang))continue;
+      heading=ang;steer=true;break;
+    }
+  }
+  const angleDiff=Math.atan2(Math.sin(heading-body.yaw),Math.cos(heading-body.yaw));
+  const newYaw=body.yaw+angleDiff*Math.min(1,dt*(held?13:7));
+  if(canSwim(body,x,z,newYaw))body.yaw=newYaw;
+  const pace=steer?demand:0;
+  const response=1-Math.exp(-dt*(held?11:6));
+  body.vx=mix(body.vx,Math.cos(heading)*pace,response);
+  body.vz=mix(body.vz,Math.sin(heading)*pace,response);
+  const nx=x+body.vx*dt,nz=z+body.vz*dt;
+  if(canSwim(body,nx,nz,body.yaw)){
+    body.x=nx;body.z=nz;
+  }else{
+    body.vx*=.77;body.vz*=.77;
+  }
+  // Skip a waypoint if a manual release left it on the far side of an obstacle.
+  if(!held&&body.coast===0&&(!steer||Math.abs(angleDiff)>2.3)){
+    body.blocked+=dt;
+    if(body.blocked>.7){body.waypoint=(body.waypoint+1)%route.length;body.blocked=0;}
+  }else body.blocked=0;
+  const actual=Math.hypot(body.vx,body.vz);
+  body.stroke+=dt*(2.4+actual*4.2);
+  body.wake-=dt;
+  if(body.wake<=0&&actual>.18){
+    body.wake=.10;
+    const offset=body.reach*.91;
+    ripple(body.x-Math.cos(body.yaw)*offset,body.z-Math.sin(body.yaw)*offset,
+      -Math.min(.024,actual*.015),body===whaleBody?.23:.145);
+  }
 }
 function ripple(x,z,strength,radius=.13) {
   const u=(x+HALF)/DX,v=(z+HALF)/DX,R=radius/DX;
@@ -887,21 +966,25 @@ function step(dt){
   shakeX=quake*Math.sin(tremorAge*100)*.035;
   shakeZ=quake*Math.cos(tremorAge*87)*.045;
   squash=(velocityX+velocityZ)*.016+Math.hypot(bodyX,bodyZ)*.070+quake*Math.sin(tremorAge*49)*.046;
-  const waterY=sampleWater(.47,2.36), target=waterY+Math.sin(time*1.61)*.008+Math.sin(time*2.9)*.004;
+  swim(boatBody,dt);
+  swim(whaleBody,dt);
+  const {x:bx,z:bz,yaw}=boatBody, a=Math.cos(yaw), b=Math.sin(yaw);
+  const waterY=sampleWater(bx,bz), target=waterY+Math.sin(time*1.61)*.008+Math.sin(time*2.9)*.004;
   boatSpeed+=dt*((target-boatHeave)*76-boatSpeed*5.5);
   boatHeave+=dt*boatSpeed;
-  boatRoll=mix(boatRoll,(sampleWater(.47,2.26)-sampleWater(.47,2.48))*3.2+Math.sin(time*2.6)*.052,dt*8);
-  boatPitch=mix(boatPitch,(sampleWater(.60,2.36)-sampleWater(.30,2.36))*2.7+Math.sin(time*1.8)*.027,dt*8);
+  boatRoll=mix(boatRoll,(sampleWater(bx-b*.11,bz+a*.11)-sampleWater(bx+b*.11,bz-a*.11))*3.2+Math.sin(time*2.6)*.052,dt*8);
+  boatPitch=mix(boatPitch,(sampleWater(bx+a*.16,bz+b*.16)-sampleWater(bx-a*.16,bz-b*.16))*2.7+Math.sin(time*1.8)*.027,dt*8);
   horseDistance+=dt*(.12+3.1*(1-smooth(2,7,tremorAge)));
-  if(time-lastWhale>25.1){ whaleAge=0;lastWhale=time;ripple(-2.49,1.82,.069,.33); }
+  if(time-lastWhale>25.1&&!whaleBody.held)startBreach();
   if(whaleAge>=0){
     whaleAge+=dt;
-    if(whaleAge>=1.3 && whaleAge-dt<1.3){
-      ripple(-1.54,1.94,.116,.42);
+    if(whaleAge>=1.71 && whaleAge-dt<1.71){
+      const {x,z,yaw}=whaleBody, fx=x+Math.cos(yaw)*.18,fz=z+Math.sin(yaw)*.18;
+      ripple(fx,fz,.102,.38);
       addSound('whale');
-      for(let i=0;i<100;i++) particle(-1.54,1.02,1.94,between(-.60,.60),between(.25,1.5),between(-.43,.66),between(.009,.027),between(.45,1.4),0,.79);
+      for(let i=0;i<100;i++) particle(fx,1.02,fz,between(-.60,.60),between(.25,1.5),between(-.43,.66),between(.009,.027),between(.45,1.4),0,.79);
     }
-    if(whaleAge>3.2)whaleAge=-1;
+    if(whaleAge>=1.9)whaleAge=-1;
   }
   particleClock+=dt;
   if(particleClock>.056){
@@ -1016,7 +1099,7 @@ function animatedGeometry(m) {
     m.lump([x,y+.028,z],.015,.020,.015,skin,0,8,4);
     m.lump([x-.004,y+.038,z-.002],.015,.013,.014,i%3===0?colors.lightWood:colors.tar,0,7,3);
   }
-  boat(m,1.028+boatHeave,boatRoll,boatPitch);
+  drawBoat(m);
   for(let j=0;j<4;j++){
     const a=fract(time*.76+j*.253), r=.007+a*.066;
     addRing(m,springs[3][0]+(j%2)*.028,springs[3][4]+.003,springs[3][1]-.008,r,.0036,scale(colors.mud,1.16+a*.24),5,.77);
@@ -1034,17 +1117,34 @@ function animatedGeometry(m) {
     const glow=b.landed?1-smooth(0,3,b.age-b.hit):1;
     m.lump([b.x,b.y,b.z],b.r,b.r*.72,b.r*.89,blend(colors.coal,colors.lava,glow*.86),glow>.26?7:1,7,3,b.age*5,.72);
   }
-  if(whaleAge>=0 && whaleAge<1.58) drawWhale(m,whaleAge);
+  drawWhale(m);
 }
-function drawWhale(m,t){
-  const a=clamp(t/1.50), tilt=mix(.93,-.64,smooth(.35,.8,a)), lift=Math.sin(TAU*.5*a);
-  const x=-2.69+t*.73,z=1.83+t*.085,y=.79+lift*.66;
-  const p=(u,v,w)=>[x+Math.cos(tilt)*u-Math.sin(tilt)*v,y+Math.sin(tilt)*u+Math.cos(tilt)*v,z+w];
+function startBreach(){
+  if(whaleAge>=0)return;
+  whaleAge=0;lastWhale=time;
+  ripple(whaleBody.x,whaleBody.z,.049,.30);
+}
+function whalePose(){
+  const {x,z,stroke}=whaleBody;
+  const progress=clamp(whaleAge/1.9);
+  const lift=.66*Math.pow(Math.sin(Math.PI*progress),1.7);
+  return {y:.982+sampleWater(x,z)+Math.sin(stroke*.44)*.025+lift,
+    pitch:Math.sin(stroke)*.053+Math.sin(TAU*progress)*.69};
+}
+function drawWhale(m){
+  const {x,z,yaw,stroke}=whaleBody, {y,pitch}=whalePose();
+  const c=Math.cos(yaw),s=Math.sin(yaw),cp=Math.cos(pitch),sp=Math.sin(pitch);
+  const p=(u,v,w)=>{
+    const tail=Math.pow(clamp(-u/.49),2);
+    v+=Math.sin(stroke-u*5)*(.009+.074*tail);
+    const along=cp*u-sp*v;
+    return [x+c*along-s*w,y+sp*u+cp*v,z+s*along+c*w];
+  };
   const back=linear(0x394d5c), belly=linear(0xa7afae);
   for(let j=0;j<14;j++){
     const pos=(u,k)=>{
       const a=k*TAU/14, r=.128*Math.sin(Math.PI*u)**.74*(.40+.72*u);
-      return p(-.43+u*.80,r*Math.cos(a),r*Math.sin(a));
+      return p(-.36+u*.69,r*Math.cos(a),r*Math.sin(a));
     };
     for(let k=0;k<14;k++){
       const col=k>=5&&k<=9?belly:back;
@@ -1052,10 +1152,10 @@ function drawWhale(m,t){
     }
   }
   for(let s of [-1,1]){
-    m.tri(p(-.34,.014,0),p(-.47,.045,s*.19),p(-.51,.006,s*.12),back,27);
-    m.tri(p(.09,-.037,s*.067),p(-.101,-.071,s*.249),p(-.04,-.036,s*.101),back,27);
+    m.quad(p(-.32,.015,0),p(-.41,.021,s*.12),p(-.46,.044,s*.172),p(-.43,.007,s*.064),back,27);
+    m.quad(p(.079,-.051,s*.071),p(-.041,-.075,s*.181),p(-.132,-.063,s*.206),p(-.037,-.035,s*.086),belly,27);
   }
-  m.tri(p(-.15,.066,0),p(-.186,.119,0),p(-.243,.041,0),back,27);
+  m.tri(p(-.114,.075,0),p(-.177,.152,0),p(-.219,.061,0),back,27);
 }
 let audio=null;
 function unlockAudio(){
@@ -1137,7 +1237,28 @@ function hitPlane(px,py,y){
   }
   return k>0?[x,z,k]:null;
 }
+function swimmerHit(px,py,body,y){
+  const {x,z,yaw,reach,beam}=body;
+  const c=Math.cos(yaw),s=Math.sin(yaw);
+  const a=project([x-c*reach,y,z-s*reach]),b=project([x+c*reach,y,z+s*reach]);
+  if(Math.min(a[2],b[2])<=0)return Infinity;
+  const dx=b[0]-a[0],dy=b[1]-a[1];
+  const t=clamp(((px-a[0])*dx+(py-a[1])*dy)/(dx*dx+dy*dy||1));
+  const distance=Math.hypot(px-a[0]-t*dx,py-a[1]-t*dy);
+  const scale=projection.y*projection.height/(2*mix(a[2],b[2],t));
+  const touch=matchMedia('(pointer: coarse)').matches;
+  if(distance>Math.max(touch?15:8,beam*scale+4))return Infinity;
+  // The island can hide a swimmer when the camera orbits.
+  for(let h=y+.12;h<2.56;h+=.15){
+    const hit=hitPlane(px,py,h);
+    if(hit&&Math.abs(hit[0])<HALF&&Math.abs(hit[1])<HALF&&terrainSample(hit[0],hit[1])>h)return Infinity;
+  }
+  return distance;
+}
 function pick(px,py){
+  const shipHit=swimmerHit(px,py,boatBody,1.12+boatHeave);
+  const whaleHit=swimmerHit(px,py,whaleBody,whalePose().y+.075);
+  if(Math.min(shipHit,whaleHit)<Infinity)return shipHit<=whaleHit?'boat':'whale';
   const p=hitPlane(px,py,GEYSER[4]);
   if(p && oval(p[0],p[1],GEYSER)<1.24)return 'pool';
   const sea=hitPlane(px,py,1);
@@ -1834,6 +1955,8 @@ function restore(){
   bodyX=bodyZ=velocityX=velocityZ=tipX=tipZ=squash=shakeX=shakeZ=aimX=aimZ=0;
   heldTip=false;whaleAge=-1;horseDistance=0;lastWhale=4.6;
   boatHeave=boatSpeed=boatRoll=boatPitch=0;
+  resetSwimmer(boatBody);resetSwimmer(whaleBody);
+  drag=null;pinch=null;pointers.clear();
   particleClock=burstClock=sprayClock=foamClock=0;
   for(const [id,value] of [['firmness',50],['damping',30],['sensitivity',5]]){$(id).value=value; syncSlider(id);}
   seedSteam();
@@ -1844,6 +1967,7 @@ function restore(){
 }
 function setPause(next){
   paused=next;
+  if(next&&drag?.swimmer)stopSteering(false,0);
   if(built&&!failed)setStatus(next?'paused':'live');
   $('pause').textContent=next?'Resume':'Pause';
   $('pause').setAttribute('aria-pressed',next);
@@ -1894,6 +2018,29 @@ function waterDrag(x,y,strength){
   const hit=hitPlane(x,y,SEA);
   if(hit&&Math.abs(hit[0])<HALF+.1&&Math.abs(hit[1])<HALF+.1)ripple(hit[0],hit[1],strength,.105);
 }
+function stopSteering(flick,stamp){
+  const body=drag?.swimmer;
+  if(!body)return;
+  body.held=false;
+  const recent=flick&&(stamp-drag.movedAt)<140;
+  const dx=recent?drag.flickX:body.vx, dz=recent?drag.flickZ:body.vz;
+  const magnitude=Math.hypot(dx,dz);
+  const speed=clamp(magnitude,body.cruise,body.limit);
+  if(magnitude>.08){
+    body.launchX=dx*speed/magnitude;
+    body.launchZ=dz*speed/magnitude;
+    body.coast=recent?1.9:0;
+    // Resume at the closest waypoint ahead of the release direction.
+    let best=Infinity;
+    body.route.forEach(([x,z],i)=>{
+      const tx=x-body.x,tz=z-body.z,length=Math.hypot(tx,tz);
+      if(length<.23)return;
+      const alignment=(tx*dx+tz*dz)/(length*magnitude);
+      const score=length+(1-alignment)*.92;
+      if(score<best){best=score;body.waypoint=i;}
+    });
+  }
+}
 function pointerStart(e){
   if(!built||failed || e.button===1)return;
   e.preventDefault();
@@ -1904,12 +2051,22 @@ function pointerStart(e){
   if(pointers.size===2){
     const [a,b]=pointers.values();
     pinch={span:Math.max(4,Math.hypot(a.x-b.x,a.y-b.y)),dist:camera.dist};
+    stopSteering(false,e.timeStamp);
     drag=null;heldTip=false;return;
   }
   if(pointers.size!==1)return;
   const kind=e.button===2?'orbit':pick(p.x,p.y);
   canvas.dataset.mode=kind;
   drag={...p,sx:p.x,sy:p.y,id:e.pointerId,kind};
+  const swimmer=seaLife[kind];
+  if(swimmer&&!paused){
+    const hit=hitPlane(p.x,p.y,SEA);
+    if(hit){
+      swimmer.held=true;swimmer.tx=swimmer.x;swimmer.tz=swimmer.z;swimmer.coast=0;
+      Object.assign(drag,{swimmer,offsetX:swimmer.x-hit[0],offsetZ:swimmer.z-hit[1],
+        movedAt:-Infinity,lastAt:e.timeStamp,flickX:0,flickZ:0});
+    }
+  }
   if(kind==='tilt'&&!paused){aimX=bodyX;aimZ=bodyZ;heldTip=true;drag.bx=bodyX;drag.bz=bodyZ;}
   if(kind==='water')waterDrag(p.x,p.y,.058);
   if(kind==='pool'&&!paused)stir=.42;
@@ -1934,6 +2091,16 @@ function pointerMove(e){
     camera.az-=dx*.006;
     camera.el=clamp(camera.el+dy*.006,.19,1.28);
     projection=makeProjection();needsDraw=true;
+  }else if(!paused&&drag.swimmer){
+    const hit=hitPlane(p.x,p.y,SEA), body=drag.swimmer;
+    if(hit&&speed>0){
+      const tx=clamp(hit[0]+drag.offsetX,-2.52,2.52);
+      const tz=clamp(hit[1]+drag.offsetZ,-2.52,2.52);
+      const dt=clamp((e.timeStamp-drag.lastAt)/1000,.016,.12);
+      drag.flickX=mix(drag.flickX,(tx-body.tx)/dt,.68);
+      drag.flickZ=mix(drag.flickZ,(tz-body.tz)/dt,.68);
+      body.tx=tx;body.tz=tz;drag.lastAt=e.timeStamp;drag.movedAt=e.timeStamp;
+    }
   }else if(!paused&&drag.kind==='tilt'){
     const gain=.0021*(.31+sensitivity*.245),u=(p.x-drag.sx)*gain,v=(p.y-drag.sy)*gain;
     aimX=clamp(drag.bx+u*projection.r[0]+v*projection.f[0],-.54,.54);
@@ -1950,7 +2117,7 @@ function pointerMove(e){
 function pointerEnd(e){
   pointers.delete(e.pointerId);
   if(pointers.size<2)pinch=null;
-  if(drag?.id===e.pointerId){heldTip=false;drag=null;}
+  if(drag?.id===e.pointerId){stopSteering(!paused&&e.type==='pointerup',e.timeStamp);heldTip=false;drag=null;}
 }
 canvas.addEventListener('pointerdown',pointerStart);
 canvas.addEventListener('pointermove',pointerMove);
@@ -1992,12 +2159,14 @@ function stats(){
     energy+=height[i]*height[i]+vx[i]*vx[i]+vz[i]*vz[i];
     wetCells+=wet[i];
   }
+  const record=({x,z,yaw,vx,vz,waypoint,held,coast})=>({x,z,yaw,vx,vz,waypoint,held,coast,speed:Math.hypot(vx,vz)});
   return {
     ready:built&&!failed,fallback:failed,reason:fallbackReason,paused,time,
     phase:eruptionPhase(),geyserAge,tremorAge,peakMeters:currentPeak*20,eruptionCount,tremorCount,stir,
     bodySteps,waterSteps,hertz:{body:240,water:120},grid:N,wetCells,seaLevel:SEA,blockSize:SIZE,
     maxWave,energy,tilt:[tipX,tipZ],squash,particles:particles.length,bombs:bombs.length,
-    whaleAge,horseDistance,camera:{...camera},controls:{firmness,damping:dampness,sensitivity},
+    whaleAge,boat:{...record(boatBody),y:1.12+boatHeave},whale:{...record(whaleBody),y:whalePose().y+.075},
+    horseDistance,camera:{...camera},controls:{firmness,damping:dampness,sensitivity},
     msaa:4,frames:drawnFrames,lastFrameAt:newestFrame
   };
 }
@@ -2014,7 +2183,7 @@ window.geyserJelly=Object.freeze({
   resetView,
   erupt:()=>{if(built&&!failed){geyserBurst(true);updatePanel();needsDraw=true;}},
   tremor:()=>{if(built&&!failed){tremor();updatePanel();needsDraw=true;}},
-  breach:()=>{if(built&&!failed){whaleAge=0;lastWhale=time;ripple(-2.49,1.82,.069,.33);needsDraw=true;}},
+  breach:()=>{if(built&&!failed){startBreach();needsDraw=true;}},
   advance:(seconds)=>{
     if(!built||failed)return;
     simulate(clamp(Number(seconds)||0,0,30));updatePanel();needsDraw=true;
