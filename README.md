@@ -8,6 +8,7 @@
 
 - 桌面磁贴导航、七个全屏面板，以及键盘与面板返回交互。
 - 「鹈鹕骑自行车」SVG 动画、「恐龙快跑 · DINO PRO」Canvas 游戏、「双层果冻章鱼 · Octopus Jelly」三维软体实验与「果冻别墅 · Jelly Villa」互动材质研究。
+- [「间歇泉果冻 · Geyser Jelly」](works/geyser-jelly/index.html)互动材质研究，可倾斜果冻海、触发间歇泉喷发与火山震动。
 - 访客反馈表单，连接现有 Supabase 后台；反馈版本标记为 V3.7。
 - 新增「数字分身」入口与介绍页，展示本人确认的资料、观点和明确标注的预设对话。
 - `projects/WiFiPresence/` 保留独立课程项目的资料与程序。
@@ -41,7 +42,7 @@ style.css            主页样式
 script.js            导航、面板、时间轴与动画
 feedback.js          现有反馈表单
 digital-twin/        分身介绍、预设对话与样式
-works/               SVG 动画、DINO PRO 游戏、章鱼软体实验和果冻别墅
+works/               SVG 动画、DINO PRO 游戏、章鱼软体实验、果冻别墅和间歇泉果冻
 assets/              现有图片与前端库
 projects/WiFiPresence/ 独立课程项目
 ```
