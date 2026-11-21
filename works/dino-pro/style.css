@@ -128,21 +128,15 @@ body {
 .icon-btn:active { transform: translateY(0); }
 
 /* ---------------- 舞台 ---------------- */
-.stage-wrap {
-  position: relative;
-  --stage-inset: 220px;
-}
-
-.stage, .opening-guide-slot {
-  width: min(100%, max(240px, calc((100vh - var(--stage-inset)) * 4)));
-  width: min(100%, max(240px, calc((100dvh - var(--stage-inset)) * 4)));
-  margin-inline: auto;
-}
+.stage-wrap { position: relative; }
 
 .stage {
   position: relative;
   /* 逻辑尺寸固定 800x200（改逻辑宽会改变反应时间与难度），所以「放大画面」只能靠
      加宽容器 + 移动端全出血；矮视口再按可用高度收缩，避免整页上下滚动。 */
+  width: min(100%, max(240px, calc((100vh - 220px) * 4)));
+  width: min(100%, max(240px, calc((100dvh - 220px) * 4)));
+  margin-inline: auto;
   aspect-ratio: 800 / 200;
   background: var(--stage-bg);
   border: 1px solid var(--line);
@@ -462,7 +456,10 @@ body,
 @media (hover: none) and (max-height: 520px) {
   .topbar { margin-block: 0; }
   .topbar .logo, .topbar .brand p { display: none; }
-  .stage-wrap { --stage-inset: 150px; }
+  .stage {
+    width: min(100%, max(240px, calc((100vh - 150px) * 4)));
+    width: min(100%, max(240px, calc((100dvh - 150px) * 4)));
+  }
 }
 
 /* 竖屏手机：游戏画面是 4:1，必然很扁，给出横屏提示 */
@@ -494,19 +491,14 @@ body,
 }
 .opening-guide-slot {
   --guide-lines: 1;
-  position: relative;
   font-size: clamp(.72rem, 2.3vw, .88rem);
   line-height: 1.4;
-  /* Keep the hint out of flow and leave room for it above the canvas. */
+  /* Keep the playfield steady when hints appear, wrap, or disappear. */
   block-size: calc(1.4em * var(--guide-lines) + 20px);
   overflow: clip;
 }
 .opening-guide {
-  position: absolute;
-  inset-block-start: 0;
-  inset-inline-start: 0;
-  inline-size: fit-content;
-  max-inline-size: calc(100% - 24px);
+  width: fit-content; max-width: calc(100% - 24px);
   pointer-events: none; padding: 6px 10px; border-radius: 5px;
   background: #fff0c8; color: #382d17; border: 1px solid #d0a965;
   font-weight: 650;
@@ -544,16 +536,9 @@ body,
   border: 1px solid var(--line); border-radius: 7px; padding: 8px 15px; cursor: pointer;
 }
 :focus-visible { outline: 2px solid var(--slow); outline-offset: 3px; }
-.run-status {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 12px;
-  font-size: .85rem;
-  line-height: 1.4;
-  color: var(--ink-soft);
-}
+.run-status { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; font-size: .85rem; color: var(--ink-soft); }
 #routeStatus { font-weight: 700; color: var(--ink); }
-#ghostStatus { text-align: end; font-variant-numeric: tabular-nums; }
+#ghostStatus:empty { display: none; }
 body[data-run-state="ready"] :is(.hudbar,.run-status,.pause-tool,.touchbar,.rotate-hint,.opening-guide-slot),
 body[data-run-state="over"] :is(.hudbar,.run-status,.stage-wrap,.pause-tool,.touchbar,.rotate-hint,.legend) { display: none; }
 body[data-run-state="ready"] .stage { width: 100%; max-height: clamp(115px, 43svh, 540px); }
@@ -580,11 +565,8 @@ body[data-run-state="paused"] :is(.touchbar,.pause-tool,.rotate-hint) { display:
   .opening-guide { margin-inline: 10px; }
   #comboGoal { flex-basis: 100%; }
 }
-@media(max-width:480px), (max-height:340px) {
+@media(max-width:480px) {
   .opening-guide-slot { --guide-lines: 2; }
-}
-@media(max-width:360px) {
-  .run-status { min-block-size: 2.8em; }
 }
 @media(max-height:530px) {
   .run-results { padding: 10px 12px; gap: 6px; }

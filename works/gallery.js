@@ -1,34 +1,20 @@
 (() => {
-  const windowFrame = document.querySelector(".exhibit-frame");
-  const pointerArea = windowFrame.closest(".exhibit");
-  const allowTilt = matchMedia("(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)");
-  let tiltRequest = 0;
-  function resetTilt() {
-    cancelAnimationFrame(tiltRequest);
-    windowFrame.style.removeProperty("--turn-x");
-    windowFrame.style.removeProperty("--turn-y");
-  }
-  pointerArea.addEventListener("pointermove", event => {
-    if (!allowTilt.matches || event.pointerType !== "mouse") return;
-    const {clientX, clientY} = event;
-    cancelAnimationFrame(tiltRequest);
-    tiltRequest = requestAnimationFrame(() => {
-      const rect = pointerArea.getBoundingClientRect();
-      const x = (clientX - rect.left) / rect.width - .5;
-      const y = (clientY - rect.top) / rect.height - .5;
-      windowFrame.style.setProperty("--turn-x", (-y * 4).toFixed(2) + "deg");
-      windowFrame.style.setProperty("--turn-y", (x * 5).toFixed(2) + "deg");
-    });
-  });
-  pointerArea.addEventListener("pointerleave", resetTilt);
-  allowTilt.addEventListener?.("change", resetTilt);
-
   const play = document.querySelector("#preview-eruption");
   const dialog = document.querySelector("#geyser-dialog");
   const stage = document.querySelector("#geyser-preview");
   const status = document.querySelector("#preview-status");
   const close = document.querySelector("#close-preview");
-  let frame, observer, timeout;
+  let frame, observer, timeout, closingTimer;
+
+  function closePreview() {
+    if (!dialog.open || dialog.hasAttribute("data-closing")) return;
+    if (document.documentElement.dataset.motion !== "running" || matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      dialog.close();
+      return;
+    }
+    dialog.dataset.closing = "";
+    closingTimer = setTimeout(() => dialog.close(), 175);
+  }
 
   function clearFrame() {
     clearTimeout(timeout);
@@ -69,7 +55,7 @@
     sceneDocument.addEventListener("keydown", event => {
       if (event.key !== "Escape" || !dialog.open) return;
       event.preventDefault();
-      if (!sceneDocument.body.classList.contains("drawer-open")) dialog.close();
+      if (!sceneDocument.body.classList.contains("drawer-open")) closePreview();
     }, {capture: true});
     update();
   }
@@ -80,9 +66,9 @@
         document.documentElement.dataset.homepageMode === "local") return;
     event.preventDefault();
     if (dialog.open) return;
-    resetTilt();
     dialog.showModal();
     document.body.classList.add("preview-open");
+    window.dispatchEvent(new Event("exhibit:erupt"));
     if (!navigator.gpu) {
       showStill("当前设备无法运行 WebGPU，先看看喷发画面。");
       return;
@@ -110,9 +96,15 @@
     }, 14000);
   });
 
-  close.addEventListener("click", () => dialog.close());
+  close.addEventListener("click", closePreview);
+  dialog.addEventListener("cancel", event => {
+    event.preventDefault();
+    closePreview();
+  });
   dialog.addEventListener("close", () => {
     if (dialog.open) return;
+    clearTimeout(closingTimer);
+    delete dialog.dataset.closing;
     clearFrame();
     stage.dataset.mode = "still";
     status.textContent = "";

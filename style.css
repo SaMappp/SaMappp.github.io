@@ -86,8 +86,6 @@ h1, h2 { font-family: var(--font-serif); }
   padding: 6px 11px; border: 1px solid #d4c5df; border-radius: 7px 7px 2px 2px;
   background: #eee5f5; color: #42294e; font-size: .86rem;
 }
-.study-images { display: flex; flex-wrap: wrap; gap: 0 14px; margin-top: 10px; }
-.study-images a { display: inline-flex; align-items: center; min-height: 38px; color: #6b3d62; font-size: .87rem; }
 .school ol { list-style: none; padding: 0; margin: 12px 0 0; border-top: 1px solid var(--line); }
 .school li {
   display: grid; grid-template-columns: max-content 1fr;

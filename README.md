@@ -7,8 +7,8 @@
 ## 已有内容
 
 - 主页按首屏、作品、学习、数字分身、创作笔记和联系连续滚动。历史分享锚点继续有效，包括 `#works`、`#work` 和 `#world`。
-- 首屏使用间歇泉现场画面，点击才载入试玩，启动失败时显示静态画面。精选区突出 DINO 的最新金币岔路截图，其余作品各保留独立入口。进入作品后可用浏览器返回主页展区。
-- 两篇创作笔记记录观鲸船惯性及 DINO 的互斥金币路线，保留既有创作分工及模型署名。
+- 首屏以原间歇泉现场画面为主，加入原生 Canvas 2D 雾、蒸汽和水面反光。页面顶部可以暂停动效，默认尊重系统的减少动态效果设置。点击才载入 WebGPU 试玩，启动失败时可看静态预览。
+- 精选区的 DINO 封面可用指针或键盘显示两条金币线，各件作品保留独立入口。「做中学」链接到观鲸船惯性与金币岔路的创作笔记。
 - 「鹈鹕骑自行车」SVG 动画、「恐龙快跑 · DINO PRO」Canvas 游戏、「双层果冻章鱼 · Octopus Jelly」三维软体实验与「果冻别墅 · Jelly Villa」互动材质研究。
 - [「间歇泉果冻 · Geyser Jelly」](works/geyser-jelly/index.html)互动材质研究，可倾斜果冻海、触发间歇泉喷发与火山震动。
 - 访客反馈表单，连接现有 Supabase 后台；反馈版本标记为 V3.7。
@@ -44,8 +44,10 @@ style.css            全站主题、排版与内容分区
 script.js            导航高亮与本机分身入口
 feedback.css         反馈入口与弹窗样式
 feedback.js          现有反馈表单
-works/gallery.css    橱窗动效、精选作品和试玩窗口
+works/gallery.css    精选作品和试玩窗口
 works/gallery.js     间歇泉按需加载与备用画面
+works/atmosphere.css 首屏、背景动效和作品封面反馈的样式
+works/atmosphere.js  Canvas 2D 绘制、暂停与可见区调度
 digital-twin/        分身介绍、预设对话与样式
 works/               SVG 动画、DINO PRO 游戏、章鱼软体实验、果冻别墅和间歇泉果冻
 assets/              现有图片与前端库

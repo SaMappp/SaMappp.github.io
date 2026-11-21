@@ -6,11 +6,13 @@
   <meta name="description" content="潘宜然的个人创作展厅。这里有可以试玩的作品，以及我的学习和制作笔记。">
   <meta name="theme-color" content="#1c1429">
   <title>潘宜然的创作展厅</title>
-  <link rel="stylesheet" href="style.css?v=20261121-exhibit">
-  <link rel="stylesheet" href="works/gallery.css?v=20261121-exhibit">
+  <link rel="stylesheet" href="style.css?v=20261121-volcano">
+  <link rel="stylesheet" href="works/gallery.css?v=20261121-volcano">
   <link rel="stylesheet" href="feedback.css?v=20261121-exhibit">
-  <script src="script.js?v=20261121-exhibit" defer></script>
-  <script src="works/gallery.js?v=20261121-exhibit" defer></script>
+  <script src="script.js?v=20261121-volcano" defer></script>
+  <link rel="stylesheet" href="works/atmosphere.css?v=20261121-volcano">
+  <script src="works/atmosphere.js?v=20261121-volcano" defer></script>
+  <script src="works/gallery.js?v=20261121-volcano" defer></script>
 </head>
 <body id="top">
   <a class="skip" href="#main">跳到正文</a>
@@ -23,6 +25,7 @@
         <a href="#twin" data-section>分身</a>
         <a href="#notes" data-section>笔记</a>
       </nav>
+      <button type="button" id="motion-toggle" class="motion-toggle" hidden>暂停动效</button>
     </div>
   </header>
 
@@ -40,21 +43,17 @@
           </div>
         </div>
         <figure class="exhibit">
-          <div class="exhibit-frame">
-            <div class="exhibit-bar">
-              <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-              <span>间歇泉果冻</span>
-              <span class="exhibit-format">WebGPU</span>
-            </div>
-            <div class="exhibit-image">
-              <img src="works/previews/geyser.webp" alt="半透明的果冻海托着冰岛微缩模型，一道白色水柱从火山前喷起" width="1120" height="720" fetchpriority="high">
-            </div>
+          <div class="island-scene">
+            <img class="island-still" src="works/previews/geyser.webp" alt="半透明的果冻海托着火山岛，一道白色水柱从地面喷起" width="1120" height="720" fetchpriority="high">
+            <canvas data-atmosphere="island" aria-hidden="true"></canvas>
           </div>
-          <figcaption>点一下看喷发。白雾散开后，试着甩一下观鲸船。</figcaption>
+          <figcaption><b>间歇泉果冻</b><span>唤醒后，试着甩一下观鲸船。</span></figcaption>
         </figure>
       </div>
     </section>
 
+    <div class="water-zone atmosphere-zone">
+      <canvas class="section-field" data-atmosphere="water" aria-hidden="true"></canvas>
     <section class="shell section work-section" id="works" aria-labelledby="works-title">
       <header class="section-heading">
         <h2 id="works-title">精选作品</h2>
@@ -68,7 +67,13 @@
           <a class="button button-dark" href="works/dino-pro/index.html">开始跑酷</a>
         </div>
         <figure class="dino-cover">
-          <img src="works/previews/dino.webp" width="1104" height="276" alt="DINO PRO 中的恐龙、像素山脊与上下两条金币路线" loading="lazy">
+          <div class="dino-picture">
+            <img src="works/previews/dino.webp" width="1104" height="276" alt="DINO PRO 中的恐龙、像素山脊与上下两条金币路线" loading="lazy">
+            <span class="dino-trails" aria-hidden="true">
+              <i style="--x:34%;--y:51.5%"></i><i style="--x:38.2%;--y:33.4%"></i><i style="--x:42.6%;--y:27.2%"></i><i style="--x:47%;--y:33.4%"></i><i style="--x:51.4%;--y:51.5%"></i>
+              <i style="--x:34%;--y:78.1%"></i><i style="--x:42.6%;--y:78.1%"></i><i style="--x:51.4%;--y:78.1%"></i>
+            </span>
+          </div>
         </figure>
       </article>
       <ul class="work-grid">
@@ -109,8 +114,10 @@
         <a href="works/geyser-jelly/index.html">独立试玩</a>
       </div>
     </section>
+    </div>
 
-    <section class="about-band" id="about" aria-labelledby="about-title">
+    <section class="about-band atmosphere-zone" id="about" aria-labelledby="about-title">
+      <canvas class="section-field" data-atmosphere="paper" aria-hidden="true"></canvas>
       <div class="shell section">
         <header class="section-heading">
           <h2 id="about-title">关于我与学习</h2>
@@ -129,12 +136,7 @@
                 <li>AI 辅助编程</li>
               </ul>
               <p>也在用 VS Code 和 AI 助手做原型，练习把需求讲清楚、自己试玩和找问题。</p>
-              <p class="study-images">
-                <a href="assets/tech-code.jpg">代码图</a>
-                <a href="assets/tech-algo.jpg">算法图</a>
-                <a href="assets/tech-ai.jpg">AI 图</a>
-                <a href="assets/feiying-scene.jpg">樱花夜景</a>
-              </p>
+
             </div>
           </div>
           <div class="school" id="edu">
@@ -146,9 +148,26 @@
             </ol>
           </div>
         </div>
+        <div class="learning-practice">
+          <h3>做中学</h3>
+          <ul>
+            <li>
+              <b>DINO 的金币岔路</b>
+              <p>地面三枚容易拿，空中五枚要把握时机。把路线做成互斥后，可以用同一段路比较两种跑法。</p>
+              <a href="#dino-note">看路线取舍</a>
+            </li>
+            <li>
+              <b>给观鲸船一点惯性</b>
+              <p>试着甩船再松手，看它能不能顺着水面滑一段，然后自然回到航线。</p>
+              <a href="#boat-note">看试玩记录</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
 
+    <div class="reading-zone atmosphere-zone">
+      <canvas class="section-field" data-atmosphere="paper" aria-hidden="true"></canvas>
     <section class="shell section twin-section" id="twin" aria-labelledby="twin-title">
       <div class="twin-card">
         <div class="twin-copy">
@@ -173,7 +192,7 @@
         <h2 id="notes-title">创作笔记</h2>
         <p>记录两次试玩后做的调整。</p>
       </header>
-      <details class="note">
+      <details class="note" id="boat-note">
         <summary><span class="note-title">观鲸船为什么需要惯性</span><span class="note-work">间歇泉果冻</span></summary>
         <div class="note-body">
           <div>
@@ -189,7 +208,7 @@
           </div>
         </div>
       </details>
-      <details class="note">
+      <details class="note" id="dino-note">
         <summary><span class="note-title">DINO 为什么要加不能全拿的金币路线</span><span class="note-work">恐龙快跑</span></summary>
         <div class="note-body">
           <div>
@@ -214,7 +233,9 @@
       </details>
     </section>
 
-    <footer class="site-footer" id="contact">
+    </div>
+    <footer class="site-footer atmosphere-zone" id="contact">
+      <canvas class="section-field" data-atmosphere="night" aria-hidden="true"></canvas>
       <div class="shell footer-content">
         <div>
           <h2>联系我</h2>
@@ -238,6 +259,7 @@
     </div>
     <div class="viewer-stage" id="geyser-preview" data-mode="still">
       <img src="works/previews/geyser.webp" width="1120" height="720" alt="间歇泉喷发的场景预览" loading="lazy">
+      <canvas class="viewer-effect" data-atmosphere="burst" aria-hidden="true"></canvas>
     </div>
     <p class="viewer-status" id="preview-status" role="status"></p>
   </dialog>

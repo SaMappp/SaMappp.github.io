@@ -37,5 +37,11 @@
   window.addEventListener("resize", scheduleHighlight);
   window.addEventListener("pageshow", scheduleHighlight);
   window.addEventListener("hashchange", scheduleHighlight);
+  function openLinkedNote() {
+    const note = document.getElementById(window.location.hash.slice(1));
+    if (note?.matches("details.note")) note.open = true;
+  }
+  window.addEventListener("hashchange", openLinkedNote);
+  openLinkedNote();
   highlightSection();
 })();
