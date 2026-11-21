@@ -8,7 +8,7 @@ const lightBody = `
   float fresnel = pow(1.0 - clamp(dot(n,view),0.0,1.0), 3.5);
   vec3 halfKey = normalize(key + view);
   vec3 halfRim = normalize(rim + view);
-  float spec = pow(max(dot(n,halfKey),0.0),38.0);
+  float spec = pow(max(dot(n,halfKey),0.0),29.0);
   float fill = pow(max(dot(n,halfRim),0.0),22.0);
   if (material < 0.5) {
     float shadow = 1.0;
@@ -23,21 +23,22 @@ const lightBody = `
     float vignette = exp(-0.032*dot(position.xz,position.xz));
     float wash = exp(-0.045*dot(position.xz - vec2(-3.0,-3.5),position.xz - vec2(-3.0,-3.5)));
     float grain = hash(vec3(floor(position.xz*190.0),0.0)) * 0.013;
-    vec3 table = vec3(.035,.059,.073) + vec3(.095,.113,.133) * vignette + vec3(.05,.075,.095)*wash;
+    vec3 table = vec3(.027,.044,.047) + vec3(.079,.110,.112) * vignette + vec3(.047,.066,.065)*wash;
     return table * (0.34 + 0.66*shadow) + primary*bounce*.13 + grain;
   }
   if (material < 1.5) {
     float cloud = noise(skin*4.2 + vec3(4.3,0.25,3.7));
     float spots = noise(skin*9.6 + vec3(0.0,5.0,2.5));
     float micro = noise(skin*31.0);
-    float mottle = smoothstep(.29,.73,cloud*.73+spots*.27);
-    vec3 pigmented = mix(primary,secondary,mottle*.88);
+    float fleck = noise(skin*19.0 + vec3(8.4,2.7,0.0));
+    float mottle = smoothstep(.25,.77,cloud*.62+spots*.29+fleck*.09);
+    vec3 pigmented = mix(primary,secondary,mottle*.76 + smoothstep(.72,.92,fleck)*.10);
     float milk = smoothstep(.08,.92,tint.x);
     float transmission = .18 + .43*reverse + .28*fresnel;
-    vec3 undercoat = mix(vec3(.79,.69,.54), primary, .047 + .13*(1.0-milk));
+    vec3 undercoat = mix(vec3(.85,.78,.66), primary, .05 + .14*(1.0-milk));
     vec3 outer = mix(pigmented, undercoat, transmission*.61 + milk*.84);
-    vec3 shade = outer*(.42+.58*diffuse+.20*reverse) + primary*reverse*.105;
-    return shade + vec3(.86,.92,1.0)*(spec*.49+fill*.33+fresnel*.17)*tint.y + (micro-.46)*.026;
+    vec3 shade = outer*(.38+.59*diffuse+.21*reverse) + primary*reverse*.13;
+    return shade + vec3(.93,.97,.96)*(spec*.36+fill*.27+fresnel*.20)*tint.y + (micro-.46)*.035;
   }
   if (material < 2.5) {
     return tint*(.42+.54*diffuse+.18*reverse) + vec3(1.0,.90,.86)*(spec*.43+fill*.28+fresnel*.19);

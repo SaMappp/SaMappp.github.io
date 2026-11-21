@@ -568,3 +568,10 @@ body,
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }
+.opening-guide {
+  position: absolute; z-index: 2; inset: 10px 12px auto;
+  width: fit-content; max-width: calc(100% - 24px);
+  pointer-events: none; padding: 6px 10px; border-radius: 5px;
+  background: #fff0c8; color: #382d17; border: 1px solid #d0a965;
+  font-size: clamp(.72rem, 2.3vw, .88rem); font-weight: 650;
+}

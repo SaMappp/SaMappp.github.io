@@ -222,14 +222,20 @@
     .page:has(.drawer[aria-expanded="true"]) .stage { right:246px;bottom:14px }
   }
   @media (prefers-reduced-motion:reduce) { *,*::before,*::after { transition:none!important } }
+
+  :root { --paper:#e9eee6; }
+  body { background:radial-gradient(ellipse at 39% 38%, #f7f5e9, #e1e9df 87%); }
+  .panel { border-radius:8px; }
+  .wave-presets { display:flex; gap:6px; margin:-2px 0 9px; }
+  .wave-presets button { flex:1; padding:6px 2px; min-height:36px; background:#edf2eb; border:1px solid #adbfaf; border-radius:5px; font:inherit; font-size:.73rem; }
+  .wave-presets [aria-pressed="true"] { color:#133f37; border-color:#34786a; background:#d4e7dd; }
 </style>
 </head>
 <body>
 <main class="page">
   <header class="masthead">
-    <p class="eyebrow">材质研究</p>
     <h1>别墅<span> / </span>果冻。</h1>
-    <p class="intro">白色房子、十棵棕榈树、一艘从不停下的小船，还有一片摇晃后会回弹的海。</p>
+    <p class="intro">午后的别墅靠着泻湖。试着扔下一只鸭，再用手指推开水波。</p>
   </header>
   <div class="status" id="status" data-state="loading" role="status">WEBGPU · LOADING</div>
   <div class="stage">
@@ -276,6 +282,10 @@
         </div>
         <div class="slider"><label for="stiffness">硬度</label><output class="number" for="stiffness">50</output><input id="stiffness" type="range" min="0" max="100" value="50" disabled></div>
         <div class="slider"><label for="damping">波浪阻尼</label><output class="number" for="damping">30</output><input id="damping" type="range" min="0" max="100" value="30" style="--progress:30%" disabled></div>
+        <div class="wave-presets" aria-label="用同一股水波比较波浪阻尼">
+          <button type="button" data-damping="12" aria-pressed="false" disabled>荡得久</button>
+          <button type="button" data-damping="86" aria-pressed="false" disabled>很快平静</button>
+        </div>
         <div class="slider"><label for="tide">潮汐</label><output class="number" for="tide">0 cm</output><input id="tide" type="range" min="-10" max="10" value="0" disabled></div>
       </section>
       <div class="actions">
@@ -484,6 +494,24 @@
     for (let j=0;j<7;j++) box(-1.74+j*0.418,2.72,0.224,0.015,0.205,0.015,FRAME);
     box(-0.484,2.827,0.224,2.53,0.017,0.027,FRAME);
     box(-0.484,2.717,0.224,2.5,0.012,0.014,[0.64,0.73,0.67]);
+
+    // Outdoor furniture and the details that make the terrace feel occupied.
+    const teak=[0.64,0.43,0.28], canvas=[0.89,0.83,0.69], clay=[0.65,0.33,0.22];
+    box(-1.19,2.663,0.095,0.62,0.042,0.155,teak);
+    for(const x of [-1.45,-0.93]) box(x,2.625,0.095,0.028,0.073,0.13,FRAME);
+    box(-1.36,2.705,0.095,0.19,0.061,0.147,canvas);
+    box(-1.11,2.701,0.094,0.22,0.056,0.146,[0.51,0.62,0.50]);
+    mesh.ellipsoid(-0.77,2.65,0.087,0.063,0.078,0.054,clay,10);
+    for(let i=0;i<4;i++){
+      mesh.ellipsoid(-0.805+0.024*i,2.74+i*0.007,0.087+0.019*Math.cos(i),0.025,0.072,0.027,[0.35,0.47,0.24],8,LEAF);
+    }
+    for(const x of [-0.55,0.32]){
+      box(x,2.492,0.101,0.036,0.058,0.052,FRAME);
+      box(x,2.465,0.109,0.024,0.009,0.035,[1.0,0.79,0.51]);
+    }
+    box(-0.457,1.935,0.42,0.115,0.016,0.11,teak);
+    box(-0.457,1.891,0.42,0.023,0.078,0.023,FRAME);
+    mesh.ellipsoid(-0.469,1.957,0.415,0.020,0.021,0.020,[0.78,0.88,0.83],8);
 
     // Infinity basin and its glazed outer face over the sand.
     box(0.38,1.717,1.08,1.72,0.172,1.13,WHITE);
@@ -770,7 +798,10 @@ fn speckle(p: vec2<f32>) -> f32 {
     let stripes = smoothstep(-0.27,0.25,sin(p.x*23.5+0.09*sin(p.z*4.0)));
     let grass = mix(vec3<f32>(0.46,0.61,0.22),vec3<f32>(0.66,0.74,0.32),stripes);
     let green = smoothstep(0.36,0.53,d+0.018*sin(p.x*41.0+p.z*38.0));
-    color = mix(sand,grass*(0.965+grain*0.07),green);
+    let patches=smoothstep(-0.35,0.7,sin(p.x*9.7+p.z*5.3)*cos(p.z*7.7-p.x*4.1));
+    let wetEdge=1.0-smoothstep(-0.18,0.16,d);
+    let dampSand=mix(sand,sand*vec3<f32>(0.81,0.84,0.85),wetEdge*0.58);
+    color = mix(dampSand,grass*(0.87+grain*0.07+patches*0.15),green);
     let under = 1.0-smoothstep(1.265+scene.water.y,1.32+scene.water.y,p.y);
     color = mix(color,color*vec3<f32>(0.73,0.91,0.83) + vec3<f32>(0.16,0.20,0.15)*caustics(p.xz,scene.water.x),under*0.88);
     sheen = pow(highlight,24.0)*0.125*green;
@@ -799,8 +830,8 @@ fn speckle(p: vec2<f32>) -> f32 {
     color *= 1.03;
     sheen = 0.024 + pow(highlight,16.0)*0.125;
   }
-  let daylight = 0.66 + 0.16*max(n.y,0.0) + diff*(0.12+0.25*lit);
-  let warm = vec3<f32>(1.0,0.984,0.946);
+  let daylight = 0.54 + 0.19*max(n.y,0.0) + diff*(0.11+0.31*lit);
+  let warm = mix(vec3<f32>(0.89,0.96,0.99),vec3<f32>(1.0,0.975,0.91),diff*lit);
   let rgb = color * daylight * warm + vec3<f32>(sheen)*(0.32+0.68*lit);
   return vec4<f32>(rgb,1.0);
 }
@@ -1379,7 +1410,8 @@ fn speckle(p: vec2<f32>) -> f32 {
   const status=$("#status"), fallback=$("#fallback"), pauseButton=$("#pause");
   const drawer=$(".drawer"), dropButtons=$$("[data-drop]"), flavorButtons=$$("[data-flavor]");
   const sliders=$$('input[type="range"]');
-  const controls=[...dropButtons,...flavorButtons,...sliders,$("#reset"),pauseButton,$("#reset-view")];
+  const wavePresets=$$("[data-damping]");
+  const controls=[...dropButtons,...flavorButtons,...sliders,...wavePresets,$("#reset"),pauseButton,$("#reset-view")];
   function setStatus(state) {
     status.dataset.state=state;
     status.textContent="WEBGPU · "+state.toUpperCase();
@@ -1403,6 +1435,9 @@ fn speckle(p: vec2<f32>) -> f32 {
     const n=Number(input.value);
     if (input.id==="tide") settings.targetTide=n/100;
     else settings[input.id]=n/100;
+    if(input.id==="damping"){
+      for(const button of wavePresets) button.setAttribute("aria-pressed",String(Number(button.dataset.damping)===n));
+    }
     input.previousElementSibling.value=input.id==="tide"?(n>0?"+":"")+n+" cm":n;
     input.style.setProperty("--progress",`${(n-Number(input.min))/(Number(input.max)-Number(input.min))*100}%`);
     needDraw=true;
@@ -1698,6 +1733,17 @@ fn speckle(p: vec2<f32>) -> f32 {
   });
   for (const button of flavorButtons) button.addEventListener("click",()=>selectFlavor(Number(button.dataset.flavor)));
   for (const slider of sliders) slider.addEventListener("input",()=>sliderChanged(slider));
+  for(const button of wavePresets) button.addEventListener("click",()=>{
+    const input=$("#damping");
+    input.value=button.dataset.damping;
+    sliderChanged(input);
+    if(settings.paused) togglePause(false);
+    lagoon.impulse(1.78,1.91,-0.112,0.54);
+    if(drawer.getClientRects().length){
+      drawer.setAttribute("aria-expanded","false");
+      drawer.focus({preventScroll:true});
+    }
+  });
   $("#reset").addEventListener("click",resetScene);
   $("#reset-view").addEventListener("click",resetView);
   pauseButton.addEventListener("click",()=>{clearMotion(true);togglePause();});

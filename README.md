@@ -7,6 +7,7 @@
 ## 已有内容
 
 - 桌面磁贴导航、七个全屏面板，以及键盘与面板返回交互。
+- 「我的作品」使用间歇泉主打试玩、四张实景封面与一条试玩记录。展区样式和交互独立放在 `works/gallery.css`、`works/gallery.js`，各作品独立入口位于 `works/`。
 - 「鹈鹕骑自行车」SVG 动画、「恐龙快跑 · DINO PRO」Canvas 游戏、「双层果冻章鱼 · Octopus Jelly」三维软体实验与「果冻别墅 · Jelly Villa」互动材质研究。
 - [「间歇泉果冻 · Geyser Jelly」](works/geyser-jelly/index.html)互动材质研究，可倾斜果冻海、触发间歇泉喷发与火山震动。
 - 访客反馈表单，连接现有 Supabase 后台；反馈版本标记为 V3.7。

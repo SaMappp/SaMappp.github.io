@@ -8,7 +8,9 @@
   <!-- 加了这一行之后，面板的显示/隐藏完全由 .open 类决定；
        只有在禁用 JS 时才退回 CSS 的 :target 兜底 -->
   <script>document.documentElement.className = "js";</script>
-  <link rel="stylesheet" href="style.css?v=3.7" />
+  <link rel="stylesheet" href="style.css?v=20261121" />
+  <link rel="stylesheet" href="works/gallery.css?v=20261121">
+  <script src="works/gallery.js?v=20261121" defer></script>
 </head>
 <body>
 
@@ -264,13 +266,7 @@
     </div>
   </section>
 
-  <!-- =========================================================
-       全屏面板 / 我的作品（新增）
-       作品本体放在 works/ 目录里，用 iframe 原样嵌入——
-       作品自带的样式与脚本不会和主页互相影响，功能全部保留。
-       以后新增作品：复制一个 <li class="work-item"> 并改掉
-       编号 / 标题 / meta / 说明 / 署名即可。
-       ========================================================= -->
+  <!-- 作品展使用 works/gallery.css 与 works/gallery.js。 -->
   <section class="panel" id="works" aria-label="我的作品">
     <div class="panel-bar">
       <button class="panel-home" type="button" data-home aria-label="返回首页">
@@ -285,154 +281,61 @@
       <button class="panel-x" type="button" data-close aria-label="返回上一级" title="返回上一级">✕</button>
     </div>
     <div class="panel-body">
-      <div class="container pane">
-        <p class="eyebrow">✦ 我的作品 · MY WORKS</p>
-        <h2 class="sec-title">做出来的东西，<br>才算真的学会了</h2>
-        <p class="lead">
-          这里放的是我真正动手做出来的东西——不是练习题的答案，而是能打开、能点、能玩的作品。
-          每一件都是我从一句需求描述开始，和 AI 一轮轮对话、再把细节自己过一遍做出来的。
-        </p>
+      <div class="container gallery">
+        <h2>我的作品</h2>
+        <p class="gallery-intro">从踩踏板的鹈鹕，到一座会晃动的火山岛。</p>
+        <article class="gallery-feature" aria-labelledby="feature-title">
+          <div class="gallery-hero" id="geyser-preview">
+            <img src="works/previews/geyser.webp" width="1120" height="720" alt="冰岛果冻海中的火山岛，间歇泉正喷出白色水柱">
+          </div>
+          <div class="gallery-feature-copy">
+            <h3 id="feature-title">间歇泉果冻</h3>
+            <p>唤醒冰岛的斯特罗柯间歇泉，等白雾散开，再把观鲸船甩向海面。</p>
+            <a class="gallery-primary" id="preview-eruption" href="works/geyser-jelly/index.html?show=eruption">唤醒间歇泉</a>
+            <a class="gallery-full" href="works/geyser-jelly/index.html">打开完整场景</a>
+          </div>
+        </article>
 
-        <ol class="works">
-          <li class="work-item">
-            <div class="work-head">
-              <span class="work-no">01</span>
-              <div class="work-tt">
-                <h3 class="work-t">鹈鹕骑自行车</h3>
-                <p class="work-meta">SVG · 2D 循环动画 · 逆向运动学（IK）</p>
-              </div>
-              <a class="work-open" href="works/pelican-bicycle.html" target="_blank" rel="noopener">
-                全屏打开 <span>↗</span>
-              </a>
-            </div>
+        <ul class="gallery-grid" aria-label="更多作品">
+          <li><a href="works/octopus-jelly/index.html">
+            <img src="works/previews/octopus.webp" width="720" height="450" loading="lazy" alt="">
+            <h3>双层果冻章鱼</h3><p>放一颗饵珠，看哪条腕先卷起来。</p>
+          </a></li>
+          <li><a href="works/jelly-villa/index.html">
+            <img src="works/previews/villa.webp" width="720" height="450" loading="lazy" alt="">
+            <h3>果冻别墅</h3><p>扔只橡皮鸭，让它在泻湖里乘浪。</p>
+          </a></li>
+          <li><a href="works/dino-pro/index.html">
+            <img src="works/previews/dino.webp" width="720" height="450" loading="lazy" alt="">
+            <h3>恐龙快跑 · DINO PRO</h3><p>踩准起跳点，把弧线上的金币一口气收下。</p>
+          </a></li>
+          <li><a href="works/pelican-bicycle.html">
+            <img src="works/previews/pelican.webp" width="720" height="450" loading="lazy" alt="">
+            <h3>鹈鹕骑自行车</h3><p>慢放一圈，看鹈鹕的脚怎么跟住踏板。</p>
+          </a></li>
+        </ul>
 
-            <p class="work-desc">
-              一只鹈鹕蹬着自行车一路向前：车轮在转、曲柄在转、双腿贴着踏板一圈圈蹬，
-              身体还随着踩踏轻轻起伏；脚下是滚动的高速路虚线，身后扬起一小团尘。
-              下面的预览可以直接玩——拖动滑块能随时加速或减速，按暂停就停在当前这一帧。
-            </p>
-
-            <div class="work-frame">
-              <iframe src="works/pelican-bicycle.html" title="鹈鹕骑自行车 · SVG 2D 动画" loading="lazy"></iframe>
-            </div>
-          </li>
-
-          <li class="work-item">
-            <div class="work-head">
-              <span class="work-no">02</span>
-              <div class="work-tt">
-                <h3 class="work-t">恐龙快跑 · DINO PRO</h3>
-                <p class="work-meta">Canvas 2D · 游戏循环 · 金币连击系统</p>
-              </div>
-              <a class="work-open" href="works/dino-pro/index.html" target="_blank" rel="noopener">
-                全屏打开 <span>↗</span>
-              </a>
-            </div>
-
-            <p class="work-desc">
-              Chrome 小恐龙的加强版。在经典的"跳过仙人掌"之上加了一整套金币机制：
-              金币沿着恐龙真实的跳跃抛物线铺开，所以只要在弧线起点起跳，就能把一整组金币收干净——
-              连续收集会累积连击倍率（最高 ×3.0），但漏掉一枚立刻清零，"要不要为几枚金币冒险"成了每一秒都在做的决策。
-              同时可以用 A / D 实时加减速：加速能拉开与障碍的距离，代价是反应时间变短。
-              下面可以直接玩，手机端会自动出现虚拟按键。
-            </p>
-
-            <div class="work-frame">
-              <iframe src="works/dino-pro/index.html" title="恐龙快跑 DINO PRO · Canvas 2D 游戏" loading="lazy"></iframe>
-            </div>
-          </li>
-
-          <li class="work-item">
-            <div class="work-head">
-              <span class="work-no">03</span>
-              <div class="work-tt">
-                <h3 class="work-t">双层果冻章鱼 · Octopus Jelly</h3>
-                <p class="work-meta">WebGPU · 三维渲染 · XPBD 四面体软体</p>
-              </div>
-              <a class="work-open" href="works/octopus-jelly/index.html" target="_blank" rel="noopener">
-                全屏打开 <span>↗</span>
-              </a>
-            </div>
-
-            <p class="work-desc">
-              八条腕从乳白内胶伸进斑驳的外胶，卷起时露出两排吸盘。
-              拖动章鱼可以拉伸或提起它，投下饵珠可以观察腕的反应。预览里可以更换珊瑚、深梅和薄荷配色，
-              并实时查看体积、腕展和外套膜高度。
-            </p>
-
-            <div class="work-frame">
-              <iframe src="works/octopus-jelly/index.html" title="双层果冻章鱼 · 三维软体实验" loading="lazy"></iframe>
-            </div>
-          </li>
-          <li class="work-item">
-            <div class="work-head">
-              <span class="work-no">04</span>
-              <div class="work-tt">
-                <h3 class="work-t">果冻别墅 · Jelly Villa</h3>
-                <p class="work-meta">材质研究 · WebGPU / WGSL · 浅水模拟</p>
-              </div>
-              <a class="work-open" href="works/jelly-villa/index.html" target="_blank" rel="noopener">
-                全屏打开 <span>↗</span>
-              </a>
-            </div>
-
-            <p class="work-desc">
-              白色别墅、十棵棕榈树和一艘不停航行的小艇，立在一块切开的热带岛屿果冻上。
-              拖动海面能搅出波纹，拉动方块侧面能让泻湖倾斜回弹，也可以投一只橡皮鸭，看看它怎样乘浪漂流。
-            </p>
-
-            <div class="work-frame">
-              <iframe src="works/jelly-villa/index.html" title="果冻别墅 · 互动材质研究" loading="lazy"></iframe>
-            </div>
-          </li>
-
-          <li class="work-item">
-            <div class="work-head">
-              <span class="work-no">05</span>
-              <div class="work-tt">
-                <h3 class="work-t">间歇泉果冻 · Geyser Jelly</h3>
-                <p class="work-meta">材质研究 · WebGPU / WGSL · 浅水与喷发模拟</p>
-              </div>
-              <a class="work-open" href="works/geyser-jelly/index.html" target="_blank" rel="noopener">
-                全屏打开 <span>↗</span>
-              </a>
-            </div>
-
-            <p class="work-desc">
-              一座冰岛火山岛嵌在半透明的果冻海里，岛上有玄武岩海崖、硅华温泉和草皮屋。
-              拖动观鲸船或座头鲸可以改变航向，快速甩动后松手会让它们加速滑行。拖动海面能激起波纹，拉动方块侧面能让整座岛倾斜回弹。
-              点 ERUPTION 唤醒 Strokkur 间歇泉，点 TREMOR 触发火山震动。
-            </p>
-
-            <div class="work-frame">
-              <iframe src="works/geyser-jelly/index.html" title="间歇泉果冻 · 互动材质研究" loading="lazy"></iframe>
-            </div>
-          </li>
-        </ol>
-
-        <!-- 以后新增作品的位置：新的作品卡插在上面 <ol class="works"> 里，
-             这块占位卡表示"还有更多在路上"，作品再多也可以继续留着 -->
-        <div class="work-slot">
-          <span class="work-slot-ico" aria-hidden="true">✦</span>
-          <b>下一个作品正在路上</b>
-          <span>等我把它做出来，就会出现在这里。</span>
-        </div>
-
-        <!-- 最下方：这些作品由什么大模型生成 -->
-        <div class="works-src">
-          <p class="works-src-t">✦ 这些作品是怎么来的</p>
-          <p>
-            页面里的作品都是我先把想要的效果讲清楚，再和大模型一轮轮对话、不断调整改出来的，
-            最后自己动手过一遍细节。下面记下每件作品对应的生成模型。
-          </p>
-          <ul class="works-src-list">
-            <li><b>01 鹈鹕骑自行车</b>生成模型：<code>DeepSeek-V4-Flash-Vision-Exp</code></li>
-            <li><b>02 恐龙快跑 · DINO PRO</b>生成模型：<code>dth/DeepSeek-V4.1-Flash</code></li>
-            <li><b>03 双层果冻章鱼 · Octopus Jelly</b>生成模型：<code>GPT-6.2 Sol</code></li>
-            <li><b>04 果冻别墅 · Jelly Villa</b>生成模型：<code>GPT-6.2 Sol</code></li>
-            <li><b>05 间歇泉果冻 · Geyser Jelly</b>生成模型：<code>GPT-6.2 Sol</code></li>
+        <article class="gallery-note">
+          <div>
+            <h3>一次试玩改动：给观鲸船加上惯性</h3>
+            <p>第一版试玩时，我发现船没有动，鲸鱼跳起来就消失了。我提出让它们一直航行和游动，也让拖拽能改变方向和速度。新版里可以把船朝开阔海面甩一下，松手后看它滑一段，再自己转回来。</p>
+          </div>
+          <div class="gallery-motion">
+            <video controls muted playsinline preload="none" poster="works/previews/boat.webp" width="720" height="450" aria-label="观鲸船甩开后继续滑行，再转回航线">
+              <source src="works/previews/boat.mp4" type="video/mp4">
+              <a href="works/previews/boat.mp4">观看观鲸船滑行</a>
+            </video>
+          </div>
+        </article>
+        <details class="gallery-credits">
+          <summary>创作过程与模型署名</summary>
+          <p>我提出玩法和设计，和 AI 一起做出原型，再亲自试玩，发现问题后继续调整。</p>
+          <ul>
+            <li>鹈鹕骑自行车 · DeepSeek-V4-Flash-Vision-Exp</li>
+            <li>恐龙快跑 · dth/DeepSeek-V4.1-Flash</li>
+            <li>双层果冻章鱼、果冻别墅、间歇泉果冻 · GPT-6.2 Sol</li>
           </ul>
-        </div>
+        </details>
       </div>
     </div>
   </section>

@@ -62,3 +62,30 @@ dd { margin: 0; font-size: clamp(.94rem, 3vw, 1.86rem); white-space: nowrap; fon
   .bait { grid-column: auto; }
   .material { display: none; }
 }
+
+:root { background: #142128; --line: #415353; --muted: #bdc6c2; }
+main { max-width: 1310px; }
+h1 { font-family: "Noto Serif SC", "Songti SC", SimSun, serif; }
+.series { color: #dbad9b; font-size: 1rem; }
+.studio { border-radius: 6px 6px 0 0; overflow: hidden; }
+.controls { background: #1c2a2d; }
+.stage-top { justify-content: flex-end; }
+.feeding { display: grid; gap: 6px; margin: 0 0 18px; }
+.feeding p { color: var(--muted); font-size: .79rem; min-height: 2.4em; margin: 0; }
+.feeding .bait { display: block; min-height: 45px; background: var(--accent); border-color: var(--accent); }
+.feeding .bait:hover { filter: brightness(1.1); }
+.activity-presets { display: flex; gap: 6px; margin: -12px 0 15px; }
+.activity-presets button { flex: 1; font-size: .75rem; min-height: 34px; }
+.activity-presets [aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+.measurements { background: #17262b; }
+#bait-marker {
+  position: absolute; pointer-events: none; width: 25px; height: 25px;
+  border: 1.5px solid #fff3c2; border-radius: 50%; transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 3px #161e252c, 0 0 9px #fff3c270;
+}
+@media(max-width:650px) {
+  .stage { height: clamp(230px, 47svh, 440px); }
+  .feeding, .activity-presets { grid-column: 1 / -1; margin: 0; }
+  .feeding { grid-template-columns: 1fr 1fr; align-items: center; }
+  .actions { grid-template-columns: 1fr 1fr; }
+}

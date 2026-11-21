@@ -1,4 +1,4 @@
-import {add,sub,scale,dot,cross,unit,mix,clamp,TAU,UP,RINGS,SIDES} from "./physics.js";
+import {add,sub,scale,dot,cross,unit,mix,clamp,TAU,UP,RINGS,SIDES} from "./physics.js?v=20261121";
 
 const JELLY = 1, CUP = 2, EYE = 3, BEAD = 4, CAVITY = 5;
 const CREAM = [.94,.80,.67], PEACH = [.78,.48,.40];

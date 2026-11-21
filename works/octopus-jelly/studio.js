@@ -1,6 +1,6 @@
-import {Jelly,DT,add,sub,scale,dot,length,clamp} from "./physics.js";
-import {Surface,camera} from "./geometry.js";
-import {createRenderer} from "./renderer.js";
+import {Jelly,DT,add,sub,scale,dot,length,clamp} from "./physics.js?v=20261121";
+import {Surface,camera} from "./geometry.js?v=20261121";
+import {createRenderer} from "./renderer.js?v=20261121";
 
 const $ = id=>document.getElementById(id);
 const canvas=$("specimen"), activity=$("muscle"), status=$("engine"), notice=$("notice");
@@ -10,6 +10,8 @@ const palette = {
   mint: [[.31,.82,.61],[.031,.32,.29],"#91e6c3"]
 };
 const jelly=new Jelly(), mesh=new Surface();
+const activityPresets=document.querySelectorAll("[data-activity]");
+const baitMarker=$("bait-marker"), baitHelp=$("bait-help");
 const views=[[.27,.59],[.88,.72],[.20,1.34],[-.50,.42]];
 let selected="coral", view=0, [azimuth,elevation]=views[0];
 let cam, grab, pointer, renderer, visible=true, dirty=true;
@@ -36,6 +38,7 @@ $("pause").addEventListener("click",()=>setPause(!paused));
 setPause(paused);
 $("bait").addEventListener("click",()=>{
   jelly.drop();
+  baitHelp.textContent="饵珠落下后，细圈会指出正在靠近它的腕尖。";
   setPause(false);
   dirty=true;
 });
@@ -46,12 +49,25 @@ $("reset").addEventListener("click",()=>{
   view=0;
   [azimuth,elevation]=views[view];
   activity.value="64";
-  $("activity").textContent="64%";
+  syncActivity();
+  baitMarker.hidden=true;
+  baitHelp.textContent="看腕尖怎样追向饵珠。";
   dirty=true;
 });
-activity.addEventListener("input",()=>{
+function syncActivity(){
   $("activity").textContent=activity.value+"%";
-});
+  for(const button of activityPresets){
+    button.setAttribute("aria-pressed",String(button.dataset.activity===activity.value));
+  }
+}
+activity.addEventListener("input",syncActivity);
+for(const button of activityPresets){
+  button.addEventListener("click",()=>{
+    activity.value=button.dataset.activity;
+    syncActivity();
+    setPause(false);
+  });
+}
 $("angle").addEventListener("click",()=>{
   view=(view+1)%views.length;
   [azimuth,elevation]=views[view];
@@ -129,6 +145,25 @@ document.addEventListener("visibilitychange",()=>{
   dirty=true;
 });
 
+function markBaitResponse(){
+  const bead=jelly.beads.at(-1);
+  let tip, closest=Infinity;
+  if(bead && bead.age<4.6){
+    for(const arm of jelly.arms){
+      if(arm.baitTarget!==bead) continue;
+      const point=jelly.point(arm.rings.at(-1)[0]);
+      const gap=length(sub(point,bead.p));
+      if(gap<closest){ tip=point; closest=gap; }
+    }
+  }
+  baitMarker.hidden=!tip;
+  if(!tip) return;
+  const [x,y,z]=tip, m=cam.matrix;
+  const w=x*m[3]+y*m[7]+z*m[11]+m[15];
+  baitMarker.style.left=(50+50*(x*m[0]+y*m[4]+z*m[8]+m[12])/w)+"%";
+  baitMarker.style.top=(50-50*(x*m[1]+y*m[5]+z*m[9]+m[13])/w)+"%";
+}
+
 function frame(now) {
   animation=requestAnimationFrame(frame);
   const delta=last ? Math.min(.04,(now-last)/1000) : 0;
@@ -153,6 +188,7 @@ function frame(now) {
   cam=camera(azimuth,elevation,w/h);
   mesh.build(jelly);
   renderer.draw(cam,palette[selected]);
+  markBaitResponse();
   if(now-measured>110) {
     measured=now;
     readouts();

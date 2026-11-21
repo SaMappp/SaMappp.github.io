@@ -202,6 +202,17 @@
   body.paused .speedlines,
   body.paused .shadow,
   body.paused .puff { animation-play-state: paused; }
+  .stage svg { max-height: max(180px, calc(100svh - 185px)); }
+  .controls { padding: 0 5px 11px; gap: 8px; }
+  .controls .btn { min-height: 42px; }
+  .controls :focus-visible { outline: 2px solid #9ecbff; outline-offset: 3px; }
+  #show-ik[aria-pressed="true"] { border-color: #abcaff; }
+  .ik-key { color: #cde1f3; font-size: .84rem; margin: 8px 5px 0; }
+  @media (max-width: 580px) {
+    body { padding: 14px 9px; }
+    .card { padding: 12px; }
+    .slider { margin-left: 0; }
+  }
 </style>
 </head>
 <body>
@@ -210,6 +221,16 @@
   <div class="head">
     <h1>鹈鹕骑自行车 · <em>SVG 2D 动画</em></h1>
     <span class="hint">车轮旋转 · 曲柄转动 · 双腿 IK 跟随踏板 · 身体起伏</span>
+  </div>
+
+  <div class="controls">
+    <button class="btn" id="toggle" type="button">⏸ 暂停</button>
+    <button class="btn" id="reset" type="button">↺ 重置相位</button>
+    <button class="btn" id="show-ik" type="button" aria-pressed="false">看腿怎么动</button>
+    <label class="slider">
+      速度 <input id="speed" type="range" min="0.25" max="2" step="0.05" value="1">
+      <b id="speedVal">1.00×</b>
+    </label>
   </div>
 
   <div class="stage">
@@ -476,18 +497,17 @@
         <circle cx="122" cy="492" r="5"/>
         <circle cx="180" cy="498" r="4"/>
       </g>
+      <g id="ik-guide" visibility="hidden" aria-hidden="true" pointer-events="none">
+        <circle id="pedal-orbit" fill="none" stroke="#fff8d3" stroke-width="2" stroke-dasharray="4 4"/>
+        <path id="ik-line" fill="none" stroke="#173667" stroke-width="4"/>
+        <circle id="ik-hip" r="6" fill="#173667" stroke="white" stroke-width="2"/>
+        <circle id="ik-knee" r="6" fill="#7a2c74" stroke="white" stroke-width="2"/>
+        <circle id="ik-pedal" r="6" fill="#ba4308" stroke="white" stroke-width="2"/>
+      </g>
     </svg>
   </div>
 
-  <div class="controls">
-    <button class="btn" id="toggle" type="button">⏸ 暂停</button>
-    <button class="btn" id="reset" type="button">↺ 重置相位</button>
-    <label class="slider">
-      速度 <input id="speed" type="range" min="0.25" max="2" step="0.05" value="1">
-      <b id="speedVal">1.00×</b>
-    </label>
-  </div>
-
+  <p id="ik-key" class="ik-key" hidden>蓝点是髋，紫点是膝，橙点跟着踏板转。把速度调到 0.25× 更容易看清。</p>
   <div class="foot">
     腿部由逆向运动学（IK）逐帧求解：髋关节 — 膝关节 — 踏板，因此双脚始终贴合旋转中的踏板；车轮转速为踏频的固定齿比（2.4×）。
     背景虚线位移与云层漂移用 CSS 关键帧，周期与踩踏同步。
@@ -585,6 +605,15 @@
     el.nearLeg.setAttribute('d', legPath(Hn, Kn, Pn));
     el.farLeg.setAttribute('d',  legPath(Hf, Kf, Pf));
 
+    if (showGuide) {
+      $('ik-line').setAttribute('d', legPath(Hn, Kn, Pn));
+      [Hn, Kn, Pn].forEach(function(point, i) {
+        var joint = joints[i];
+        joint.setAttribute('cx', point.x);
+        joint.setAttribute('cy', point.y);
+      });
+    }
+
     // 蹼足与踏板保持水平，只随曲柄平移
     el.nearFoot.setAttribute('transform', 'translate(' + Pn.x.toFixed(1) + ' ' + Pn.y.toFixed(1) + ')');
     el.farFoot.setAttribute('transform',  'translate(' + Pf.x.toFixed(1) + ' ' + Pf.y.toFixed(1) + ')');
@@ -625,6 +654,19 @@
     document.body.classList.toggle('paused', !running);
   }
 
+  var showGuide = false;
+  var joints = ['ik-hip', 'ik-knee', 'ik-pedal'].map($);
+  var orbit = $('pedal-orbit');
+  orbit.setAttribute('cx', C.x);
+  orbit.setAttribute('cy', C.y);
+  orbit.setAttribute('r', R);
+  $('show-ik').addEventListener('click', function() {
+    showGuide = !showGuide;
+    this.setAttribute('aria-pressed', String(showGuide));
+    $('ik-guide').setAttribute('visibility', showGuide ? 'visible' : 'hidden');
+    $('ik-key').hidden = !showGuide;
+    render();
+  });
   btnToggle.addEventListener('click', function () { setRunning(!running); });
   btnReset.addEventListener('click', function () { theta = 0; render(); });
   range.addEventListener('input', function () {

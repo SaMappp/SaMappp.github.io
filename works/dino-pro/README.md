@@ -334,3 +334,4 @@ user-select: none;
 `game.js` 再用 `blockNativeSelection()` 给按键区和画布补一层 `contextmenu` / `selectstart` 拦截兜底。
 本页是纯游戏页面，没有输入框也没有需要复制的正文，所以全页禁用选中不影响任何正常操作。
 （以后若在这页加入链接或输入框，记得在这些元素上把 `user-select` / `-webkit-touch-callout` 恢复回来。）
+开局第一串金币位置固定，金币入口有金色起跳箭头。一跳全收时会显示连击反馈，然后回到常规跑酷。

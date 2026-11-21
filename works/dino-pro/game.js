@@ -642,6 +642,45 @@
     return need;
   }
 
+  function seedOpeningCoins() {
+    var firstX = 690;
+    var trail = buildArc(5, 0.86);
+    G.intro = { firstX: firstX, received: 0, total: trail.coins.length, cue: 0, done: false };
+    for (var i = 0; i < trail.coins.length; i++) {
+      var item = trail.coins[i];
+      var coin = makeCoin(firstX + item.dx, item.h, item.padL, item.padR);
+      coin.opening = true;
+      G.coins.push(coin);
+    }
+    G.obsCountdown = 900;
+    G.coinCountdown = 1100;
+    showOpening("金色箭头到脚边时，长按跳跃收下第一串金币。");
+  }
+
+  function showOpening(message) {
+    el.openingGuide.textContent = message;
+    el.openingGuide.hidden = !message;
+  }
+
+  function updateOpening(travel, dt) {
+    var intro = G.intro;
+    if (!intro) return;
+    intro.firstX -= travel;
+    intro.cue = Math.max(0, intro.cue - dt);
+    if ((!intro.done && intro.firstX > DINO_X - 58) || intro.cue) return;
+    if (!el.openingGuide.hidden) showOpening("");
+  }
+
+  function drawOpeningMarker() {
+    var intro = G.intro;
+    if (!intro || intro.done || intro.firstX < DINO_X - 12) return;
+    var x = intro.firstX, y = GROUND_Y + 2;
+    ctx.fillStyle = C().gold;
+    for (var step = 0; step < 4; step++) {
+      ctx.fillRect(Math.round(x) - step * 2 - 1, y + step * 2, step * 4 + 2, 2);
+    }
+  }
+
   function spawnCoinGroup() {
     var x = W + 40;
     var name = pickPattern();
@@ -674,6 +713,11 @@
 
   function collectCoin(coin) {
     coin.taken = true;
+    if (coin.opening && ++G.intro.received === G.intro.total) {
+      G.intro.done = true;
+      G.intro.cue = 2.4;
+      showOpening("一串全收！金币连击会提高接下来每枚金币的得分。");
+    }
     G.combo += 1;
     if (G.combo > G.bestCombo) G.bestCombo = G.combo;
 
@@ -762,6 +806,8 @@
     G.bestMult = 1.0;
     G.obs.length = 0;
     G.coins.length = 0;
+    G.intro = null;
+    showOpening('');
     G.parts.length = 0;
     G.obsCountdown = 520;
     G.coinCountdown = 620;
@@ -789,6 +835,7 @@
     Sfx.ensure();
     resetRun();
     G.state = 'running';
+    seedOpeningCoins();
     hideAllOverlays();
   }
 
@@ -901,6 +948,7 @@
     G.obs = keepObs;
 
     // ---- 金币（含"漏掉即断连击"判定）----
+    updateOpening(travel, dt);
     var keepCoins = [];
     for (var m = 0; m < G.coins.length; m++) {
       var c = G.coins[m];
@@ -1047,6 +1095,7 @@
 
     drawClouds();
     drawGround();
+    drawOpeningMarker();
     drawCoins();
     drawObstacles();
     drawDino();
@@ -1058,6 +1107,7 @@
     scoreVal: document.getElementById('scoreVal'),
     hiVal: document.getElementById('hiVal'),
     coinVal: document.getElementById('coinVal'),
+    openingGuide: document.getElementById('opening-guide'),
     coinCard: document.getElementById('coinCard'),
     comboChip: document.getElementById('comboChip'),
     comboMult: document.getElementById('comboMult'),

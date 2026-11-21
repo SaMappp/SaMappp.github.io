@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light">
 <meta name="description" content="An interactive WebGPU material study of an Icelandic island suspended in jelly.">
 <link rel="icon" href="data:,">
-<title>Geyser Jelly · Material Studies</title>
+<title>间歇泉果冻 · Geyser Jelly</title>
 <style>
 :root {
   color-scheme: light;
@@ -115,56 +115,87 @@ input[type="range"]::-moz-range-thumb {width:10px;height:10px;border-radius:50%;
   .play {bottom:20px}
 }
 @media(prefers-reduced-motion:reduce) {* {transition:none!important}}
+
+:root {--paper:#e5e9e3;--ink:#23312c;--rule:#bac8c0;--mint:#195e55;--muted:#41564f}
+.intro {top:clamp(25px,6vh,56px)}
+.intro h1 {max-width:6em;font:600 clamp(29px,4vw,65px)/1.12 "Noto Serif SC","Songti SC",SimSun,serif;letter-spacing:-.055em;margin:0 0 8px}
+.location {margin:0 0 8px;color:#325951;font:italic 1.25rem var(--serif)}
+.intro .description {color:#41564f;max-width:12em}
+.controls {background:#eef2ebef;border:1px solid #c4d0c8;border-radius:7px;box-shadow:0 7px 26px #223b2c20}
+.panel-label,.phase,.status,.specimen,#drawer,.action {font-family:inherit;letter-spacing:normal;text-transform:none}
+.status {background:#eef2ebef;border-color:#c4d0c8}
+.action {border-radius:5px}
+#erupt,#quick-erupt {background:#175c51;border:1px solid #175c51;color:#fff}
+#tremor {background:#f0e6db;border-color:#e0c6ab;color:#723a27}
+.play-title {font:600 clamp(15px,1.6vw,22px)/1.4 "Noto Serif SC","Songti SC",SimSun,serif;letter-spacing:0}
+#quick-erupt {display:none}
+@media(max-width:900px),(max-height:560px) {
+  .intro h1 {font-size:clamp(24px,5.8vw,40px)}
+  .location {font-size:1rem}
+  .intro .description,.instructions {display:none}
+  .controls {bottom:calc(66px + env(safe-area-inset-bottom))}
+  #quick-erupt {display:flex;position:absolute;z-index:3;left:16px;bottom:max(12px,env(safe-area-inset-bottom));width:calc(58% - 20px)}
+  #drawer {left:auto;width:calc(42% - 20px);background:#eef2eb}
+  .play {bottom:calc(68px + env(safe-area-inset-bottom))}
+}
+@media(max-width:450px) {
+  .status {font-size:.65rem}
+  .intro {left:16px}
+}
+.unavailable #quick-erupt {display:none}
+.embedded .intro .description,.embedded .instructions,.embedded .specimen {display:none}
 </style>
 </head>
 <body>
 <main>
-<canvas id="stage" aria-label="Interactive Icelandic island in a block of jelly"></canvas>
+<canvas id="stage" aria-label="可拖动海面和观鲸船的冰岛火山岛模型"></canvas>
 <header class="intro">
-  <p class="eyebrow">Material Studies</p>
-  <h1><span>Geyser</span> <span>Jelly<b>.</b></span></h1>
-  <hr>
-  <p class="description">A volcanic island, a restless geyser, and a sea that remembers every tilt.</p>
+  <h1>间歇泉果冻</h1>
+  <p class="location">Strokkur · 冰岛</p>
+  <p class="description">玄武岩海岸托着一座小岛，步道上的人正等着温泉喷发。</p>
 </header>
-<aside class="controls" id="controls" aria-label="Diorama controls">
-  <div class="panel-head"><span class="panel-label">Controls</span><span id="phase" class="phase">Strokkur · Rest</span></div>
+<aside class="controls" id="controls" aria-label="场景控制">
+  <div class="panel-head"><span class="panel-label">温泉状态</span><span id="phase" class="phase">蓄水</span></div>
   <button class="action" id="erupt" disabled>
     <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 16h16M7 15l2-7m4 7-2-7m-1-1V2M6 8 4 5m10 3 2-3"/></svg>
-    ERUPTION <span class="detail" id="peak">20–35 m</span>
+    唤醒间歇泉 <span class="detail" id="peak">20–35 m</span>
   </button>
   <button class="action" id="tremor" disabled>
     <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M1 11h4l2-5 3 9 3-11 2 7h4"/></svg>
-    TREMOR
+    触发火山震动
   </button>
   <div class="parameters">
-    <label class="parameter" for="firmness">Jelly Firmness <output id="firmness-value">50</output><input id="firmness" type="range" min="10" max="100" value="50"></label>
-    <label class="parameter" for="damping">Wave Damping <output id="damping-value">30</output><input id="damping" type="range" min="5" max="90" value="30"></label>
-    <label class="parameter" for="sensitivity">Tilt Sensitivity <output id="sensitivity-value">5</output><input id="sensitivity" type="range" min="1" max="10" value="5"></label>
+    <label class="parameter" for="firmness">果冻硬度 <output id="firmness-value">50</output><input id="firmness" type="range" min="10" max="100" value="50"></label>
+    <label class="parameter" for="damping">波浪阻尼 <output id="damping-value">30</output><input id="damping" type="range" min="5" max="90" value="30"></label>
+    <label class="parameter" for="sensitivity">倾斜灵敏度 <output id="sensitivity-value">5</output><input id="sensitivity" type="range" min="1" max="10" value="5"></label>
   </div>
   <div class="utility">
-    <button id="reset" disabled>Reset</button>
-    <button id="pause" aria-pressed="false" disabled>Pause</button>
-    <button id="view" disabled>Reset View</button>
+    <button id="reset" disabled>重置</button>
+    <button id="pause" aria-pressed="false" disabled>暂停</button>
+    <button id="view" disabled>重置视角</button>
   </div>
 </aside>
-<button id="drawer" aria-controls="controls" aria-expanded="false">CONTROLS</button>
+<button id="drawer" aria-controls="controls" aria-expanded="false">场景控制</button>
+<button class="action" id="quick-erupt" type="button" disabled>唤醒间歇泉</button>
 <footer class="play">
-  <p class="play-label">Play</p>
-  <p class="play-title">Tip the block. Wake the geyser. Watch the island react.</p>
-  <p class="instructions">Drag the boat or whale to steer. Flick to give it speed · Drag the sea for waves, the block’s side to tilt, or the pool to stir · Click ERUPTION or TREMOR · Drag empty space or right-drag to orbit · Scroll or pinch to zoom</p>
+  <p class="play-title" id="first-try" aria-live="polite">先唤醒间歇泉，看看步道上的人。</p>
+  <p class="instructions">拖动海面造浪，拉动切面让岛倾斜。拖空白处换视角，滚轮或双指缩放。</p>
 </footer>
-<div class="specimen" aria-hidden="true">Icelandic island <span>104 × 104 m at specimen scale</span></div>
-<div id="loading" role="status">Preparing the specimen…</div>
+<div class="specimen">模型范围 <span>约 104 × 104 米</span></div>
+<div id="loading" role="status">正在构建岛屿…</div>
 <div class="fallback" id="fallback" hidden>
-  <section><h2>Geyser Jelly</h2><p>This diorama requires WebGPU. Please use a compatible browser.</p></section>
+  <section><h2>间歇泉果冻</h2><p>这个场景需要 WebGPU。请在支持 WebGPU 的浏览器里开启图形加速，再重新打开。</p></section>
 </div>
-<div class="status" id="status" data-state="loading" role="status">WebGPU · Loading</div>
+<div class="status" id="status" data-state="loading" role="status">WebGPU · 载入中</div>
 </main>
 <script>
 'use strict';
 
 const $ = id => document.getElementById(id);
 const canvas = $('stage');
+const entry = new URLSearchParams(location.search);
+let triedEruption = false;
+if (entry.get('embed') === '1') document.body.classList.add('embedded');
 const TAU = Math.PI * 2;
 const SIZE = 5.2, HALF = SIZE / 2, SEA = 1, N = 168, DX = SIZE / (N - 1);
 const BODY_DT = 1 / 240, WATER_DT = 1 / 120;
@@ -1420,8 +1451,8 @@ fn lavaGrout(p : vec2f) -> vec2f {
     let ext=max(abs(p.x)-2.54,abs(p.z)-2.54);
     let contact=exp(-max(0.,ext)*8.8)*.130*(1.-smoothstep(2.59,2.96,length(max(abs(p.xz)-vec2f(1.2),vec2f(0)))+1.2));
     let mid=length((p.xz-vec2f(-.5,0.))*vec2f(.055,.067));
-    let paper=vec3f(.861,.836,.784)+vec3f(.034)*(1.-saturate(mid))-(1.-sh)*vec3f(.137,.144,.139)-contact;
-    let texture=(hash(v.clip.xy*.87)-.5)*.023+(noise(v.clip.xy*.032)-.5)*.021;
+    let paper=vec3f(.824,.852,.823)+vec3f(.050)*(1.-saturate(mid))-(1.-sh)*vec3f(.137,.144,.139)-contact;
+    let texture=(hash(v.clip.xy*.87)-.5)*.010+(noise(v.clip.xy*.032)-.5)*.018;
     return vec4f(max(paper+texture,vec3f(.17)),behind);
   }
   if(mat==8. || mat==9.){
@@ -1440,7 +1471,10 @@ fn lavaGrout(p : vec2f) -> vec2f {
   var emissive=vec3f(0.);
   var glossy=0.;
   if(mat==1.){
-    base*=.76+grain*.30+r*.185;
+    let broad=noise(p.xz*9.5+vec2f(14.,3.));
+    let exposed=smoothstep(.58,.88,noise(p.xz*28.5+p.y*9.));
+    base*=.81+grain*.12+r*.16+broad*.21;
+    base=mix(base,base*vec3f(.78,.83,.81),exposed*.53);
     let mottling=noise(p.xz*105.+3.);
     base*=mix(1.,.64,mottling*smoothstep(.67,.9,noise(p.xz*72.)));
     let sinter=length((p.xz-vec2f(.03,.045))*vec2f(2.95,3.7));
@@ -1613,8 +1647,8 @@ fn chop(p : vec2f,t : f32) -> f32 {
   let thickness=clamp(scene.a*48.-eyeD,.012,2.80);
   let depth=max(.004,p.y-v.floorY);
   let d=select(min(depth/max(cosi,.22),thickness),min(1.76,thickness)*.77,v.side>0.);
-  let transmission=exp(-d*vec3f(2.86,.78,.63));
-  let volume = vec3f(.011,.420,.383)*(0.78+.22*saturate(depth*2.));
+  let transmission=exp(-d*vec3f(2.64,.93,.64));
+  let volume = vec3f(.017,.343,.328)*(0.78+.22*saturate(depth*2.));
   var col=scene.rgb*transmission+volume*(1.-transmission);
   let bd=max(.0,HALF-max(abs(p.x),abs(p.z)));
   let faceHeight=1.+v.height-p.y;
@@ -1627,7 +1661,8 @@ fn chop(p : vec2f,t : f32) -> f32 {
   let a=sin(grid.x+sin(grid.y*.71)*1.7)+sin(grid.y+sin(grid.x*.9)*1.6);
   let nearShore=smoothstep(.66,.891,v.floorY)*(1.-smoothstep(.948,1.00,v.floorY));
   let wave=clamp(length(tangent)*.33+abs(v.height)*5.,0.,1.);
-  let foam=nearShore*smoothstep(.42,.88,noise(p.xz*46.+vec2f(-t*.8,t*.52)))*.69;
+  let lace=noise(p.xz*57.+vec2f(-t*.55,t*.34))*.68+noise(p.xz*19.+t*.31)*.32;
+  let foam=nearShore*smoothstep(.48,.77,lace)*(.31+wave*.48);
   let rim=select(exp(-bd*101.)*.51,exp(-abs(faceHeight)*79.)*.66,v.side>0.);
   let caustic=pow(saturate(1.-abs(a)*1.25),8.);
   col+=vec3f(.01,.18,.12)*caustic*(.17+wave*.41)*(1.-reflection);
@@ -1744,10 +1779,10 @@ function terrainSample(x,z){
   return mix(mix(waterBed[k],waterBed[k+1],u-a),mix(waterBed[k+N],waterBed[k+N+1],u-a),v-b);
 }
 let gpu=null, failed=false, needsDraw=true, fallbackReason='';
-const peakLabel=$('peak'), status=$('status'), actions=[$('erupt'),$('tremor'),$('reset'),$('pause'),$('view')];
+const peakLabel=$('peak'), status=$('status'), actions=[$('erupt'),$('quick-erupt'),$('tremor'),$('reset'),$('pause'),$('view')];
 function setStatus(state){
   status.dataset.state=state;
-  status.textContent=state==='live'?'WebGPU · Live':state==='paused'?'WebGPU · Paused':state==='loading'?'WebGPU · Loading':'WebGPU · Unavailable';
+  status.textContent=state==='live'?'WebGPU · 运行中':state==='paused'?'WebGPU · 已暂停':state==='loading'?'WebGPU · 载入中':'WebGPU · 不可用';
 }
 function fallback(reason){
   failed=true; fallbackReason=String(reason);
@@ -1962,6 +1997,8 @@ function restore(){
   seedSteam();
   resetView();
   setPause(false);
+  triedEruption=false;
+  $('first-try').textContent='先唤醒间歇泉，看看步道上的人。';
   updatePanel();
   needsDraw=true;
 }
@@ -1969,9 +2006,9 @@ function setPause(next){
   paused=next;
   if(next&&drag?.swimmer)stopSteering(false,0);
   if(built&&!failed)setStatus(next?'paused':'live');
-  $('pause').textContent=next?'Resume':'Pause';
+  $('pause').textContent=next?'继续':'暂停';
   $('pause').setAttribute('aria-pressed',next);
-  $('erupt').disabled=next||!built;
+  $('erupt').disabled=$('quick-erupt').disabled=next||!built;
   $('tremor').disabled=next||!built;
   if(next)audio?.suspend().catch(()=>{});
   else if(audio)unlockAudio();
@@ -1985,8 +2022,9 @@ function syncSlider(id){
   if(id==='damping')dampness=value;
   if(id==='sensitivity')sensitivity=value;
 }
+const phaseLabels={Refill:'蓄水',Rest:'间歇中',Surge:'水面隆起',Dome:'水穹形成',Erupting:'正在喷发',Rain:'水滴落下',Drain:'回落'};
 function updatePanel(){
-  const phase='Strokkur · '+eruptionPhase();
+  const phase=phaseLabels[eruptionPhase()]||'间歇中';
   if($('phase').textContent!==phase)$('phase').textContent=phase;
   const label=currentPeak?Math.round(currentPeak*20)+' m':'20–35 m';
   if(peakLabel.textContent!==label)peakLabel.textContent=label;
@@ -2003,7 +2041,18 @@ for(const id of ['firmness','damping','sensitivity']){
   syncSlider(id);
   $(id).addEventListener('input',()=>syncSlider(id));
 }
-$('erupt').addEventListener('click',()=>{if(!paused){unlockAudio();geyserBurst(true);updatePanel();}});
+function firstEruption(withSound){
+  if(!built||failed||paused) return;
+  if(withSound) unlockAudio();
+  geyserBurst(true);
+  updatePanel();
+  if(!triedEruption){
+    triedEruption=true;
+    $('first-try').textContent='下一步：拖住观鲸船，轻甩松手，看它顺着水面滑行。';
+  }
+}
+$('erupt').addEventListener('click',()=>firstEruption(true));
+$('quick-erupt').addEventListener('click',()=>firstEruption(true));
 $('tremor').addEventListener('click',()=>{if(!paused){unlockAudio();tremor();updatePanel();}});
 $('pause').addEventListener('click',()=>setPause(!paused));
 $('reset').addEventListener('click',restore);
@@ -2206,7 +2255,8 @@ async function boot(){
     built=true;
     actions.forEach(button=>button.disabled=false);
     restore();
-    if(matchMedia('(prefers-reduced-motion: reduce)').matches)setPause(true);
+    if(entry.get('show')==='eruption')firstEruption(false);
+    else if(matchMedia('(prefers-reduced-motion: reduce)').matches)setPause(true);
     $('loading').hidden=true;
     document.body.classList.add('ready');
     requestAnimationFrame(animate);

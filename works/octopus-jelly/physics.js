@@ -25,6 +25,7 @@ function armCurve(arm, time, activity, beads) {
   let point = [Math.sin(heading)*.51, .55, Math.cos(heading)*.51];
   const curl = 2.65 + .87 * activity * Math.sin(time * 1.85 + arm.phase);
   const bait = beads.find(b => b.p[1] < .48 && length(sub(b.p, arm.lastTip)) < 1.85);
+  arm.baitTarget=bait;
   for (let j=0; j<RINGS; j++) {
     const t = j / (RINGS-1);
     const radius = .36 * Math.pow(1-t, .83) + .013;

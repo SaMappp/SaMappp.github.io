@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="可拖拽、投饵、换色的双层果冻章鱼软体实验。">
   <title>双层果冻章鱼 | Octopus Jelly</title>
-  <link rel="stylesheet" href="studio.css">
-  <script type="module" src="studio.js"></script>
+  <link rel="stylesheet" href="studio.css?v=20261121">
+  <script type="module" src="studio.js?v=20261121"></script>
 </head>
 <body>
   <main>
@@ -20,11 +20,16 @@
     <div class="studio">
       <figure class="stage">
         <canvas id="specimen" aria-label="双层果冻章鱼的三维视图"></canvas>
-        <div class="stage-top"><span>摄影棚</span><button id="angle" type="button" aria-label="切换观察角度">切换视角</button></div>
+        <div class="stage-top"><button id="angle" type="button" aria-label="切换观察角度">切换视角</button></div>
+        <span id="bait-marker" aria-hidden="true" hidden></span>
         <p id="notice" role="status" hidden></p>
         <figcaption>拖动章鱼拉伸或提起它，拖动空白处旋转视角</figcaption>
       </figure>
       <section class="controls" aria-label="实验控制">
+        <div class="feeding">
+          <button class="bait" id="bait" type="button">投下饵珠</button>
+          <p id="bait-help" aria-live="polite">看腕尖怎样追向饵珠。</p>
+        </div>
         <fieldset>
           <legend>胶体配色</legend>
           <div class="swatches">
@@ -35,8 +40,11 @@
         </fieldset>
         <label for="muscle">肌肉活性 <output id="activity" for="muscle">64%</output></label>
         <input id="muscle" type="range" min="0" max="100" value="64">
+        <div class="activity-presets" aria-label="肌肉活性对比">
+          <button type="button" data-activity="18" aria-pressed="false">缓慢舒展</button>
+          <button type="button" data-activity="92" aria-pressed="false">用力卷曲</button>
+        </div>
         <div class="actions">
-          <button class="bait" id="bait" type="button">投下饵珠 <span aria-hidden="true">＋</span></button>
           <button id="pause" type="button" aria-pressed="false">暂停</button>
           <button id="reset" type="button">重置</button>
         </div>
