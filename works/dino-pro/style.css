@@ -489,12 +489,19 @@ body,
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }
+.opening-guide-slot {
+  --guide-lines: 1;
+  font-size: clamp(.72rem, 2.3vw, .88rem);
+  line-height: 1.4;
+  /* Keep the playfield steady when hints appear, wrap, or disappear. */
+  block-size: calc(1.4em * var(--guide-lines) + 20px);
+  overflow: clip;
+}
 .opening-guide {
-  margin: 0 0 6px;
   width: fit-content; max-width: calc(100% - 24px);
   pointer-events: none; padding: 6px 10px; border-radius: 5px;
   background: #fff0c8; color: #382d17; border: 1px solid #d0a965;
-  font-size: clamp(.72rem, 2.3vw, .88rem); font-weight: 650;
+  font-weight: 650;
 }
 
 /* Mode selection and results sit outside the playfield. */
@@ -532,7 +539,7 @@ body,
 .run-status { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; font-size: .85rem; color: var(--ink-soft); }
 #routeStatus { font-weight: 700; color: var(--ink); }
 #ghostStatus:empty { display: none; }
-body[data-run-state="ready"] :is(.hudbar,.run-status,.pause-tool,.touchbar,.rotate-hint),
+body[data-run-state="ready"] :is(.hudbar,.run-status,.pause-tool,.touchbar,.rotate-hint,.opening-guide-slot),
 body[data-run-state="over"] :is(.hudbar,.run-status,.stage-wrap,.pause-tool,.touchbar,.rotate-hint,.legend) { display: none; }
 body[data-run-state="ready"] .stage { width: 100%; max-height: clamp(115px, 43svh, 540px); }
 body[data-run-state="ready"] #game { object-fit: cover; }
@@ -557,6 +564,9 @@ body[data-run-state="paused"] :is(.touchbar,.pause-tool,.rotate-hint) { display:
   .run-results .ledger { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .opening-guide { margin-inline: 10px; }
   #comboGoal { flex-basis: 100%; }
+}
+@media(max-width:480px) {
+  .opening-guide-slot { --guide-lines: 2; }
 }
 @media(max-height:530px) {
   .run-results { padding: 10px 12px; gap: 6px; }
