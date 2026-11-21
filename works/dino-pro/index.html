@@ -4,15 +4,15 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>DINO PRO · 恐龙快跑加强版</title>
-<meta name="description" content="Chrome 小恐龙加强版：金币连击机制、W/S 跳跃下蹲、A/D 加减速操控、地面与空中双层金币分布，支持触屏。" />
+<meta name="description" content="像素跑酷。挑战随机无尽或可调时长的固定赛道，选择金币路线，与个人最佳影子同跑。" />
 <meta name="theme-color" content="#fdf6e8" />
 <meta property="og:title" content="DINO PRO · 恐龙快跑加强版" />
 <meta property="og:description" content="金币连击 · 变速操控 · 像素跑酷" />
 <meta property="og:type" content="website" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%A6%96%3C/text%3E%3C/svg%3E" />
-<link rel="stylesheet" href="style.css?v=20261121" />
+<link rel="stylesheet" href="style.css?v=20261121-track2" />
 </head>
-<body>
+<body data-run-state="ready">
 <div class="app">
 
   <header class="topbar">
@@ -24,21 +24,50 @@
       </div>
     </div>
     <div class="tools">
+      <button id="btnPause" class="icon-btn pause-tool" type="button" title="暂停" aria-label="暂停">Ⅱ</button>
       <button id="btnSound" class="icon-btn" type="button" title="音效开关" aria-label="音效开关">🔊</button>
       <button id="btnTheme" class="icon-btn" type="button" title="切换主题" aria-label="切换主题">🌙</button>
     </div>
   </header>
 
+  <section class="run-menu show" id="startScreen" aria-labelledby="menuTitle">
+    <div>
+      <h2 id="menuTitle">选一条赛道</h2>
+      <p id="courseDescription"></p>
+    </div>
+    <div class="run-options">
+      <label>模式与赛道
+        <select id="runMode">
+          <option value="endless">随机无尽</option>
+          <optgroup label="固定赛道">
+            <option value="dunes">沙丘连跳</option>
+            <option value="badlands">赤壁变速</option>
+            <option value="oasis">绿洲金币线</option>
+          </optgroup>
+        </select>
+      </label>
+      <div id="courseOptions" hidden>
+        <label>时长（20–120 秒） <input type="number" id="courseDuration" min="20" max="120" step="1" value="45"></label>
+        <label class="ghost-toggle"><input type="checkbox" id="useGhost" checked> 同场显示个人最佳影子</label>
+      </div>
+      <button class="btn" id="btnStart" type="button">开始游戏</button>
+    </div>
+  </section>
+
+  <div class="run-status">
+    <span id="routeStatus" tabindex="-1"></span><span id="ghostStatus"></span>
+  </div>
+
   <!-- 状态栏：分数 / 速度 / 金币全部位于画布之外，任何屏幕宽度都不会遮挡游戏画面 -->
   <div class="hudbar">
     <div class="hud-score">
-      <span class="label">SCORE</span>
+      <span class="label">总分</span>
       <span class="value" id="scoreVal">00000</span>
-      <span class="hi">HI <b id="hiVal">00000</b></span>
+      <span class="hi">最佳 <b id="hiVal">00000</b></span>
     </div>
 
     <div class="speedo" id="speedo">
-      <span class="sp-label">SPEED</span>
+      <span class="sp-label">速度</span>
       <div class="sp-track">
         <div class="sp-center"></div>
         <div class="sp-fill" id="spFill" data-dir="fast"></div>
@@ -59,6 +88,7 @@
       <div class="combo-chip" id="comboChip">
         <span id="comboMult">×1.0</span>
         <span id="comboCount">连击 0</span>
+        <span id="comboGoal"></span>
       </div>
     </div>
   </div>
@@ -68,71 +98,36 @@
     <div class="stage" id="stage">
       <canvas id="game" width="800" height="200" aria-label="恐龙快跑游戏画面"></canvas>
 
-      <!-- 开始面板 -->
-      <div class="overlay show" id="startScreen">
-        <div class="panel">
-          <h2>准备开始</h2>
-          <p class="sub">躲开仙人掌与翼龙，尽力吃掉更多金币</p>
-          <div class="keys">
-            <span class="key"><kbd>W</kbd>/<kbd>空格</kbd> 跳跃（长按跳更高）</span>
-            <span class="key"><kbd>S</kbd> 下蹲</span>
-            <span class="key"><kbd>A</kbd> 减速</span>
-            <span class="key"><kbd>D</kbd> 加速</span>
-            <span class="key"><kbd>P</kbd> 暂停</span>
-          </div>
-          <button class="btn" id="btnStart" type="button">开始游戏</button>
-          <p class="mini-tip">金币连续收集不会中断倍率，最高可达 ×3.0；漏掉一枚就会断连击。</p>
-        </div>
-      </div>
-
-      <!-- 暂停面板 -->
-      <div class="overlay" id="pauseScreen">
-        <div class="panel">
-          <h2>已暂停</h2>
-          <p class="sub">按 P 或点击按钮继续</p>
-          <button class="btn" id="btnResume" type="button">继续游戏</button>
-        </div>
-      </div>
-
-      <!-- 结算面板 -->
-      <div class="overlay" id="overScreen">
-        <div class="panel">
-          <h2>本局结算</h2>
-          <p class="sub" id="overSub">撞到障碍，游戏结束</p>
-
-          <div class="ledger">
-            <div class="row">
-              <span class="k">距离分</span>
-              <span class="v" id="finalDistance">0</span>
-            </div>
-            <div class="row">
-              <span class="k">收集金币</span>
-              <span class="v coin" id="finalCoins">0 枚</span>
-            </div>
-            <div class="row">
-              <span class="k">金币转化分<span id="finalComboHint" class="k"></span></span>
-              <span class="v coin" id="finalCoinScore">0</span>
-            </div>
-            <div class="row total">
-              <span class="k">总分</span>
-              <span class="v" id="finalTotal">0</span>
-            </div>
-            <div class="row">
-              <span class="k">历史最高分</span>
-              <span class="v"><span id="finalBest">0</span><span id="recordBadge"></span></span>
-            </div>
-            <div class="row">
-              <span class="k">累计收集金币</span>
-              <span class="v" id="finalAllCoins">0 枚</span>
-            </div>
-          </div>
-
-          <button class="btn" id="btnRestart" type="button">再来一局</button>
-          <p class="mini-tip">也可以直接按 空格 / W 快速重开</p>
-        </div>
-      </div>
     </div>
   </div>
+
+  <section class="run-pause" id="pauseScreen" aria-labelledby="pauseTitle">
+    <h2 id="pauseTitle">已暂停</h2>
+    <div class="result-actions">
+      <button class="btn" id="btnResume" type="button">继续游戏</button>
+      <button class="secondary" id="pauseMenu" type="button">返回赛道选择</button>
+    </div>
+  </section>
+
+  <section class="run-results" id="overScreen" aria-labelledby="resultTitle">
+    <div class="results-heading">
+      <div><h2 id="resultTitle">本局结算</h2><p id="overSub"></p></div>
+      <span class="badge-record" id="recordBadge"></span>
+    </div>
+    <div class="ledger">
+      <div class="row total"><span class="k">总分</span><span class="v" id="finalTotal">0</span></div>
+      <div class="row"><span class="k">本模式最高分</span><span class="v" id="finalBest">0</span></div>
+      <div class="row"><span class="k">距离分</span><span class="v" id="finalDistance">0</span></div>
+      <div class="row"><span class="k">本局金币</span><span class="v coin" id="finalCoins">0 枚</span></div>
+      <div class="row"><span class="k">金币分 <small id="finalComboHint"></small></span><span class="v coin" id="finalCoinScore">0</span></div>
+      <div class="row"><span class="k">累计金币</span><span class="v" id="finalAllCoins">0 枚</span></div>
+    </div>
+    <p class="result-tip" id="resultTip"></p>
+    <div class="result-actions">
+      <button class="btn" id="btnRestart" type="button">再来一局</button>
+      <button class="secondary" id="resultMenu" type="button">返回赛道选择</button>
+    </div>
+  </section>
 
   <p class="rotate-hint">📱 手机横屏可以看到更大的游戏画面</p>
 
@@ -145,7 +140,7 @@
   </div>
 
   <div class="legend">
-    <span><b>W</b> / <b>空格</b> 跳跃</span>
+    <span><b>W</b> / <b>空格</b> 跳跃（长按跳更高）</span>
     <span><b>S</b> 下蹲</span>
     <span><b>A</b> 减速（最低 0.70×）</span>
     <span><b>D</b> 加速（最高 1.60×）</span>
@@ -153,10 +148,10 @@
     <span><b>M</b> 静音</span>
   </div>
 
-  <p class="footnote">纯前端零依赖 · 单页静态站点 · 可直接部署到 GitHub Pages</p>
 </div>
 
 <script src="sprites.js?v=3.7"></script>
-<script src="game.js?v=20261121"></script>
+<script src="courses.js?v=20261121-track2"></script>
+<script src="game.js?v=20261121-track2"></script>
 </body>
 </html>

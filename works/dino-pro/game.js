@@ -83,6 +83,8 @@
   // 翼龙底部离地高度：低空必须跳、中空必须蹲、高空不能乱跳
   var BIRD_HEIGHTS = [8, 34, 52];
 
+  var Courses = window.DinoCourses;
+  var GHOST_HZ = 10;
   var STORE_KEY = 'dinopro.save.v1';
 
   // ==================== 工具函数 ====================
@@ -97,7 +99,7 @@
 
   // ==================== 存档 ====================
   var Save = {
-    data: { best: 0, totalCoins: 0, muted: false, theme: null },
+    data: { best: 0, totalCoins: 0, muted: false, theme: null, challenges: {}, lastEndless: null },
     load: function () {
       try {
         var raw = localStorage.getItem(STORE_KEY);
@@ -108,6 +110,10 @@
             this.data.totalCoins = Number(o.totalCoins) || 0;
             this.data.muted = !!o.muted;
             this.data.theme = o.theme === 'dark' || o.theme === 'light' ? o.theme : null;
+            if (o.lastEndless && Number.isFinite(o.lastEndless.coins)) this.data.lastEndless = o.lastEndless;
+            if (o.challenges && typeof o.challenges === 'object' && !Array.isArray(o.challenges)) {
+              this.data.challenges = o.challenges;
+            }
           }
         }
       } catch (e) { /* 忽略隐私模式等异常 */ }
@@ -249,6 +255,7 @@
     dark: { stage: '#171a20', ground: '#8d94a1', dot: '#3b414c', cloud: '#2c313a', text: '#d7dbe3', gold: '#f0b429', goldSoft: '#ffdd7a', goldDeep: '#c8901a', dim: '#5b6472' }
   };
   var theme = 'light';
+  var reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 
   function applyTheme(name) {
     theme = name === 'dark' ? 'dark' : 'light';
@@ -272,7 +279,7 @@
     return {
       x: x, h: height,
       padL: padL || 0, padR: padR || 0,
-      phase: Math.random() * Math.PI * 2, taken: false, bob: Math.random() * Math.PI * 2
+      taken: false
     };
   }
 
@@ -318,7 +325,7 @@
       if (G.factor > 1) G.factor = Math.max(1, G.factor - FACTOR_RETURN * dt);
       else if (G.factor < 1) G.factor = Math.min(1, G.factor + FACTOR_RETURN * dt);
     }
-    G.baseSpeed = Math.min(SPEED_MAX, SPEED_START + G.distance * SPEED_GAIN);
+    G.baseSpeed = G.challenge ? G.challenge.track.speed : Math.min(SPEED_MAX, SPEED_START + G.distance * SPEED_GAIN);
     G.speed = G.baseSpeed * G.factor;
     G.score += G.speed * dt * 0.1;   // 距离分：约 40 分/秒 @400px/s
   }
@@ -500,6 +507,7 @@
     var minSpan = cactus.w + 120;
     if (span < minSpan) span = minSpan;
     var coef = span / (G.speed * JUMP_TAU);
+    if (coef > 1) return;
 
     var count = randInt(4, 5);
     var startX = cactus.x + cactus.w / 2 - span / 2;
@@ -526,30 +534,26 @@
         if (o.x - endX < edgePad) return;       // 落地点右边太挤
         continue;
       }
-      // 水平方向与弧线重叠：按轨迹高度验证最吃亏的那一点能否越过
+      // 飞行障碍与同一条起跳线相交时，保留常规障碍布局。
+      if (o.type === 'bird') return;
       var ta = (Math.max(o.x, startX) - startX) / span;
       var tb = (Math.min(oR, endX) - startX) / span;
-      var hA = trailHeight(ta * JUMP_TAU * coef);
-      var hB = trailHeight(tb * JUMP_TAU * coef);
+      var hA = arcHeight(ta, coef);
+      var hB = arcHeight(tb, coef);
       if (Math.min(hA, hB) < o.h + 8) return;
     }
 
-    // 只保护弧的两个"外端"：起点左侧留起跳空间，终点右侧留落地空间。
-    // 弧内一律不设保护 —— 仙人掌本来就架在弧顶正下方，这是刻意设计。
-    for (var i = 0; i < count; i++) {
-      var t = i / (count - 1);
-      var tau = t * JUMP_TAU * coef;
-      var padL = t <= 0.01 ? edgePad : 0;
-      var padR = t >= 0.99 ? edgePad : 0;
-      G.coins.push(makeCoin(startX + t * span, trailHeight(tau) + COIN_TRAIL_OFFSET, padL, padR));
-    }
+    var arc = buildArc(count, coef, 0);
+    addCoinGroup(startX, arc);
+    addMarker(startX - arc.lead, '金色箭头到脚边时，长按跳过仙人掌。', 325);
   }
 
   // ==================== 生成：金币 ====================
   var PATTERNS = [
     { name: 'arc', weight: 6 },
     { name: 'arcTight', weight: 3 },
-    { name: 'ground', weight: 2 }
+    { name: 'ground', weight: 2 },
+    { name: 'fork', weight: 2 }
   ];
 
   function pickPattern() {
@@ -574,31 +578,27 @@
     return JUMP_SPEED * tau - 0.5 * GRAVITY * tau * tau;
   }
 
-  /**
-   * 沿跳跃轨迹铺一条抛物线金币。
-   * coef = 跨度相对"满跳水平覆盖"的比例，高度按同一比例压缩，
-   * 保证每一枚都恰好落在恐龙的必经高度上 —— 起跳时机对了就能一次全收。
-   */
-  function buildArc(count, coef, midPad) {
-    // 用实际速度而不是基础速度：按住 D 加速时恐龙相对障碍的位移更大，
-    // 按基础速度铺的弧会被"冲过头"，导致终点金币吃不到、甚至落在障碍上。
-    var span = G.speed * JUMP_TAU * coef;
-    var list = [];
+  function arcHeight(t, fraction) {
+    return trailHeight((0.5 + (Math.min(t, 1 - t) - 0.5) * fraction) * JUMP_TAU);
+  }
+
+  // A short arc samples the middle of the same jump, with paired coins
+  // calculated from the same index so their heights match exactly.
+  function buildArc(count, fraction, midPad, speed) {
+    var jumpSpan = (speed || G.speed) * JUMP_TAU;
+    var width = jumpSpan * fraction;
+    var coins = [];
     var edgePad = coinEdgePad();
-    var mid = midPad || 0;
     for (var i = 0; i < count; i++) {
-      var t = count === 1 ? 0.5 : i / (count - 1);
-      // 起点金币只管左侧（留出起跳助跑），终点金币只管右侧（留出落地缓冲）
-      var isFirst = i === 0 && count > 1;
-      var isLast = i === count - 1 && count > 1;
-      list.push({
-        dx: t * span,
-        h: trailHeight(t * JUMP_TAU * coef) + COIN_TRAIL_OFFSET,
-        padL: isFirst ? edgePad : mid,
-        padR: isLast ? edgePad : mid
+      var t = Math.min(i, count - 1 - i) / (count - 1);
+      coins.push({
+        dx: i * width / (count - 1),
+        h: arcHeight(t, fraction) + COIN_TRAIL_OFFSET,
+        padL: i === 0 ? edgePad : (midPad || 0),
+        padR: i === count - 1 ? edgePad : (midPad || 0)
       });
     }
-    return { coins: list, width: span };
+    return {coins: coins, width: width, lead: (jumpSpan - width) / 2};
   }
 
   /** 贴地金币串：贴着地面，跑动即可收，作为节奏调剂。 */
@@ -613,8 +613,9 @@
   /** 返回 { coins:[{dx,h,padL,padR}], width } */
   function buildGroup(name) {
     if (name === 'ground') return buildGround(randInt(3, 4));
-    if (name === 'arcTight') return buildArc(randInt(3, 4), rand(0.55, 0.68), coinMidPad());
-    return buildArc(randInt(5, 6), rand(0.78, 0.92), coinMidPad());
+    if (name === 'fork') return buildFork(G.speed);
+    if (name === 'arcTight') return buildArc(3, rand(0.58, 0.72), coinMidPad());
+    return buildArc(5, rand(0.82, 0.98), coinMidPad());
   }
 
   /**
@@ -642,9 +643,41 @@
     return need;
   }
 
+  function buildFork(speed) {
+    var fraction = Math.max(0.72, (4 * COIN_MIN_GAP) / (speed * JUMP_TAU));
+    var group = buildArc(5, fraction, coinMidPad(), speed);
+    var gap = group.width / 4;
+    for (var i = 0; i < 5; i++) group.coins[i].route = 'air';
+    for (var j = 0; j < 3; j++) {
+      group.coins.push({dx: j * gap * 2, h: AIR.GROUND, route: 'ground',
+        padL: j === 0 ? coinEdgePad() : coinGroundPad(),
+        padR: j === 2 ? coinEdgePad() : coinGroundPad()});
+    }
+    group.fork = {path: null, missed: {air: false, ground: false}};
+    return group;
+  }
+
+  function addCoinGroup(x, group) {
+    group.coins.forEach(function (p) {
+      var coin = makeCoin(x + p.dx, p.h, p.padL, p.padR);
+      if (group.fork) {
+        coin.fork = group.fork;
+        coin.route = p.route;
+        coin.lastInFork = p.route === 'ground' && p.dx === group.width;
+      }
+      G.coins.push(coin);
+    });
+  }
+
+  function addMarker(x, message, range) {
+    G.markers.push({x: x, message: message, range: range});
+  }
+
   function seedOpeningCoins() {
-    var firstX = 690;
-    var trail = buildArc(5, 0.86);
+    var firstX = randInt(665, 745);
+    if (firstX === G.lastOpeningX) firstX = 665 + (firstX - 665 + randInt(1, 80)) % 81;
+    G.lastOpeningX = firstX;
+    var trail = buildArc(5, 1);
     G.intro = { firstX: firstX, received: 0, total: trail.coins.length, cue: 0, done: false };
     for (var i = 0; i < trail.coins.length; i++) {
       var item = trail.coins[i];
@@ -658,6 +691,7 @@
   }
 
   function showOpening(message) {
+    if (el.openingGuide.textContent === message) return;
     el.openingGuide.textContent = message;
     el.openingGuide.hidden = !message;
   }
@@ -667,18 +701,32 @@
     if (!intro) return;
     intro.firstX -= travel;
     intro.cue = Math.max(0, intro.cue - dt);
-    if ((!intro.done && intro.firstX > DINO_X - 58) || intro.cue) return;
-    if (!el.openingGuide.hidden) showOpening("");
+
   }
 
   function drawOpeningMarker() {
     var intro = G.intro;
-    if (!intro || intro.done || intro.firstX < DINO_X - 12) return;
-    var x = intro.firstX, y = GROUND_Y + 2;
+    if (intro && !intro.done && intro.firstX >= DINO_X - 12) drawArrow(intro.firstX);
+    G.markers.forEach(function (marker) {
+      if (marker.x <= marker.range && marker.x >= DINO_X - 12) drawArrow(marker.x);
+    });
+  }
+
+  function drawArrow(x) {
     ctx.fillStyle = C().gold;
     for (var step = 0; step < 4; step++) {
-      ctx.fillRect(Math.round(x) - step * 2 - 1, y + step * 2, step * 4 + 2, 2);
+      ctx.fillRect(Math.round(x) - step * 2 - 1, GROUND_Y + 2 + step * 2, step * 4 + 2, 2);
     }
+  }
+
+  function updateMarkers(travel) {
+    G.markers = G.markers.filter(function (marker) {
+      marker.x -= travel;
+      return marker.x >= DINO_X - 12;
+    });
+    var next = G.markers.find(function (marker) { return marker.x < marker.range; });
+    if (next && !(G.intro && G.intro.cue)) showOpening(next.message);
+    else if (!G.intro || (G.intro.firstX < DINO_X - 58 && !G.intro.cue)) showOpening('');
   }
 
   function spawnCoinGroup() {
@@ -693,14 +741,59 @@
       return;
     }
 
-    for (var i = 0; i < g.coins.length; i++) {
-      G.coins.push(makeCoin(x + g.coins[i].dx, g.coins[i].h, g.coins[i].padL, g.coins[i].padR));
-    }
+    addCoinGroup(x, g);
+    if (g.fork) addMarker(x - g.lead, '岔路 · 地面 3 枚，空中 5 枚', 404);
     G.patternHistory.push(name);
     if (G.patternHistory.length > 6) G.patternHistory.shift();
 
     // 组间隔按"时间"计算（1.8~2.5 秒一组），任何速度下密度都一致
     G.coinCountdown = G.speed * rand(1.8, 2.5);
+  }
+
+  function placeFixedEvent(at, kind, speed) {
+    if (kind === 'ground') {
+      addCoinGroup(at, buildGround(4));
+    } else if (kind === 'fork') {
+      var fork = buildFork(speed);
+      addCoinGroup(at - fork.width / 2, fork);
+      addMarker(at - fork.width / 2 - fork.lead, '岔路 · 地面 3 枚，空中 5 枚', 405);
+    } else if (kind === 'arc' || kind === 'guard') {
+      var arc = buildArc(5, kind === 'guard' ? 0.90 : 1, 0, speed);
+      var left = at - arc.width / 2;
+      if (kind === 'guard') G.obs.push(makeCactus(at - OBS.cactusLarge.w / 2, 'cactusLarge'));
+      addCoinGroup(left, arc);
+      addMarker(left - arc.lead, '金色箭头到脚边时，长按跳跃。', 340);
+    } else if (kind === 'duck' || kind === 'low') {
+      G.obs.push(makeBird(at, kind === 'duck' ? BIRD_HEIGHTS[1] : BIRD_HEIGHTS[0]));
+      if (kind === 'duck') addMarker(at - 58, '翼龙贴近时按 S 下蹲。', 300);
+    } else {
+      G.obs.push(makeCactus(at, 'cactusSmall'));
+      if (kind === 'pair') G.obs.push(makeCactus(at + 36, 'cactusSmall'));
+      if (kind === 'small') addMarker(at - 47, '矮仙人掌，跳过后尽早松手。', 300);
+    }
+  }
+
+  function loadFixedEvents(distance) {
+    var challenge = G.challenge;
+    var track = challenge.track;
+    while (true) {
+      var event = track.events[challenge.cursor];
+      var at = event[0] + challenge.cycle * track.length;
+      if (at - distance > W + 180) break;
+      placeFixedEvent(DINO_X + at - distance, event[1], track.speed);
+      challenge.cursor += 1;
+      if (challenge.cursor === track.events.length) {
+        challenge.cursor = 0;
+        challenge.cycle += 1;
+      }
+    }
+  }
+
+  function sampleGhost() {
+    var samples = G.challenge.samples;
+    if (G.elapsed * GHOST_HZ + 0.000001 < samples.length) return;
+    var pose = G.dino.ducking ? 3 + G.duckFrame : !G.dino.onGround ? 2 : G.runFrame;
+    samples.push([Math.round(G.distance), Math.round(G.dino.h), pose]);
   }
 
   // ==================== 连击与得分 ====================
@@ -713,6 +806,10 @@
 
   function collectCoin(coin) {
     coin.taken = true;
+    if (coin.fork && !coin.fork.path) {
+      coin.fork.path = coin.route;
+      if (coin.fork.missed[coin.route]) breakCombo();
+    }
     if (coin.opening && ++G.intro.received === G.intro.total) {
       G.intro.done = true;
       G.intro.cue = 2.4;
@@ -723,6 +820,11 @@
 
     var mult = multFor(G.combo);
     if (mult > G.bestMult) G.bestMult = mult;
+    if (mult > multFor(G.combo - 1)) {
+      el.comboChip.classList.remove('advanced');
+      void el.comboChip.offsetWidth;
+      el.comboChip.classList.add('advanced');
+    }
 
     G.coinCount += 1;
     G.coinScore += Math.round(COIN_VALUE * mult);
@@ -776,7 +878,7 @@
     }
     for (i = 0; i < G.coins.length; i++) {
       var c = G.coins[i];
-      if (c.taken) continue;
+      if (c.taken || (c.fork && c.fork.path && c.fork.path !== c.route)) continue;
       var cb = { x: c.x - COIN_R, y: GROUND_Y - c.h - COIN_R, w: COIN_R * 2, h: COIN_R * 2 };
       if (overlap(db, cb)) collectCoin(c);
     }
@@ -784,9 +886,9 @@
 
   function die() {
     if (G.state !== 'running') return;
-    G.state = 'dying';
+    setState('dying');
     G.dyingT = 0;
-    G.shake = 0.32;
+    G.shake = reduceMotion ? 0 : 0.32;
     Sfx.die();
     addParticles(DINO_X + 22, GROUND_Y - 26, 12, C().dot, 150);
   }
@@ -807,6 +909,9 @@
     G.obs.length = 0;
     G.coins.length = 0;
     G.intro = null;
+    G.elapsed = 0;
+    G.markers = [];
+    G.clouds.length = 0;
     showOpening('');
     G.parts.length = 0;
     G.obsCountdown = 520;
@@ -827,58 +932,149 @@
     updateComboUI(1.0);
     el.coinVal.textContent = '0';
     el.scoreVal.textContent = '00000';
-    el.hiVal.textContent = pad5(Save.data.best);
+    el.hiVal.textContent = pad5(currentBest());
     hudInvalidate();               // 让状态栏缓存失效，下一帧重新写入
+  }
+
+  function currentBest() {
+    return G.challenge ? Number(G.challenge.record.best) || 0 : Save.data.best;
+  }
+
+  function setState(state) {
+    G.state = state;
+    document.body.dataset.runState = state;
+  }
+
+  function syncMenu(resetDuration) {
+    var track = Courses.get(el.runMode.value);
+    el.courseOptions.hidden = !track;
+    if (track && resetDuration) el.courseDuration.value = track.duration;
+    el.courseDescription.textContent = track ? track.description : '每局重新生成障碍与金币，挑战个人最高分。';
+  }
+
+  function setupChallenge() {
+    var id = el.runMode.value;
+    var track = Courses.get(id);
+    if (!track) return null;
+    var seconds = clamp(Math.round(Number(el.courseDuration.value) || track.duration), 20, 120);
+    el.courseDuration.value = seconds;
+    var key = Courses.key(id, seconds);
+    var record = Save.data.challenges[key] || {};
+    return {track: track, seconds: seconds, key: key, record: record,
+      cursor: 0, cycle: 0, samples: [], ghost: el.useGhost.checked && Array.isArray(record.ghost) ? record.ghost : null};
   }
 
   function start() {
     Sfx.ensure();
+    G.challenge = setupChallenge();
     resetRun();
-    G.state = 'running';
-    seedOpeningCoins();
+    setState('running');
+    if (G.challenge) {
+      loadFixedEvents(G.distance);
+      sampleGhost();
+      el.routeStatus.textContent = G.challenge.track.name + ' · ' + G.challenge.seconds + ' 秒';
+    } else {
+      seedOpeningCoins();
+      el.routeStatus.textContent = '随机无尽';
+    }
     hideAllOverlays();
+    el.ghostStatus.textContent = '';
+    el.routeStatus.focus({preventScroll: true});
+  }
+
+  function goToMenu() {
+    G.challenge = null;
+    resetRun();
+    setState('ready');
+    hideAllOverlays();
+    syncMenu(false);
+    el.startScreen.classList.add('show');
+    el.runMode.focus({preventScroll: true});
   }
 
   function pause() {
     if (G.state !== 'running') return;
-    G.state = 'paused';
+    setState('paused');
+    Input.slow = Input.fast = Input.duck = false;
+    // Apply the same release as key/pointer-up, so resuming cannot leave a held input behind.
+    Input.jumpHeld = false;
+    releaseJump();
     el.pauseScreen.classList.add('show');
+    el.btnResume.focus({preventScroll: true});
   }
 
   function resume() {
     if (G.state !== 'paused') return;
     Sfx.ensure();
-    G.state = 'running';
+    setState('running');
     hideAllOverlays();
+    el.routeStatus.focus({preventScroll: true});
   }
 
-  function gameOver() {
-    G.state = 'over';
-    var distance = Math.floor(G.score);
-    var total = distance + G.coinScore;
-    var isRecord = total > Save.data.best;
-
+  function storeChallenge(challenge, total, completed) {
+    var entry = challenge.record;
+    var previous = entry.last;
+    var isRecord = completed && (entry.best === undefined || total > entry.best);
     if (isRecord) {
-      Save.data.best = total;
+      entry.best = total;
+      entry.ghost = challenge.samples;
+    }
+    entry.last = {coins: G.coinCount};
+    delete Save.data.challenges[challenge.key];
+    Save.data.challenges[challenge.key] = entry;
+    var keys = Object.keys(Save.data.challenges);
+    if (keys.length > 36) delete Save.data.challenges[keys[0]];
+    return {isRecord: isRecord, previous: previous};
+  }
+
+  function resultTip(challenge, total, previous, completed, isRecord) {
+    var lines = [];
+    if (previous) {
+      var change = G.coinCount - previous.coins;
+      lines.push(change === 0 ? '金币数和上次一样。' :
+        (change > 0 ? '比上次多收 ' : '比上次少收 ') + Math.abs(change) + ' 枚金币。');
+    }
+    var gap = currentBest() - total;
+    if ((!challenge || completed) && gap > 0) lines.push('离个人纪录还差 ' + fmt(gap) + ' 分。');
+    if (isRecord && challenge) lines.push('最佳影子已保存，下次可以同场追赶。');
+    else if (challenge && !completed) lines.push(challenge.track.goal);
+    else if (G.bestCombo < 8) lines.push('试着连续收 8 枚金币，升到 ×1.5。');
+    else if (lines.length === 0) lines.push('下局试试把最高连击再延长一段。');
+    return lines.join('');
+  }
+
+  function gameOver(completed) {
+    setState('over');
+    var distance = Math.floor(G.score + 1e-8);
+    var total = distance + G.coinScore;
+    var challenge = G.challenge;
+    var record = challenge ? storeChallenge(challenge, total, completed)
+      : {isRecord: total > Save.data.best, previous: Save.data.lastEndless};
+    if (!challenge) Save.data.lastEndless = {coins: G.coinCount};
+    if (record.isRecord) {
+      if (!challenge) Save.data.best = total;
       Sfx.record();
     }
     Save.data.totalCoins += G.coinCount;
     Save.save();
 
-    G.lastResult = { distance: distance, coins: G.coinCount, coinScore: G.coinScore, total: total, isRecord: isRecord };
-
+    G.lastResult = {distance: distance, coins: G.coinCount, coinScore: G.coinScore,
+      total: total, isRecord: record.isRecord, completed: !!completed};
     el.finalDistance.textContent = fmt(distance);
     el.finalCoins.textContent = G.coinCount + ' 枚';
     el.finalCoinScore.textContent = fmt(G.coinScore);
-    el.finalComboHint.textContent = '（最高连击 ' + G.bestCombo + '，' + G.bestMult.toFixed(1) + '×）';
+    el.finalComboHint.textContent = '最高连击 ' + G.bestCombo + ' · ×' + G.bestMult.toFixed(1);
     el.finalTotal.textContent = fmt(total);
-    el.finalBest.textContent = fmt(Save.data.best);
-    el.recordBadge.innerHTML = isRecord ? '<span class="badge-record">新纪录</span>' : '';
+    el.finalBest.textContent = challenge && challenge.record.best === undefined ? '—' : fmt(currentBest());
+    el.recordBadge.textContent = record.isRecord ? '新纪录' : '';
     el.finalAllCoins.textContent = fmt(Save.data.totalCoins) + ' 枚';
-    el.overSub.textContent = isRecord ? '刷新了历史最高分！' : '撞到障碍，游戏结束';
-
-    el.hiVal.textContent = pad5(Save.data.best);
+    el.overSub.textContent = challenge
+      ? challenge.track.name + ' · ' + challenge.seconds + ' 秒挑战 · ' + (completed ? '完成' : '撞到障碍')
+      : '随机无尽 · 撞到障碍';
+    el.resultTip.textContent = resultTip(challenge, total, record.previous, completed, record.isRecord);
+    el.hiVal.textContent = pad5(currentBest());
     el.overScreen.classList.add('show');
+    el.btnRestart.focus({preventScroll: true});
   }
 
   function hideAllOverlays() {
@@ -906,6 +1102,7 @@
       return;
     }
 
+    G.elapsed += dt;
     updateSpeed(dt);
     var travel = G.speed * dt;
     G.distance += travel;
@@ -918,10 +1115,13 @@
     if (G.animT > 0.1) { G.animT = 0; G.runFrame ^= 1; G.duckFrame ^= 1; }
 
     // ---- 生成 ----
-    G.obsCountdown -= travel;
-    if (G.obsCountdown <= 0) spawnObstacle();
-    G.coinCountdown -= travel;
-    if (G.coinCountdown <= 0) spawnCoinGroup();
+    if (G.challenge) loadFixedEvents(G.distance - travel);
+    else {
+      G.obsCountdown -= travel;
+      if (G.obsCountdown <= 0) spawnObstacle();
+      G.coinCountdown -= travel;
+      if (G.coinCountdown <= 0) spawnCoinGroup();
+    }
 
     // ---- 云朵 ----
     G.cloudCountdown -= travel;
@@ -949,15 +1149,17 @@
 
     // ---- 金币（含"漏掉即断连击"判定）----
     updateOpening(travel, dt);
+    updateMarkers(travel);
     var keepCoins = [];
     for (var m = 0; m < G.coins.length; m++) {
       var c = G.coins[m];
       c.x -= travel;
-      c.phase += dt * 5.2;
-      c.bob += dt * 3.4;
-      if (c.taken) continue;
-      if (c.x + COIN_R < DINO_X - 4) {   // 从恐龙身后滑走 = 漏掉
-        breakCombo();
+      if (c.taken || (c.fork && c.fork.path && c.fork.path !== c.route)) continue;
+      if (c.x + COIN_R < DINO_X - 4) {
+        if (c.fork && !c.fork.path) {
+          c.fork.missed[c.route] = true;
+          if (c.lastInFork) breakCombo();
+        } else breakCombo();
         continue;
       }
       if (c.x < -40) continue;
@@ -981,6 +1183,10 @@
     if (G.shake > 0) G.shake = Math.max(0, G.shake - dt);
 
     checkCollisions();
+    if (G.challenge && G.state === 'running') {
+      sampleGhost();
+      if (G.elapsed + 0.000001 >= G.challenge.seconds) gameOver(true);
+    }
   }
 
   // ==================== 渲染 ====================
@@ -1017,14 +1223,13 @@
 
   function drawCoins() {
     var c = C();
+    var rx = Math.max(2, Math.abs(Math.cos(G.elapsed * 5.2)) * COIN_R);
+    var bob = Math.sin(G.elapsed * 3.4) * 1.15;
     for (var i = 0; i < G.coins.length; i++) {
       var coin = G.coins[i];
-      if (coin.taken) continue;
+      if (coin.taken || (coin.fork && coin.fork.path && coin.fork.path !== coin.route)) continue;
       var cx = coin.x;
-      var cy = GROUND_Y - coin.h + Math.sin(coin.bob) * 1.6;
-
-      var rx = Math.abs(Math.cos(coin.phase)) * COIN_R;
-      rx = Math.max(2.0, rx);
+      var cy = GROUND_Y - coin.h + bob;
 
       // 外圈
       ctx.fillStyle = c.gold;
@@ -1060,6 +1265,58 @@
     }
   }
 
+  function ghostAtTime() {
+    var trail = G.challenge && G.challenge.ghost;
+    if (!trail || trail.length < 2) return null;
+    var index = Math.min((trail.length - 1), G.elapsed * GHOST_HZ);
+    var a = trail[Math.floor(index)], b = trail[Math.ceil(index)];
+    if (!Array.isArray(a) || !Array.isArray(b)) return null;
+    var mix = index % 1;
+    return [a[0] + (b[0] - a[0]) * mix, a[1] + (b[1] - a[1]) * mix, a[2]];
+  }
+
+  function drawGhost() {
+    var point = ghostAtTime();
+    if (!point) return;
+    var x = DINO_X + point[0] - G.distance;
+    if (!Number.isFinite(x) || x < -52 || x > W) return;
+    var sprites = ['dinoRun2', 'dinoRun1', 'dinoIdle', 'dinoDuck2', 'dinoDuck1'];
+    var sprite = S[sprites[point[2]]] || S.dinoIdle;
+    ctx.globalAlpha = 0.42;
+    ctx.shadowColor = '#67a7cc';
+    ctx.shadowBlur = 6 * RS;
+    ctx.drawImage(sprite.canvas, Math.round(x), Math.round(GROUND_Y - point[1] - sprite.h), sprite.w, sprite.h);
+    ctx.shadowBlur = 0;
+    ctx.globalAlpha = 1;
+  }
+
+  var LANDSCAPES = [
+    {light: ['#e7eee6', '#b5c9b9', '#d2be98', '#e3d0aa'], dark: ['#1b2a32', '#354b51', '#4a4a48', '#574c40'], ridge: [9, 19, 37, 42, 27, 16, 11, 8]},
+    {light: ['#f5e7d5', '#d9baa1', '#b98d73', '#e2c69c'], dark: ['#30252a', '#554043', '#654b44', '#645343'], ridge: [15, 28, 46, 46, 46, 23, 17, 12]},
+    {light: ['#e4eee5', '#b8d1bd', '#8fae9a', '#c3c6a2'], dark: ['#172d31', '#29474a', '#365953', '#40594c'], ridge: [14, 24, 18, 35, 47, 31, 24, 17]}
+  ];
+  function drawLandscape(terrain, alpha) {
+    var land = LANDSCAPES[terrain % LANDSCAPES.length];
+    var palette = land[theme];
+    var scroll = reduceMotion ? 0 : G.scroll;
+    ctx.globalAlpha = alpha;
+    ctx.fillStyle = palette[0];
+    ctx.fillRect(-6, -6, W + 12, H + 12);
+    for (var layer = 0; layer < 2; layer++) {
+      ctx.fillStyle = palette[layer + 1];
+      var offset = (scroll * (layer ? 0.24 : 0.075)) % 448;
+      for (var x = -448; x < W + 448; x += 16) {
+        var index = ((Math.floor(x / 16) % 28) + 28) % 28;
+        var height = land.ridge[(index + layer * 3) % land.ridge.length] + (index % 3) * 3;
+        var top = GROUND_Y - height * (layer ? 0.74 : 1.31) - (layer ? 0 : 28);
+        ctx.fillRect(Math.floor(x - offset), Math.floor(top), 16, Math.ceil(GROUND_Y - top + 2));
+      }
+    }
+    ctx.fillStyle = palette[3];
+    ctx.fillRect(-6, GROUND_Y, W + 12, H - GROUND_Y + 6);
+    ctx.globalAlpha = 1;
+  }
+
   function drawDino() {
     var d = G.dino;
     var sp;
@@ -1083,27 +1340,40 @@
   }
 
   function render() {
-    var c = C();
     var sx = 0, sy = 0;
     if (G.shake > 0) {
       sx = rand(-3, 3) * (G.shake / 0.32);
       sy = rand(-2, 2) * (G.shake / 0.32);
     }
     ctx.setTransform(RS, 0, 0, RS, sx * RS, sy * RS);
-    ctx.fillStyle = c.stage;
-    ctx.fillRect(-6, -6, W + 12, H + 12);
+    var biome = G.scroll / 2900;
+    var track = G.state === 'ready' ? Courses.get(el.runMode.value) : G.challenge && G.challenge.track;
+    var terrain = (track ? track.terrain : 0) + Math.floor(biome);
+    drawLandscape(terrain, 1);
+    var blend = clamp(((biome % 1) - 0.80) / 0.20, 0, 1);
+    if (blend > 0) drawLandscape(terrain + 1, blend);
 
     drawClouds();
     drawGround();
     drawOpeningMarker();
     drawCoins();
     drawObstacles();
+    drawGhost();
     drawDino();
     drawParticles();
   }
 
   // ==================== HUD 绑定 ====================
   var el = {
+    runMode: document.getElementById('runMode'),
+    courseOptions: document.getElementById('courseOptions'),
+    courseDuration: document.getElementById('courseDuration'),
+    useGhost: document.getElementById('useGhost'),
+    courseDescription: document.getElementById('courseDescription'),
+    routeStatus: document.getElementById('routeStatus'),
+    ghostStatus: document.getElementById('ghostStatus'),
+    comboGoal: document.getElementById('comboGoal'),
+    resultTip: document.getElementById('resultTip'),
     scoreVal: document.getElementById('scoreVal'),
     hiVal: document.getElementById('hiVal'),
     coinVal: document.getElementById('coinVal'),
@@ -1144,6 +1414,8 @@
   function updateComboUI(mult) {
     el.comboMult.textContent = '×' + mult.toFixed(1);
     el.comboCount.textContent = '连击 ' + G.combo;
+    var next = COMBO_TIERS.find(function (tier) { return tier.mult === mult + 0.5; });
+    el.comboGoal.textContent = next ? '再收 ' + (next.min - G.combo) + ' 枚升 ×' + next.mult.toFixed(1) : '已达最高倍率';
     if (mult > 1.0) el.comboChip.classList.add('hot');
     else el.comboChip.classList.remove('hot');
   }
@@ -1170,7 +1442,18 @@
     if (hudAcc < 0.06) return;
     hudAcc = 0;
 
-    var sc = Math.floor(G.score);
+    if (G.challenge && G.state === 'running') {
+      var remaining = Math.max(0, Math.ceil(G.challenge.seconds - G.elapsed - 0.000001));
+      var label = G.challenge.track.name + ' · 剩余 ' + remaining + ' 秒';
+      if (el.routeStatus.textContent !== label) el.routeStatus.textContent = label;
+      var ghost = ghostAtTime();
+      if (ghost) {
+        var delta = Math.round((G.distance - ghost[0]) / 10);
+        var gap = delta === 0 ? '与影子并行' : (delta > 0 ? '领先影子 ' : '落后影子 ') + Math.abs(delta) + ' 米';
+        if (el.ghostStatus.textContent !== gap) el.ghostStatus.textContent = gap;
+      }
+    }
+    var sc = Math.floor(G.score + 1e-8) + G.coinScore;
     if (sc !== hudLast.score) {
       el.scoreVal.textContent = pad5(sc);
       hudLast.score = sc;
@@ -1232,7 +1515,10 @@
   var FAST_KEYS = { 'd': 1, 'D': 1, 'ArrowRight': 1 };
 
   function onKeyDown(e) {
+    if (e.defaultPrevented || e.ctrlKey || e.metaKey || e.altKey) return;
+    if (e.target && /^(INPUT|SELECT|TEXTAREA)$/.test(e.target.tagName)) return;
     var k = e.key;
+    if (e.target && e.target.tagName === 'BUTTON' && k === ' ') return;
     if (JUMP_KEYS[k] || k === ' ') {
       e.preventDefault();
       if (e.repeat) return;
@@ -1325,7 +1611,6 @@
 
   // 画布点击 = 跳跃（移动端主要操作）
   el.stage.addEventListener('pointerdown', function (e) {
-    if (e.target && e.target.closest && e.target.closest('.overlay')) return;
     if (e.pointerType === 'mouse' && e.button !== 0) return;
     startIfNeeded();
     Input.jumpHeld = true;
@@ -1357,6 +1642,10 @@
     el.btnSound.textContent = Sfx.muted ? '🔇' : '🔊';
   }
 
+  el.runMode.addEventListener('change', function () { syncMenu(true); });
+  document.getElementById('pauseMenu').addEventListener('click', goToMenu);
+  document.getElementById('resultMenu').addEventListener('click', goToMenu);
+  document.getElementById('btnPause').addEventListener('click', pause);
   el.btnStart.addEventListener('click', start);
   el.btnRestart.addEventListener('click', start);
   el.btnResume.addEventListener('click', resume);
@@ -1382,10 +1671,11 @@
   el.btnSound.textContent = Save.data.muted ? '🔇' : '🔊';
 
   bindTouchbar();
+  syncMenu(true);
   resetRun();
   el.startScreen.classList.add('show');
   requestAnimationFrame(frame);
 
   // 调试/测试用接口
-  window.__DINO__ = { G: G, Input: Input, start: start, multFor: multFor, AIR: AIR };
+  window.__DINO__ = { G: G, Input: Input, start: start, multFor: multFor, AIR: AIR, buildArc: buildArc, ghostAtTime: ghostAtTime };
 })();
